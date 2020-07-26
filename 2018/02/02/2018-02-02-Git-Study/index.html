@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="036nsNgxuH68xUABF8jrgg8Xzsti4FN8eKjWvA185C4" />
+  <meta name="baidu-site-verification" content="FQRuGMvxtv" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+
+  
+  <title>Git 常用命令以及相关资料 | 呆呆&#39;s 学习笔记</title>
+  
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico">
+  <link rel="alternate" href="/atom.xml" title="呆呆's 学习笔记">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico" />
+  <link rel="icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico" />
+  
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono" rel="stylesheet">
+  
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link href='//cdn.bootcss.com/node-waves/0.7.5/waves.min.css' rel='stylesheet'>
+  
+<link rel="stylesheet" href="/style.css">
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+  
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1382646259212001",
+    enable_page_level_ads: true
+  });
+</script>
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading-bar-wrapper">
+  <div id="loading-bar" class="pure"></div>
+</div>
+
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header pure">
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+			<a class="logo flat-box" href='/' >呆呆's 学习笔记</a>
+				<div class='menu'>
+					<ul class='h-list'>
+            
+    					
+    						<li>
+    							<a class="nav  flat-box" href="/">
+    								<i class='fas fa-home fa-fw'></i>&nbsp;主页
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/archives/">
+    								<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/Project">
+    								<i class='fas fa-flask fa-fw'></i>&nbsp;项目
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/about/">
+    								<i class='fas fa-user fa-fw'></i>&nbsp;关于
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="https://renchk.github.io" target="_blank" rel="noopener">
+    								<i class='fas fa-globe fa-fw'></i>&nbsp;English
+  								</a>
+  							</li>
+        			
+        		
+					</ul>
+					<div class='underline'></div>
+				</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search" />
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></span></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-top'><a class="fas fa-arrow-circle-up fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-toc'><a class="fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+		<nav>
+      <ul>
+          
+              
+                  <li>
+										<a class="nav  flat-box" href="/">
+											<i class='fas fa-home fa-fw'></i>&nbsp;主页
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/archives/">
+											<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/Project">
+											<i class='fas fa-flask fa-fw'></i>&nbsp;项目
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/about/">
+											<i class='fas fa-user fa-fw'></i>&nbsp;关于
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="https://renchk.github.io" target="_blank" rel="noopener">
+											<i class='fas fa-globe fa-fw'></i>&nbsp;English
+										</a>
+                  </li>
+              
+       
+      </ul>
+		</nav>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            <article id="post-2018-02-02-Git-Study" class="post white-box article-type-post" itemscope itemprop="blogPost">
+    <section class='meta'>
+        
+            <h1 class="title">Git 常用命令以及相关资料</h1>
+        
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+            2018-02-02
+        </time>
+        <div class="browse"><i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+        </div>
+        
+    
+    <div class='cats'>
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+        <a class="categories" href="/categories/Git/">Git</a>
+    </div>
+
+
+    </section>
+
+    <section class="article typo">
+
+        <div class="article-entry" itemprop="articleBody">
+            <p>Git 学习：Git 和Heroku常用命令以及相关资料。</p>
+<a id="more"></a>
+
+<h1 id="操作流程"><a href="#操作流程" class="headerlink" title="操作流程"></a>操作流程</h1><p>日常使用git更新提交代码的一般流程是这样的：</p>
+<ul>
+<li>在对代码进行了一些修改之后，使用：<strong>git add –all</strong>将本地所有新增文件添加进版本库。</li>
+<li>使用：<strong>git commit -m</strong> 备注将代码提交到本地版本库。（备注内容没有空格的话不需要加引号）</li>
+<li>使用：<strong>git pull origin</strong>从服务器拉取代码，更新本地版本库。</li>
+<li>使用：<strong>git push origin</strong>将本地版本库推送到服务器。</li>
+</ul>
+<p><strong>例子</strong></p>
+<p>也可以用如下方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git add -A</span><br><span class="line">git commit -m &quot;comment&quot;</span><br><span class="line">git remote add b1 https:&#x2F;&#x2F;username:password@bitbucket.org&#x2F;username&#x2F;repo.git</span><br><span class="line">git push -u b1 master</span><br></pre></td></tr></table></figure>
+
+<p>如果是在origin master上，可以直接：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+
+<p>Heroku是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git remote set-url origin https:&#x2F;&#x2F;git.heroku.com&#x2F;AppName.git</span><br><span class="line">git add .;</span><br><span class="line">git commit -am &quot;commenthere&quot;;</span><br><span class="line">git push heroku master</span><br></pre></td></tr></table></figure>
+
+<p>这里<strong>git pull</strong>是相当于是从远程获取最新版本并merge到本地</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git pull origin master</span><br></pre></td></tr></table></figure>
+<p>获得某一个分支：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin prefill02</span><br></pre></td></tr></table></figure>
+
+
+<p>加一整个文件夹</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  git add   folderName&#x2F;*</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h1><p><strong>Removing a remote</strong></p>
+<p>查看当前remote</p>
+<p><strong>View current remotes</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote –v</span><br></pre></td></tr></table></figure>
+
+<p><strong>Remove remote</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git remote rm destination</span><br><span class="line"></span><br><span class="line">$ git remote remove destination</span><br></pre></td></tr></table></figure>
+
+<p><strong>Change a remote URL</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote set-url origin https:&#x2F;&#x2F;git.heroku.com&#x2F;appName.git</span><br></pre></td></tr></table></figure>
+
+<p>*<em>拉取指定分支代码 *</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone -b develop XXX</span><br></pre></td></tr></table></figure>
+<p>其中develop就是分支的名称</p>
+<hr>
+<h1 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h1><p><strong>创建并切换 branch</strong><br>Create a new branch</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b feature_branch_name</span><br><span class="line"></span><br><span class="line">$ git checkout -b 分支名</span><br></pre></td></tr></table></figure>
+
+<p><strong>仅仅切换 branch</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout 分支名</span><br></pre></td></tr></table></figure>
+
+<p><strong>创建 tag</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag 标签名</span><br></pre></td></tr></table></figure>
+
+<p><strong>创建 tag 并备注(备注信息加不加双引号都可以)</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -a 标签名 -m 备注信息</span><br></pre></td></tr></table></figure>
+
+<p><strong>创建PGP tag 并备注</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -s 标签名 -m 备注信息</span><br></pre></td></tr></table></figure>
+
+
+<hr>
+<h1 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h1><p><strong>贮藏本地改变</strong><br>经常会看到这个。If Your local changes to the following files would be overwritten by merge: Please stash them before you merge.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard</span><br></pre></td></tr></table></figure>
+<p>*<em>List Differences *</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
+
+<p><strong>List changes</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff</span><br></pre></td></tr></table></figure>
+<p>退出:按q即可</p>
+<p><strong>Undo git add</strong><br>Undo a git add - remove files staged for a git commit</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset filename.txt</span><br></pre></td></tr></table></figure>
+<p>Will remove a file named filename.txt from the current index, the “about to be committed” area, without changing anything else.</p>
+<hr>
+<h1 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h1><p><strong>删除本地 branch / tag</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -d 分支名或标签名</span><br></pre></td></tr></table></figure>
+<p>删除所有未推送的本地 branch</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch -p</span><br></pre></td></tr></table></figure>
+
+<p>仅仅删除某个远程 branch / tag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git push origin :分支名或标签名</span><br><span class="line"></span><br><span class="line">or</span><br><span class="line">git push origin --delete 分支名或标签名</span><br></pre></td></tr></table></figure>
+<p><strong>推送</strong><br>推送某个 branch / tag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin 分支名或标签名</span><br></pre></td></tr></table></figure>
+
+<p><strong>推送所有 branch</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push --all origin</span><br></pre></td></tr></table></figure>
+<p><strong>推送所有 tag</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push --tags</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="回滚"><a href="#回滚" class="headerlink" title="回滚"></a>回滚</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">soft （默认）</span><br></pre></td></tr></table></figure>
+<p>只回滚到某个commit，本地代码不变 (不加–soft或–hard默认为–soft)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --soft 分支名或标签名</span><br></pre></td></tr></table></figure>
+<p>hard： 彻底回滚（commit和本地代码都回滚）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard 分支名或标签名</span><br></pre></td></tr></table></figure>
+<p>下载、合并分支<br>合并某本地分支到当前分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge 分支名</span><br></pre></td></tr></table></figure>
+
+<p>合并某远程分支到当前分支 直接合并，慎用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin 远程分支名</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><p><strong>下载某个远程标签</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch origin tag 远程标签名</span><br></pre></td></tr></table></figure>
+
+<p><strong>合并分支</strong><br>合并某本地分支到当前分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge 分支名</span><br></pre></td></tr></table></figure>
+<p>合并某远程分支到当前分支 直接合并</p>
+<p>冲突解决，merge失败时很可能因对同一文件的同时更改，所以必须手动人工解决 取舍代码，确认冲突解决后需要把冲突文件 git add到staged area，运行git status查看所有状态确保无误后再git commit提交，注释好冲突为什么这么解决.</p>
+<p>下载某个远程标签:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin 远程分支名</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch origin tag 远程标签名</span><br></pre></td></tr></table></figure>
+
+
+
+
+<p><strong>合并分支查看远程分支</strong><br>使用如下git命令查看所有远程分支：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -r</span><br></pre></td></tr></table></figure>
+
+<p><strong>拉取远程分支并创建本地分支</strong></p>
+<p><strong>方式一</strong></p>
+<p>使用如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b 本地分支名x origin&#x2F;远程分支名x</span><br></pre></td></tr></table></figure>
+
+<p>使用该方式会在本地新建分支x，并自动切换到该本地分支x。采用此种方法建立的本地分支会和远程分支建立映射关系。</p>
+<p><strong>方式二</strong></p>
+<p>使用如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch origin 远程分支名x:本地分支名x</span><br></pre></td></tr></table></figure>
+
+<p>or</p>
+<p>git fetch origin 远程分支名x</p>
+<p>使用该方式会在本地新建分支x，但是不会自动切换到该本地分支x，需要手动checkout。采用此种方法建立的本地分支不会和远程分支建立映射关系。</p>
+<p><strong>修改推送者名称</strong></p>
+<p>Changing Your Committer Name &amp; Email Globally<br>You can run the “git config” command with the –global flag; this will make sure all of your future commits use the given information:</p>
+<p>$ git config –global user.name “John Doe”<br>$ git config –global user.email “<a href="mailto:john@doe.org">john@doe.org</a>“<br>Changing Your Committer Name &amp; Email per Repository<br>If you want to use special settings only when working in a certain repository, you can simply omit the –global flag. This makes the configuration valid only in that repository:</p>
+<p>$ git config user.name “John Doe”<br>$ git config user.email “<a href="mailto:john@doe.org">john@doe.org</a>“</p>
+<p><strong>显示username信息</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --list</span><br></pre></td></tr></table></figure>
+
+
+<p>设置git的账户名和邮箱</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name [username]</span><br><span class="line">$ git config --global user.email [email]</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>返回主分支</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br></pre></td></tr></table></figure>
+
+
+<p>If you want to rename a branch while pointed to any branch, do:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -m &lt;oldname&gt; &lt;newname&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="处理冲突文件"><a href="#处理冲突文件" class="headerlink" title="处理冲突文件"></a>处理冲突文件</h1><p>Reference: <a href="https://confluence.atlassian.com/bitbucket/resolve-merge-conflicts-704414003.html" target="_blank" rel="noopener">https://confluence.atlassian.com/bitbucket/resolve-merge-conflicts-704414003.html</a></p>
+<p>These steps include details for resolving conflicts between two branches in a Git repository. You’ll see references to these placeholders:</p>
+<p>The directory to the forked repository as <repo_directory><br>The destination branch as <destination_branch><br>The source branch as <feature_branch><br>The file with resolved conflicts as <filename><br>Collapse</p>
+<ol>
+<li>Make sure you’re in your repository directory.<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd ~&#x2F;&lt;repo_directory&gt;</span><br></pre></td></tr></table></figure>
+For example, if your repository name is my-repository, the result might look something like this:</li>
+</ol>
+<p>computer:$ cd ~/my-repository<br>computer:my-repository emmap$</p>
+<ol start="2">
+<li>Pull the most recent version of the repository from Bitbucket.<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git pull</span><br></pre></td></tr></table></figure>
+Checkout the source branch.</li>
+</ol>
+<p>$ git checkout <feature_branch></p>
+<ol start="3">
+<li>Pull the destination branch into the source branch. At this point, pulling the destination will try to merge it with the source and reveal all the conflicts.</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git pull origin &lt;destination_branch&gt;</span><br></pre></td></tr></table></figure>
+
+<p>For example, if your destination branch is master, the result will look something like this:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">computer:my-repository emmap$ git pull origin master</span><br><span class="line"> * branch            master     -&gt; FETCH_HEAD</span><br><span class="line">Auto-merging team_contact_info.txt</span><br><span class="line">CONFLICT (content): Merge conflict in team_contact_info.txt</span><br><span class="line">Automatic merge failed; fix conflicts and then commit the result.</span><br></pre></td></tr></table></figure>
+<p>When you merge two branches with conflicts locally, you’ll get conflict markers in the file when you open your editor.</p>
+<ol start="4">
+<li>Open the file to resolve the conflict. You can do this using the command line or you can navigate to the file.<br>The file will look something like this:</li>
+</ol>
+<p><img src="https://confluence.atlassian.com/bitbucket/files/304578655/945541320/2/1518540573211/mergeconflict_git_branches.png" alt=""></p>
+<p>A. The beginning of the change in the HEAD branch. In this case, HEAD represents the active branch into which you’re merging.<br>B. The end of the change in the active branch and the beginning of the change in the non-active branch.<br>C. The end of the change in the non-active branch.</p>
+<ol start="6">
+<li>Resolve the conflict by doing the following:<br>Remove the change designations added by Git (A, B, and C in the screenshot above).<br>Correct the content.<br>Save the file.<br>The result will look something like this:<br><img src="https://confluence.atlassian.com/bitbucket/files/304578655/945541321/1/1518540401897/mergeconflict_git_branches_resolved.png" alt=""></li>
+</ol>
+<ol start="7">
+<li>Add and commit the change.</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git add &lt;filename&gt;</span><br><span class="line">$ git commit -m&#39;commit message&#39;</span><br></pre></td></tr></table></figure>
+
+<ol start="8">
+<li>Push the change to the remote.</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin &lt;feature_branch&gt;</span><br></pre></td></tr></table></figure>
+
+<p>When you check the pull request, the pull request will still be open and you’ll no longer see any merge conflicts.</p>
+<hr>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p>还原上一个版本的commit</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard HEAD~1</span><br></pre></td></tr></table></figure>
+
+<p>删除文件夹【rm】</p>
+<p> Linux删除目录很简单，很多人还是习惯用rmdir，不过一旦目录非空，就陷入深深的苦恼之中，现在使用rm -rf命令即可。 直接rm就可以了，不过要加两个参数-rf 即：<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf 目录名字</span><br></pre></td></tr></table></figure></p>
+<p>git还原到之前某个版本，本地和远程都还原</p>
+<p>命令行操作：<br>第一步: git log 查看之前的commit的id，找到想要还原的版本<br>第二步: git reset –hard 44bd896bb726be3d3815f1f25d738a9cd402a477   还原到之前的某个版本<br>第三步: git push -f origin master  强制push到远程</p>
+<p>【uninstall npm modules in node js 】</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall &lt;name&gt; removes the module from node_modules, but not package.json</span><br><span class="line"></span><br><span class="line">npm uninstall &lt;name&gt; --save also removes it from dependencies in package.json</span><br><span class="line"></span><br><span class="line">npm uninstall &lt;name&gt; --save-dev also removes it from devDependencies in package.json</span><br><span class="line"></span><br><span class="line">npm -g uninstall &lt;name&gt; --save also removes it globally</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+<h3 id="一键快速部署"><a href="#一键快速部署" class="headerlink" title="一键快速部署"></a>一键快速部署</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Set the time</span></span><br><span class="line">now=<span class="string">"<span class="variable">$(date)</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#set dynamic variable</span></span><br><span class="line">R=$$</span><br><span class="line">gitvar=<span class="string">"Z"</span><span class="variable">$R</span></span><br><span class="line"></span><br><span class="line">git add -A</span><br><span class="line">git commit -m <span class="string">"<span class="variable">$now</span>"</span></span><br><span class="line">git remote add <span class="variable">$gitvar</span> https://username:password@bitbucket.org/username/RepoName.git</span><br><span class="line">git push -u <span class="variable">$gitvar</span> master</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h3 id="表情符号"><a href="#表情符号" class="headerlink" title="表情符号"></a>表情符号</h3><p>Inspired by <a href="https://github.com/dannyfritz/commit-message-emoji" target="_blank" rel="noopener">dannyfritz/commit-message-emoji</a></p>
+<p>See also <a href="https://gitmoji.carloscuesta.me/" target="_blank" rel="noopener">gitmoji</a>.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Commit type</th>
+<th align="left">Emoji</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Initial commit</td>
+<td align="left">🎉 :tada: <code>:tada:</code></td>
+</tr>
+<tr>
+<td align="left">Version tag</td>
+<td align="left">🔖  :bookmark: <code>:bookmark:</code></td>
+</tr>
+<tr>
+<td align="left">New feature</td>
+<td align="left">✨:sparkles: <code>:sparkles:</code></td>
+</tr>
+<tr>
+<td align="left">Bugfix</td>
+<td align="left">🐛:bug: <code>:bug:</code></td>
+</tr>
+<tr>
+<td align="left">Metadata</td>
+<td align="left">🔒  :card_index: <code>:card_index:</code></td>
+</tr>
+<tr>
+<td align="left">Documentation</td>
+<td align="left">📚 :books: <code>:books:</code></td>
+</tr>
+<tr>
+<td align="left">Documenting source code</td>
+<td align="left">:bulb: <code>:bulb:</code></td>
+</tr>
+<tr>
+<td align="left">Performance</td>
+<td align="left">:racehorse: <code>:racehorse:</code></td>
+</tr>
+<tr>
+<td align="left">Cosmetic</td>
+<td align="left">:lipstick: <code>:lipstick:</code></td>
+</tr>
+<tr>
+<td align="left">Tests</td>
+<td align="left">🚨  :rotating_light: <code>:rotating_light:</code></td>
+</tr>
+<tr>
+<td align="left">Adding a test</td>
+<td align="left">:white_check_mark: <code>:white_check_mark:</code></td>
+</tr>
+<tr>
+<td align="left">General update</td>
+<td align="left">:zap: <code>:zap:</code></td>
+</tr>
+<tr>
+<td align="left">Improve format/structure</td>
+<td align="left">:art: <code>:art:</code></td>
+</tr>
+<tr>
+<td align="left">Refactor code</td>
+<td align="left">♻️:hammer: <code>:hammer:</code></td>
+</tr>
+<tr>
+<td align="left">Removing code/files</td>
+<td align="left">🗑️:fire: <code>:fire:</code></td>
+</tr>
+<tr>
+<td align="left">Continuous Integration</td>
+<td align="left">:green_heart: <code>:green_heart:</code></td>
+</tr>
+<tr>
+<td align="left">Security</td>
+<td align="left">:lock: <code>:lock:</code></td>
+</tr>
+<tr>
+<td align="left">Upgrading dependencies</td>
+<td align="left">:arrow_up: <code>:arrow_up:</code></td>
+</tr>
+<tr>
+<td align="left">Downgrading dependencies</td>
+<td align="left">💩 :arrow_down: <code>:arrow_down:</code></td>
+</tr>
+<tr>
+<td align="left">Lint</td>
+<td align="left">:shirt: <code>:shirt:</code></td>
+</tr>
+<tr>
+<td align="left">Translation</td>
+<td align="left">:alien: <code>:alien:</code></td>
+</tr>
+<tr>
+<td align="left">Text</td>
+<td align="left">:pencil: <code>:pencil:</code></td>
+</tr>
+<tr>
+<td align="left">Critical hotfix</td>
+<td align="left">:ambulance: <code>:ambulance:</code></td>
+</tr>
+<tr>
+<td align="left">Deploying stuff</td>
+<td align="left">:rocket: <code>:rocket:</code></td>
+</tr>
+<tr>
+<td align="left">Fixing on MacOS</td>
+<td align="left">:apple: <code>:apple:</code></td>
+</tr>
+<tr>
+<td align="left">Fixing on Linux</td>
+<td align="left">:penguin: <code>:penguin:</code></td>
+</tr>
+<tr>
+<td align="left">Fixing on Windows</td>
+<td align="left">:checkered_flag: <code>:checkered_flag:</code></td>
+</tr>
+<tr>
+<td align="left">Work in progress</td>
+<td align="left">🚧:construction:  <code>:construction:</code></td>
+</tr>
+<tr>
+<td align="left">Adding CI build system</td>
+<td align="left">:construction_worker: <code>:construction_worker:</code></td>
+</tr>
+<tr>
+<td align="left">Analytics or tracking code</td>
+<td align="left">:chart_with_upwards_trend: <code>:chart_with_upwards_trend:</code></td>
+</tr>
+<tr>
+<td align="left">Removing a dependency</td>
+<td align="left">:heavy_minus_sign: <code>:heavy_minus_sign:</code></td>
+</tr>
+<tr>
+<td align="left">Adding a dependency</td>
+<td align="left">:heavy_plus_sign: <code>:heavy_plus_sign:</code></td>
+</tr>
+<tr>
+<td align="left">Docker</td>
+<td align="left">:whale: <code>:whale:</code></td>
+</tr>
+<tr>
+<td align="left">Configuration files</td>
+<td align="left">:wrench: <code>:wrench:</code></td>
+</tr>
+<tr>
+<td align="left">Package.json in JS</td>
+<td align="left">:package: <code>:package:</code></td>
+</tr>
+<tr>
+<td align="left">Merging branches</td>
+<td align="left">:twisted_rightwards_arrows: <code>:twisted_rightwards_arrows:</code></td>
+</tr>
+<tr>
+<td align="left">Bad code / need improv.</td>
+<td align="left">:hankey: <code>:hankey:</code></td>
+</tr>
+<tr>
+<td align="left">Reverting changes</td>
+<td align="left">:rewind: <code>:rewind:</code></td>
+</tr>
+<tr>
+<td align="left">Breaking changes</td>
+<td align="left">:boom: <code>:boom:</code></td>
+</tr>
+<tr>
+<td align="left">Code review changes</td>
+<td align="left">:ok_hand: <code>:ok_hand:</code></td>
+</tr>
+<tr>
+<td align="left">Accessibility</td>
+<td align="left">:wheelchair: <code>:wheelchair:</code></td>
+</tr>
+<tr>
+<td align="left">Move/rename repository</td>
+<td align="left">:truck: <code>:truck:</code></td>
+</tr>
+<tr>
+<td align="left">Other</td>
+<td align="left"><a href="http://www.emoji-cheat-sheet.com/" target="_blank" rel="noopener">Be creative</a></td>
+</tr>
+</tbody></table>
+<h3 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;# SCMP_SFDC_Pro_2&quot; &gt;&gt; README.md</span><br><span class="line">git init</span><br><span class="line">git add README.md</span><br><span class="line">git commit -m &quot;first commit&quot;</span><br><span class="line">git remote add origin https:&#x2F;&#x2F;github.com&#x2F;TonyRenHK&#x2F;SCMP_SFDC_Pro_2.git</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="Getting-amp-Creating-Projects"><a href="#Getting-amp-Creating-Projects" class="headerlink" title="Getting &amp; Creating Projects"></a>Getting &amp; Creating Projects</h3><table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>git init</code></td>
+<td>Initialize a local Git repository</td>
+</tr>
+<tr>
+<td><code>git clone ssh://git@github.com/[username]/[repository-name].git</code></td>
+<td>Create a local copy of a remote repository</td>
+</tr>
+</tbody></table>
+<p><strong>Basic Snapshotting</strong></p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>git status</code></td>
+<td>Check status</td>
+</tr>
+<tr>
+<td><code>git add [file-name.txt]</code></td>
+<td>Add a file to the staging area</td>
+</tr>
+<tr>
+<td><code>git add -A</code></td>
+<td>Add all new and changed files to the staging area</td>
+</tr>
+<tr>
+<td><code>git commit -m &quot;[commit message]&quot;</code></td>
+<td>Commit changes</td>
+</tr>
+<tr>
+<td><code>git rm -r [file-name.txt]</code></td>
+<td>Remove a file (or folder)</td>
+</tr>
+</tbody></table>
+<p><strong>Branching &amp; Merging</strong></p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>git branch</code></td>
+<td>List branches (the asterisk denotes the current branch)</td>
+</tr>
+<tr>
+<td><code>git branch -a</code></td>
+<td>List all branches (local and remote)</td>
+</tr>
+<tr>
+<td><code>git branch [branch name]</code></td>
+<td>Create a new branch</td>
+</tr>
+<tr>
+<td><code>git branch -d [branch name]</code></td>
+<td>Delete a branch</td>
+</tr>
+<tr>
+<td><code>git push origin --delete [branchName]</code></td>
+<td>Delete a remote branch</td>
+</tr>
+<tr>
+<td><code>git checkout -b [branch name]</code></td>
+<td>Create a new branch and switch to it</td>
+</tr>
+<tr>
+<td><code>git checkout -b [branch name] origin/[branch name]</code></td>
+<td>Clone a remote branch and switch to it</td>
+</tr>
+<tr>
+<td><code>git checkout [branch name]</code></td>
+<td>Switch to a branch</td>
+</tr>
+<tr>
+<td><code>git checkout -</code></td>
+<td>Switch to the branch last checked out</td>
+</tr>
+<tr>
+<td><code>git checkout -- [file-name.txt]</code></td>
+<td>Discard changes to a file</td>
+</tr>
+<tr>
+<td><code>git merge [branch name]</code></td>
+<td>Merge a branch into the active branch</td>
+</tr>
+<tr>
+<td><code>git merge [source branch] [target branch]</code></td>
+<td>Merge a branch into a target branch</td>
+</tr>
+<tr>
+<td><code>git stash</code></td>
+<td>Stash changes in a dirty working directory</td>
+</tr>
+<tr>
+<td><code>git stash clear</code></td>
+<td>Remove all stashed entries</td>
+</tr>
+</tbody></table>
+<p><strong>Sharing &amp; Updating Projects</strong></p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>git push origin [branch name]</code></td>
+<td>Push a branch to your remote repository</td>
+</tr>
+<tr>
+<td><code>git push -u origin [branch name]</code></td>
+<td>Push changes to remote repository (and remember the branch)</td>
+</tr>
+<tr>
+<td><code>git push</code></td>
+<td>Push changes to remote repository (remembered branch)</td>
+</tr>
+<tr>
+<td><code>git push origin --delete [branch name]</code></td>
+<td>Delete a remote branch</td>
+</tr>
+<tr>
+<td><code>git pull</code></td>
+<td>Update local repository to the newest commit</td>
+</tr>
+<tr>
+<td><code>git pull origin [branch name]</code></td>
+<td>Pull changes from remote repository</td>
+</tr>
+<tr>
+<td><code>git remote add origin ssh://git@github.com/[username]/[repository-name].git</code></td>
+<td>Add a remote repository</td>
+</tr>
+<tr>
+<td><code>git remote set-url origin ssh://git@github.com/[username]/[repository-name].git</code></td>
+<td>Set a repository’s origin branch to SSH</td>
+</tr>
+</tbody></table>
+<p><strong>Inspection &amp; Comparison</strong></p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>git log</code></td>
+<td>View changes</td>
+</tr>
+<tr>
+<td><code>git log --summary</code></td>
+<td>View changes (detailed)</td>
+</tr>
+<tr>
+<td><code>git diff [source branch] [target branch]</code></td>
+<td>Preview changes before merging</td>
+</tr>
+</tbody></table>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="https://blog.csdn.net/youzhouliu/article/details/52371978" target="_blank" rel="noopener">https://blog.csdn.net/youzhouliu/article/details/52371978</a></li>
+<li><a href="https://gitmoji.carloscuesta.me/" target="_blank" rel="noopener">gitmoji | An emoji guide for your commit messages</a></li>
+</ul>
+
+        </div>
+
+        <section class='meta'>
+            <time class="time" itemprop="dateUpdated" datetime="2020-07-26T07:57:35+00:00" content="2020-07-26">
+                <i class="fas fa-pen fa-fw" aria-hidden="true"></i>
+                本文最后更新于：2020-07-26
+            </time>
+            
+                
+                <div class="tags">
+                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                    <a class="tag" href="/tags/Git/">Git</a>
+                </div>
+            
+        </section>
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <div class="addthis_inline_share_toolbox"></div>
+
+
+        
+            <div class="prev-next">
+                
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一篇</h6>
+                            <h4>
+                                <a href="/2018/02/03/2018-02-03-Shell-Script-Study/" rel="prev" title="Shell Script 学习收录">
+                                  
+                                      Shell Script 学习收录
+                                  
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                                    <a class="tag" href="/tags/Git/">Git</a>, <a class="tag" href="/tags/Script/">Script</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>下一篇&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2018/01/10/2018-01-10-Chrome-Extensions-Link-and-Title-Copy/" rel="prev" title="Chrome 插件：一次性复制链接和标题">
+                                    
+                                        Chrome 插件：一次性复制链接和标题
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                                    <a class="tag" href="/tags/Chrome-Extension/">Chrome-Extension</a>, <a class="tag" href="/tags/Demo/">Demo</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+
+    </section>
+
+</article>
+
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+    <article class="post white-box comments">
+        <section class="article typo">
+
+            
+                
+
+    <div class="recommended_posts">
+        <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;你可能感兴趣的文章</h4>
+        <ul>
+            
+                <li><a href="http://tonyrenhk.github.io/2018/11/24/2018-11-24-Google-App-Script-Note/">Google App Script 学习</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2018/09/28/2018-09-28-JSForce-Study/">JSforce使用技巧</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2018/09/01/2018-09-01-JS-Study-Note/">JavaScript学习技巧以及相关资料</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2018/02/03/2018-02-03-Shell-Script-Study/">Shell Script 学习收录</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2018/01/10/2018-01-10-Chrome-Extensions-Link-and-Title-Copy/">Chrome 插件：一次性复制链接和标题</a></li>
+            
+        </ul>
+    </div>
+
+
+            
+
+            
+
+                
+
+                
+
+                
+                    
+                        <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;评论</h4>
+                        <div class="subtitle">
+                          <h6>为了便于区分和接收回复提醒，请您在留言时填写一下<b>昵称</b>和<b>邮箱</b>
+                          </h6>
+                        <div>
+                        <section id="comments">
+                            <div id="valine_container" class="valine_thread">
+                                </i><i class="fas fa-spinner fa-spin fa-fw"></i>
+                            </div>
+                        </section>
+                        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+                        <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+                    
+                
+            
+
+        </section>
+    </article>
+
+
+<script>
+    window.subData = {
+        title: 'Git 常用命令以及相关资料',
+        tools: true
+    }
+</script>
+
+
+        </div>
+        <aside class='l_side'>
+            
+    
+        
+  <section class='m_widget author'>
+    
+      <div class='header'>
+        <img class='avatar' src='https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/Me2.jpg'/>
+      </div>
+    
+    
+      <div class='content'>
+        
+          <h2>呆呆&#39;s 学习笔记</h2>
+        
+        
+          <p>好学近乎知，力行近乎仁，知耻近乎勇</p>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:renchk@foxmail.com" class="social flat-box" target="_blank" rel="external"><i class="social fas fa-envelope" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://github.com/TonyRenHK" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-github" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://www.weibo.com/6476367461" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-weibo" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://tonyrenhk.github.io/Wechat/" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-weixin" aria-hidden="true"></i></a>
+          
+        
+      </div>
+    
+  </section>
+
+
+    
+    
+        <section class='m_widget links'>
+    <div class='content pure'>
+        <ul class="entry" id="links">
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/2020/03/20/2020-03-20-Salesforce-related-resource/" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/2020/03/20/2020-03-20-Salesforce-related-resource/">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/IMG_2568.JPG">
+                        
+                        &nbsp;&nbsp;Salesforce书签BookMark
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/Note/OnlineTools.html" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/Note/OnlineTools.html">
+                    
+                    <div class='name'>
+                        
+                            <img src="http://tonyrenhk.github.io/images/notebook.png">
+                        
+                        &nbsp;&nbsp;工具Tools
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/Note/Tutorial.html" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/Note/Tutorial.html">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/Astro_Trailblazer_hoodie_wave.png">
+                        
+                        &nbsp;&nbsp;教程Tutorial
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/2018/02/02/2018-02-02-Git-Study/" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/2018/02/02/2018-02-02-Git-Study/">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/s.png">
+                        
+                        &nbsp;&nbsp;Git
+                    </div>
+                </a></li>
+            
+        </ul>
+    </div>
+</section>
+
+    
+    
+        <section class='m_widget categories'>
+    <header class='header pure'>
+        <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;分类</div>
+    </header>
+    <div class='content pure'>
+        
+            <ul class="entry">
+                
+                    <li><a class="flat-box" href="/categories/English/"><div class='name'>English</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Git/"><div class='name'>Git</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Google/"><div class='name'>Google</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/JavaScript/"><div class='name'>JavaScript</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Python/"><div class='name'>Python</div><div class='badge'>1</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Salesforce/"><div class='name'>Salesforce</div><div class='badge'>32</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Tools/"><div class='name'>Tools</div><div class='badge'>1</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/hexo/"><div class='name'>hexo</div><div class='badge'>1</div></a></li>
+                
+            </ul>
+        
+    </div>
+</section>
+
+    
+    
+        
+    <section class='m_widget tagcloud'>
+        <header class="header pure">
+            <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
+        </header>
+        <div class='content pure'>
+            <a href="/tags/Apex/" style="font-size: 15.43px; color: #8f8f8f">Apex</a> <a href="/tags/CDC/" style="font-size: 14px; color: #999">CDC</a> <a href="/tags/CPQ/" style="font-size: 14px; color: #999">CPQ</a> <a href="/tags/Change-Data-Capture/" style="font-size: 14px; color: #999">Change Data Capture</a> <a href="/tags/Chrome-Extension/" style="font-size: 14px; color: #999">Chrome-Extension</a> <a href="/tags/Community-Cloud/" style="font-size: 14px; color: #999">Community Cloud</a> <a href="/tags/Demo/" style="font-size: 14px; color: #999">Demo</a> <a href="/tags/Flow/" style="font-size: 14px; color: #999">Flow</a> <a href="/tags/Git/" style="font-size: 16.86px; color: #868686">Git</a> <a href="/tags/Google/" style="font-size: 14px; color: #999">Google</a> <a href="/tags/Google-App-Script/" style="font-size: 14px; color: #999">Google App Script</a> <a href="/tags/IT%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">IT学习</a> <a href="/tags/Interactive-Email/" style="font-size: 14px; color: #999">Interactive Email</a> <a href="/tags/JavaScript/" style="font-size: 15.43px; color: #8f8f8f">JavaScript</a> <a href="/tags/Jsforce/" style="font-size: 15.43px; color: #8f8f8f">Jsforce</a> <a href="/tags/LWC/" style="font-size: 22.57px; color: #5f5f5f">LWC</a> <a href="/tags/Lightning/" style="font-size: 15.43px; color: #8f8f8f">Lightning</a> <a href="/tags/Lightning-Components/" style="font-size: 14px; color: #999">Lightning Components</a> <a href="/tags/Lightning-Web-Components/" style="font-size: 18.29px; color: #7c7c7c">Lightning Web Components</a> <a href="/tags/MC/" style="font-size: 15.43px; color: #8f8f8f">MC</a> <a href="/tags/MCC/" style="font-size: 14px; color: #999">MCC</a> <a href="/tags/Marketing-Cloud/" style="font-size: 14px; color: #999">Marketing Cloud</a> <a href="/tags/Marketing-Cloud-Connect/" style="font-size: 14px; color: #999">Marketing Cloud Connect</a> <a href="/tags/Org/" style="font-size: 14px; color: #999">Org</a> <a href="/tags/Python/" style="font-size: 14px; color: #999">Python</a> <a href="/tags/Roll-Up-Summary/" style="font-size: 14px; color: #999">Roll-Up Summary</a> <a href="/tags/SFDC/" style="font-size: 14px; color: #999">SFDC</a> <a href="/tags/SFDX/" style="font-size: 19.71px; color: #727272">SFDX</a> <a href="/tags/Sales-Cloud/" style="font-size: 14px; color: #999">Sales Cloud</a> <a href="/tags/Salesforce/" style="font-size: 24px; color: #555">Salesforce</a> <a href="/tags/Salesforce-Mobile/" style="font-size: 14px; color: #999">Salesforce Mobile</a> <a href="/tags/Sandbox/" style="font-size: 14px; color: #999">Sandbox</a> <a href="/tags/Script/" style="font-size: 14px; color: #999">Script</a> <a href="/tags/Site/" style="font-size: 14px; color: #999">Site</a> <a href="/tags/Study/" style="font-size: 16.86px; color: #868686">Study</a> <a href="/tags/StudyNote/" style="font-size: 14px; color: #999">StudyNote</a> <a href="/tags/Superbadge/" style="font-size: 14px; color: #999">Superbadge</a> <a href="/tags/Tools/" style="font-size: 14px; color: #999">Tools</a> <a href="/tags/Trailhead/" style="font-size: 21.14px; color: #686868">Trailhead</a> <a href="/tags/exam/" style="font-size: 14px; color: #999">exam</a> <a href="/tags/flow/" style="font-size: 14px; color: #999">flow</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/tags/hexo-theme-doc/" style="font-size: 14px; color: #999">hexo-theme-doc</a> <a href="/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/tags/metadata/" style="font-size: 14px; color: #999">metadata</a> <a href="/tags/shortcut/" style="font-size: 14px; color: #999">shortcut</a> <a href="/tags/%E5%85%A5%E9%97%A8/" style="font-size: 14px; color: #999">入门</a> <a href="/tags/%E5%AF%B9Campaign/" style="font-size: 14px; color: #999">对Campaign</a> <a href="/tags/%E5%BC%80%E5%8F%91%E8%80%85II%E8%80%83%E8%AF%95/" style="font-size: 19.71px; color: #727272">开发者II考试</a> <a href="/tags/%E8%87%AA%E5%8A%A8/" style="font-size: 14px; color: #999">自动</a> <a href="/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">英语学习</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 14px; color: #999">面试</a> <a href="/tags/%E9%A2%98%E5%BA%93/" style="font-size: 14px; color: #999">题库</a>
+        </div>
+    </section>
+
+
+    
+    
+        
+    <section class='m_widget toc-wrapper'>
+        <header class="header pure">
+            <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;目录</div>
+            <div class='wrapper'><a class="s-toc rightBtn" title="固定到顶部" target="_blank" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+        </header>
+        <div class='content pure'>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#操作流程"><span class="toc-text">操作流程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常用指令"><span class="toc-text">常用指令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#创建"><span class="toc-text">创建</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#文件"><span class="toc-text">文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#删除"><span class="toc-text">删除</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#回滚"><span class="toc-text">回滚</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#下载"><span class="toc-text">下载</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#处理冲突文件"><span class="toc-text">处理冲突文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#其他"><span class="toc-text">其他</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一键快速部署"><span class="toc-text">一键快速部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#表情符号"><span class="toc-text">表情符号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Github"><span class="toc-text">Github</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Getting-amp-Creating-Projects"><span class="toc-text">Getting &amp; Creating Projects</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Reference"><span class="toc-text">Reference</span></a></li></ol></li></ol></li></ol>
+        </div>
+    </section>
+
+
+    
+    
+        <section class='m_widget links'>
+    <header class='header pure'>
+        <div><i class="fas fa-link fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;更多</div>
+        
+            <a class="rightBtn" title="联系博主添加友链" target="_blank" rel="external nofollow noopener noreferrer" href="mailto:me@xaoxuu.com?subject=交换友链&body=你好，我想和你交换友链，我已经将【呆呆&#39;s 学习笔记】添加到我的博客的友链中。我的博客链接是："><i class="fas fa-plus fa-fw"></i></a>
+        
+    </header>
+    <div class='content pure'>
+        <ul class="entry" id="links">
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://docs.qq.com/desktop/" target="_blank" rel="external nofollow noopener noreferrer" href="https://docs.qq.com/desktop/">
+                    
+                        
+                    
+                        
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88069910-a6b24f00-cba4-11ea-837b-d4a0dcf05d94.png">
+                        
+                        &nbsp;&nbsp;腾讯文档
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://www.notion.so/" target="_blank" rel="external nofollow noopener noreferrer" href="https://www.notion.so/">
+                    
+                        
+                    
+                        
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88069945-b16ce400-cba4-11ea-9c3f-d5857b39a5df.png">
+                        
+                        &nbsp;&nbsp;Notion
+                    </div>
+                </a></li>
+            
+        </ul>
+    </div>
+</section>
+
+    
+
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    </div>
+    <footer id="footer" class="clearfix">
+    
+        <div class="social-wrapper">
+          
+              
+                  <a href="mailto:renchk@foxmail.com" class="social fas fa-envelope flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://github.com/TonyRenHK" class="social fab fa-github flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://www.weibo.com/6476367461" class="social fab fa-weibo flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://tonyrenhk.github.io/Wechat/" class="social fab fa-weixin flat-box" target="_blank" rel="external"></a>
+              
+          
+        </div>
+    
+    <br>
+    <div>博客内容遵循 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="licenses">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></div>
+    <div>本站使用 <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a> 作为主题，
+		总访问量为 <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> 次。
+    </div>
+    
+<span id="runtime_span"></span>
+
+<script type="text/javascript">
+function show_runtime(){
+  window.setTimeout("show_runtime()",1000);
+  X=new Date("8/22/2016 18:27:0");
+  Y=new Date();T=(Y.getTime()-X.getTime());M=24*60*60*1000;
+  a=T/M;A=Math.floor(a);
+  b=(a-A)*24;B=Math.floor(b);
+  c=(b-B)*60;C=Math.floor((b-B)*60);
+  D=Math.floor((c-C)*60);
+  runtime_span.innerHTML="—— 本站已稳定运行： "+A+"天"+B+"小时"+C+"分"+D+"秒 ——"}show_runtime();
+
+</script>
+
+
+</footer>
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+    <script>setLoadingBarProgress(80);</script>
+    <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src='//cdn.bootcss.com/node-waves/0.7.5/waves.min.js'></script>
+<script src="//cdn.bootcss.com/scrollReveal.js/3.3.2/scrollreveal.min.js"></script>
+<!-- 访问统计 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5bfb78723c9c4600"></script>
+
+
+
+<script src="/js/jquery.fitvids.js"></script>
+
+
+    <script>
+        var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+        var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+        var ALGOLIA_API_KEY = "";
+        var ALGOLIA_APP_ID = "";
+        var ALGOLIA_INDEX_NAME = "";
+        var AZURE_SERVICE_NAME = "";
+        var AZURE_INDEX_NAME = "";
+        var AZURE_QUERY_KEY = "";
+        var BAIDU_API_ID = "";
+        var SEARCH_SERVICE = "hexo" || "hexo";
+        var ROOT = "/"||"/";
+        if(!ROOT.endsWith('/'))ROOT += '/';
+    </script>
+
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/app.js"></script>
+
+
+
+    
+    
+    
+        
+            <script>
+            var GUEST_INFO = ['nick','mail','link'];
+            var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+                return GUEST_INFO.indexOf(item) > -1
+            });
+            var notify = 'false' == true;
+            var verify = 'false' == true;
+            var valine = new Valine();
+            valine.init({
+                el: '#valine_container',
+                notify: notify,
+                verify: verify,
+                guest_info: guest_info,
+                appId: "VuRGmlrXY64EG2tySasn4jzF-gzGzoHsz",
+                appKey: "C2FxxmSPGwKNQl7PEg39s7ep",
+                placeholder: "Comment here~",
+                pageSize:'10',
+                avatar:'mp',
+                lang:'zh-cn',
+                highlight:''
+            })
+            </script>
+        
+    
+
+
+    <script>setLoadingBarProgress(100);</script>
+</body>
