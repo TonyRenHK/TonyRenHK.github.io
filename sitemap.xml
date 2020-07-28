@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://tonyrenhk.github.io/2020/06/12/2020-06-12-Marketing-Cloud-Interactive-Email/</loc>
+    
+    <lastmod>2020-07-28T02:35:48.336Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://tonyrenhk.github.io/2020/03/20/2020-03-20-Salesforce-related-resource/</loc>
     
     <lastmod>2020-07-28T01:59:13.467Z</lastmod>
@@ -30,14 +37,7 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2020/06/12/2020-06-12-Marketing-Cloud-Interactive-Email/</loc>
-    
-    <lastmod>2020-07-26T07:57:35.137Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tonyrenhk.github.io/about/index.html</loc>
+    <loc>http://tonyrenhk.github.io/2020/05/01/2020-05-01-LWC-Study/</loc>
     
     <lastmod>2020-07-26T07:57:35.137Z</lastmod>
     
@@ -58,7 +58,7 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2020/05/01/2020-05-01-LWC-Study/</loc>
+    <loc>http://tonyrenhk.github.io/about/index.html</loc>
     
     <lastmod>2020-07-26T07:57:35.137Z</lastmod>
     
@@ -73,13 +73,6 @@
   
   <url>
     <loc>http://tonyrenhk.github.io/2018/12/21/2018-12-21-Lightning-Experience-Development/</loc>
-    
-    <lastmod>2020-07-26T07:57:35.133Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tonyrenhk.github.io/2019/03/12/2019-03-12-BuildABear-Tracking-App-withLWC/</loc>
     
     <lastmod>2020-07-26T07:57:35.133Z</lastmod>
     
@@ -184,6 +177,13 @@
   </url>
   
   <url>
+    <loc>http://tonyrenhk.github.io/2019/01/03/2019-01-03-Campaign-Member-Status/</loc>
+    
+    <lastmod>2020-07-26T07:57:35.133Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://tonyrenhk.github.io/2018/09/28/2018-09-28-JSForce-Study/</loc>
     
     <lastmod>2020-07-26T07:57:35.133Z</lastmod>
@@ -247,7 +247,7 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2019/01/03/2019-01-03-Campaign-Member-Status/</loc>
+    <loc>http://tonyrenhk.github.io/2019/01/11/2019-01-11-shortcut/</loc>
     
     <lastmod>2020-07-26T07:57:35.133Z</lastmod>
     
@@ -275,7 +275,7 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2019/01/11/2019-01-11-shortcut/</loc>
+    <loc>http://tonyrenhk.github.io/2019/02/17/2019-02-17-Lightning-Web-Components-Basics/</loc>
     
     <lastmod>2020-07-26T07:57:35.133Z</lastmod>
     
@@ -317,7 +317,7 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2019/02/17/2019-02-17-Lightning-Web-Components-Basics/</loc>
+    <loc>http://tonyrenhk.github.io/2019/02/21/2019-02-21-Lightning-Data-Service-Basics/</loc>
     
     <lastmod>2020-07-26T07:57:35.133Z</lastmod>
     
@@ -359,14 +359,14 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2019/02/21/2019-02-21-Lightning-Data-Service-Basics/</loc>
+    <loc>http://tonyrenhk.github.io/2019/03/07/2019-03-07-Get_Start_SFDC/</loc>
     
     <lastmod>2020-07-26T07:57:35.133Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2019/03/07/2019-03-07-Get_Start_SFDC/</loc>
+    <loc>http://tonyrenhk.github.io/2019/03/12/2019-03-12-BuildABear-Tracking-App-withLWC/</loc>
     
     <lastmod>2020-07-26T07:57:35.133Z</lastmod>
     
