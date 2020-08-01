@@ -2,13 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://tonyrenhk.github.io/2020/08/01/2018-01-11-OtherBookMark/</loc>
-    
-    <lastmod>2020-08-01T03:54:34.417Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://tonyrenhk.github.io/2021/01/02/2020-07-11-Pardot-Study-Note/</loc>
     
     <lastmod>2020-08-01T03:15:35.089Z</lastmod>
@@ -58,13 +51,6 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2020/05/01/2020-05-01-LWC-Study/</loc>
-    
-    <lastmod>2020-07-26T07:57:35.137Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://tonyrenhk.github.io/2020/07/10/2020-07-10-Marketing-Cloud/</loc>
     
     <lastmod>2020-07-26T07:57:35.137Z</lastmod>
@@ -86,6 +72,13 @@
   </url>
   
   <url>
+    <loc>http://tonyrenhk.github.io/2020/05/01/2020-05-01-LWC-Study/</loc>
+    
+    <lastmod>2020-07-26T07:57:35.137Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://tonyrenhk.github.io/about/Temp.html</loc>
     
     <lastmod>2020-07-26T07:57:35.137Z</lastmod>
@@ -100,7 +93,7 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2019/02/21/2019-02-21-Lightning-Data-Service-Basics/</loc>
+    <loc>http://tonyrenhk.github.io/2019/03/07/2019-03-07-Get_Start_SFDC/</loc>
     
     <lastmod>2020-07-26T07:57:35.133Z</lastmod>
     
@@ -128,7 +121,14 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2020/01/06/2020-01-06-SFDC-Public-Site/</loc>
+    <loc>http://tonyrenhk.github.io/2019/09/12/2019-09-12-JsforceMetadata/</loc>
+    
+    <lastmod>2020-07-26T07:57:35.133Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tonyrenhk.github.io/2019/09/01/2019-09-01-Trailhead/</loc>
     
     <lastmod>2020-07-26T07:57:35.133Z</lastmod>
     
@@ -142,14 +142,14 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2019/09/12/2019-09-12-JsforceMetadata/</loc>
+    <loc>http://tonyrenhk.github.io/2020/01/06/2020-01-06-SFDC-Public-Site/</loc>
     
     <lastmod>2020-07-26T07:57:35.133Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2019/09/01/2019-09-01-Trailhead/</loc>
+    <loc>http://tonyrenhk.github.io/2020/02/20/2020-02-20-Salesforce-Sandbox-design/</loc>
     
     <lastmod>2020-07-26T07:57:35.133Z</lastmod>
     
@@ -170,35 +170,7 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2020/02/20/2020-02-20-Salesforce-Sandbox-design/</loc>
-    
-    <lastmod>2020-07-26T07:57:35.133Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://tonyrenhk.github.io/2020/04/03/2020-04-03-Salesforce-mobile/</loc>
-    
-    <lastmod>2020-07-26T07:57:35.133Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tonyrenhk.github.io/2018/01/10/2018-01-10-Chrome-Extensions-Link-and-Title-Copy/</loc>
-    
-    <lastmod>2020-07-26T07:57:35.133Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tonyrenhk.github.io/2018/09/01/2018-09-01-JS-Study-Note/</loc>
-    
-    <lastmod>2020-07-26T07:57:35.133Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tonyrenhk.github.io/2018/11/25/2018-11-25-WesingPlugins/</loc>
     
     <lastmod>2020-07-26T07:57:35.133Z</lastmod>
     
@@ -212,14 +184,14 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2018/02/03/2018-02-03-Shell-Script-Study/</loc>
+    <loc>http://tonyrenhk.github.io/2018/12/21/2018-12-21-Lightning-Experience-Development/</loc>
     
     <lastmod>2020-07-26T07:57:35.133Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2018/12/21/2018-12-21-Lightning-Experience-Development/</loc>
+    <loc>http://tonyrenhk.github.io/2018/02/03/2018-02-03-Shell-Script-Study/</loc>
     
     <lastmod>2020-07-26T07:57:35.133Z</lastmod>
     
@@ -234,6 +206,27 @@
   
   <url>
     <loc>http://tonyrenhk.github.io/2020/01/15/2020-01-15-Salesforce-flow-Roll-Up-Summary/</loc>
+    
+    <lastmod>2020-07-26T07:57:35.133Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tonyrenhk.github.io/2018/09/01/2018-09-01-JS-Study-Note/</loc>
+    
+    <lastmod>2020-07-26T07:57:35.133Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tonyrenhk.github.io/2018/11/24/2018-11-24-Google-App-Script-Note/</loc>
+    
+    <lastmod>2020-07-26T07:57:35.133Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tonyrenhk.github.io/2018/11/25/2018-11-25-WesingPlugins/</loc>
     
     <lastmod>2020-07-26T07:57:35.133Z</lastmod>
     
@@ -261,20 +254,6 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2018/11/24/2018-11-24-Google-App-Script-Note/</loc>
-    
-    <lastmod>2020-07-26T07:57:35.133Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tonyrenhk.github.io/2018/11/27/2018-11-27-hexo-theme-doc-SupportCN/</loc>
-    
-    <lastmod>2020-07-26T07:57:35.133Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://tonyrenhk.github.io/2018/02/02/2018-02-02-Git-Study/</loc>
     
     <lastmod>2020-07-26T07:57:35.133Z</lastmod>
@@ -290,6 +269,20 @@
   
   <url>
     <loc>http://tonyrenhk.github.io/2018/12/05/2018-12-05-Data-Integration-Specialist-Superbadge/</loc>
+    
+    <lastmod>2020-07-26T07:57:35.133Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tonyrenhk.github.io/2018/11/27/2018-11-27-hexo-theme-doc-SupportCN/</loc>
+    
+    <lastmod>2020-07-26T07:57:35.133Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tonyrenhk.github.io/2018/01/10/2018-01-10-Chrome-Extensions-Link-and-Title-Copy/</loc>
     
     <lastmod>2020-07-26T07:57:35.133Z</lastmod>
     
@@ -331,42 +324,7 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/Note/Code.html</loc>
-    
-    <lastmod>2020-07-26T07:57:35.133Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tonyrenhk.github.io/2019/02/17/2019-02-17-Lightning-Web-Components-Basics/</loc>
-    
-    <lastmod>2020-07-26T07:57:35.133Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://tonyrenhk.github.io/Note/To_Do_List.html</loc>
-    
-    <lastmod>2020-07-26T07:57:35.133Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tonyrenhk.github.io/Note/Tutorial.html</loc>
-    
-    <lastmod>2020-07-26T07:57:35.133Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tonyrenhk.github.io/Project/index.html</loc>
-    
-    <lastmod>2020-07-26T07:57:35.133Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tonyrenhk.github.io/Wechat/index.html</loc>
     
     <lastmod>2020-07-26T07:57:35.133Z</lastmod>
     
@@ -380,7 +338,42 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2019/03/07/2019-03-07-Get_Start_SFDC/</loc>
+    <loc>http://tonyrenhk.github.io/Note/Code.html</loc>
+    
+    <lastmod>2020-07-26T07:57:35.133Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tonyrenhk.github.io/Project/index.html</loc>
+    
+    <lastmod>2020-07-26T07:57:35.133Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tonyrenhk.github.io/Note/Tutorial.html</loc>
+    
+    <lastmod>2020-07-26T07:57:35.133Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tonyrenhk.github.io/Wechat/index.html</loc>
+    
+    <lastmod>2020-07-26T07:57:35.133Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tonyrenhk.github.io/2019/02/17/2019-02-17-Lightning-Web-Components-Basics/</loc>
+    
+    <lastmod>2020-07-26T07:57:35.133Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tonyrenhk.github.io/2019/02/21/2019-02-21-Lightning-Data-Service-Basics/</loc>
     
     <lastmod>2020-07-26T07:57:35.133Z</lastmod>
     
