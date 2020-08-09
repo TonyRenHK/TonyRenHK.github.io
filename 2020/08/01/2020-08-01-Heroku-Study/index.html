@@ -170,7 +170,7 @@
         
         <time class="time">
             <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-            2021-08-01
+            2020-08-01
         </time>
         <div class="browse"><i class="fas fa-eye fa-fw" aria-hidden="true"></i>
           <span id="busuanzi_value_page_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
@@ -193,8 +193,7 @@
 
 
 
-<p>#安装Heroku CLI</p>
-<p>首先需要安装Heroku CLI在本地中，安装连接如下：</p>
+<h1 id="安装Heroku-CLI"><a href="#安装Heroku-CLI" class="headerlink" title="安装Heroku CLI"></a>安装Heroku CLI</h1><p>首先需要安装Heroku CLI在本地中，安装连接如下：</p>
 <p>macOS Homebrew 安装如下:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew tap heroku&#x2F;brew &amp;&amp; brew install heroku</span><br></pre></td></tr></table></figure>
 
@@ -225,7 +224,7 @@
 
 
 
-<p>#如何新建一个项目?<br>直接输入heroku create就会新建一个app</p>
+<h1 id="如何新建一个项目"><a href="#如何新建一个项目" class="headerlink" title="如何新建一个项目?"></a>如何新建一个项目?</h1><p>直接输入heroku create就会新建一个app</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$  heroku create</span><br><span class="line"> ›  Creating app... done, ⬢ fierce-sands-29965</span><br><span class="line">https:&#x2F;&#x2F;fierce-sands-29965.herokuapp.com&#x2F; | https:&#x2F;&#x2F;git.heroku.com&#x2F;fierce-sands-29965.git</span><br></pre></td></tr></table></figure>
 <p>但是该方法会新建一个随机名字的app，这里是fierce-sands-29965，它的git地址为<a href="https://git.heroku.com/fierce-sands-29965.git。" target="_blank" rel="noopener">https://git.heroku.com/fierce-sands-29965.git。</a></p>
 <p>如果我们需要创建一个名为“ example”的新应用，可以参考如下：</p>
@@ -239,8 +238,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> heroku apps:destroy fierce-sands-29965</span><br><span class="line"> ›   ▸    WARNING: This will delete ⬢ fierce-sands-29965 including all add-ons.</span><br><span class="line"> ▸    To proceed, type fierce-sands-29965 or re-run this command with --confirm fierce-sands-29965</span><br><span class="line"></span><br><span class="line">&gt; fierce-sands-29965</span><br><span class="line">Destroying ⬢ fierce-sands-29965 (including all add-ons)... done</span><br></pre></td></tr></table></figure>
 
 
-<p>#如何复制你的Repository 到本地？</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ heroku git:clone -a test-app</span><br><span class="line">$ cd test-app</span><br></pre></td></tr></table></figure>
+<h1 id="如何复制你的Repository-到本地？"><a href="#如何复制你的Repository-到本地？" class="headerlink" title="如何复制你的Repository 到本地？"></a>如何复制你的Repository 到本地？</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ heroku git:clone -a test-app</span><br><span class="line">$ cd test-app</span><br></pre></td></tr></table></figure>
 <p>test-app为你在Heroku上的app</p>
 <p>#​如何部署你的应用？<br>​参考如下代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git add .</span><br><span class="line">$ git commit -am &quot;make it better&quot;</span><br><span class="line">$ git push heroku master</span><br></pre></td></tr></table></figure>
@@ -253,8 +251,7 @@
 <p>如何查看自己收藏的应用(favorited apps)？</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ heroku apps:favorites</span><br></pre></td></tr></table></figure>
 
-<p>#如何查看你的app信息？</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ heroku apps:info your-app</span><br></pre></td></tr></table></figure>
+<h1 id="如何查看你的app信息？"><a href="#如何查看你的app信息？" class="headerlink" title="如何查看你的app信息？"></a>如何查看你的app信息？</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ heroku apps:info your-app</span><br></pre></td></tr></table></figure>
 <p>这里可以查看你的app网站url和安装了那些Addons，还有容量等信息</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#x3D;&#x3D;&#x3D; sfdc-nodejs</span><br><span class="line">Addons:         scheduler:standard</span><br><span class="line">Auto Cert Mgmt: false</span><br><span class="line">Dynos:          web: 1</span><br><span class="line">Git URL:        https:&#x2F;&#x2F;git.heroku.com&#x2F;sfdc-nodejs.git</span><br><span class="line">Owner:          youname@qq.com</span><br><span class="line">Region:         us</span><br><span class="line">Repo Size:      5 MB</span><br><span class="line">Slug Size:      27 MB</span><br><span class="line">Stack:          heroku-16</span><br><span class="line">Web URL:        https:&#x2F;&#x2F;sfdc-nodejs.herokuapp.com&#x2F;</span><br></pre></td></tr></table></figure>
 <p>同时，有时候需要查看你的Heroku配置变量。</p>
@@ -303,13 +300,11 @@
 <li><a href="https://devcenter.heroku.com/articles/heroku-cli" target="_blank" rel="noopener">https://devcenter.heroku.com/articles/heroku-cli</a></li>
 <li><a href="https://devcenter.heroku.com/articles/heroku-cli-commands" target="_blank" rel="noopener">https://devcenter.heroku.com/articles/heroku-cli-commands</a></li>
 </ul>
-<p>​</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/6156917-2cfb23c8455a2b4d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注&#39;Salesforce考试&#39;公众号"></p>
 
         </div>
 
         <section class='meta'>
-            <time class="time" itemprop="dateUpdated" datetime="2020-08-09T15:33:37+00:00" content="2020-08-09">
+            <time class="time" itemprop="dateUpdated" datetime="2020-08-09T15:36:51+00:00" content="2020-08-09">
                 <i class="fas fa-pen fa-fw" aria-hidden="true"></i>
                 本文最后更新于：2020-08-09
             </time>
@@ -328,15 +323,14 @@
         
             <div class="prev-next">
                 
-                
-                    <section class="next">
-                        <span class="art-item-right" aria-hidden="true">
-                            <h6>下一篇&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一篇</h6>
                             <h4>
                                 <a href="/2020/11/25/2020-11-25-SalesforceStudyNote/" rel="prev" title="Salesforce  学习笔记">
-                                    
-                                        Salesforce  学习笔记
-                                    
+                                  
+                                      Salesforce  学习笔记
+                                  
                                 </a>
                             </h4>
                             
@@ -344,6 +338,27 @@
                                 <h6 class="tags">
                                     <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
                                     <a class="tag" href="/tags/Salesforce/">Salesforce</a>, <a class="tag" href="/tags/Apex/">Apex</a>, <a class="tag" href="/tags/StudyNote/">StudyNote</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>下一篇&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2020/07/11/2020-07-11-Pardot-Study-Note/" rel="prev" title="Salesforce Pardot Study">
+                                    
+                                        Salesforce Pardot Study
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                                    <a class="tag" href="/tags/Salesforce/">Salesforce</a>, <a class="tag" href="/tags/Pardot/">Pardot</a>
                                 </h6>
                             
                         </span>
@@ -616,7 +631,7 @@
                 
                     <li><a class="flat-box" href="/categories/JavaScript/"><div class='name'>JavaScript</div><div class='badge'>2</div></a></li>
                 
-                    <li><a class="flat-box" href="/categories/Others/"><div class='name'>Others</div><div class='badge'>1</div></a></li>
+                    <li><a class="flat-box" href="/categories/Others/"><div class='name'>Others</div><div class='badge'>2</div></a></li>
                 
                     <li><a class="flat-box" href="/categories/Python/"><div class='name'>Python</div><div class='badge'>1</div></a></li>
                 
@@ -639,7 +654,7 @@
             <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
         </header>
         <div class='content pure'>
-            <a href="/tags/Apex/" style="font-size: 15.43px; color: #8f8f8f">Apex</a> <a href="/tags/CDC/" style="font-size: 14px; color: #999">CDC</a> <a href="/tags/CPQ/" style="font-size: 14px; color: #999">CPQ</a> <a href="/tags/Change-Data-Capture/" style="font-size: 14px; color: #999">Change Data Capture</a> <a href="/tags/Chrome-Extension/" style="font-size: 14px; color: #999">Chrome-Extension</a> <a href="/tags/Community-Cloud/" style="font-size: 14px; color: #999">Community Cloud</a> <a href="/tags/Demo/" style="font-size: 14px; color: #999">Demo</a> <a href="/tags/Flow/" style="font-size: 14px; color: #999">Flow</a> <a href="/tags/Git/" style="font-size: 16.86px; color: #868686">Git</a> <a href="/tags/Google/" style="font-size: 14px; color: #999">Google</a> <a href="/tags/Google-App-Script/" style="font-size: 14px; color: #999">Google App Script</a> <a href="/tags/Heroku/" style="font-size: 14px; color: #999">Heroku</a> <a href="/tags/IT%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">IT学习</a> <a href="/tags/Interactive-Email/" style="font-size: 14px; color: #999">Interactive Email</a> <a href="/tags/JavaScript/" style="font-size: 15.43px; color: #8f8f8f">JavaScript</a> <a href="/tags/Jsforce/" style="font-size: 15.43px; color: #8f8f8f">Jsforce</a> <a href="/tags/LWC/" style="font-size: 22.57px; color: #5f5f5f">LWC</a> <a href="/tags/Lightning/" style="font-size: 15.43px; color: #8f8f8f">Lightning</a> <a href="/tags/Lightning-Components/" style="font-size: 14px; color: #999">Lightning Components</a> <a href="/tags/Lightning-Web-Components/" style="font-size: 18.29px; color: #7c7c7c">Lightning Web Components</a> <a href="/tags/MC/" style="font-size: 15.43px; color: #8f8f8f">MC</a> <a href="/tags/MCC/" style="font-size: 14px; color: #999">MCC</a> <a href="/tags/Marketing-Cloud/" style="font-size: 14px; color: #999">Marketing Cloud</a> <a href="/tags/Marketing-Cloud-Connect/" style="font-size: 14px; color: #999">Marketing Cloud Connect</a> <a href="/tags/Org/" style="font-size: 14px; color: #999">Org</a> <a href="/tags/Others/" style="font-size: 14px; color: #999">Others</a> <a href="/tags/Pardot/" style="font-size: 14px; color: #999">Pardot</a> <a href="/tags/Python/" style="font-size: 14px; color: #999">Python</a> <a href="/tags/Roll-Up-Summary/" style="font-size: 14px; color: #999">Roll-Up Summary</a> <a href="/tags/SFDC/" style="font-size: 14px; color: #999">SFDC</a> <a href="/tags/SFDX/" style="font-size: 19.71px; color: #727272">SFDX</a> <a href="/tags/Sales-Cloud/" style="font-size: 14px; color: #999">Sales Cloud</a> <a href="/tags/Salesforce/" style="font-size: 24px; color: #555">Salesforce</a> <a href="/tags/Salesforce-Mobile/" style="font-size: 14px; color: #999">Salesforce Mobile</a> <a href="/tags/Sandbox/" style="font-size: 14px; color: #999">Sandbox</a> <a href="/tags/Script/" style="font-size: 14px; color: #999">Script</a> <a href="/tags/Site/" style="font-size: 14px; color: #999">Site</a> <a href="/tags/Study/" style="font-size: 18.29px; color: #7c7c7c">Study</a> <a href="/tags/StudyNote/" style="font-size: 14px; color: #999">StudyNote</a> <a href="/tags/Superbadge/" style="font-size: 14px; color: #999">Superbadge</a> <a href="/tags/Tools/" style="font-size: 14px; color: #999">Tools</a> <a href="/tags/Trailhead/" style="font-size: 21.14px; color: #686868">Trailhead</a> <a href="/tags/exam/" style="font-size: 14px; color: #999">exam</a> <a href="/tags/flow/" style="font-size: 14px; color: #999">flow</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/tags/hexo-theme-doc/" style="font-size: 14px; color: #999">hexo-theme-doc</a> <a href="/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/tags/metadata/" style="font-size: 14px; color: #999">metadata</a> <a href="/tags/shortcut/" style="font-size: 14px; color: #999">shortcut</a> <a href="/tags/%E5%85%A5%E9%97%A8/" style="font-size: 14px; color: #999">入门</a> <a href="/tags/%E5%AF%B9Campaign/" style="font-size: 14px; color: #999">对Campaign</a> <a href="/tags/%E5%BC%80%E5%8F%91%E8%80%85II%E8%80%83%E8%AF%95/" style="font-size: 19.71px; color: #727272">开发者II考试</a> <a href="/tags/%E8%87%AA%E5%8A%A8/" style="font-size: 14px; color: #999">自动</a> <a href="/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">英语学习</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 14px; color: #999">面试</a> <a href="/tags/%E9%A2%98%E5%BA%93/" style="font-size: 14px; color: #999">题库</a>
+            <a href="/tags/Apex/" style="font-size: 15.43px; color: #8f8f8f">Apex</a> <a href="/tags/BookMark/" style="font-size: 14px; color: #999">BookMark</a> <a href="/tags/CDC/" style="font-size: 14px; color: #999">CDC</a> <a href="/tags/CPQ/" style="font-size: 14px; color: #999">CPQ</a> <a href="/tags/Change-Data-Capture/" style="font-size: 14px; color: #999">Change Data Capture</a> <a href="/tags/Chrome-Extension/" style="font-size: 14px; color: #999">Chrome-Extension</a> <a href="/tags/Community-Cloud/" style="font-size: 14px; color: #999">Community Cloud</a> <a href="/tags/Demo/" style="font-size: 14px; color: #999">Demo</a> <a href="/tags/Flow/" style="font-size: 14px; color: #999">Flow</a> <a href="/tags/Git/" style="font-size: 16.86px; color: #868686">Git</a> <a href="/tags/Google/" style="font-size: 14px; color: #999">Google</a> <a href="/tags/Google-App-Script/" style="font-size: 14px; color: #999">Google App Script</a> <a href="/tags/Heroku/" style="font-size: 14px; color: #999">Heroku</a> <a href="/tags/IT%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">IT学习</a> <a href="/tags/Interactive-Email/" style="font-size: 14px; color: #999">Interactive Email</a> <a href="/tags/JavaScript/" style="font-size: 15.43px; color: #8f8f8f">JavaScript</a> <a href="/tags/Jsforce/" style="font-size: 15.43px; color: #8f8f8f">Jsforce</a> <a href="/tags/LWC/" style="font-size: 22.57px; color: #5f5f5f">LWC</a> <a href="/tags/Lightning/" style="font-size: 15.43px; color: #8f8f8f">Lightning</a> <a href="/tags/Lightning-Components/" style="font-size: 14px; color: #999">Lightning Components</a> <a href="/tags/Lightning-Web-Components/" style="font-size: 18.29px; color: #7c7c7c">Lightning Web Components</a> <a href="/tags/MC/" style="font-size: 15.43px; color: #8f8f8f">MC</a> <a href="/tags/MCC/" style="font-size: 14px; color: #999">MCC</a> <a href="/tags/Marketing-Cloud/" style="font-size: 14px; color: #999">Marketing Cloud</a> <a href="/tags/Marketing-Cloud-Connect/" style="font-size: 14px; color: #999">Marketing Cloud Connect</a> <a href="/tags/Org/" style="font-size: 14px; color: #999">Org</a> <a href="/tags/Others/" style="font-size: 14px; color: #999">Others</a> <a href="/tags/Pardot/" style="font-size: 14px; color: #999">Pardot</a> <a href="/tags/Python/" style="font-size: 14px; color: #999">Python</a> <a href="/tags/Roll-Up-Summary/" style="font-size: 14px; color: #999">Roll-Up Summary</a> <a href="/tags/SFDC/" style="font-size: 14px; color: #999">SFDC</a> <a href="/tags/SFDX/" style="font-size: 19.71px; color: #727272">SFDX</a> <a href="/tags/Sales-Cloud/" style="font-size: 14px; color: #999">Sales Cloud</a> <a href="/tags/Salesforce/" style="font-size: 24px; color: #555">Salesforce</a> <a href="/tags/Salesforce-Mobile/" style="font-size: 14px; color: #999">Salesforce Mobile</a> <a href="/tags/Sandbox/" style="font-size: 14px; color: #999">Sandbox</a> <a href="/tags/Script/" style="font-size: 14px; color: #999">Script</a> <a href="/tags/Site/" style="font-size: 14px; color: #999">Site</a> <a href="/tags/Study/" style="font-size: 18.29px; color: #7c7c7c">Study</a> <a href="/tags/StudyNote/" style="font-size: 14px; color: #999">StudyNote</a> <a href="/tags/Superbadge/" style="font-size: 14px; color: #999">Superbadge</a> <a href="/tags/Tools/" style="font-size: 14px; color: #999">Tools</a> <a href="/tags/Trailhead/" style="font-size: 21.14px; color: #686868">Trailhead</a> <a href="/tags/exam/" style="font-size: 14px; color: #999">exam</a> <a href="/tags/flow/" style="font-size: 14px; color: #999">flow</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/tags/hexo-theme-doc/" style="font-size: 14px; color: #999">hexo-theme-doc</a> <a href="/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/tags/metadata/" style="font-size: 14px; color: #999">metadata</a> <a href="/tags/shortcut/" style="font-size: 14px; color: #999">shortcut</a> <a href="/tags/%E5%85%A5%E9%97%A8/" style="font-size: 14px; color: #999">入门</a> <a href="/tags/%E5%AF%B9Campaign/" style="font-size: 14px; color: #999">对Campaign</a> <a href="/tags/%E5%BC%80%E5%8F%91%E8%80%85II%E8%80%83%E8%AF%95/" style="font-size: 19.71px; color: #727272">开发者II考试</a> <a href="/tags/%E8%87%AA%E5%8A%A8/" style="font-size: 14px; color: #999">自动</a> <a href="/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">英语学习</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 14px; color: #999">面试</a> <a href="/tags/%E9%A2%98%E5%BA%93/" style="font-size: 14px; color: #999">题库</a>
         </div>
     </section>
 
@@ -653,7 +668,7 @@
             <div class='wrapper'><a class="s-toc rightBtn" title="固定到顶部" target="_blank" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
         </header>
         <div class='content pure'>
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#如何检查自己是否安装成功？"><span class="toc-text">如何检查自己是否安装成功？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#登入Heroku"><span class="toc-text">登入Heroku</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何查看自己的token？"><span class="toc-text">如何查看自己的token？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何分叉应用？"><span class="toc-text">如何分叉应用？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#展示Heroku-服务器的地区"><span class="toc-text">展示Heroku 服务器的地区</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何run-console"><span class="toc-text">如何run console?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#查看目前的add-ons"><span class="toc-text">查看目前的add-ons</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何新建一个PostgreSQL数据库"><span class="toc-text">如何新建一个PostgreSQL数据库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何新建一个mongolab-数据库"><span class="toc-text">如何新建一个mongolab 数据库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#新建一个scheduler"><span class="toc-text">新建一个scheduler</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装Heroku-CLI"><span class="toc-text">安装Heroku CLI</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何检查自己是否安装成功？"><span class="toc-text">如何检查自己是否安装成功？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#登入Heroku"><span class="toc-text">登入Heroku</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何查看自己的token？"><span class="toc-text">如何查看自己的token？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何新建一个项目"><span class="toc-text">如何新建一个项目?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何复制你的Repository-到本地？"><span class="toc-text">如何复制你的Repository 到本地？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何分叉应用？"><span class="toc-text">如何分叉应用？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何查看你的app信息？"><span class="toc-text">如何查看你的app信息？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#展示Heroku-服务器的地区"><span class="toc-text">展示Heroku 服务器的地区</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何run-console"><span class="toc-text">如何run console?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#查看目前的add-ons"><span class="toc-text">查看目前的add-ons</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何新建一个PostgreSQL数据库"><span class="toc-text">如何新建一个PostgreSQL数据库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何新建一个mongolab-数据库"><span class="toc-text">如何新建一个mongolab 数据库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#新建一个scheduler"><span class="toc-text">新建一个scheduler</span></a></li></ol>
         </div>
     </section>
 
