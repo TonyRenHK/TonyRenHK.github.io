@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://tonyrenhk.github.io/2018/01/11/2018-01-11-OtherBookMark/</loc>
+    <loc>http://tonyrenhk.github.io/2019/01/02/2019-01-02-SFDX/</loc>
     
-    <lastmod>2020-08-09T15:37:25.359Z</lastmod>
+    <lastmod>2020-08-15T15:31:51.246Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://tonyrenhk.github.io/2020/08/01/2020-08-01-Heroku-Study/</loc>
     
-    <lastmod>2020-08-09T15:36:51.811Z</lastmod>
+    <lastmod>2020-08-09T15:38:44.335Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tonyrenhk.github.io/2018/01/11/2018-01-11-OtherBookMark/</loc>
+    
+    <lastmod>2020-08-09T15:37:25.359Z</lastmod>
     
   </url>
   
@@ -100,14 +107,7 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2019/01/02/2019-01-02-SFDX/</loc>
-    
-    <lastmod>2020-07-26T07:57:35.133Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tonyrenhk.github.io/2019/03/12/2019-03-12-BuildABear-Tracking-App-withLWC/</loc>
+    <loc>http://tonyrenhk.github.io/2019/01/06/2019-01-06-Lightning-Web-Components/</loc>
     
     <lastmod>2020-07-26T07:57:35.133Z</lastmod>
     
@@ -156,7 +156,7 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2020/02/02/2020-02-02-SFDC-CDC/</loc>
+    <loc>http://tonyrenhk.github.io/2020/04/10/2020-03-09-How-Salesforce-exam/</loc>
     
     <lastmod>2020-07-26T07:57:35.133Z</lastmod>
     
@@ -170,7 +170,7 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2020/04/10/2020-03-09-How-Salesforce-exam/</loc>
+    <loc>http://tonyrenhk.github.io/2020/02/02/2020-02-02-SFDC-CDC/</loc>
     
     <lastmod>2020-07-26T07:57:35.133Z</lastmod>
     
@@ -184,7 +184,7 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2018/02/03/2018-02-03-Shell-Script-Study/</loc>
+    <loc>http://tonyrenhk.github.io/2018/11/25/2018-11-25-WesingPlugins/</loc>
     
     <lastmod>2020-07-26T07:57:35.133Z</lastmod>
     
@@ -198,14 +198,21 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2018/11/25/2018-11-25-WesingPlugins/</loc>
+    <loc>http://tonyrenhk.github.io/2018/09/01/2018-09-01-JS-Study-Note/</loc>
     
     <lastmod>2020-07-26T07:57:35.133Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2018/01/10/2018-01-10-Chrome-Extensions-Link-and-Title-Copy/</loc>
+    <loc>http://tonyrenhk.github.io/2019/01/03/2019-01-03-Campaign-Member-Status/</loc>
+    
+    <lastmod>2020-07-26T07:57:35.133Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tonyrenhk.github.io/2018/09/28/2018-09-28-JSForce-Study/</loc>
     
     <lastmod>2020-07-26T07:57:35.133Z</lastmod>
     
@@ -219,14 +226,14 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2018/09/01/2018-09-01-JS-Study-Note/</loc>
+    <loc>http://tonyrenhk.github.io/2018/11/27/2018-11-27-hexo-theme-doc-SupportCN/</loc>
     
     <lastmod>2020-07-26T07:57:35.133Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2019/01/06/2019-01-06-Lightning-Web-Components/</loc>
+    <loc>http://tonyrenhk.github.io/2018/02/03/2018-02-03-Shell-Script-Study/</loc>
     
     <lastmod>2020-07-26T07:57:35.133Z</lastmod>
     
@@ -261,21 +268,14 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2018/11/27/2018-11-27-hexo-theme-doc-SupportCN/</loc>
+    <loc>http://tonyrenhk.github.io/2019/01/11/2019-01-11-shortcut/</loc>
     
     <lastmod>2020-07-26T07:57:35.133Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2019/01/03/2019-01-03-Campaign-Member-Status/</loc>
-    
-    <lastmod>2020-07-26T07:57:35.133Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tonyrenhk.github.io/2018/09/28/2018-09-28-JSForce-Study/</loc>
+    <loc>http://tonyrenhk.github.io/2019/03/07/2019-03-07-Get_Start_SFDC/</loc>
     
     <lastmod>2020-07-26T07:57:35.133Z</lastmod>
     
@@ -303,7 +303,7 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2019/01/11/2019-01-11-shortcut/</loc>
+    <loc>http://tonyrenhk.github.io/2019/03/12/2019-03-12-BuildABear-Tracking-App-withLWC/</loc>
     
     <lastmod>2020-07-26T07:57:35.133Z</lastmod>
     
@@ -324,7 +324,14 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2020/03/16/2020-03-16-Sales-Cloud-Exam/</loc>
+    <loc>http://tonyrenhk.github.io/Note/Code.html</loc>
+    
+    <lastmod>2020-07-26T07:57:35.133Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tonyrenhk.github.io/2018/01/10/2018-01-10-Chrome-Extensions-Link-and-Title-Copy/</loc>
     
     <lastmod>2020-07-26T07:57:35.133Z</lastmod>
     
@@ -338,21 +345,7 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/Note/Code.html</loc>
-    
-    <lastmod>2020-07-26T07:57:35.133Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tonyrenhk.github.io/2019/02/17/2019-02-17-Lightning-Web-Components-Basics/</loc>
-    
-    <lastmod>2020-07-26T07:57:35.133Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tonyrenhk.github.io/Note/To_Do_List.html</loc>
+    <loc>http://tonyrenhk.github.io/Project/index.html</loc>
     
     <lastmod>2020-07-26T07:57:35.133Z</lastmod>
     
@@ -366,7 +359,7 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/Project/index.html</loc>
+    <loc>http://tonyrenhk.github.io/Note/To_Do_List.html</loc>
     
     <lastmod>2020-07-26T07:57:35.133Z</lastmod>
     
@@ -387,7 +380,7 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2019/03/07/2019-03-07-Get_Start_SFDC/</loc>
+    <loc>http://tonyrenhk.github.io/2019/02/17/2019-02-17-Lightning-Web-Components-Basics/</loc>
     
     <lastmod>2020-07-26T07:57:35.133Z</lastmod>
     
