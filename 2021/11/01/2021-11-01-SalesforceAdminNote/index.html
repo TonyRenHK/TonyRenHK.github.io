@@ -207,10 +207,10 @@
 </tbody></table>
 <p>注意这里Group_Id可以为queue。</p>
 <h2 id="Sharing"><a href="#Sharing" class="headerlink" title="Sharing"></a>Sharing</h2><p>查询某一数据的 Sharing 的快速链接</p>
-<p><a href="https://yourcompany.salesforce.com/p/share/CustomObjectSharingDetail?parentId=" target="_blank" rel="noopener">https://yourcompany.salesforce.com/p/share/CustomObjectSharingDetail?parentId=</a><your_recordId></p>
-<p>注意，如果是account，<a href="https://yourcompany.salesforce.com/p/share/AccSharingDetail?parentId=" target="_blank" rel="noopener">https://yourcompany.salesforce.com/p/share/AccSharingDetail?parentId=</a><your_recordId></p>
+<p><a href="https://yourcompany.salesforce.com/p/share/CustomObjectSharingDetail?parentId={your_recordId}" target="_blank" rel="noopener">https://yourcompany.salesforce.com/p/share/CustomObjectSharingDetail?parentId={your_recordId}</a></p>
+<p>注意，如果是account，<a href="https://yourcompany.salesforce.com/p/share/AccSharingDetail?parentId={your_recordId}" target="_blank" rel="noopener">https://yourcompany.salesforce.com/p/share/AccSharingDetail?parentId={your_recordId}</a></p>
 <p>直接打开某一对象的Sharing rule的设置页面，可以直接用如下链接：</p>
-<p><a href="https://yourcompany.my.salesforce.com/p/own/OrgSharingDetail?st=" target="_blank" rel="noopener">https://yourcompany.my.salesforce.com/p/own/OrgSharingDetail?st=</a><your_object_Id>&amp;setupid=SecuritySharing</p>
+<p><a href="https://yourcompany.my.salesforce.com/p/own/OrgSharingDetail?st={your_object_Id}&amp;setupid=SecuritySharing" target="_blank" rel="noopener">https://yourcompany.my.salesforce.com/p/own/OrgSharingDetail?st={your_object_Id}&amp;setupid=SecuritySharing</a></p>
 <h2 id="如何检查数据的Access-Right？"><a href="#如何检查数据的Access-Right？" class="headerlink" title="如何检查数据的Access Right？"></a>如何检查数据的Access Right？</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT RecordId,HasReadAccess FROM UserRecordAccess WHERE UserId = :userInfo.getUserId() AND RecordId = <span class="string">'abc'</span></span><br></pre></td></tr></table></figure>
 
 
@@ -226,7 +226,7 @@
         </div>
 
         <section class='meta'>
-            <time class="time" itemprop="dateUpdated" datetime="2022-04-22T15:35:45+00:00" content="2022-04-22">
+            <time class="time" itemprop="dateUpdated" datetime="2022-04-22T15:45:13+00:00" content="2022-04-22">
                 <i class="fas fa-pen fa-fw" aria-hidden="true"></i>
                 本文最后更新于：2022-04-22
             </time>
