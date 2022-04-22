@@ -8,7 +8,7 @@
   
 
   
-  <title>营销云 Marketing Cloud 学习笔记 | Tony Ren&#39;s 学习笔记</title>
+  <title>Salesforce 管理员笔记 | Tony Ren&#39;s 学习笔记</title>
   
   <meta name="HandheldFriendly" content="True" />
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -163,14 +163,14 @@
     <div class="l_body">
     <div class='container clearfix'>
         <div class='l_main'>
-            <article id="post-2020-07-10-Marketing-Cloud" class="post white-box article-type-post" itemscope itemprop="blogPost">
+            <article id="post-2021-11-01-SalesforceAdminNote" class="post white-box article-type-post" itemscope itemprop="blogPost">
     <section class='meta'>
         
-            <h1 class="title">营销云 Marketing Cloud 学习笔记</h1>
+            <h1 class="title">Salesforce 管理员笔记</h1>
         
         <time class="time">
             <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-            2020-07-10
+            2020-11-01
         </time>
         <div class="browse"><i class="fas fa-eye fa-fw" aria-hidden="true"></i>
           <span id="busuanzi_value_page_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
@@ -188,107 +188,32 @@
     <section class="article typo">
 
         <div class="article-entry" itemprop="articleBody">
-            <p>三分钟教你打通Salesforce平台和营销云<br>Marketing Cloud Connect过来了解一下~</p>
+            <p>Salesforce admin Notes </p>
+<p>这里记录一些管理员常用SQL。</p>
 <a id="more"></a>
 
 
-<p>众所周知，Salesforce平台包括Sales Cloud和Service Cloud等，和Marketing Cloud并不是联通的系统，很多时候需要人手打通，今天带大家了解一下如何快速Salesforce平台连接至营销云Marketing Cloud平台上。</p>
-<p><img src="https://user-images.githubusercontent.com/9688136/88072716-f6464a00-cba7-11ea-861a-caa76e006768.png" alt=""></p>
-<p>首先需要安装一个APP到你的Saleforce平台上面</p>
-<p><strong>安装连接如下：</strong></p>
-<p>如果你是Production Org可以用这个链接：<a href="https://sfdc.co/MCC" target="_blank" rel="noopener">https://sfdc.co/MCC</a></p>
-<p>如果你是Sandbox Org，可以使用这个链接：<a href="https://sfdc.co/MCCSandbox" target="_blank" rel="noopener">https://sfdc.co/MCCSandbox</a></p>
-<p><img src="https://user-images.githubusercontent.com/9688136/88072805-0fe79180-cba8-11ea-99d9-97b72d4004cc.png" alt=""></p>
-<p>点击安装和有关授权之后，</p>
-<p><img src="https://user-images.githubusercontent.com/9688136/88072829-17a73600-cba8-11ea-9208-338764184b7f.png" alt=""></p>
-<p>安装成功之后，会收到邮件。安装的详细帮助文档可以参考如下：</p>
-<p><a href="https://help.salesforce.com/articleView?id=mc_co_install_marketing_cloud_connect.htm&amp;type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=mc_co_install_marketing_cloud_connect.htm&amp;type=5</a></p>
-<p>首选，需要在Salesforce平台，在User layout把Marketing Cloud for AppExchange Admin和Marketing Cloud for AppExchange User拖出来。</p>
-<p><img src="https://user-images.githubusercontent.com/9688136/88072927-3279aa80-cba8-11ea-8bd6-8724a0d76217.png" alt=""></p>
-<p>效果如下，</p>
-<p><img src="https://user-images.githubusercontent.com/43492400/88292284-0d15a980-cd2c-11ea-9ebd-9615371439cc.png" alt=""></p>
-<p>在自己的User Details里面打上勾。</p>
-<p><img src="https://user-images.githubusercontent.com/43492400/88292341-1acb2f00-cd2c-11ea-9d63-68d652dede28.png" alt=""></p>
-<p>在Lead的layout上面，把Email Sends 和Individual Email Results拖到Related List里面</p>
-<p><img src="https://user-images.githubusercontent.com/43492400/88292412-30d8ef80-cd2c-11ea-8d3f-32dd30a33227.png" alt=""></p>
-<p>同时，把LeadActions的Visualforce Page拖到Page Layout里面。</p>
-<p>同样做法，在Contact的layout上面，把Email Sends 和Individual Email Results拖到Related List里面，把LeadActions的Visualforce Page拖到Page Layout里面。</p>
-<p>接下来，需要新建一个Permission，如下，</p>
-<p><img src="https://user-images.githubusercontent.com/43492400/88292498-477f4680-cd2c-11ea-830c-f4c30dcb4e8f.png" alt=""></p>
-<p>在Lead的Email Opt Out field，选择Set Field-Level Security，将需要进行连接的用户Profile，设置为Visible</p>
-<p><img src="https://user-images.githubusercontent.com/43492400/88292570-61208e00-cd2c-11ea-96a1-fac7b8a0d8ed.png" alt=""></p>
-<p>在Contact的Email Opt Out field，选择Set Field-Level Security，将对应的Profile设置为Visible，</p>
-<p><img src="https://user-images.githubusercontent.com/43492400/88296992-f6725100-cd31-11ea-9261-02b46aabbcdc.png" alt=""></p>
-<p>至此，Salesforce部分的配置已经完成一部分了。</p>
-<p>接下来是登入Marketing Cloud，在Setup处，点击Apps，选择Salesforce Intergration，<br><img src="https://user-images.githubusercontent.com/43492400/88297018-00944f80-cd32-11ea-8151-15e6b9b2ca7a.png" alt=""></p>
-<p>点击 Connect Account，会出现如下画面。</p>
-<p><img src="https://user-images.githubusercontent.com/43492400/88295793-78617a80-cd30-11ea-87ba-39370d5ce3a6.png" alt=""></p>
-<p>点击授权之后，会跳转回原来的Marketing Cloud画面。</p>
-<p><img src="https://user-images.githubusercontent.com/43492400/88295831-83b4a600-cd30-11ea-92da-b08849af7964.png" alt=""></p>
-<p>至此，Marketing Cloud的相关授权已经完成。</p>
-<p>接下来，我们需要回到Salesforce上，在Setup上面，选择Apps–&gt;App Manager。</p>
-<p><img src="https://user-images.githubusercontent.com/43492400/88295866-8e6f3b00-cd30-11ea-8141-e2e1eba3b751.png" alt=""></p>
-<p>修改Connected App为如下</p>
-<p>Permitted Users：Admin approved users are pre-authorized</p>
-<p>IP Relaxation：Relax IP restrictions.</p>
-<p>Refresh Token Policy：Immediately expire refresh token</p>
-<p><img src="https://user-images.githubusercontent.com/43492400/88295901-99c26680-cd30-11ea-9430-3e3c2694f373.png" alt=""></p>
-<p>然后点保存。</p>
-<p>最后在Permission处，选择刚刚新建的Permission。</p>
-<p><img src="https://user-images.githubusercontent.com/43492400/88295935-a5159200-cd30-11ea-9804-9ab8856d412b.png" alt=""></p>
-<p>在Setup处，选择Process Automation Settings，将Default Workflow User处修改成管理员。</p>
-<p><img src="https://user-images.githubusercontent.com/43492400/88295972-b1015400-cd30-11ea-8cb0-7cc76d3c2621.png" alt=""></p>
-<p>在Setup处，选择Session Settings，然后什么也不用做，点保存即可。</p>
-<p><img src="https://user-images.githubusercontent.com/43492400/88296007-bd85ac80-cd30-11ea-8fe2-63434988ef07.png" alt=""></p>
-<p>接下来在App Lancher上，选择Marketing Cloud的Tab，进入配置环境。</p>
-<p><img src="https://user-images.githubusercontent.com/43492400/88296204-f756b300-cd30-11ea-9dee-9362e8d98440.png" alt=""></p>
-<p>然后点击Verify即可。</p>
-<p><img src="https://user-images.githubusercontent.com/43492400/88296251-09d0ec80-cd31-11ea-934e-e45b2150f048.png" alt=""></p>
-<p>接下来你会跳到下面这个页面。</p>
-<p><img src="https://user-images.githubusercontent.com/43492400/88296291-13f2eb00-cd31-11ea-8ef3-e3bf0dba7c77.png" alt=""></p>
-<p>接下来直接点Next，连续点好几个Next，直到Done为止。</p>
-<p><img src="https://user-images.githubusercontent.com/43492400/88296324-1fdead00-cd31-11ea-916d-360621ad9432.png" alt=""></p>
-<p>接下来你会看到这样画面，选择I agree。然后点击Configure Marketing Cloud Connector。</p>
-<p><img src="https://user-images.githubusercontent.com/43492400/88296674-967baa80-cd31-11ea-8a81-18bc3c5ef805.png" alt=""></p>
-<p>理想情况下，你会看到这样画面。</p>
-<p><img src="https://user-images.githubusercontent.com/43492400/88296711-9f6c7c00-cd31-11ea-8a7b-aaf4d92986c2.png" alt=""></p>
-<p>接下来，系统会跳转到如下画面，点击Connect to Marketing Cloud。</p>
-<p><img src="https://user-images.githubusercontent.com/43492400/88296874-d5116500-cd31-11ea-8d0f-771cb890b4b0.png" alt=""></p>
-<p>正常情况下，你会跳转到如下页面。在Account处，选择Email。</p>
-<p><img src="https://user-images.githubusercontent.com/43492400/88296928-e2c6ea80-cd31-11ea-90d8-499bad2a9c16.png" alt=""></p>
-<p>把Sends这几个全部选上。</p>
-<p><img src="https://user-images.githubusercontent.com/43492400/88296145-e9a12d80-cd30-11ea-8831-5564e6a859a3.png" alt=""></p>
-<p>在Notifications处，输入您的邮箱，如果系统出错，会发邮件到您的邮箱里面。</p>
-<p><img src="https://user-images.githubusercontent.com/43492400/88296107-dd1cd500-cd30-11ea-9e53-c58d71660e76.png" alt=""></p>
-<p>在“Tracking”部分，为您的组织选择有关Marketing Cloud发送到CRM系统的特定电子邮件跟踪数据的适当选项。请记住，您为这些所做的选择可能会影响CRM组织的整体存储。</p>
-<p>最后记得点击保存。接下来会跳转到如下页面，选择至少一个BU。</p>
-<p><img src="https://user-images.githubusercontent.com/43492400/88296062-ceceb900-cd30-11ea-9c2a-f3830cb1ac19.png" alt=""></p>
-<p>这样，Salesforce部分已经搞定。接下来，我们回到Marekting cloud部分，到User下面，点击Integrate，需要选择用户进行集成。</p>
-<p><img src="https://user-images.githubusercontent.com/43492400/88293052-0a678400-cd2d-11ea-8f87-3ebbfd63aafc.png" alt=""></p>
-<p>这里需要选择Salesforce内的用户名。</p>
-<p><img src="https://user-images.githubusercontent.com/43492400/88292748-9fb64880-cd2c-11ea-8453-b70065148c4e.png" alt=""></p>
-<p>如果设置成功Salesforce.com Status处会显示Integrated。</p>
-<p><img src="https://user-images.githubusercontent.com/43492400/88292717-94fbb380-cd2c-11ea-8c77-9df79e3427b9.png" alt=""></p>
-<p>就这样，我们已经完全打通了Salesforce平台和Marketing Cloud了！</p>
-<p><img src="https://user-images.githubusercontent.com/43492400/88292694-8ad9b500-cd2c-11ea-9061-470582d3b62b.png" alt=""></p>
-<p><strong>那么如何断开连接？</strong></p>
-<p>在MC下，Marketing Cloud Email Studio 处，选择admin Tab。</p>
-<p><img src="https://user-images.githubusercontent.com/43492400/88292640-7b5a6c00-cd2c-11ea-904d-be08c48772ef.png" alt=""></p>
-<p>相关参考文章：</p>
-<ul>
-<li><p><a href="https://help.salesforce.com/articleView?id=mc_co_disconnect_account.htm&amp;type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=mc_co_disconnect_account.htm&amp;type=5</a></p>
-</li>
-<li><p><a href="https://help.salesforce.com/articleView?id=mc_co_marketing_cloud_connect.htm&amp;type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=mc_co_marketing_cloud_connect.htm&amp;type=5</a></p>
-</li>
-</ul>
-<p>最后推荐一个Trailhead模块供大家学习：</p>
-<p><a href="https://trailhead.salesforce.com/content/learn/modules/marketing-cloud-connect" target="_blank" rel="noopener">https://trailhead.salesforce.com/content/learn/modules/marketing-cloud-connect</a></p>
-<p><img src="https://user-images.githubusercontent.com/43492400/88292607-70074080-cd2c-11ea-91eb-9e18f2e7e292.png" alt=""></p>
+
+
+<h2 id="Sharing"><a href="#Sharing" class="headerlink" title="Sharing"></a>Sharing</h2><p>查询某一数据的 Sharing 的快速链接</p>
+<p><a href="https://yourcompany.salesforce.com/p/share/CustomObjectSharingDetail?parentId=" target="_blank" rel="noopener">https://yourcompany.salesforce.com/p/share/CustomObjectSharingDetail?parentId=</a><your_recordId></p>
+<p>注意，如果是account，<a href="https://yourcompany.salesforce.com/p/share/AccSharingDetail?parentId=" target="_blank" rel="noopener">https://yourcompany.salesforce.com/p/share/AccSharingDetail?parentId=</a><your_recordId></p>
+<h2 id="如何检查数据的Access-Right？"><a href="#如何检查数据的Access-Right？" class="headerlink" title="如何检查数据的Access Right？"></a>如何检查数据的Access Right？</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT RecordId,HasReadAccess FROM UserRecordAccess WHERE UserId = :userInfo.getUserId() AND RecordId = <span class="string">'abc'</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="重置密码apex-code"><a href="#重置密码apex-code" class="headerlink" title="重置密码apex code"></a>重置密码apex code</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">system.setPassword(&#39;&lt;user_id&gt;&#39;,&#39;your_password&#39;);</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="查询-Class-的Permission"><a href="#查询-Class-的Permission" class="headerlink" title="查询 Class 的Permission"></a>查询 Class 的Permission</h2><p>Check Class Permission SQL : </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select id,(SELECT Id, Parent.Name, Parent.Profile.Name FROM SetupEntityAccessItems) from ApexClass where name &#x3D; &#39;YourclassName&#39;</span><br></pre></td></tr></table></figure>
+
 
         </div>
 
         <section class='meta'>
-            <time class="time" itemprop="dateUpdated" datetime="2022-04-22T14:39:49+00:00" content="2022-04-22">
+            <time class="time" itemprop="dateUpdated" datetime="2022-04-22T15:25:48+00:00" content="2022-04-22">
                 <i class="fas fa-pen fa-fw" aria-hidden="true"></i>
                 本文最后更新于：2022-04-22
             </time>
@@ -296,7 +221,7 @@
                 
                 <div class="tags">
                     <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
-                    <a class="tag" href="/tags/Salesforce/">Salesforce</a>, <a class="tag" href="/tags/MC/">MC</a>, <a class="tag" href="/tags/MCC/">MCC</a>, <a class="tag" href="/tags/Marketing-Cloud-Connect/">Marketing Cloud Connect</a>
+                    <a class="tag" href="/tags/Salesforce/">Salesforce</a>, <a class="tag" href="/tags/Apex/">Apex</a>, <a class="tag" href="/tags/Admin/">Admin</a>
                 </div>
             
         </section>
@@ -311,9 +236,9 @@
                         <span class="art-item-left">
                             <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一篇</h6>
                             <h4>
-                                <a href="/2020/07/11/2020-07-11-Pardot-Study-Note/" rel="prev" title="Salesforce Pardot Study">
+                                <a href="/2020/11/25/2020-11-25-SalesforceStudyNote/" rel="prev" title="Salesforce  开发者笔记">
                                   
-                                      Salesforce Pardot Study
+                                      Salesforce  开发者笔记
                                   
                                 </a>
                             </h4>
@@ -321,7 +246,7 @@
                                 
                                 <h6 class="tags">
                                     <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
-                                    <a class="tag" href="/tags/Salesforce/">Salesforce</a>, <a class="tag" href="/tags/Pardot/">Pardot</a>
+                                    <a class="tag" href="/tags/Salesforce/">Salesforce</a>, <a class="tag" href="/tags/Apex/">Apex</a>, <a class="tag" href="/tags/StudyNote/">StudyNote</a>
                                 </h6>
                             
                         </span>
@@ -332,9 +257,9 @@
                         <span class="art-item-right" aria-hidden="true">
                             <h6>下一篇&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
                             <h4>
-                                <a href="/2020/06/12/2020-06-12-Marketing-Cloud-Interactive-Email/" rel="prev" title="三分钟教你设计出一封交互式邮件">
+                                <a href="/2020/08/01/2020-08-01-Heroku-Study/" rel="prev" title="Heroku学习以及相关资料">
                                     
-                                        三分钟教你设计出一封交互式邮件
+                                        Heroku学习以及相关资料
                                     
                                 </a>
                             </h4>
@@ -342,7 +267,7 @@
                                 
                                 <h6 class="tags">
                                     <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
-                                    <a class="tag" href="/tags/Salesforce/">Salesforce</a>, <a class="tag" href="/tags/Marketing-Cloud/">Marketing Cloud</a>, <a class="tag" href="/tags/MC/">MC</a>, <a class="tag" href="/tags/Interactive-Email/">Interactive Email</a>
+                                    <a class="tag" href="/tags/Salesforce/">Salesforce</a>, <a class="tag" href="/tags/Heroku/">Heroku</a>
                                 </h6>
                             
                         </span>
@@ -369,15 +294,15 @@
         <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;你可能感兴趣的文章</h4>
         <ul>
             
+                <li><a href="http://tonyrenhk.github.io/2020/11/25/2020-11-25-SalesforceStudyNote/">Salesforce  开发者笔记</a></li>
+            
                 <li><a href="http://tonyrenhk.github.io/2020/08/01/2020-08-01-Heroku-Study/">Heroku学习以及相关资料</a></li>
             
                 <li><a href="http://tonyrenhk.github.io/2020/07/11/2020-07-11-Pardot-Study-Note/">Salesforce Pardot Study</a></li>
             
+                <li><a href="http://tonyrenhk.github.io/2020/07/10/2020-07-10-Marketing-Cloud/">营销云 Marketing Cloud 学习笔记</a></li>
+            
                 <li><a href="http://tonyrenhk.github.io/2020/06/12/2020-06-12-Marketing-Cloud-Interactive-Email/">三分钟教你设计出一封交互式邮件</a></li>
-            
-                <li><a href="http://tonyrenhk.github.io/2020/06/02/2020-06-01-CPQ-Study/">Salesforce CPQ 学习资料</a></li>
-            
-                <li><a href="http://tonyrenhk.github.io/2020/05/01/2020-05-01-LWC-Study/">LWC学习</a></li>
             
         </ul>
     </div>
@@ -402,7 +327,7 @@
 
 <script>
     window.subData = {
-        title: '营销云 Marketing Cloud 学习笔记',
+        title: 'Salesforce 管理员笔记',
         tools: true
     }
 </script>
@@ -633,6 +558,16 @@
     
     
         
+    <section class='m_widget toc-wrapper'>
+        <header class="header pure">
+            <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;目录</div>
+            <div class='wrapper'><a class="s-toc rightBtn" title="固定到顶部" target="_blank" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+        </header>
+        <div class='content pure'>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Sharing"><span class="toc-text">Sharing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何检查数据的Access-Right？"><span class="toc-text">如何检查数据的Access Right？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重置密码apex-code"><span class="toc-text">重置密码apex code</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查询-Class-的Permission"><span class="toc-text">查询 Class 的Permission</span></a></li></ol>
+        </div>
+    </section>
+
 
     
 
