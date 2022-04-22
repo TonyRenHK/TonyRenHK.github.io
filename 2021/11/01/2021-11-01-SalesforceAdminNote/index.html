@@ -192,6 +192,20 @@
 <p>这里记录一些管理员常用SQL。</p>
 <a id="more"></a>
 
+<h1 id="Permission"><a href="#Permission" class="headerlink" title="Permission"></a>Permission</h1><p>Object: SetupEntityAccess</p>
+<table>
+<thead>
+<tr>
+<th>ParentId</th>
+<th>SetupEntityId</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Permission_id</td>
+<td>class_id</td>
+</tr>
+</tbody></table>
+<p>class_id or page_id</p>
 <h1 id="Group-Member"><a href="#Group-Member" class="headerlink" title="Group Member"></a>Group Member</h1><p>后台把用户大量加入group里面的方法如下，object name: GroupMember</p>
 <table>
 <thead>
@@ -210,7 +224,7 @@
 <p><a href="https://yourcompany.salesforce.com/p/share/CustomObjectSharingDetail?parentId={your_recordId}" target="_blank" rel="noopener">https://yourcompany.salesforce.com/p/share/CustomObjectSharingDetail?parentId={your_recordId}</a></p>
 <p>注意，如果是account，<a href="https://yourcompany.salesforce.com/p/share/AccSharingDetail?parentId={your_recordId}" target="_blank" rel="noopener">https://yourcompany.salesforce.com/p/share/AccSharingDetail?parentId={your_recordId}</a></p>
 <p>直接打开某一对象的Sharing rule的设置页面，可以直接用如下链接：</p>
-<p><a href="https://yourcompany.my.salesforce.com/p/own/OrgSharingDetail?st={your_object_Id}&amp;setupid=SecuritySharing" target="_blank" rel="noopener">https://yourcompany.my.salesforce.com/p/own/OrgSharingDetail?st={your_object_Id}&amp;setupid=SecuritySharing</a></p>
+<p><a href="https://yourcompany.my.salesforce.com/p/own/OrgSharingDetail?st=your_object_Id}&amp;setupid=SecuritySharing" target="_blank" rel="noopener">https://yourcompany.my.salesforce.com/p/own/OrgSharingDetail?st=your_object_Id}&amp;setupid=SecuritySharing</a></p>
 <h2 id="如何检查数据的Access-Right？"><a href="#如何检查数据的Access-Right？" class="headerlink" title="如何检查数据的Access Right？"></a>如何检查数据的Access Right？</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT RecordId,HasReadAccess FROM UserRecordAccess WHERE UserId = :userInfo.getUserId() AND RecordId = <span class="string">'abc'</span></span><br></pre></td></tr></table></figure>
 
 
@@ -226,7 +240,7 @@
         </div>
 
         <section class='meta'>
-            <time class="time" itemprop="dateUpdated" datetime="2022-04-22T15:45:13+00:00" content="2022-04-22">
+            <time class="time" itemprop="dateUpdated" datetime="2022-04-22T15:47:44+00:00" content="2022-04-22">
                 <i class="fas fa-pen fa-fw" aria-hidden="true"></i>
                 本文最后更新于：2022-04-22
             </time>
@@ -577,7 +591,7 @@
             <div class='wrapper'><a class="s-toc rightBtn" title="固定到顶部" target="_blank" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
         </header>
         <div class='content pure'>
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Group-Member"><span class="toc-text">Group Member</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Sharing"><span class="toc-text">Sharing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何检查数据的Access-Right？"><span class="toc-text">如何检查数据的Access Right？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重置密码apex-code"><span class="toc-text">重置密码apex code</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查询-Class-的Permission"><span class="toc-text">查询 Class 的Permission</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Permission"><span class="toc-text">Permission</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Group-Member"><span class="toc-text">Group Member</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Sharing"><span class="toc-text">Sharing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何检查数据的Access-Right？"><span class="toc-text">如何检查数据的Access Right？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重置密码apex-code"><span class="toc-text">重置密码apex code</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查询-Class-的Permission"><span class="toc-text">查询 Class 的Permission</span></a></li></ol></li></ol>
         </div>
     </section>
 
