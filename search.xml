@@ -1275,33 +1275,6 @@
     
     
     <entry>
-      <title>新闻其他书签</title>
-      <link href="/2018/01/01/2018-01-02-New-BookMark/"/>
-      <url>/2018/01/01/2018-01-02-New-BookMark/</url>
-      
-        <content type="html"><![CDATA[<p>Other Resource</p><a id="more"></a><ul><li><a href="https://www.dailyfxasia.com/cn/market-news" target="_blank" rel="noopener">財經新聞_外匯商品指數新聞走勢分析 | DailyFX財經網</a></li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> Others </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Study </tag>
-            
-            <tag> Others </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Salesforce学习资源</title>
       <link href="/2018/01/01/2018-01-01-Salesforce-related-resource/"/>
       <url>/2018/01/01/2018-01-01-Salesforce-related-resource/</url>
@@ -1318,7 +1291,34 @@
       
         <tags>
             
+            <tag> Study </tag>
+            
             <tag> Salesforce </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>新闻其他书签</title>
+      <link href="/2018/01/01/2018-01-02-New-BookMark/"/>
+      <url>/2018/01/01/2018-01-02-New-BookMark/</url>
+      
+        <content type="html"><![CDATA[<p>Other Resource</p><a id="more"></a><ul><li><a href="https://www.dailyfxasia.com/cn/market-news" target="_blank" rel="noopener">財經新聞_外匯商品指數新聞走勢分析 | DailyFX財經網</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Others </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Others </tag>
             
             <tag> Study </tag>
             
