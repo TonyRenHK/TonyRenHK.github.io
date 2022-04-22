@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Python 入门基础学习笔记笔记</title>
+      <link href="/2022/02/01/2022-02-01-PythonStudyNote1/"/>
+      <url>/2022/02/01/2022-02-01-PythonStudyNote1/</url>
+      
+        <content type="html"><![CDATA[<p>Python量化入门学习笔记</p><a id="more"></a><h2 id="EMA-方法学习事件"><a href="#EMA-方法学习事件" class="headerlink" title="EMA 方法学习事件"></a>EMA 方法学习事件</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">  </span><br><span class="line">stockValues = pd.DataFrame(</span><br><span class="line">    &#123;<span class="string">'Stock_Values'</span>: [<span class="number">60</span>, <span class="number">102</span>, <span class="number">103</span>, <span class="number">104</span>, <span class="number">101</span>,</span><br><span class="line">                      <span class="number">105</span>, <span class="number">102</span>, <span class="number">103</span>, <span class="number">103</span>, <span class="number">102</span>]&#125;)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">ema = stockValues.ewm(com=<span class="number">0.4</span>).mean()</span><br><span class="line">print(ema)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plt.plot(stockValues, label=<span class="string">"Stock Values"</span>)</span><br><span class="line">plt.plot(ema, label=<span class="string">"EMA Values"</span>)</span><br><span class="line">plt.xlabel(<span class="string">"Days"</span>)</span><br><span class="line">plt.ylabel(<span class="string">"Price"</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Salesforce </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Salesforce 管理员笔记</title>
       <link href="/2021/11/01/2021-11-01-SalesforceAdminNote/"/>
       <url>/2021/11/01/2021-11-01-SalesforceAdminNote/</url>

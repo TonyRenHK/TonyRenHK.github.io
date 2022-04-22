@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://tonyrenhk.github.io/2022/02/01/2022-02-01-PythonStudyNote1/</loc>
+    <lastmod>2022-04-22</lastmod>
+  </url>  <url>
     <loc>http://tonyrenhk.github.io/2021/11/01/2021-11-01-SalesforceAdminNote/</loc>
     <lastmod>2022-04-22</lastmod>
   </url>  <url>
@@ -79,22 +82,22 @@
     <loc>http://tonyrenhk.github.io/2018/11/25/2018-11-25-WesingPlugins/</loc>
     <lastmod>2020-07-26</lastmod>
   </url>  <url>
-    <loc>http://tonyrenhk.github.io/2019/04/02/2019-04-02-LibraryNPM/</loc>
+    <loc>http://tonyrenhk.github.io/2019/09/12/2019-09-12-JsforceMetadata/</loc>
     <lastmod>2020-07-26</lastmod>
   </url>  <url>
     <loc>http://tonyrenhk.github.io/2019/03/12/2019-03-12-BuildABear-Tracking-App-withLWC/</loc>
     <lastmod>2020-07-26</lastmod>
   </url>  <url>
-    <loc>http://tonyrenhk.github.io/2019/03/07/2019-03-07-Get_Start_SFDC/</loc>
+    <loc>http://tonyrenhk.github.io/2019/02/21/2019-02-21-Lightning-Data-Service-Basics/</loc>
     <lastmod>2020-07-26</lastmod>
   </url>  <url>
     <loc>http://tonyrenhk.github.io/2018/09/28/2018-09-28-JSForce-Study/</loc>
     <lastmod>2020-07-26</lastmod>
   </url>  <url>
-    <loc>http://tonyrenhk.github.io/2018/12/21/2018-12-21-Lightning-Experience-Development/</loc>
+    <loc>http://tonyrenhk.github.io/2019/03/07/2019-03-07-Get_Start_SFDC/</loc>
     <lastmod>2020-07-26</lastmod>
   </url>  <url>
-    <loc>http://tonyrenhk.github.io/2019/02/21/2019-02-21-Lightning-Data-Service-Basics/</loc>
+    <loc>http://tonyrenhk.github.io/2018/12/21/2018-12-21-Lightning-Experience-Development/</loc>
     <lastmod>2020-07-26</lastmod>
   </url>  <url>
     <loc>http://tonyrenhk.github.io/2019/01/06/2019-01-06-Lightning-Web-Components/</loc>
@@ -115,7 +118,7 @@
     <loc>http://tonyrenhk.github.io/2018/11/27/2018-11-27-hexo-theme-doc-SupportCN/</loc>
     <lastmod>2020-07-26</lastmod>
   </url>  <url>
-    <loc>http://tonyrenhk.github.io/2019/09/12/2019-09-12-JsforceMetadata/</loc>
+    <loc>http://tonyrenhk.github.io/2019/04/02/2019-04-02-LibraryNPM/</loc>
     <lastmod>2020-07-26</lastmod>
   </url>  <url>
     <loc>http://tonyrenhk.github.io/2018/02/02/2018-02-02-Git-Study/</loc>
