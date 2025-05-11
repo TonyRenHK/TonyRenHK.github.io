@@ -1,37 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!-- 引入Materialize CSS -->
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
 <div class="container">
-  <!-- Tab导航 -->
+
   <div class="row">
     <div class="col s12">
       <ul class="tabs">
-        <li class="tab col s3"><a class="active" href="#tab1">主页</a></li>
-        <li class="tab col s3"><a href="#tab2">产品</a></li>
-        <li class="tab col s3"><a href="#tab3">联系我们</a></li>
+        <li class="tab col s3"><a class="active" href="#tab1">Market</a></li>
+        <li class="tab col s3"><a href="#tab2">Crypto</a></li>
+        <li class="tab col s3"><a href="#tab3">Stock News</a></li>
       </ul>
     </div>
-    <!-- Tab内容 -->
-    <div id="tab1" class="col s12">主页内容（支持触控滑动切换）</div>
+  
+    <div id="tab1" class="col s12">
+        <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js" async>
+    {
+    "symbol": "OKX:BTCUSDT",
+    "width": 550,
+    "locale": "en",
+    "colorTheme": "light",
+    "isTransparent": false
+  }
+    </script>
+  </div>
+  <!-- TradingView Widget END -->
+        
+        
+        ）</div>
     <div id="tab2" class="col s12">产品详情页</div>
     <div id="tab3" class="col s12">联系表单</div>
   </div>
 </div>
 
-<!-- 引入jQuery和Materialize JS -->
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script>
-  // 初始化Tabs（支持滑动动画）
   document.addEventListener('DOMContentLoaded', function() {
     var tabs = M.Tabs.init(document.querySelectorAll('.tabs'), {
-      swipeable: true  // 启用移动端滑动切换
+      swipeable: true  
     });
   });
 </script>
