@@ -1,31 +1,182 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>金融信息仪表盘</title>
+    <style>
+        /* 全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, sans-serif;
+        }
+
+        /* Tab导航样式 */
+        .tab-container {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #fff;
+            z-index: 100;
+        }
+
+        .tab-buttons {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            border-bottom: 1px solid #eee;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .tab-button {
+            flex: 1;
+            min-width: 80px;
+            padding: 12px 0;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .tab-button.active {
+            color: #007AFF;
+            border-bottom: 2px solid #007AFF;
+        }
+
+        /* 内容区域 */
+        .content-container {
+            margin-top: 50px;
+            padding: 15px;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* 市场数据网格布局 */
+        .market-grid {
+            display: grid;
+            gap: 15px;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .data-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .data-card h3 {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .data-card p {
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        /* 外汇样式 */
+        .forex-item {
+            padding: 12px;
+            background: #fff;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* 响应式布局 */
+        @media (max-width: 768px) {
+            .market-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
+    <div class="tab-container">
+        <div class="tab-buttons">
+            <button class="tab-button active" onclick="switchTab('market')">市场</button>
+            <button class="tab-button" onclick="switchTab('forex')">外汇</button>
+            <button class="tab-button" onclick="switchTab('crypto')">加密新闻</button>
+            <button class="tab-button" onclick="switchTab('stock')">股票新闻</button>
+        </div>
+    </div>
 
-<div class="container">
-  <h3>Tabs With Dropdown Menu</h3>
-  <ul class="nav nav-tabs">
-    <li class="active"><a href="#">Home</a></li>
-    <li class="dropdown">
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu 1 <span class="caret"></span></a>
-      <ul class="dropdown-menu">
-        <li><a href="#">Submenu 1-1</a></li>
-        <li><a href="#">Submenu 1-2</a></li>
-        <li><a href="#">Submenu 1-3</a></li>                        
-      </ul>
-    </li>
-    <li><a href="#">Menu 2</a></li>
-    <li><a href="#">Menu 3</a></li>
-  </ul>
-</div>
+    <div class="content-container">
+        <!-- 市场数据 -->
+        <div id="market" class="tab-content active">
+            <div class="market-grid">
+                <div class="data-card">
+                    <h3>恒生指数</h3>
+                    <p>+1.25% ▲</p>
+                </div>
+                <div class="data-card">
+                    <h3>恒生科技</h3>
+                    <p>+2.15% ▲</p>
+                </div>
+                <div class="data-card">
+                    <h3>比特币</h3>
+                    <p>$64,200 ▼</p>
+                </div>
+                <div class="data-card">
+                    <h3>纳斯达克</h3>
+                    <p>+0.75% ▲</p>
+                </div>
+            </div>
+        </div>
 
+        <!-- 外汇数据 -->
+        <div id="forex" class="tab-content">
+            <div class="forex-item">
+                <h3>USD/JPY</h3>
+                <p>156.80</p>
+            </div>
+            <div class="forex-item">
+                <h3>USD/CNY</h3>
+                <p>7.2415</p>
+            </div>
+        </div>
+
+        <!-- 加密新闻 -->
+        <div id="crypto" class="tab-content">
+            <!-- 可后续通过AJAX加载内容 -->
+        </div>
+
+        <!-- 股票新闻 -->
+        <div id="stock" class="tab-content">
+            <!-- 可后续通过AJAX加载内容 -->
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabId) {
+            // 切换按钮状态
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+                if(btn.getAttribute('onclick').includes(tabId)) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // 切换内容显示
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+                if(content.id === tabId) {
+                    content.classList.add('active');
+                }
+            });
+        }
+    </script>
 </body>
 </html>
