@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="036nsNgxuH68xUABF8jrgg8Xzsti4FN8eKjWvA185C4" />
+  <meta name="baidu-site-verification" content="FQRuGMvxtv" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+
+  
+  <title>Trailhead学习:Data Integration Specialist Superbadge | Tony Ren&#39;s 学习笔记</title>
+  
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico">
+  <link rel="alternate" href="/atom.xml" title="Tony Ren's 学习笔记">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico" />
+  <link rel="icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico" />
+  
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono" rel="stylesheet">
+  
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link href='//cdn.bootcss.com/node-waves/0.7.5/waves.min.css' rel='stylesheet'>
+  
+<link rel="stylesheet" href="/style.css">
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+  
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1382646259212001",
+    enable_page_level_ads: true
+  });
+</script>
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading-bar-wrapper">
+  <div id="loading-bar" class="pure"></div>
+</div>
+
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header pure">
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+			<a class="logo flat-box" href='/' >Tony Ren's 学习笔记</a>
+				<div class='menu'>
+					<ul class='h-list'>
+            
+    					
+    						<li>
+    							<a class="nav  flat-box" href="/">
+    								<i class='fas fa-home fa-fw'></i>&nbsp;主页
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/archives/">
+    								<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/Project">
+    								<i class='fas fa-flask fa-fw'></i>&nbsp;项目
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/about/">
+    								<i class='fas fa-user fa-fw'></i>&nbsp;关于
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="https://renchk.github.io" target="_blank" rel="noopener">
+    								<i class='fas fa-globe fa-fw'></i>&nbsp;English
+  								</a>
+  							</li>
+        			
+        		
+					</ul>
+					<div class='underline'></div>
+				</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search" />
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></span></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-top'><a class="fas fa-arrow-circle-up fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-toc'><a class="fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+		<nav>
+      <ul>
+          
+              
+                  <li>
+										<a class="nav  flat-box" href="/">
+											<i class='fas fa-home fa-fw'></i>&nbsp;主页
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/archives/">
+											<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/Project">
+											<i class='fas fa-flask fa-fw'></i>&nbsp;项目
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/about/">
+											<i class='fas fa-user fa-fw'></i>&nbsp;关于
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="https://renchk.github.io" target="_blank" rel="noopener">
+											<i class='fas fa-globe fa-fw'></i>&nbsp;English
+										</a>
+                  </li>
+              
+       
+      </ul>
+		</nav>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            <article id="post-2018-12-05-Data-Integration-Specialist-Superbadge" class="post white-box article-type-post" itemscope itemprop="blogPost">
+    <section class='meta'>
+        
+            <h1 class="title">Trailhead学习:Data Integration Specialist Superbadge</h1>
+        
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+            2018-12-05
+        </time>
+        <div class="browse"><i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+        </div>
+        
+    
+    <div class='cats'>
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+        <a class="categories" href="/categories/Salesforce/">Salesforce</a>
+    </div>
+
+
+    </section>
+
+    <section class="article typo">
+
+        <div class="article-entry" itemprop="articleBody">
+            <p>Trailhead学习：Data Integration Specialist Superbadge</p>
+<a id="more"></a>
+
+
+<p>欲破解该Superbadge需要先破解Lightning Flow模块，相关链接如下：</p>
+<p><a href="https://trailhead.salesforce.com/en/content/learn/superbadges/superbadge_integration" target="_blank" rel="noopener">https://trailhead.salesforce.com/en/content/learn/superbadges/superbadge_integration</a></p>
+<p>需安装如下’Data Integration Specialist Superbadge’ package：</p>
+<p><a href="https://login.salesforce.com/packaging/installPackage.apexp?p0=04t41000001T3kx" target="_blank" rel="noopener">https://login.salesforce.com/packaging/installPackage.apexp?p0=04t41000001T3kx</a></p>
+<h1 id="Configure-outbound-application-and-integration-security"><a href="#Configure-outbound-application-and-integration-security" class="headerlink" title="Configure outbound application and integration security"></a>Configure outbound application and integration security</h1><p>题目要求如下：</p>
+<p>Install the unmanaged package from the prework if you haven’t already. Configure a named credential and remote site according to the specifications outlined in the business requirements. Enter the billing service credentials in the custom setting.</p>
+<p>在设置(Setup)下-&gt;安全性控制 -&gt;远程站点设置, 远程站点名称设置为BillingService，远程站点 URL为：<a href="http://sb-integration-bs.herokuapp.com/" target="_blank" rel="noopener">http://sb-integration-bs.herokuapp.com</a></p>
+<p>在安全性控制中添加新的命名凭证:<br>    * 标签：ProjectService<br>    * 名称：ProjectService<br>    * URL：<a href="https://sb-integration-pms.herokuapp.com/projects" target="_blank" rel="noopener">https://sb-integration-pms.herokuapp.com/projects</a><br>    * 身份类型：命名首要<br>    * 验证协议：密码验证<br>    * 用户名：pmsUser1<br>    * 密码：pmsUser1<br>    * 生成授权标题：打上勾√	</p>
+<p>添加连接的应用程序：API 名称设置为ProjectService，系统会生成一个’客户键’和’消费者秘密’。然后在如下链接测试你的链接<br><a href="https://sb-integration-pms.herokuapp.com/" target="_blank" rel="noopener">https://sb-integration-pms.herokuapp.com</a>.</p>
+<p>结果会在URL体现出来，同时,会得到一个Token，成功的URL会如下：<br><a href="https://sb-integration-pms.herokuapp.com/test?success=true" target="_blank" rel="noopener">https://sb-integration-pms.herokuapp.com/test?success=true</a></p>
+<p>在Custom Setting添加一条记录ServiceCredentials，名字是BillingServiceCredential，username是bsUser1，Password是bsPass1。</p>
+<h1 id="Configure-inbound-integration-security"><a href="#Configure-inbound-integration-security" class="headerlink" title="Configure inbound integration security"></a>Configure inbound integration security</h1><p>题目要求如下<br>Configure the PMS Connected App according to the specifications outlined in the business requirements. Then register the connected app with the Org Registration Heroku app and test the connection. Enter the project service security token into the custom setting.</p>
+<p>基于上面一题得到的Token，在Custom Setting中的ServiceTokens加一条名字为ProjectServiceToken的记录</p>
+<h1 id="Synchronize-Salesforce-opportunity-data-with-Square-Peg’s-PMS-external-system"><a href="#Synchronize-Salesforce-opportunity-data-with-Square-Peg’s-PMS-external-system" class="headerlink" title="Synchronize Salesforce opportunity data with Square Peg’s PMS external system"></a>Synchronize Salesforce opportunity data with Square Peg’s PMS external system</h1><p>Build a Process Builder process on the opportunity object to invoke an Apex REST callout to the external PMS as outlined in the requirements section.<br>本题考查的是进程生成器(Process Builder)调用Apex类。</p>
+<p>同时，需要在业务机会(Opportunity) Type字段加一个新的选项’New Project’</p>
+<p>Apex 类如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProjectCalloutService</span> </span>&#123;</span><br><span class="line">    <span class="comment">//method to be invoked by ProcessBuilder apex</span></span><br><span class="line">    <span class="meta">@InvocableMethod</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">postOpportunityToPMS</span><span class="params">(List&lt;Id&gt; oppoIds)</span></span>&#123;</span><br><span class="line">        Opportunity opp = [SELECT Id,Name,Account.Name,CloseDate,Amount FROM Opportunity WHERE Id = :oppoIds[<span class="number">0</span>]];</span><br><span class="line">        String serviceToken = ServiceTokens__c.getValues(<span class="string">'ProjectServiceToken'</span>).Token__c;</span><br><span class="line">        </span><br><span class="line">        String jsonInput = <span class="string">'&#123;\n'</span> +</span><br><span class="line">            <span class="string">' "opportunityId" : "'</span>+opp.Id+<span class="string">'",\n'</span>+</span><br><span class="line">            <span class="string">' "opportunityName" : "'</span>+opp.Name+<span class="string">'",\n'</span>+</span><br><span class="line">            <span class="string">' "accountName" : "'</span>+opp.Account.Name+<span class="string">'",\n'</span>+</span><br><span class="line">            <span class="string">' "closeDate" : "'</span>+String.ValueOf(opp.CloseDate).mid(<span class="number">0</span>,<span class="number">10</span>)+<span class="string">'",\n'</span>+   </span><br><span class="line">            <span class="string">' "amount" : "'</span>+opp.Amount+<span class="string">'"\n&#125;'</span>;</span><br><span class="line">            </span><br><span class="line">        System.enqueueJob(<span class="keyword">new</span> QueueablePMSCall(serviceToken, jsonInput, opp.Id));</span><br><span class="line">    &#125;    </span><br><span class="line">    </span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">QueueablePMSCall</span> <span class="keyword">implements</span> <span class="title">System</span>.<span class="title">Queueable</span>, <span class="title">Database</span>.<span class="title">AllowsCallouts</span></span>&#123;</span><br><span class="line">        <span class="keyword">private</span> String serviceToken;</span><br><span class="line">        <span class="keyword">private</span> String jsonInput;</span><br><span class="line">        <span class="keyword">private</span> Id oppId;</span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">QueueablePMSCall</span><span class="params">(String serviceToken, String jsonInput, Id oppId)</span></span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.serviceToken = serviceToken;</span><br><span class="line">            <span class="keyword">this</span>.jsonInput = jsonInput;</span><br><span class="line">            <span class="keyword">this</span>.oppId = oppId;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">(QueueableContext qc)</span></span>&#123;</span><br><span class="line">            postToPMS(serviceToken, jsonInput, oppId);        </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Future</span>(callout=<span class="keyword">true</span>)</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">postToPMS</span><span class="params">(String serviceToken, String jsonInput, Id oppoId)</span></span>&#123;</span><br><span class="line">        HTTPRequest req = <span class="keyword">new</span> HTTPRequest();</span><br><span class="line">        req.setEndPoint(<span class="string">'callout:ProjectService'</span>);</span><br><span class="line">        req.setMethod(<span class="string">'POST'</span>);</span><br><span class="line">        req.setHeader(<span class="string">'token'</span>,serviceToken);</span><br><span class="line">        req.setHeader(<span class="string">'Content-Type'</span>, <span class="string">'application/json;charset=UTF-8'</span>);</span><br><span class="line">        req.setBody(jsonInput);</span><br><span class="line">        </span><br><span class="line">        HTTP http = <span class="keyword">new</span> HTTP();</span><br><span class="line">        HTTPResponse res = http.send(req);</span><br><span class="line">        </span><br><span class="line">        Opportunity opp = <span class="keyword">new</span> Opportunity(Id=oppoId);</span><br><span class="line">        <span class="keyword">if</span>(res.getStatusCode() == <span class="number">201</span>)&#123;</span><br><span class="line">            opp.StageName = <span class="string">'Submitted Project'</span>;                </span><br><span class="line">            System.debug(<span class="string">'Success: '</span> + res.getStatus());</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            opp.StageName = <span class="string">'Resubmit Project'</span>;</span><br><span class="line">            System.debug(<span class="string">'Failure: '</span> + res.getStatusCode() + <span class="string">' '</span> + res.getStatus());</span><br><span class="line">        &#125;</span><br><span class="line">        update opp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>之后需要新建一个进程生成器(Process Builder) ，可以命名为Update Opportunity with Opportunity object selection.</p>
+<p>总图为：</p>
+<p><img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Superbadge/Data-Integration-Specialist-Superbadge-1.jpg" alt="image"></p>
+<p>选择Opportunity，中间判断条件可以设置为：Opportunity Type with stage change</p>
+<p><img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Superbadge/Data-Integration-Specialist-Superbadge-2.jpg" alt="image"></p>
+<p>下面是用进程生成器(Process Builder)调用Apex类</p>
+<p><img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Superbadge/Data-Integration-Specialist-Superbadge-3.jpg" alt="image"></p>
+<h1 id="Test-outbound-Apex-REST-callout-logic"><a href="#Test-outbound-Apex-REST-callout-logic" class="headerlink" title="Test outbound Apex REST callout logic"></a>Test outbound Apex REST callout logic</h1><p>Build tests for your Apex outbound service logic using the included stubs (ProjectCalloutServiceMock and ProjectCalloutServiceMockFailure) and callout test class (ProjectCalloutServiceTest) in the package. You must have 90% test coverage to pass this challenge and assert values to prove that your logic is working as expected.</p>
+<p>基于上一题写一个测试类，同时要求90%代码覆盖率。<br>成功例子</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@isTest</span></span><br><span class="line">global <span class="class"><span class="keyword">class</span> <span class="title">ProjectCalloutServiceMock</span> <span class="keyword">implements</span> <span class="title">HttpCalloutMock</span></span>&#123;</span><br><span class="line">   <span class="comment">//Implement http mock callout here</span></span><br><span class="line">   <span class="comment">// Implement this interface method</span></span><br><span class="line">   <span class="function">global HTTPResponse <span class="title">respond</span><span class="params">(HTTPRequest request)</span></span>&#123;</span><br><span class="line">       <span class="comment">// Create a fake response</span></span><br><span class="line">       HttpResponse response = <span class="keyword">new</span> HttpResponse();</span><br><span class="line">       response.setHeader(<span class="string">'Content-Type'</span>, <span class="string">'application/json'</span>);</span><br><span class="line">       response.setStatus(<span class="string">'OK'</span>);</span><br><span class="line">       response.setStatusCode(<span class="number">201</span>);</span><br><span class="line">              </span><br><span class="line">       <span class="keyword">return</span> response;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>失败的例子</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@isTest</span></span><br><span class="line">global <span class="class"><span class="keyword">class</span> <span class="title">ProjectCalloutServiceMockFailure</span> <span class="keyword">implements</span> <span class="title">HttpCalloutMock</span></span>&#123;</span><br><span class="line">   <span class="comment">//Implement http mock callout here</span></span><br><span class="line">   <span class="comment">// Implement this interface method</span></span><br><span class="line">   <span class="function">global HTTPResponse <span class="title">respond</span><span class="params">(HTTPRequest request)</span></span>&#123;</span><br><span class="line">       <span class="comment">// Create a fake response</span></span><br><span class="line">       HttpResponse response = <span class="keyword">new</span> HttpResponse();</span><br><span class="line">       response.setHeader(<span class="string">'Content-Type'</span>, <span class="string">'application/json'</span>);</span><br><span class="line">       response.setStatus(<span class="string">'Bad Response'</span>);</span><br><span class="line">       response.setStatusCode(<span class="number">500</span>);</span><br><span class="line">              </span><br><span class="line">       <span class="keyword">return</span> response;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最后写测试类，其中testSetupdata是新建测试数据。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@isTest</span></span><br><span class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">ProjectCalloutServiceTest</span> </span>&#123;</span><br><span class="line">  <span class="comment">//Implement mock callout tests here</span></span><br><span class="line">   <span class="meta">@testSetup</span> <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">testSetupdata</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//create the opportunity record</span></span><br><span class="line">        Opportunity opp1 = <span class="keyword">new</span> Opportunity();</span><br><span class="line">        opp1.Name = <span class="string">'Test Opp1'</span>;</span><br><span class="line">        opp1.Type = <span class="string">'New Project'</span>;</span><br><span class="line">        opp1.Amount = <span class="number">100</span>;</span><br><span class="line">        opp1.CloseDate = Date.today();</span><br><span class="line">        opp1.StageName = <span class="string">'Submitted Project'</span>;</span><br><span class="line">        insert opp1;</span><br><span class="line">        <span class="comment">//create the opportunity record</span></span><br><span class="line">        Opportunity opp2 = <span class="keyword">new</span> Opportunity();</span><br><span class="line">        opp2.Name = <span class="string">'Test Opp2'</span>;</span><br><span class="line">        opp2.Type = <span class="string">'New Project'</span>;</span><br><span class="line">        opp2.Amount = <span class="number">200</span>;</span><br><span class="line">        opp2.CloseDate = Date.today();</span><br><span class="line">        opp2.StageName = <span class="string">'Resubmit Project'</span>;</span><br><span class="line">        insert opp2;</span><br><span class="line">        <span class="comment">//create the Custom Settings</span></span><br><span class="line">        ServiceTokens__c servToken = <span class="keyword">new</span> ServiceTokens__c();</span><br><span class="line">        servToken.Name = <span class="string">'ProjectServiceToken'</span>;</span><br><span class="line">        servToken.Token__c = <span class="string">'qwertyuiopnjhgft'</span>;</span><br><span class="line">        insert servToken;</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="meta">@isTest</span></span><br><span class="line">  <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">testSuccessMessage</span><span class="params">()</span></span>&#123;</span><br><span class="line">      Opportunity opp = [Select Id, Name FROM Opportunity WHERE Name = <span class="string">'Test Opp1'</span> Limit <span class="number">1</span>];</span><br><span class="line">      List&lt;Id&gt; lstOfOppIds = <span class="keyword">new</span> List&lt;Id&gt;();</span><br><span class="line">      lstOfOppIds.add(opp.Id);</span><br><span class="line">      <span class="comment">// Set mock callout class</span></span><br><span class="line">      Test.setMock(HttpCalloutMock<span class="class">.<span class="keyword">class</span>, <span class="title">new</span> <span class="title">ProjectCalloutServiceMock</span>())</span>;</span><br><span class="line">      <span class="comment">// This causes a fake response to be sent</span></span><br><span class="line">      <span class="comment">// from the class that implements HttpCalloutMock. </span></span><br><span class="line">      Test.startTest();</span><br><span class="line">          ProjectCalloutService.postOpportunityToPMS(lstOfOppIds);</span><br><span class="line">      Test.stopTest();    </span><br><span class="line">      <span class="comment">// Verify that the response received contains fake values        </span></span><br><span class="line">      opp = [select StageName from Opportunity where id =: opp.Id];</span><br><span class="line">      System.assertEquals(<span class="string">'Submitted Project'</span>,opp.StageName);     </span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="meta">@isTest</span></span><br><span class="line">  <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">testFailureMessage</span><span class="params">()</span></span>&#123;</span><br><span class="line">      Opportunity opp = [Select Id, Name FROM Opportunity WHERE Name = <span class="string">'Test Opp2'</span> Limit <span class="number">1</span>];</span><br><span class="line">      List&lt;Id&gt; lstOfOppIds = <span class="keyword">new</span> List&lt;Id&gt;();</span><br><span class="line">      lstOfOppIds.add(opp.Id);</span><br><span class="line">      <span class="comment">// Set mock callout class</span></span><br><span class="line">      Test.setMock(HttpCalloutMock<span class="class">.<span class="keyword">class</span>, <span class="title">new</span> <span class="title">ProjectCalloutServiceMockFailure</span>())</span>;</span><br><span class="line">      <span class="comment">// This causes a fake response to be sent</span></span><br><span class="line">      <span class="comment">// from the class that implements HttpCalloutMock. </span></span><br><span class="line">      Test.startTest();</span><br><span class="line">          ProjectCalloutService.postOpportunityToPMS(lstOfOppIds);</span><br><span class="line">      Test.stopTest();    </span><br><span class="line">      <span class="comment">// Verify that the response received contains fake values        </span></span><br><span class="line">      opp = [select StageName from Opportunity where id =: opp.Id];</span><br><span class="line">      System.assertEquals(<span class="string">'Resubmit Project'</span>,opp.StageName);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Synchronize-external-PMS-system-project-data-with-Salesforce"><a href="#Synchronize-external-PMS-system-project-data-with-Salesforce" class="headerlink" title="Synchronize external PMS system project data with Salesforce"></a>Synchronize external PMS system project data with Salesforce</h1><p>Use the requirements above to implement an Apex REST service to process related project and opportunity data that comes in from the Square Peg external application. Before checking this section, run the service method in the ProjectRESTService class to confirm that it’s working as expected.</p>
+<p>本题考查的是如何使得外部系统PMS 的数据和Salesforce保持一致。根据题目要求，需要写一个Apex REST服务类，用于接收外部系统Post过来的数据，获得的数据可以更新或者插入到Salesforce数据库中。<br>写好之后的测试URL可以如下：</p>
+<p><a href="https://your_instance.salesforce.com/services/apexrest/project" target="_blank" rel="noopener">https://YOUR_INSTANCE.salesforce.com/services/apexrest/project</a> </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestResource</span>(urlMapping = <span class="string">'/project/*'</span>)</span><br><span class="line">global with sharing <span class="class"><span class="keyword">class</span> <span class="title">ProjectRESTService</span> </span>&#123;</span><br><span class="line">    <span class="meta">@HttpPost</span></span><br><span class="line">    <span class="function">global <span class="keyword">static</span> String <span class="title">postProjectData</span><span class="params">(String ProjectRef, String ProjectName, String OpportunityId,</span></span></span><br><span class="line"><span class="function"><span class="params">                                       Date StartDate, Date EndDate, Double Amount, String Status)</span></span>&#123;</span><br><span class="line">        String retMsg = <span class="string">'Error'</span>;</span><br><span class="line">                </span><br><span class="line">        SavePoint sp1 = Database.setSavePoint();</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            List&lt;Opportunity&gt; lstOfOpps = <span class="keyword">new</span> List&lt;Opportunity&gt;();</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span>(OpportunityId != <span class="keyword">null</span> &amp;&amp; OpportunityId.trim().length() &gt; <span class="number">0</span>)&#123;</span><br><span class="line">                Opportunity opp = [SELECT Id, DeliveryInstallationStatus__c, Discount_Percent__c FROM Opportunity WHERE Id = :OpportunityId];</span><br><span class="line">                opp.DeliveryInstallationStatus__c = <span class="string">'In progress'</span>;</span><br><span class="line">                                </span><br><span class="line">                lstOfOpps.add(opp);</span><br><span class="line">            &#125;</span><br><span class="line">            UPDATE lstOfOpps;</span><br><span class="line">            </span><br><span class="line">            List&lt;Project__c&gt; lstOfRrjts = <span class="keyword">new</span> List&lt;Project__c&gt;();</span><br><span class="line">            </span><br><span class="line">            Project__c prjt = <span class="keyword">new</span> Project__c();</span><br><span class="line">            prjt.ProjectRef__c = ProjectRef;</span><br><span class="line">            prjt.Name = ProjectName;</span><br><span class="line">            prjt.Opportunity__c = OpportunityId;</span><br><span class="line">            prjt.Start_Date__c = StartDate;</span><br><span class="line">            prjt.End_Date__c = EndDate;</span><br><span class="line">            prjt.Billable_Amount__c = Amount;</span><br><span class="line">            prjt.Status__c = Status;</span><br><span class="line">            </span><br><span class="line">            lstOfRrjts.add(prjt);</span><br><span class="line">            </span><br><span class="line">            UPSERT lstOfRrjts;</span><br><span class="line">            </span><br><span class="line">            retMsg = <span class="string">'OK'</span>;</span><br><span class="line">        &#125;<span class="keyword">catch</span>(Exception ex)&#123;</span><br><span class="line">            Database.rollback(sp1);</span><br><span class="line">            retMsg = ex.getMessage();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> retMsg;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Test-inbound-Apex-REST-service-logic"><a href="#Test-inbound-Apex-REST-service-logic" class="headerlink" title="Test inbound Apex REST service logic"></a>Test inbound Apex REST service logic</h1><p>Build tests for your Apex REST service logic using the stub for the test class (ProjectRESTServiceTest) in the package. You must have 90% test coverage to pass this challenge and assert values to prove that your logic is working as expected.</p>
+<p>写好了Apex 类，现在需要写一个测试类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@isTest</span></span><br><span class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">ProjectRESTServiceTest</span> </span>&#123;</span><br><span class="line">    <span class="meta">@testSetup</span></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">loadServiceData</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Opportunity opp = <span class="keyword">new</span> Opportunity();</span><br><span class="line">        opp.Name = <span class="string">'Test Opportunity'</span>;</span><br><span class="line">        opp.DeliveryInstallationStatus__c = <span class="string">'In progress'</span>;</span><br><span class="line">        opp.CloseDate = (Date.today()).addDays(<span class="number">20</span>);</span><br><span class="line">        opp.StageName = <span class="string">'Submitted Project'</span>;</span><br><span class="line">        INSERT opp;</span><br><span class="line">        </span><br><span class="line">        Project__c prjt = <span class="keyword">new</span> Project__c();</span><br><span class="line">        prjt.ProjectRef__c = <span class="string">'ProjectRef'</span>;</span><br><span class="line">        prjt.Name = <span class="string">'ProjectName'</span>;</span><br><span class="line">        prjt.Opportunity__c = opp.Id;</span><br><span class="line">        prjt.Start_Date__c = Date.today();</span><br><span class="line">        prjt.End_Date__c = (Date.today()).addDays(<span class="number">10</span>);</span><br><span class="line">        prjt.Billable_Amount__c = <span class="number">1000</span>;</span><br><span class="line">        prjt.Status__c = <span class="string">'Running'</span>;</span><br><span class="line">        INSERT prjt;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@isTest</span>    </span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">testProjectRESTService</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Project__c prjt = [SELECT Id, ProjectRef__c, Name, Opportunity__c, Start_Date__c, End_Date__c, Billable_Amount__c, Status__c FROM Project__c LIMIT <span class="number">1</span>];</span><br><span class="line">        Test.startTest();</span><br><span class="line">        Opportunity opp = [SELECT Id FROM Opportunity LIMIT <span class="number">1</span>];</span><br><span class="line">        System.assertEquals(<span class="number">1</span>,[<span class="function">SELECT <span class="title">count</span><span class="params">()</span> FROM Opportunity])</span>;                          </span><br><span class="line">        String returnMessage = ProjectRESTService.postProjectData(<span class="string">'ProjectRef'</span>, <span class="string">'ProjectName'</span>, String.valueOf(opp.Id),  Date.today(), Date.today(), <span class="number">1000</span>, <span class="string">'Running'</span>);                          </span><br><span class="line">        Test.stopTest();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Synchronize-Salesforce-project-data-with-Square-Peg’s-external-billing-system"><a href="#Synchronize-Salesforce-project-data-with-Square-Peg’s-external-billing-system" class="headerlink" title="Synchronize Salesforce project data with Square Peg’s external billing system"></a>Synchronize Salesforce project data with Square Peg’s external billing system</h1><p>Perform the necessary steps, as outlined in the requirements, to make an outbound authenticated Apex callout to Square Peg’s external billing system’s SOAP service. To pass this challenge, delete the unused Async process class that is autogenerated from the WSDL AsyncBillingServiceProxy.</p>
+<p>下载XML：</p>
+<p><a href="http://sb-integration-bs.herokuapp.com/ws/invoices.wsdl" target="_blank" rel="noopener">http://sb-integration-bs.herokuapp.com/ws/invoices.wsdl</a></p>
+<p>在Apex Class 里，点击’ Generate from WSDL’,并生成一个名为BillingServiceProxy 的proxy类。</p>
+<p>相关参考链接如下：<br><a href="https://help.salesforce.com/articleView?id=code_wsdl_to_package.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=code_wsdl_to_package.htm&amp;type=5</a></p>
+<p>同时题目要求ProjectTrigger 调用 ‘BillingCalloutService.callBillingService()并且传入新旧记录的参数。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BillingCalloutService</span> </span>&#123;</span><br><span class="line">    <span class="meta">@future</span>(callout = <span class="keyword">true</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">callBillingService</span><span class="params">(String projectRef, Decimal billingAmount)</span></span>&#123;</span><br><span class="line">        ServiceCredentials__c srvcCrd = ServiceCredentials__c.getValues(<span class="string">'BillingServiceCredential'</span>);</span><br><span class="line">                </span><br><span class="line">        BillingServiceProxy.project projectInst = <span class="keyword">new</span> BillingServiceProxy.project();</span><br><span class="line">        projectInst.username = srvcCrd.Username__c;</span><br><span class="line">        projectInst.password = srvcCrd.Password__c;</span><br><span class="line">        projectInst.billAmount = billingAmount;</span><br><span class="line">        </span><br><span class="line">        BillingServiceProxy.InvoicesPortSoap11 invPortSoapInst = <span class="keyword">new</span> BillingServiceProxy.InvoicesPortSoap11();</span><br><span class="line">        String response = invPortSoapInst.billProject(projectInst);</span><br><span class="line">        </span><br><span class="line">        List&lt;Project__c&gt; lstOfProjects = <span class="keyword">new</span> List&lt;Project__c&gt;();</span><br><span class="line">        <span class="keyword">if</span>(response != <span class="keyword">null</span> &amp;&amp; response.equalsIgnoreCase(<span class="string">'OK'</span>))&#123;</span><br><span class="line">            List&lt;Project__c&gt; lstOfPrjts = [SELECT Status__c FROM Project__c WHERE ProjectRef__c = :projectRef];</span><br><span class="line">            <span class="keyword">for</span>(Project__c prjt : lstOfPrjts)&#123;</span><br><span class="line">                prjt.Status__c = <span class="string">'Billed'</span>;</span><br><span class="line">                </span><br><span class="line">                lstOfProjects.add(prjt);</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            UPDATE lstOfProjects;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Trigger这样写：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">trigger ProjectTrigger on <span class="title">Project__c</span> <span class="params">(after update)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(Trigger.isAfter &amp;&amp; Trigger.isUpdate)&#123;</span><br><span class="line">        <span class="keyword">for</span>(Project__c prjt : Trigger.<span class="keyword">new</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(prjt.Status__c != <span class="keyword">null</span> &amp;&amp; prjt.Status__c.equals(<span class="string">'Billable'</span>))&#123;</span><br><span class="line">                BillingCalloutService.callBillingService(prjt.ProjectRef__c, prjt.Billable_Amount__c);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Test-outbound-Apex-SOAP-callout-logic"><a href="#Test-outbound-Apex-SOAP-callout-logic" class="headerlink" title="Test outbound Apex SOAP callout logic"></a>Test outbound Apex SOAP callout logic</h1><p>Build tests for your SOAP callout and assert proper behavior using the included stubs (BillingCalloutServiceMock and BillingCalloutServiceMockFailure) and callout test class (BillingCalloutServiceTest) in the package. You must have 90% test coverage to pass this challenge and assert values to prove that your logic is working as expected.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@isTest</span></span><br><span class="line">global <span class="class"><span class="keyword">class</span> <span class="title">BillingCalloutServiceMock</span> <span class="keyword">implements</span> <span class="title">WebServiceMock</span> </span>&#123;</span><br><span class="line">   <span class="function">global <span class="keyword">void</span> <span class="title">doInvoke</span><span class="params">(Object stub,Object request,Map&lt;String, Object&gt; response,String endpoint,String soapAction,String requestName,String responseNS, String responseName,String responseType)</span></span>&#123;</span><br><span class="line">           BillingServiceProxy.billProjectResponse_element response_x = <span class="keyword">new</span> BillingServiceProxy.billProjectResponse_element();</span><br><span class="line">           response_x.status = <span class="string">'OK'</span>;</span><br><span class="line">           response.put(<span class="string">'response_x'</span>, response_x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">global <span class="class"><span class="keyword">class</span> <span class="title">BillingCalloutServiceMockFailure</span> <span class="keyword">implements</span> <span class="title">WebServiceMock</span> </span>&#123;</span><br><span class="line">    <span class="function">global <span class="keyword">void</span> <span class="title">doInvoke</span><span class="params">(Object stub,Object request,Map&lt;String, Object&gt; response,String endpoint,String soapAction, String requestName, String responseNS,String responseName,String responseType)</span> </span>&#123;</span><br><span class="line">        BillingServiceProxy.billProjectResponse_element response_x = <span class="keyword">new</span> BillingServiceProxy.billProjectResponse_element();</span><br><span class="line">        response_x.status = <span class="string">'ERROR'</span>;</span><br><span class="line">        response.put(<span class="string">'response_x'</span>, response_x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>测试类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@isTest</span></span><br><span class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">BillingCalloutServiceTest</span> </span>&#123;</span><br><span class="line">  <span class="meta">@testSetup</span> <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">loadData</span><span class="params">()</span></span>&#123;</span><br><span class="line">        </span><br><span class="line">        Opportunity oppo = <span class="keyword">new</span> Opportunity();</span><br><span class="line">        oppo.Name = <span class="string">'TestOpp1'</span>;</span><br><span class="line">        oppo.CloseDate = Date.today();</span><br><span class="line">        oppo.StageName = <span class="string">'Prospecting'</span>;</span><br><span class="line">        insert oppo;</span><br><span class="line">        </span><br><span class="line">        Project__c proj = <span class="keyword">new</span> Project__c();</span><br><span class="line">        proj.Name = <span class="string">'TestProj1'</span>;</span><br><span class="line">        proj.Billable_Amount__c = <span class="number">1000</span>;        </span><br><span class="line">        proj.ProjectRef__c = <span class="string">'TestRef1'</span>;</span><br><span class="line">        proj.Status__c = <span class="string">'Running'</span>;</span><br><span class="line">        proj.Opportunity__c = oppo.Id;</span><br><span class="line">        insert proj;</span><br><span class="line">        </span><br><span class="line">        ServiceCredentials__c servCred = <span class="keyword">new</span> ServiceCredentials__c();</span><br><span class="line">        servCred.Name = <span class="string">'BillingServiceCredential'</span>;</span><br><span class="line">        servCred.Username__c = <span class="string">'usr1'</span>;</span><br><span class="line">        servCred.Password__c = <span class="string">'pwd1'</span>;</span><br><span class="line">        insert servCred;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@isTest</span> <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">testCalloutSuccess</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Test.setMock(WebServiceMock<span class="class">.<span class="keyword">class</span>, <span class="title">new</span> <span class="title">BillingCalloutServiceMock</span>())</span>; </span><br><span class="line">        List&lt;Project__c&gt; prjt = [SELECT Status__C FROM Project__c WHERE ProjectRef__c = <span class="string">'TestRef1'</span>];</span><br><span class="line">        System.assertEquals(<span class="number">1</span>, prjt.size());</span><br><span class="line">        Test.startTest(); </span><br><span class="line">            prjt[<span class="number">0</span>].Status__c = <span class="string">'Billable'</span>;</span><br><span class="line">            update prjt;</span><br><span class="line">        Test.stopTest();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@isTest</span> <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">testCalloutFailure</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Test.setMock(WebServiceMock<span class="class">.<span class="keyword">class</span>, <span class="title">new</span> <span class="title">BillingCalloutServiceMockFailure</span>())</span>; </span><br><span class="line">        List&lt;Project__c&gt; prjt = [SELECT Status__C FROM Project__c WHERE ProjectRef__c = <span class="string">'TestRef1'</span>];</span><br><span class="line">        System.assertEquals(<span class="number">1</span>, prjt.size());</span><br><span class="line">        Test.startTest(); </span><br><span class="line">            prjt[<span class="number">0</span>].Status__c = <span class="string">'Running'</span>;</span><br><span class="line">            update prjt;</span><br><span class="line">        Test.stopTest();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Synchronize-external-billing-data-with-Salesforce-in-real-time"><a href="#Synchronize-external-billing-data-with-Salesforce-in-real-time" class="headerlink" title="Synchronize external billing data with Salesforce in real time"></a>Synchronize external billing data with Salesforce in real time</h1><p>Configure Salesforce Connect to integrate with Square Peg’s external billing system to expose invoice information as children of projects as outlined in the requirements.</p>
+<p>根据题目要求，需要设置一个external data source的连接。路径为：setup–&gt;external data source</p>
+<p>然后输入如下信息：</p>
+<p>External Data Source:	BillingService<br>Name:	BillingService<br>Type:	Salesforce Connect OData 2.0<br>URL:	<a href="https://sb-integration-is.herokuapp.com/odata" target="_blank" rel="noopener">https://sb-integration-is.herokuapp.com/odata</a><br>Identity Type:	Anonymous<br>Authentication Protocol:No Authentication</p>
+<p>同时需要新建一个external对象切名字为 “invoices”。</p>
+<p><img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Superbadge/Data-Integration-Specialist-Superbadge-4.jpg" alt="image"></p>
+<p>就这样，我们获得了Data Integration Specialist，一次性得到了6500分。</p>
+<p><img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Superbadge/Data-Integration-Specialist-Superbadge-6.jpg" alt="image"></p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li>Calega&#x2F;Data-Integration-Specialist-Superbadge: Data integration specialist superbadge solution.: <a href="https://github.com/Calega/Data-Integration-Specialist-Superbadge" target="_blank" rel="noopener">https://github.com/Calega/Data-Integration-Specialist-Superbadge</a></li>
+<li>Salesforce Tips and Tricks for Developer: <a href="http://sfdccodepractices.blogspot.com/" target="_blank" rel="noopener">http://sfdccodepractices.blogspot.com/</a></li>
+</ul>
+
+        </div>
+
+        <section class='meta'>
+            <time class="time" itemprop="dateUpdated" datetime="2025-05-06T03:51:48+00:00" content="2025-05-06">
+                <i class="fas fa-pen fa-fw" aria-hidden="true"></i>
+                本文最后更新于：2025-05-06
+            </time>
+            
+                
+                <div class="tags">
+                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                    <a class="tag" href="/tags/Salesforce/">Salesforce</a>, <a class="tag" href="/tags/Trailhead/">Trailhead</a>, <a class="tag" href="/tags/%E5%BC%80%E5%8F%91%E8%80%85II%E8%80%83%E8%AF%95/">开发者II考试</a>, <a class="tag" href="/tags/Superbadge/">Superbadge</a>
+                </div>
+            
+        </section>
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <div class="addthis_inline_share_toolbox"></div>
+
+
+        
+            <div class="prev-next">
+                
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一篇</h6>
+                            <h4>
+                                <a href="/2018/12/21/2018-12-21-Lightning-Experience-Development/" rel="prev" title="Trailhead学习:解锁Lightning Experience Development">
+                                  
+                                      Trailhead学习:解锁Lightning Experience Development
+                                  
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                                    <a class="tag" href="/tags/Salesforce/">Salesforce</a>, <a class="tag" href="/tags/Lightning/">Lightning</a>, <a class="tag" href="/tags/Trailhead/">Trailhead</a>, <a class="tag" href="/tags/%E5%BC%80%E5%8F%91%E8%80%85II%E8%80%83%E8%AF%95/">开发者II考试</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>下一篇&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2018/11/27/2018-11-27-hexo-theme-doc-SupportCN/" rel="prev" title="hexo-theme-doc主题实现中文搜索">
+                                    
+                                        hexo-theme-doc主题实现中文搜索
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                                    <a class="tag" href="/tags/hexo/">hexo</a>, <a class="tag" href="/tags/hexo-theme-doc/">hexo-theme-doc</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+
+    </section>
+
+</article>
+
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+    <article class="post white-box comments">
+        <section class="article typo">
+
+            
+                
+
+    <div class="recommended_posts">
+        <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;你可能感兴趣的文章</h4>
+        <ul>
+            
+                <li><a href="http://tonyrenhk.github.io/2018/12/22/2018-12-22-Lightning-Components-Basics/">Trailhead学习:Lightning Components Basics</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2018/12/21/2018-12-21-Lightning-Experience-Development/">Trailhead学习:解锁Lightning Experience Development</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2018/11/27/2018-11-27-hexo-theme-doc-SupportCN/">hexo-theme-doc主题实现中文搜索</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2018/11/26/2018-11-26-Lightning-Flow/">Trailhead学习:Lightning Flow</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2018/11/25/2018-11-25-WesingPlugins/">全民K歌小外挂：自动评论插件</a></li>
+            
+        </ul>
+    </div>
+
+
+            
+
+            
+
+                
+
+                
+
+                
+                    
+                
+            
+
+        </section>
+    </article>
+
+
+<script>
+    window.subData = {
+        title: 'Trailhead学习:Data Integration Specialist Superbadge',
+        tools: true
+    }
+</script>
+
+
+        </div>
+        <aside class='l_side'>
+            
+    
+        
+  <section class='m_widget author'>
+    
+      <div class='header'>
+        <img class='avatar' src='https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/Me2.jpg'/>
+      </div>
+    
+    
+      <div class='content'>
+        
+          <h2>Tony Ren&#39;s 学习笔记</h2>
+        
+        
+          <p>好学近乎知，力行近乎仁，知耻近乎勇</p>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:renchk@foxmail.com" class="social flat-box" target="_blank" rel="external"><i class="social fas fa-envelope" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://github.com/TonyRenHK" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-github" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://www.weibo.com/6476367461" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-weibo" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://tonyrenhk.github.io/Wechat/" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-weixin" aria-hidden="true"></i></a>
+          
+        
+      </div>
+    
+  </section>
+
+
+    
+    
+        <section class='m_widget links'>
+    <div class='content pure'>
+        <ul class="entry" id="links">
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://tonyrenhk.github.io/2018/01/01/2018-01-01-Salesforce-related-resource/" rel="external nofollow noopener noreferrer" href="https://tonyrenhk.github.io/2018/01/01/2018-01-01-Salesforce-related-resource/">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/IMG_2568.JPG">
+                        
+                        &nbsp;&nbsp;Salesforce
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://tonyrenhk.github.io/2018/01/09/2018-01-09-IT-Study-Resource/" rel="external nofollow noopener noreferrer" href="https://tonyrenhk.github.io/2018/01/09/2018-01-09-IT-Study-Resource/">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88612001-cf62a900-d0bc-11ea-9cbb-a14beeb356c7.png">
+                        
+                        &nbsp;&nbsp;IT
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/Note/OnlineTools.html" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/Note/OnlineTools.html">
+                    
+                    <div class='name'>
+                        
+                            <img src="http://tonyrenhk.github.io/images/notebook.png">
+                        
+                        &nbsp;&nbsp;工具Tools
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/Note/Tutorial.html" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/Note/Tutorial.html">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/Astro_Trailblazer_hoodie_wave.png">
+                        
+                        &nbsp;&nbsp;教程Tutorial
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/2018/02/02/2018-02-02-Git-Study/" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/2018/02/02/2018-02-02-Git-Study/">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/s.png">
+                        
+                        &nbsp;&nbsp;Git
+                    </div>
+                </a></li>
+            
+        </ul>
+    </div>
+</section>
+
+    
+    
+        <section class='m_widget categories'>
+    <header class='header pure'>
+        <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;分类</div>
+    </header>
+    <div class='content pure'>
+        
+            <ul class="entry">
+                
+                    <li><a class="flat-box" href="/categories/English/"><div class='name'>English</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Git/"><div class='name'>Git</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Google/"><div class='name'>Google</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/JavaScript/"><div class='name'>JavaScript</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Others/"><div class='name'>Others</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Python/"><div class='name'>Python</div><div class='badge'>1</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Salesforce/"><div class='name'>Salesforce</div><div class='badge'>35</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Tools/"><div class='name'>Tools</div><div class='badge'>1</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/hexo/"><div class='name'>hexo</div><div class='badge'>1</div></a></li>
+                
+            </ul>
+        
+    </div>
+</section>
+
+    
+    
+        
+    <section class='m_widget tagcloud'>
+        <header class="header pure">
+            <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
+        </header>
+        <div class='content pure'>
+            <a href="/tags/Admin/" style="font-size: 14px; color: #999">Admin</a> <a href="/tags/Apex/" style="font-size: 16.86px; color: #868686">Apex</a> <a href="/tags/BookMark/" style="font-size: 14px; color: #999">BookMark</a> <a href="/tags/CDC/" style="font-size: 14px; color: #999">CDC</a> <a href="/tags/CPQ/" style="font-size: 14px; color: #999">CPQ</a> <a href="/tags/Change-Data-Capture/" style="font-size: 14px; color: #999">Change Data Capture</a> <a href="/tags/Chrome-Extension/" style="font-size: 14px; color: #999">Chrome-Extension</a> <a href="/tags/Community-Cloud/" style="font-size: 14px; color: #999">Community Cloud</a> <a href="/tags/Demo/" style="font-size: 14px; color: #999">Demo</a> <a href="/tags/Flow/" style="font-size: 14px; color: #999">Flow</a> <a href="/tags/Git/" style="font-size: 16.86px; color: #868686">Git</a> <a href="/tags/Google/" style="font-size: 14px; color: #999">Google</a> <a href="/tags/Google-App-Script/" style="font-size: 14px; color: #999">Google App Script</a> <a href="/tags/Heroku/" style="font-size: 14px; color: #999">Heroku</a> <a href="/tags/IT%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">IT学习</a> <a href="/tags/Interactive-Email/" style="font-size: 14px; color: #999">Interactive Email</a> <a href="/tags/JavaScript/" style="font-size: 15.43px; color: #8f8f8f">JavaScript</a> <a href="/tags/Jsforce/" style="font-size: 15.43px; color: #8f8f8f">Jsforce</a> <a href="/tags/LWC/" style="font-size: 22.57px; color: #5f5f5f">LWC</a> <a href="/tags/Lightning/" style="font-size: 15.43px; color: #8f8f8f">Lightning</a> <a href="/tags/Lightning-Components/" style="font-size: 14px; color: #999">Lightning Components</a> <a href="/tags/Lightning-Web-Components/" style="font-size: 18.29px; color: #7c7c7c">Lightning Web Components</a> <a href="/tags/MC/" style="font-size: 15.43px; color: #8f8f8f">MC</a> <a href="/tags/MCC/" style="font-size: 14px; color: #999">MCC</a> <a href="/tags/Marketing-Cloud/" style="font-size: 14px; color: #999">Marketing Cloud</a> <a href="/tags/Marketing-Cloud-Connect/" style="font-size: 14px; color: #999">Marketing Cloud Connect</a> <a href="/tags/Org/" style="font-size: 14px; color: #999">Org</a> <a href="/tags/Others/" style="font-size: 14px; color: #999">Others</a> <a href="/tags/Pardot/" style="font-size: 14px; color: #999">Pardot</a> <a href="/tags/Python/" style="font-size: 15.43px; color: #8f8f8f">Python</a> <a href="/tags/Roll-Up-Summary/" style="font-size: 14px; color: #999">Roll-Up Summary</a> <a href="/tags/SFDC/" style="font-size: 14px; color: #999">SFDC</a> <a href="/tags/SFDX/" style="font-size: 19.71px; color: #727272">SFDX</a> <a href="/tags/Salesforce/" style="font-size: 24px; color: #555">Salesforce</a> <a href="/tags/Salesforce-Mobile/" style="font-size: 14px; color: #999">Salesforce Mobile</a> <a href="/tags/Sandbox/" style="font-size: 14px; color: #999">Sandbox</a> <a href="/tags/Script/" style="font-size: 14px; color: #999">Script</a> <a href="/tags/Site/" style="font-size: 14px; color: #999">Site</a> <a href="/tags/Study/" style="font-size: 18.29px; color: #7c7c7c">Study</a> <a href="/tags/StudyNote/" style="font-size: 14px; color: #999">StudyNote</a> <a href="/tags/Superbadge/" style="font-size: 14px; color: #999">Superbadge</a> <a href="/tags/Tools/" style="font-size: 14px; color: #999">Tools</a> <a href="/tags/Trailhead/" style="font-size: 21.14px; color: #686868">Trailhead</a> <a href="/tags/exam/" style="font-size: 14px; color: #999">exam</a> <a href="/tags/flow/" style="font-size: 14px; color: #999">flow</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/tags/hexo-theme-doc/" style="font-size: 14px; color: #999">hexo-theme-doc</a> <a href="/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/tags/metadata/" style="font-size: 14px; color: #999">metadata</a> <a href="/tags/shortcut/" style="font-size: 14px; color: #999">shortcut</a> <a href="/tags/%E5%85%A5%E9%97%A8/" style="font-size: 14px; color: #999">入门</a> <a href="/tags/%E5%AF%B9Campaign/" style="font-size: 14px; color: #999">对Campaign</a> <a href="/tags/%E5%BC%80%E5%8F%91%E8%80%85II%E8%80%83%E8%AF%95/" style="font-size: 19.71px; color: #727272">开发者II考试</a> <a href="/tags/%E8%87%AA%E5%8A%A8/" style="font-size: 14px; color: #999">自动</a> <a href="/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">英语学习</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 14px; color: #999">面试</a>
+        </div>
+    </section>
+
+
+    
+    
+        
+    <section class='m_widget toc-wrapper'>
+        <header class="header pure">
+            <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;目录</div>
+            <div class='wrapper'><a class="s-toc rightBtn" title="固定到顶部" target="_blank" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+        </header>
+        <div class='content pure'>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Configure-outbound-application-and-integration-security"><span class="toc-text">Configure outbound application and integration security</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Configure-inbound-integration-security"><span class="toc-text">Configure inbound integration security</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Synchronize-Salesforce-opportunity-data-with-Square-Peg’s-PMS-external-system"><span class="toc-text">Synchronize Salesforce opportunity data with Square Peg’s PMS external system</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Test-outbound-Apex-REST-callout-logic"><span class="toc-text">Test outbound Apex REST callout logic</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Synchronize-external-PMS-system-project-data-with-Salesforce"><span class="toc-text">Synchronize external PMS system project data with Salesforce</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Test-inbound-Apex-REST-service-logic"><span class="toc-text">Test inbound Apex REST service logic</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Synchronize-Salesforce-project-data-with-Square-Peg’s-external-billing-system"><span class="toc-text">Synchronize Salesforce project data with Square Peg’s external billing system</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Test-outbound-Apex-SOAP-callout-logic"><span class="toc-text">Test outbound Apex SOAP callout logic</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Synchronize-external-billing-data-with-Salesforce-in-real-time"><span class="toc-text">Synchronize external billing data with Salesforce in real time</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Reference"><span class="toc-text">Reference</span></a></li></ol>
+        </div>
+    </section>
+
+
+    
+    
+        <section class='m_widget links'>
+    <header class='header pure'>
+        <div><i class="fas fa-link fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;更多</div>
+        
+            <a class="rightBtn" title="联系博主添加友链" target="_blank" rel="external nofollow noopener noreferrer" href="mailto:me@xaoxuu.com?subject=交换友链&body=你好，我想和你交换友链，我已经将【Tony Ren&#39;s 学习笔记】添加到我的博客的友链中。我的博客链接是："><i class="fas fa-plus fa-fw"></i></a>
+        
+    </header>
+    <div class='content pure'>
+        <ul class="entry" id="links">
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://docs.qq.com/desktop/" target="_blank" rel="external nofollow noopener noreferrer" href="https://docs.qq.com/desktop/">
+                    
+                        
+                    
+                        
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88069910-a6b24f00-cba4-11ea-837b-d4a0dcf05d94.png">
+                        
+                        &nbsp;&nbsp;腾讯文档
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://www.notion.so/" target="_blank" rel="external nofollow noopener noreferrer" href="https://www.notion.so/">
+                    
+                        
+                    
+                        
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88069945-b16ce400-cba4-11ea-9c3f-d5857b39a5df.png">
+                        
+                        &nbsp;&nbsp;Notion
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://ide.goorm.io/" target="_blank" rel="external nofollow noopener noreferrer" href="https://ide.goorm.io/">
+                    
+                        
+                    
+                        
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88611890-9e827400-d0bc-11ea-893a-5b0af150504a.png">
+                        
+                        &nbsp;&nbsp;Goorm IDE
+                    </div>
+                </a></li>
+            
+        </ul>
+    </div>
+</section>
+
+    
+
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    </div>
+    <footer id="footer" class="clearfix">
+    
+        <div class="social-wrapper">
+          
+              
+                  <a href="mailto:renchk@foxmail.com" class="social fas fa-envelope flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://github.com/TonyRenHK" class="social fab fa-github flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://www.weibo.com/6476367461" class="social fab fa-weibo flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://tonyrenhk.github.io/Wechat/" class="social fab fa-weixin flat-box" target="_blank" rel="external"></a>
+              
+          
+        </div>
+    
+    <br>
+    <div>博客内容遵循 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="licenses">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></div>
+    <div>本站使用 <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a> 作为主题，
+		总访问量为 <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> 次。
+    </div>
+    
+<span id="runtime_span"></span>
+
+<script type="text/javascript">
+function show_runtime(){
+  window.setTimeout("show_runtime()",1000);
+  X=new Date("8/22/2016 18:27:0");
+  Y=new Date();T=(Y.getTime()-X.getTime());M=24*60*60*1000;
+  a=T/M;A=Math.floor(a);
+  b=(a-A)*24;B=Math.floor(b);
+  c=(b-B)*60;C=Math.floor((b-B)*60);
+  D=Math.floor((c-C)*60);
+  runtime_span.innerHTML="—— 本站已稳定运行： "+A+"天"+B+"小时"+C+"分"+D+"秒 ——"}show_runtime();
+
+</script>
+
+
+</footer>
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+    <script>setLoadingBarProgress(80);</script>
+    <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src='//cdn.bootcss.com/node-waves/0.7.5/waves.min.js'></script>
+<script src="//cdn.bootcss.com/scrollReveal.js/3.3.2/scrollreveal.min.js"></script>
+<!-- 访问统计 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5bfb78723c9c4600"></script>
+
+
+
+<script src="/js/jquery.fitvids.js"></script>
+
+
+    <script>
+        var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+        var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+        var ALGOLIA_API_KEY = "";
+        var ALGOLIA_APP_ID = "";
+        var ALGOLIA_INDEX_NAME = "";
+        var AZURE_SERVICE_NAME = "";
+        var AZURE_INDEX_NAME = "";
+        var AZURE_QUERY_KEY = "";
+        var BAIDU_API_ID = "";
+        var SEARCH_SERVICE = "hexo" || "hexo";
+        var ROOT = "/"||"/";
+        if(!ROOT.endsWith('/'))ROOT += '/';
+    </script>
+
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/app.js"></script>
+
+
+
+    
+    
+    
+        
+    
+
+
+    <script>setLoadingBarProgress(100);</script>
+</body>

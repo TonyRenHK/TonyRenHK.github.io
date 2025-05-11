@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="036nsNgxuH68xUABF8jrgg8Xzsti4FN8eKjWvA185C4" />
+  <meta name="baidu-site-verification" content="FQRuGMvxtv" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+
+  
+  <title>如何在家进行Salesforce考试？ | Tony Ren&#39;s 学习笔记</title>
+  
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico">
+  <link rel="alternate" href="/atom.xml" title="Tony Ren's 学习笔记">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico" />
+  <link rel="icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico" />
+  
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono" rel="stylesheet">
+  
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link href='//cdn.bootcss.com/node-waves/0.7.5/waves.min.css' rel='stylesheet'>
+  
+<link rel="stylesheet" href="/style.css">
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+  
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1382646259212001",
+    enable_page_level_ads: true
+  });
+</script>
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading-bar-wrapper">
+  <div id="loading-bar" class="pure"></div>
+</div>
+
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header pure">
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+			<a class="logo flat-box" href='/' >Tony Ren's 学习笔记</a>
+				<div class='menu'>
+					<ul class='h-list'>
+            
+    					
+    						<li>
+    							<a class="nav  flat-box" href="/">
+    								<i class='fas fa-home fa-fw'></i>&nbsp;主页
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/archives/">
+    								<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/Project">
+    								<i class='fas fa-flask fa-fw'></i>&nbsp;项目
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/about/">
+    								<i class='fas fa-user fa-fw'></i>&nbsp;关于
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="https://renchk.github.io" target="_blank" rel="noopener">
+    								<i class='fas fa-globe fa-fw'></i>&nbsp;English
+  								</a>
+  							</li>
+        			
+        		
+					</ul>
+					<div class='underline'></div>
+				</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search" />
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></span></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-top'><a class="fas fa-arrow-circle-up fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-toc'><a class="fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+		<nav>
+      <ul>
+          
+              
+                  <li>
+										<a class="nav  flat-box" href="/">
+											<i class='fas fa-home fa-fw'></i>&nbsp;主页
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/archives/">
+											<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/Project">
+											<i class='fas fa-flask fa-fw'></i>&nbsp;项目
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/about/">
+											<i class='fas fa-user fa-fw'></i>&nbsp;关于
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="https://renchk.github.io" target="_blank" rel="noopener">
+											<i class='fas fa-globe fa-fw'></i>&nbsp;English
+										</a>
+                  </li>
+              
+       
+      </ul>
+		</nav>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            <article id="post-2020-03-09-How-Salesforce-exam" class="post white-box article-type-post" itemscope itemprop="blogPost">
+    <section class='meta'>
+        
+            <h1 class="title">如何在家进行Salesforce考试？</h1>
+        
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+            2020-04-10
+        </time>
+        <div class="browse"><i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+        </div>
+        
+    
+    <div class='cats'>
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+        <a class="categories" href="/categories/Salesforce/">Salesforce</a>
+    </div>
+
+
+    </section>
+
+    <section class="article typo">
+
+        <div class="article-entry" itemprop="articleBody">
+            <p>How to Salesforce online exam?</p>
+<a id="more"></a>
+
+<p><img src="https://user-images.githubusercontent.com/9688136/88072343-81731000-cba7-11ea-87de-ab9f67308e89.png"></p>
+<p>Salesforce在线网考方便灵活，不过需要自己准备考试环境。如果考试环境不合格，可能无法进入考试，或者在考试过程中被监考叫停。本文填坑，确保大伙儿顺利进行网考。</p>
+<p><strong>硬件要求</strong></p>
+<p> 屏幕分辨率1024 x 768或以上</p>
+<p>你的电脑需要有如下硬件设施：</p>
+<ul>
+<li><p>屏幕分辨率1024 x 768或以上</p>
+</li>
+<li><p>网速（上下载速度至少1Mbps）</p>
+</li>
+<li><p>电脑要有内置麦可风</p>
+</li>
+<li><p>摄像头，受疫情影响，今年3月开始Salesforce临时取消独立摄像头的限制。但是，还是需要摄像头的。</p>
+</li>
+<li><p>最少有50MB可用空间</p>
+</li>
+<li><p>最少支持720p分辨率</p>
+</li>
+<li><p>帧率 30fps</p>
+</li>
+</ul>
+<p>注意：受疫情影响，Salesforce临时取消独立摄像头的限制。注意是<strong>临时</strong>取消，但是，<strong>考生电脑还是需要配备摄像头</strong>，并不是如网络传言取消摄像头限制。也就是说，Salesforce是允许你的电脑自用油内置摄像头进行备考。相关信息可以参考这篇文章：<a href="http://mp.weixin.qq.com/s?__biz=MzIyMzY4OTU3Mw==&mid=2247487514&idx=1&sn=d8b725186f820a3ac3aefbbcc764fe99&chksm=e81b3e10df6cb706b2ebfc48ccb1e235c6a76a8284a4fa1c0f36dba08f6d57777628c4441b4d&scene=21#wechat_redirect" target="_blank" rel="noopener">Salesforce为新冠病毒形势下推出的支援措施</a>。</p>
+<p><strong>软件要求</strong></p>
+<p> 屏幕分辨率1024 x 768或以上</p>
+<p>软件要求如下：</p>
+<ul>
+<li><p>操作系统 Win7或者以上，OS X  10.7以上</p>
+</li>
+<li><p>Net Framework 4.0，如果有Office办公软件，这项基本都已安装</p>
+</li>
+<li><p>Adobe Flash™ ActiveX 控件</p>
+</li>
+<li><p>浏览器</p>
+</li>
+<li><p>Safari (最新版本)</p>
+</li>
+<li><p>Firefox (最新版本)</p>
+</li>
+<li><p>Chrome (最新版本)</p>
+</li>
+</ul>
+<p>注意：IE已经被官方移除支持的浏览器名单了。</p>
+<p><strong>硬件测试</strong></p>
+<p>如果你不确定自己的网速及摄像头是否达标， KRYTERION提供以下网址可以测试，网速测试：</p>
+<p><a href="http://test.kryteriononline.com/webcam-checker/" target="_blank" rel="noopener">http://test.kryteriononline.com/webcam-checker/</a></p>
+<p>也可以用这个网站进行摄像头测试：</p>
+<p><a href="https://www.onlinemictest.com/webcam-test/" target="_blank" rel="noopener">https://www.onlinemictest.com/webcam-test/</a></p>
+<p><strong>开始考试</strong></p>
+<p>首先需要登入考试，链接：<a href="http://www.webassessor.com/salesforce" target="_blank" rel="noopener">http://www.webassessor.com/salesforce</a></p>
+<p>其次，需要安装在线考试软件在你的电脑里面，软件Windows下载地址如下：</p>
+<p><a href="https://media.webassessor.com/sentinel/windows/v4/Setup.exe" target="_blank" rel="noopener">https://media.webassessor.com/sentinel/windows/v4/Setup.exe</a></p>
+<p>如果你是第一次考试的话，需要采集你的照片信息。相关信息也可以在考试页面上看到。</p>
+<p><img src="https://user-images.githubusercontent.com/9688136/88244556-c2ae1180-ccc6-11ea-9331-3d02761ceede.png"></p>
+<p>在准备考试时，请关闭电脑其他软件如QQ，微信，邮件，以免有弹出消息导致考试中断。</p>
+<p>在你快考试的大概前10分钟，你打开网站，如果已经可以开考，会见到一个’Launch’按钮。而还不能开考的，会显示问号。</p>
+<p><img src="https://user-images.githubusercontent.com/9688136/88244576-ccd01000-ccc6-11ea-9751-0a9720e689dd.png"></p>
+<p>点击‘Continue’继续。</p>
+<p><img src="https://user-images.githubusercontent.com/9688136/88244597-d9546880-ccc6-11ea-8548-1ce3cef763bb.png"></p>
+<p>然后会登入系统采集页面</p>
+<p><img src="https://user-images.githubusercontent.com/9688136/88244616-e40efd80-ccc6-11ea-884c-7b611658b7c7.png"></p>
+<p>这里需要点击’Start’才可以继续，系统会出现一个绿色的框，你需要调整自己的位置让绿色的框对准你的脸。</p>
+<p><img src="https://user-images.githubusercontent.com/9688136/88244645-030d8f80-ccc7-11ea-957b-f9411c26214d.png"></p>
+<p>然后选择你的设备连接，点击继续：</p>
+<p><img src="https://user-images.githubusercontent.com/9688136/88244661-0c96f780-ccc7-11ea-836a-58e0fc46305d.png"></p>
+<p>这里需要调整你的摄像头位置，然后点开始考试。</p>
+<p><img src="https://user-images.githubusercontent.com/9688136/88244681-1ae51380-ccc7-11ea-86bf-12c17c3e00cb.png"></p>
+<p><strong>考试中</strong></p>
+<p>如果你有佩戴眼镜，在考试时候，会突然弹出如下页面，不用紧张，这时候只需要把你的眼镜摘下来，如下图左边所示给监考看一下你的眼镜。</p>
+<p><img src="https://user-images.githubusercontent.com/9688136/88244701-2df7e380-ccc7-11ea-9c33-875ea71ae793.png"></p>
+<p><strong>考试遇到问题怎么办？</strong></p>
+<p>如果考试中出现问题，或突然中断，不用担心，你每做的一题都会存入系统中，不用担心你所做的题目会不见。</p>
+<p>如果情况紧急的话，可以尝试通过如下方式联系Salesforce考试中心：</p>
+<p>Kryterion Kryterion Online Proctored Support <strong>电话</strong>(需要用英文)：</p>
+<p>美国本土电话：866-579-8374 (USA Toll Free) 或者1-877-313-2008 (US) </p>
+<p>国际电话：+<strong>001-602-659-4679</strong> (International)</p>
+<p>**邮箱：**<a href="mailto:&#115;&#117;&#x70;&#x70;&#111;&#114;&#x74;&#64;&#107;&#114;&#x79;&#116;&#x65;&#x72;&#x69;&#111;&#110;&#111;&#110;&#x6c;&#x69;&#x6e;&#101;&#x2e;&#99;&#111;&#109;">support@kryteriononline.com</a> 或者<a href="mailto:&#x6f;&#108;&#x70;&#115;&#x75;&#x70;&#x70;&#111;&#114;&#116;&#64;&#x6b;&#114;&#121;&#x74;&#x65;&#114;&#105;&#111;&#x6e;&#x6f;&#x6e;&#x6c;&#105;&#110;&#101;&#x2e;&#99;&#111;&#x6d;">olpsupport@kryteriononline.com</a></p>
+<p>或者在kryterion官网寻找在线帮助，点击’Chat with an Expert’</p>
+<p><img src="https://user-images.githubusercontent.com/9688136/88244719-3cde9600-ccc7-11ea-8bb3-0a3d7d0c8e42.png"></p>
+<p>网站如下：<a href="https://kryterion.force.com/support" target="_blank" rel="noopener">https://kryterion.force.com/support</a></p>
+<p>如果你的情况不是很紧急的话，可以在Salesforce里面提一个Case。</p>
+<p><a href="http://certification.salesforce.com/open-a-case" target="_blank" rel="noopener">http://certification.salesforce.com/open-a-case</a></p>
+
+        </div>
+
+        <section class='meta'>
+            <time class="time" itemprop="dateUpdated" datetime="2025-05-06T03:51:48+00:00" content="2025-05-06">
+                <i class="fas fa-pen fa-fw" aria-hidden="true"></i>
+                本文最后更新于：2025-05-06
+            </time>
+            
+                
+                <div class="tags">
+                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                    <a class="tag" href="/tags/Salesforce/">Salesforce</a>, <a class="tag" href="/tags/exam/">exam</a>
+                </div>
+            
+        </section>
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <div class="addthis_inline_share_toolbox"></div>
+
+
+        
+            <div class="prev-next">
+                
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一篇</h6>
+                            <h4>
+                                <a href="/2020/04/11/2020-04-11-Salesforce-interview/" rel="prev" title="Salesforce 面试">
+                                  
+                                      Salesforce 面试
+                                  
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                                    <a class="tag" href="/tags/Salesforce/">Salesforce</a>, <a class="tag" href="/tags/%E9%9D%A2%E8%AF%95/">面试</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>下一篇&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2020/04/10/2020-04-10-Salesforce-Covid-19-List/" rel="prev" title="如何在Salesforce上搭建一个全球疫情排行榜？">
+                                    
+                                        如何在Salesforce上搭建一个全球疫情排行榜？
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                                    <a class="tag" href="/tags/Salesforce/">Salesforce</a>, <a class="tag" href="/tags/LWC/">LWC</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+
+    </section>
+
+</article>
+
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+    <article class="post white-box comments">
+        <section class="article typo">
+
+            
+                
+
+    <div class="recommended_posts">
+        <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;你可能感兴趣的文章</h4>
+        <ul>
+            
+                <li><a href="http://tonyrenhk.github.io/2020/05/01/2020-05-01-LWC-Study/">LWC学习</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2020/04/11/2020-04-11-Salesforce-interview/">Salesforce 面试</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2020/04/10/2020-04-10-Salesforce-Covid-19-List/">如何在Salesforce上搭建一个全球疫情排行榜？</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2020/04/03/2020-04-03-Salesforce-mobile/">6招教你如何自定义Salesforce新版本移动应用程序！</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2020/04/01/2020-04-01-English-Study-Resource/">英语学习资源</a></li>
+            
+        </ul>
+    </div>
+
+
+            
+
+            
+
+                
+
+                
+
+                
+                    
+                
+            
+
+        </section>
+    </article>
+
+
+<script>
+    window.subData = {
+        title: '如何在家进行Salesforce考试？',
+        tools: true
+    }
+</script>
+
+
+        </div>
+        <aside class='l_side'>
+            
+    
+        
+  <section class='m_widget author'>
+    
+      <div class='header'>
+        <img class='avatar' src='https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/Me2.jpg'/>
+      </div>
+    
+    
+      <div class='content'>
+        
+          <h2>Tony Ren&#39;s 学习笔记</h2>
+        
+        
+          <p>好学近乎知，力行近乎仁，知耻近乎勇</p>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:renchk@foxmail.com" class="social flat-box" target="_blank" rel="external"><i class="social fas fa-envelope" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://github.com/TonyRenHK" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-github" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://www.weibo.com/6476367461" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-weibo" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://tonyrenhk.github.io/Wechat/" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-weixin" aria-hidden="true"></i></a>
+          
+        
+      </div>
+    
+  </section>
+
+
+    
+    
+        <section class='m_widget links'>
+    <div class='content pure'>
+        <ul class="entry" id="links">
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://tonyrenhk.github.io/2018/01/01/2018-01-01-Salesforce-related-resource/" rel="external nofollow noopener noreferrer" href="https://tonyrenhk.github.io/2018/01/01/2018-01-01-Salesforce-related-resource/">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/IMG_2568.JPG">
+                        
+                        &nbsp;&nbsp;Salesforce
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://tonyrenhk.github.io/2018/01/09/2018-01-09-IT-Study-Resource/" rel="external nofollow noopener noreferrer" href="https://tonyrenhk.github.io/2018/01/09/2018-01-09-IT-Study-Resource/">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88612001-cf62a900-d0bc-11ea-9cbb-a14beeb356c7.png">
+                        
+                        &nbsp;&nbsp;IT
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/Note/OnlineTools.html" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/Note/OnlineTools.html">
+                    
+                    <div class='name'>
+                        
+                            <img src="http://tonyrenhk.github.io/images/notebook.png">
+                        
+                        &nbsp;&nbsp;工具Tools
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/Note/Tutorial.html" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/Note/Tutorial.html">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/Astro_Trailblazer_hoodie_wave.png">
+                        
+                        &nbsp;&nbsp;教程Tutorial
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/2018/02/02/2018-02-02-Git-Study/" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/2018/02/02/2018-02-02-Git-Study/">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/s.png">
+                        
+                        &nbsp;&nbsp;Git
+                    </div>
+                </a></li>
+            
+        </ul>
+    </div>
+</section>
+
+    
+    
+        <section class='m_widget categories'>
+    <header class='header pure'>
+        <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;分类</div>
+    </header>
+    <div class='content pure'>
+        
+            <ul class="entry">
+                
+                    <li><a class="flat-box" href="/categories/English/"><div class='name'>English</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Git/"><div class='name'>Git</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Google/"><div class='name'>Google</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/JavaScript/"><div class='name'>JavaScript</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Others/"><div class='name'>Others</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Python/"><div class='name'>Python</div><div class='badge'>1</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Salesforce/"><div class='name'>Salesforce</div><div class='badge'>35</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Tools/"><div class='name'>Tools</div><div class='badge'>1</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/hexo/"><div class='name'>hexo</div><div class='badge'>1</div></a></li>
+                
+            </ul>
+        
+    </div>
+</section>
+
+    
+    
+        
+    <section class='m_widget tagcloud'>
+        <header class="header pure">
+            <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
+        </header>
+        <div class='content pure'>
+            <a href="/tags/Admin/" style="font-size: 14px; color: #999">Admin</a> <a href="/tags/Apex/" style="font-size: 16.86px; color: #868686">Apex</a> <a href="/tags/BookMark/" style="font-size: 14px; color: #999">BookMark</a> <a href="/tags/CDC/" style="font-size: 14px; color: #999">CDC</a> <a href="/tags/CPQ/" style="font-size: 14px; color: #999">CPQ</a> <a href="/tags/Change-Data-Capture/" style="font-size: 14px; color: #999">Change Data Capture</a> <a href="/tags/Chrome-Extension/" style="font-size: 14px; color: #999">Chrome-Extension</a> <a href="/tags/Community-Cloud/" style="font-size: 14px; color: #999">Community Cloud</a> <a href="/tags/Demo/" style="font-size: 14px; color: #999">Demo</a> <a href="/tags/Flow/" style="font-size: 14px; color: #999">Flow</a> <a href="/tags/Git/" style="font-size: 16.86px; color: #868686">Git</a> <a href="/tags/Google/" style="font-size: 14px; color: #999">Google</a> <a href="/tags/Google-App-Script/" style="font-size: 14px; color: #999">Google App Script</a> <a href="/tags/Heroku/" style="font-size: 14px; color: #999">Heroku</a> <a href="/tags/IT%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">IT学习</a> <a href="/tags/Interactive-Email/" style="font-size: 14px; color: #999">Interactive Email</a> <a href="/tags/JavaScript/" style="font-size: 15.43px; color: #8f8f8f">JavaScript</a> <a href="/tags/Jsforce/" style="font-size: 15.43px; color: #8f8f8f">Jsforce</a> <a href="/tags/LWC/" style="font-size: 22.57px; color: #5f5f5f">LWC</a> <a href="/tags/Lightning/" style="font-size: 15.43px; color: #8f8f8f">Lightning</a> <a href="/tags/Lightning-Components/" style="font-size: 14px; color: #999">Lightning Components</a> <a href="/tags/Lightning-Web-Components/" style="font-size: 18.29px; color: #7c7c7c">Lightning Web Components</a> <a href="/tags/MC/" style="font-size: 15.43px; color: #8f8f8f">MC</a> <a href="/tags/MCC/" style="font-size: 14px; color: #999">MCC</a> <a href="/tags/Marketing-Cloud/" style="font-size: 14px; color: #999">Marketing Cloud</a> <a href="/tags/Marketing-Cloud-Connect/" style="font-size: 14px; color: #999">Marketing Cloud Connect</a> <a href="/tags/Org/" style="font-size: 14px; color: #999">Org</a> <a href="/tags/Others/" style="font-size: 14px; color: #999">Others</a> <a href="/tags/Pardot/" style="font-size: 14px; color: #999">Pardot</a> <a href="/tags/Python/" style="font-size: 15.43px; color: #8f8f8f">Python</a> <a href="/tags/Roll-Up-Summary/" style="font-size: 14px; color: #999">Roll-Up Summary</a> <a href="/tags/SFDC/" style="font-size: 14px; color: #999">SFDC</a> <a href="/tags/SFDX/" style="font-size: 19.71px; color: #727272">SFDX</a> <a href="/tags/Salesforce/" style="font-size: 24px; color: #555">Salesforce</a> <a href="/tags/Salesforce-Mobile/" style="font-size: 14px; color: #999">Salesforce Mobile</a> <a href="/tags/Sandbox/" style="font-size: 14px; color: #999">Sandbox</a> <a href="/tags/Script/" style="font-size: 14px; color: #999">Script</a> <a href="/tags/Site/" style="font-size: 14px; color: #999">Site</a> <a href="/tags/Study/" style="font-size: 18.29px; color: #7c7c7c">Study</a> <a href="/tags/StudyNote/" style="font-size: 14px; color: #999">StudyNote</a> <a href="/tags/Superbadge/" style="font-size: 14px; color: #999">Superbadge</a> <a href="/tags/Tools/" style="font-size: 14px; color: #999">Tools</a> <a href="/tags/Trailhead/" style="font-size: 21.14px; color: #686868">Trailhead</a> <a href="/tags/exam/" style="font-size: 14px; color: #999">exam</a> <a href="/tags/flow/" style="font-size: 14px; color: #999">flow</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/tags/hexo-theme-doc/" style="font-size: 14px; color: #999">hexo-theme-doc</a> <a href="/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/tags/metadata/" style="font-size: 14px; color: #999">metadata</a> <a href="/tags/shortcut/" style="font-size: 14px; color: #999">shortcut</a> <a href="/tags/%E5%85%A5%E9%97%A8/" style="font-size: 14px; color: #999">入门</a> <a href="/tags/%E5%AF%B9Campaign/" style="font-size: 14px; color: #999">对Campaign</a> <a href="/tags/%E5%BC%80%E5%8F%91%E8%80%85II%E8%80%83%E8%AF%95/" style="font-size: 19.71px; color: #727272">开发者II考试</a> <a href="/tags/%E8%87%AA%E5%8A%A8/" style="font-size: 14px; color: #999">自动</a> <a href="/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">英语学习</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 14px; color: #999">面试</a>
+        </div>
+    </section>
+
+
+    
+    
+        
+
+    
+    
+        <section class='m_widget links'>
+    <header class='header pure'>
+        <div><i class="fas fa-link fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;更多</div>
+        
+            <a class="rightBtn" title="联系博主添加友链" target="_blank" rel="external nofollow noopener noreferrer" href="mailto:me@xaoxuu.com?subject=交换友链&body=你好，我想和你交换友链，我已经将【Tony Ren&#39;s 学习笔记】添加到我的博客的友链中。我的博客链接是："><i class="fas fa-plus fa-fw"></i></a>
+        
+    </header>
+    <div class='content pure'>
+        <ul class="entry" id="links">
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://docs.qq.com/desktop/" target="_blank" rel="external nofollow noopener noreferrer" href="https://docs.qq.com/desktop/">
+                    
+                        
+                    
+                        
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88069910-a6b24f00-cba4-11ea-837b-d4a0dcf05d94.png">
+                        
+                        &nbsp;&nbsp;腾讯文档
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://www.notion.so/" target="_blank" rel="external nofollow noopener noreferrer" href="https://www.notion.so/">
+                    
+                        
+                    
+                        
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88069945-b16ce400-cba4-11ea-9c3f-d5857b39a5df.png">
+                        
+                        &nbsp;&nbsp;Notion
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://ide.goorm.io/" target="_blank" rel="external nofollow noopener noreferrer" href="https://ide.goorm.io/">
+                    
+                        
+                    
+                        
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88611890-9e827400-d0bc-11ea-893a-5b0af150504a.png">
+                        
+                        &nbsp;&nbsp;Goorm IDE
+                    </div>
+                </a></li>
+            
+        </ul>
+    </div>
+</section>
+
+    
+
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    </div>
+    <footer id="footer" class="clearfix">
+    
+        <div class="social-wrapper">
+          
+              
+                  <a href="mailto:renchk@foxmail.com" class="social fas fa-envelope flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://github.com/TonyRenHK" class="social fab fa-github flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://www.weibo.com/6476367461" class="social fab fa-weibo flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://tonyrenhk.github.io/Wechat/" class="social fab fa-weixin flat-box" target="_blank" rel="external"></a>
+              
+          
+        </div>
+    
+    <br>
+    <div>博客内容遵循 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="licenses">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></div>
+    <div>本站使用 <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a> 作为主题，
+		总访问量为 <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> 次。
+    </div>
+    
+<span id="runtime_span"></span>
+
+<script type="text/javascript">
+function show_runtime(){
+  window.setTimeout("show_runtime()",1000);
+  X=new Date("8/22/2016 18:27:0");
+  Y=new Date();T=(Y.getTime()-X.getTime());M=24*60*60*1000;
+  a=T/M;A=Math.floor(a);
+  b=(a-A)*24;B=Math.floor(b);
+  c=(b-B)*60;C=Math.floor((b-B)*60);
+  D=Math.floor((c-C)*60);
+  runtime_span.innerHTML="—— 本站已稳定运行： "+A+"天"+B+"小时"+C+"分"+D+"秒 ——"}show_runtime();
+
+</script>
+
+
+</footer>
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+    <script>setLoadingBarProgress(80);</script>
+    <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src='//cdn.bootcss.com/node-waves/0.7.5/waves.min.js'></script>
+<script src="//cdn.bootcss.com/scrollReveal.js/3.3.2/scrollreveal.min.js"></script>
+<!-- 访问统计 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5bfb78723c9c4600"></script>
+
+
+
+<script src="/js/jquery.fitvids.js"></script>
+
+
+    <script>
+        var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+        var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+        var ALGOLIA_API_KEY = "";
+        var ALGOLIA_APP_ID = "";
+        var ALGOLIA_INDEX_NAME = "";
+        var AZURE_SERVICE_NAME = "";
+        var AZURE_INDEX_NAME = "";
+        var AZURE_QUERY_KEY = "";
+        var BAIDU_API_ID = "";
+        var SEARCH_SERVICE = "hexo" || "hexo";
+        var ROOT = "/"||"/";
+        if(!ROOT.endsWith('/'))ROOT += '/';
+    </script>
+
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/app.js"></script>
+
+
+
+    
+    
+    
+        
+    
+
+
+    <script>setLoadingBarProgress(100);</script>
+</body>

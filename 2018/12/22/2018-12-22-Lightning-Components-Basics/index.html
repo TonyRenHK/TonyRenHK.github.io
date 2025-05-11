@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="036nsNgxuH68xUABF8jrgg8Xzsti4FN8eKjWvA185C4" />
+  <meta name="baidu-site-verification" content="FQRuGMvxtv" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+
+  
+  <title>Trailhead学习:Lightning Components Basics | Tony Ren&#39;s 学习笔记</title>
+  
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico">
+  <link rel="alternate" href="/atom.xml" title="Tony Ren's 学习笔记">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico" />
+  <link rel="icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico" />
+  
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono" rel="stylesheet">
+  
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link href='//cdn.bootcss.com/node-waves/0.7.5/waves.min.css' rel='stylesheet'>
+  
+<link rel="stylesheet" href="/style.css">
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+  
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1382646259212001",
+    enable_page_level_ads: true
+  });
+</script>
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading-bar-wrapper">
+  <div id="loading-bar" class="pure"></div>
+</div>
+
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header pure">
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+			<a class="logo flat-box" href='/' >Tony Ren's 学习笔记</a>
+				<div class='menu'>
+					<ul class='h-list'>
+            
+    					
+    						<li>
+    							<a class="nav  flat-box" href="/">
+    								<i class='fas fa-home fa-fw'></i>&nbsp;主页
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/archives/">
+    								<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/Project">
+    								<i class='fas fa-flask fa-fw'></i>&nbsp;项目
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/about/">
+    								<i class='fas fa-user fa-fw'></i>&nbsp;关于
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="https://renchk.github.io" target="_blank" rel="noopener">
+    								<i class='fas fa-globe fa-fw'></i>&nbsp;English
+  								</a>
+  							</li>
+        			
+        		
+					</ul>
+					<div class='underline'></div>
+				</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search" />
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></span></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-top'><a class="fas fa-arrow-circle-up fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-toc'><a class="fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+		<nav>
+      <ul>
+          
+              
+                  <li>
+										<a class="nav  flat-box" href="/">
+											<i class='fas fa-home fa-fw'></i>&nbsp;主页
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/archives/">
+											<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/Project">
+											<i class='fas fa-flask fa-fw'></i>&nbsp;项目
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/about/">
+											<i class='fas fa-user fa-fw'></i>&nbsp;关于
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="https://renchk.github.io" target="_blank" rel="noopener">
+											<i class='fas fa-globe fa-fw'></i>&nbsp;English
+										</a>
+                  </li>
+              
+       
+      </ul>
+		</nav>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            <article id="post-2018-12-22-Lightning-Components-Basics" class="post white-box article-type-post" itemscope itemprop="blogPost">
+    <section class='meta'>
+        
+            <h1 class="title">Trailhead学习:Lightning Components Basics</h1>
+        
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+            2018-12-22
+        </time>
+        <div class="browse"><i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+        </div>
+        
+    
+    <div class='cats'>
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+        <a class="categories" href="/categories/Salesforce/">Salesforce</a>
+    </div>
+
+
+    </section>
+
+    <section class="article typo">
+
+        <div class="article-entry" itemprop="articleBody">
+            <p>【Trailhead学习】开发者2考试解锁之路：”Lightning组件框架专家”(Lightning Component Framework Specialist Superbadge)之Lightning Components Basics 。</p>
+<a id="more"></a>
+
+
+
+<p>该模块为 Aura模块基础(Aura Components Basics)<br><a href="https://trailhead.salesforce.com/en/content/learn/modules/lex_dev_lc_basics" target="_blank" rel="noopener">https://trailhead.salesforce.com/en/content/learn/modules/lex_dev_lc_basics</a></p>
+<p>分为如下几个单元：</p>
+<ul>
+<li>Before You Start</li>
+<li>Get Started with Lightning Components</li>
+<li>Create and Edit Lightning Components</li>
+<li>Attributes and Expressions</li>
+<li>Handle Actions with Controllers</li>
+<li>Input Data Using Forms</li>
+<li>Connect to Salesforce with Server-Side Controllers</li>
+<li>Connect Components with Events</li>
+<li>Discover Next Steps</li>
+</ul>
+<p>该模块是解锁Lightning Component Framework Specialist Superbadge的第二个Module。其中Lightning Component Framework Specialist Superbadge的链接如下：</p>
+<p><a href="https://trailhead.salesforce.com/en/content/learn/superbadges/superbadge_lcf" target="_blank" rel="noopener">https://trailhead.salesforce.com/en/content/learn/superbadges/superbadge_lcf</a></p>
+<p>本模块的主要学习目的是：利用Lightning Components中的可重用的组件构建网页版apps。</p>
+<h1 id="在开始前-Before-You-Start"><a href="#在开始前-Before-You-Start" class="headerlink" title="在开始前(Before You Start)"></a>在开始前(Before You Start)</h1><p>相关学习链接如下：<br><a href="https://trailhead.salesforce.com/content/learn/modules/lex_dev_lc_basics/lex_dev_lc_basics_prereqs" target="_blank" rel="noopener">https://trailhead.salesforce.com/content/learn/modules/lex_dev_lc_basics/lex_dev_lc_basics_prereqs</a><br>学习开发Lightning components 需要学习JavaScript，对于初学者，可以参考如下链接：<br>JS: The Right Way: <a href="http://jstherightway.org/" target="_blank" rel="noopener">http://jstherightway.org/</a></p>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><ul>
+<li><p>Setting Up Your Org<br>As part of our challenges for this module, you’ll build a camping list application. You need to do a few more tasks before passing this challenge and continuing.</p>
+</li>
+<li><p>Create an Expense custom object to work with the examples. You probably already have done this.</p>
+<ul>
+<li>Create a Camping Item custom object to hold the items you need to go camping with the following fields:</li>
+<li>Name (use the standard name field)</li>
+<li>Quantity: Number(18, 0) - Required</li>
+<li>Price: Currency(16, 2) - Required</li>
+<li>Packed: Checkbox(default: unchecked)</li>
+</ul>
+</li>
+</ul>
+<h3 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h3><p>题目要求新建一个对象(Object)名字为：Expense，相关信息需要设置如下：</p>
+<ul>
+<li>Label：Expense</li>
+<li>Plural Label：Expenses</li>
+<li>Starts with vowel sound：checked</li>
+<li>API Name：Expense__c</li>
+</ul>
+<p>同时新建四个字段在Expense对象上：</p>
+<ul>
+<li>Amount (API Name:Amount__c),字段类型：Number(16,2)</li>
+<li>Client (API Name:Client__c),字段类型：Text(50)</li>
+<li>Date (API Name:Date__c),字段类型：Date</li>
+<li>Reimbursed (API Name:Reimbursed__c),字段类型：Checkbox</li>
+</ul>
+<p>之后需要新建另外一个对象名字为Camping Item,这里API名字可以为Camping_Item__c。同时，新建三个field:Quantity,Price,Packed。</p>
+<p>搞定！</p>
+<p><img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Blog/Lightning-Components-Basics-1.jpg" alt="image"></p>
+<h1 id="Get-Started-with-Lightning-Components"><a href="#Get-Started-with-Lightning-Components" class="headerlink" title="Get Started with Lightning Components"></a>Get Started with Lightning Components</h1><p>相关链接：<a href="https://trailhead.salesforce.com/content/learn/modules/lex_dev_lc_basics/lex_dev_lc_basics_intro" target="_blank" rel="noopener">https://trailhead.salesforce.com/content/learn/modules/lex_dev_lc_basics/lex_dev_lc_basics_intro</a></p>
+<p>如下是Lightning Components框架，其设计师为了连接Salesforce与lightning平台。</p>
+<p><img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Blog/lex_dev_lc_basics_intro.png" alt="image"></p>
+<p>题目一：Which of the following descriptions about the Lightning Component framework is true?<br>A) It’s a UI framework for developing web apps for mobile and desktop devices.<br>B) It uses JavaScript on the client side and Apex on the server side.<br>C) It’s a modern framework for building single-page applications.<br>D) All of the above</p>
+<p>解析： Lightning Component适用于移动端和PC端，同时前端是JS，后端是APEX。所以答案是D</p>
+<p>题目二：What can you build with the Lightning Component framework?<br>A) Standalone app<br>B) Components to use inside Visualforce pages<br>C) Drag-and-drop components for Lightning App Builder<br>D) All of the above</p>
+<p>解析：本题考查Lightning Component适合应用的场景。D。</p>
+<p>题目三：How is Lightning Components different from other web app frameworks?</p>
+<p>A) Lightning Components is optimized for both mobile and desktop experiences and proves it with Salesforce1 and Lightning Experience.<br>B) Lightning Components connects natively with services provided by the Salesforce platform.<br>C) Lightning Components has specific opinions about how data access is performed and has specific security requirements.<br>D) All of the above</p>
+<p>解析：Lightning Components 和其他框架的不同点。Lightning Components 其设计主要是为了Salesforce服务，也即连接Lightning平台和Salesforce。所以答案是D</p>
+<h1 id="Create-and-Edit-Aura-Components"><a href="#Create-and-Edit-Aura-Components" class="headerlink" title="Create and Edit Aura Components"></a>Create and Edit Aura Components</h1><p>相关链接：<br><a href="https://trailhead.salesforce.com/content/learn/modules/lex_dev_lc_basics/lex_dev_lc_basics_create" target="_blank" rel="noopener">https://trailhead.salesforce.com/content/learn/modules/lex_dev_lc_basics/lex_dev_lc_basics_create</a></p>
+<p>题目：</p>
+<p><strong>Create a Simple Camping List Lightning Component</strong></p>
+<ul>
+<li>Create a ‘camping’ component that displays a list of camping supplies that you’ll need for your trip. Compose this component by using other components to increase reusability.</li>
+<li>Create a campingList component that contains an ordered list of camping supplies that include Bug Spray, Bear Repellant, and Goat Food.</li>
+<li>Create a campingHeader component that displays Camping List wrapped in an H1 tag with a font size of 18.</li>
+</ul>
+<p>要新建三个Lightning Component，分别为’camping’,’campingList’,’campingHeader’</p>
+<p>其中’campingList’，需要列出三个列表Bug Spray, Bear Repellant, 和 Goat Food。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">aura:component</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>Bug Spray<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>Bear Repellant<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>Goat Food<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">aura:component</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>同时新建一个’campingHeader’</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">aura:component</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Camping List<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">aura:component</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.THIS</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">h1</span><span class="selector-class">.THIS</span> &#123;</span><br><span class="line"><span class="attribute">font-size</span>: <span class="number">18px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>‘camping’代码如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">aura:component</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">c:campingHeader</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">c:campingList</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">aura:component</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Blog/Lightning-Components-Basics-2.jpg" alt="image"></p>
+<h1 id="Attributes-and-Expressions"><a href="#Attributes-and-Expressions" class="headerlink" title="Attributes and Expressions"></a>Attributes and Expressions</h1><p>相关链接：<br><a href="https://trailhead.salesforce.com/content/learn/modules/lex_dev_lc_basics/lex_dev_lc_basics_attributes_expressions" target="_blank" rel="noopener">https://trailhead.salesforce.com/content/learn/modules/lex_dev_lc_basics/lex_dev_lc_basics_attributes_expressions</a><br>本章主要讲述的是相关属性以及表达式。<br>接下来是下一个题目：<br><strong>Create a Packing List Item Component</strong><br>    Create a Lightning Component to display a single item for your packing list.</p>
+<ul>
+<li>Create a component called campingListItem.</li>
+<li>Add an attribute named item of type Camping_Item__c that is required.</li>
+<li>Display Name, Price, Quantity, Packed using an expression.</li>
+<li>Display Price and Quantity using the appropriate formatted number fields.</li>
+<li>Display Packed status using a toggle.</li>
+</ul>
+<p>题目要求添加一个Camping_Item__c类型，同时定义Price和Quantity为数字字段。这里我们把Price定义为currency字段：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">aura:component</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aura:attribute</span> <span class="attr">name</span>=<span class="string">"item"</span> <span class="attr">type</span>=<span class="string">"Camping_Item__c"</span> <span class="attr">required</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ui:outputText</span> <span class="attr">value</span>=<span class="string">"&#123;!v.item.Name&#125;"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">lightning:formattedNumber</span> <span class="attr">value</span>=<span class="string">"&#123;!v.item.Price__c&#125;"</span> <span class="attr">style</span>=<span class="string">"currency"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">lightning:formattedNumber</span> <span class="attr">value</span>=<span class="string">"&#123;!v.item.Quantity__c&#125;"</span> <span class="attr">style</span>=<span class="string">"Number"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">lightning:input</span> <span class="attr">type</span>=<span class="string">"toggle"</span> <span class="attr">label</span>=<span class="string">"Packed"</span> <span class="attr">name</span>=<span class="string">"togglevalue"</span> <span class="attr">checked</span>=<span class="string">"&#123;!v.item.Packed__c&#125;"</span> /&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">aura:component</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Blog/Lightning-Components-Basics-3.jpg" alt="image"></p>
+<h1 id="Handle-Actions-with-Controllers"><a href="#Handle-Actions-with-Controllers" class="headerlink" title="Handle Actions with Controllers"></a>Handle Actions with Controllers</h1><p>相关链接为：<a href="https://trailhead.salesforce.com/content/learn/modules/lex_dev_lc_basics/lex_dev_lc_basics_controllers" target="_blank" rel="noopener">https://trailhead.salesforce.com/content/learn/modules/lex_dev_lc_basics/lex_dev_lc_basics_controllers</a></p>
+<p>此文主要学习如何使用Controllers</p>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p>下面我们来根据例子实际学习一下如何使用控制器，这里新建一个Lightning Component 命名为helloMessageInteractive：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">aura:component</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aura:attribute</span> <span class="attr">name</span>=<span class="string">"message"</span> <span class="attr">type</span>=<span class="string">"String"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Message of the day: &#123;!v.message&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">lightning:button</span> <span class="attr">label</span>=<span class="string">"You look nice today."</span></span></span><br><span class="line"><span class="tag">            <span class="attr">onclick</span>=<span class="string">"&#123;!c.handleClick&#125;"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">lightning:button</span> <span class="attr">label</span>=<span class="string">"Today is going to be a great day!"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">onclick</span>=<span class="string">"&#123;!c.handleClick&#125;"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">aura:component</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>其中’c’是控制客户端的操作。通过onclick调用客户端handleClick的函数实行控制。</p>
+<p>接下来是controller来控制按钮：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(&#123;</span><br><span class="line">    handleClick: <span class="function"><span class="keyword">function</span>(<span class="params">component, event, helper</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> btnClicked = event.getSource();         <span class="comment">// the button</span></span><br><span class="line">        <span class="keyword">var</span> btnMessage = btnClicked.get(<span class="string">"v.label"</span>); <span class="comment">// the button's label</span></span><br><span class="line">        component.set(<span class="string">"v.message"</span>, btnMessage);     <span class="comment">// update our message</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>‘event.getSource()’指向的是用户所点击的按钮属性。之后通过component.set设置客户端的变量”v.message”。</p>
+<p>最后还需要新建一个Lightning Application去预览这个组件：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">aura:application</span> <span class="attr">extends</span>=<span class="string">"force:slds"</span> &gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">c:helloMessageInteractive</span>&gt;</span><span class="tag">&lt;/<span class="name">c:helloMessageInteractive</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">aura:application</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="题目-1"><a href="#题目-1" class="headerlink" title="题目"></a>题目</h2><p>接下来直接进入题目环节：</p>
+<p><strong>Mark Item as Packed</strong><br>    Add a button to the campingListItem component that when clicked, marks the item as packed.</p>
+<ul>
+<li>Add a button labeled Packed! that calls the packItem controller function when clicked.</li>
+<li>The controller function should do the following:<ul>
+<li>Mark the item attribute as packed using a value of true</li>
+<li>Disable the button by marking the disabled attribute using a value of true</li>
+</ul>
+</li>
+</ul>
+<p>题目要求新建一个按钮，当按钮按下之后，设置Packed为真。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">aura:component</span> <span class="attr">implements</span>=<span class="string">"force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId"</span> <span class="attr">access</span>=<span class="string">"global"</span> &gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- item attribute is an instance of Camping_Item__c--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aura:attribute</span> <span class="attr">name</span>=<span class="string">"item"</span> <span class="attr">type</span>=<span class="string">"Camping_Item__c"</span> <span class="attr">description</span>=<span class="string">"instance of Camping_Item__c object"</span> <span class="attr">required</span>=<span class="string">"true"</span> <span class="attr">default</span>=<span class="string">"&#123;Packed__c : false&#125;"</span> <span class="attr">access</span>=<span class="string">"global"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">        Name: &#123;!v.item.Name&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Price:</span><br><span class="line">        <span class="tag">&lt;<span class="name">lightning:formattedNumber</span> <span class="attr">value</span>=<span class="string">"&#123;!v.item.Price__c&#125;"</span> <span class="attr">style</span>=<span class="string">"currency"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Quantity:</span><br><span class="line">        <span class="tag">&lt;<span class="name">lightning:formattedNumber</span> <span class="attr">value</span>=<span class="string">"&#123;!v.item.Quantity__c&#125;"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">lightning:input</span> <span class="attr">type</span>=<span class="string">"toggle"</span> <span class="attr">label</span>=<span class="string">"Packed ?"</span>  <span class="attr">name</span>=<span class="string">"Packed"</span>  <span class="attr">checked</span>=<span class="string">"&#123;!v.item.Packed__c&#125;"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">lightning:button</span> <span class="attr">label</span>=<span class="string">"Packed!"</span>  <span class="attr">onclick</span>=<span class="string">"&#123;!c.packItem&#125;"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">aura:component</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>同时记得Disable这个按钮。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(&#123;</span><br><span class="line">    packItem : <span class="function"><span class="keyword">function</span>(<span class="params">component, event, helper</span>) </span>&#123;</span><br><span class="line">        <span class="comment">//set the Packed__c property of the item (instance of Camping_Item__c) attribute</span></span><br><span class="line">        component.set(<span class="string">"v.item.Packed__c"</span>,<span class="literal">true</span>);</span><br><span class="line">        <span class="comment">//set the disabled attribute to true</span></span><br><span class="line">        event.getSource().set(<span class="string">"v.disabled"</span>,<span class="literal">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>最后在Lightning Application去预览这个组件：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">aura:application</span> <span class="attr">extends</span>=<span class="string">"force:slds"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">c:campingListItem</span> <span class="attr">item</span>=<span class="string">"&#123;Price__c: 100, Packed__c: false, Quantity__c: 10, Name:'Test'&#125;"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">aura:application</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>最后效果图如下：</p>
+<p><img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Blog/Lightning-Components-Basics-7.jpg" alt="image"></p>
+<p><img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Blog/Lightning-Components-Basics-5.jpg" alt="image"></p>
+<p>搞定！</p>
+<p><img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Blog/Lightning-Components-Basics-6.jpg" alt="image"></p>
+<p>最后，关于Lightning组件的其他库函数可以参考如下官方链接：<br>Components - Salesforce Lightning Component Library: <a href="https://developer.salesforce.com/docs/component-library/overview/components" target="_blank" rel="noopener">https://developer.salesforce.com/docs/component-library/overview/components</a></p>
+<h1 id="Input-Data-Using-Forms"><a href="#Input-Data-Using-Forms" class="headerlink" title="Input Data Using Forms"></a>Input Data Using Forms</h1><p>链接如下：</p>
+<p><a href="https://trailhead.salesforce.com/content/learn/modules/lex_dev_lc_basics/lex_dev_lc_basics_forms" target="_blank" rel="noopener">https://trailhead.salesforce.com/content/learn/modules/lex_dev_lc_basics/lex_dev_lc_basics_forms</a></p>
+<p>本节讲述的是如何利用Lightning组建构建表单，同时表单的样式使用Salesforce Lightning Design System，简称SLDS。</p>
+<p>这里，我们再application里面加入 extends&#x3D;”force:slds”的属性，就可以使用简称SLDS的库。</p>
+<p>我们可以现建立一个如下的 lightning component：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">aura:component</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- PAGE HEADER --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">lightning:layout</span> <span class="attr">class</span>=<span class="string">"slds-page-header slds-page-header--object-home"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">lightning:layoutItem</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">lightning:icon</span> <span class="attr">iconName</span>=<span class="string">"standard:scan_card"</span> <span class="attr">alternativeText</span>=<span class="string">"My Expenses"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">lightning:layoutItem</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">lightning:layoutItem</span> <span class="attr">padding</span>=<span class="string">"horizontal-small"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"page-section page-header"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">h1</span> <span class="attr">class</span>=<span class="string">"slds-text-heading--label"</span>&gt;</span>Expenses<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">h2</span> <span class="attr">class</span>=<span class="string">"slds-text-heading--medium"</span>&gt;</span>My Expenses<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">lightning:layoutItem</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">lightning:layout</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- / PAGE HEADER --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- NEW EXPENSE FORM --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">lightning:layout</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">lightning:layoutItem</span> <span class="attr">padding</span>=<span class="string">"around-small"</span> <span class="attr">size</span>=<span class="string">"6"</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- CREATE NEW EXPENSE --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">aria-labelledby</span>=<span class="string">"newexpenseform"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- BOXED AREA --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">fieldset</span> <span class="attr">class</span>=<span class="string">"slds-box slds-theme--default slds-container--small"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">legend</span> <span class="attr">id</span>=<span class="string">"newexpenseform"</span> <span class="attr">class</span>=<span class="string">"slds-text-heading--small </span></span></span><br><span class="line"><span class="tag"><span class="string">          slds-p-vertical--medium"</span>&gt;</span></span><br><span class="line">          Add Expense</span><br><span class="line">        <span class="tag">&lt;/<span class="name">legend</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">        <span class="comment">&lt;!-- CREATE NEW EXPENSE FORM --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">"slds-form--stacked"</span>&gt;</span>          </span><br><span class="line">            <span class="tag">&lt;<span class="name">lightning:input</span> <span class="attr">aura:id</span>=<span class="string">"expenseform"</span> <span class="attr">label</span>=<span class="string">"Expense Name"</span></span></span><br><span class="line"><span class="tag">                             <span class="attr">name</span>=<span class="string">"expensename"</span></span></span><br><span class="line"><span class="tag">                             <span class="attr">value</span>=<span class="string">"&#123;!v.newExpense.Name&#125;"</span></span></span><br><span class="line"><span class="tag">                             <span class="attr">required</span>=<span class="string">"true"</span>/&gt;</span> </span><br><span class="line">            <span class="tag">&lt;<span class="name">lightning:input</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">aura:id</span>=<span class="string">"expenseform"</span> <span class="attr">label</span>=<span class="string">"Amount"</span></span></span><br><span class="line"><span class="tag">                             <span class="attr">name</span>=<span class="string">"expenseamount"</span></span></span><br><span class="line"><span class="tag">                             <span class="attr">min</span>=<span class="string">"0.1"</span></span></span><br><span class="line"><span class="tag">                             <span class="attr">formatter</span>=<span class="string">"currency"</span></span></span><br><span class="line"><span class="tag">                             <span class="attr">step</span>=<span class="string">"0.01"</span></span></span><br><span class="line"><span class="tag">                             <span class="attr">value</span>=<span class="string">"&#123;!v.newExpense.Amount__c&#125;"</span></span></span><br><span class="line"><span class="tag">                             <span class="attr">messageWhenRangeUnderflow</span>=<span class="string">"Enter an amount that's at least $0.10."</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">lightning:input</span> <span class="attr">aura:id</span>=<span class="string">"expenseform"</span> <span class="attr">label</span>=<span class="string">"Client"</span></span></span><br><span class="line"><span class="tag">                             <span class="attr">name</span>=<span class="string">"expenseclient"</span></span></span><br><span class="line"><span class="tag">                             <span class="attr">value</span>=<span class="string">"&#123;!v.newExpense.Client__c&#125;"</span></span></span><br><span class="line"><span class="tag">                             <span class="attr">placeholder</span>=<span class="string">"ABC Co."</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">lightning:input</span> <span class="attr">type</span>=<span class="string">"date"</span> <span class="attr">aura:id</span>=<span class="string">"expenseform"</span> <span class="attr">label</span>=<span class="string">"Expense Date"</span></span></span><br><span class="line"><span class="tag">                             <span class="attr">name</span>=<span class="string">"expensedate"</span></span></span><br><span class="line"><span class="tag">                             <span class="attr">value</span>=<span class="string">"&#123;!v.newExpense.Date__c&#125;"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">lightning:input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">aura:id</span>=<span class="string">"expenseform"</span> <span class="attr">label</span>=<span class="string">"Reimbursed?"</span>  </span></span><br><span class="line"><span class="tag">                             <span class="attr">name</span>=<span class="string">"expreimbursed"</span></span></span><br><span class="line"><span class="tag">                             <span class="attr">checked</span>=<span class="string">"&#123;!v.newExpense.Reimbursed__c&#125;"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">lightning:button</span> <span class="attr">label</span>=<span class="string">"Create Expense"</span> </span></span><br><span class="line"><span class="tag">                              <span class="attr">class</span>=<span class="string">"slds-m-top--medium"</span></span></span><br><span class="line"><span class="tag">                              <span class="attr">variant</span>=<span class="string">"brand"</span></span></span><br><span class="line"><span class="tag">                              <span class="attr">onclick</span>=<span class="string">"&#123;!c.clickCreate&#125;"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- / CREATE NEW EXPENSE FORM --&gt;</span></span><br><span class="line">  </span><br><span class="line">      <span class="tag">&lt;/<span class="name">fieldset</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- / BOXED AREA --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- / CREATE NEW EXPENSE --&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">lightning:layoutItem</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">lightning:layout</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- / NEW EXPENSE FORM --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">aura:component</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这里的lightning component用到了lightning:layout，同时设置了size&#x3D;”6” ，那么对应道HTML里面的div会占用页面宽度的 50%，总数为12。<br>lightning:input是输入框里面的相关属性和HTML类似，如min是最小值。这里出现一个aura:id是在每一个tag里面的唯一的id<br>同时，新建一个application：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">aura:application</span> <span class="attr">extends</span>=<span class="string">"force:slds"</span>&gt;</span></span><br><span class="line">       </span><br><span class="line">        <span class="comment">&lt;!-- This component is the real "app" --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">c:expenses</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">aura:application</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>效果图如下：<br><img src="https://res.cloudinary.com/hy4kyit2a/f_auto,fl_lossy,q_70/learn/modules/lex_dev_lc_basics/lex_dev_lc_basics_forms/images/4ee0d3eb16b1c82b10a36bad9980a919_lex_dev_lc_basics_forms_new_expense.png" alt="alt tag"></p>
+<p>下面进入题目环节：</p>
+<p><strong>Create a Form to Enter New Items</strong></p>
+<p>In this challenge you’ll create a form to enter new items, a list to display the items entered, and add SLDS styling. First, to make our camping list look more appealing, change the campingHeader component to use lightning:layout and SLDS. Similar to the unit, style the Camping List H1 inside the slds-page-header. Add the action:goal SLDS icon using lightning:icon.</p>
+<p>Next, modify the campingList component to contain a new item input form and an iteration of campingListItem components for displaying the items entered. Here are additional details for the modifications to the campingList component.</p>
+<ul>
+<li>Add an attribute named items with the type of an array of camping item custom objects.</li>
+<li>Add an attribute named newItem of type Camping_Item__c with default quantity and price values of 0.</li>
+<li>The component displays the Name, Quantity, Price, and Packed form fields with the appropriate input component types and values from the newItem attribute. The Quantity field accepts a number that’s at least 1.</li>
+<li>Submitting the form executes the action clickCreateItem in the JavaScript controller.</li>
+<li>If the form is valid, the JavaScript controller pushes the newItem onto the array of existing items, triggers the notification that the items value provider has changed, and resets the newItem value provider with a blank sObjectType of Camping_Item__c. <strong>For this challenge, place the code in your component’s controller, not the helper.</strong></li>
+</ul>
+<p>题目需要开发者写一个输入的表单，同时展示所有输入的记录。这里我们可以使用SLDS样式，如lightning:icon。</p>
+<p>现在开始先写campingList 组件，也是主体部分。需要设置Camping_Item__c的quantity和price的默认值都为0。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">aura:component</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aura:attribute</span> <span class="attr">name</span>=<span class="string">"items"</span> <span class="attr">type</span>=<span class="string">"Camping_Item__c[]"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aura:attribute</span> <span class="attr">name</span>=<span class="string">"newItem"</span> <span class="attr">type</span>=<span class="string">"Camping_Item__c"</span> <span class="attr">default</span>=<span class="string">"&#123;'Name':'',</span></span></span><br><span class="line"><span class="tag"><span class="string">                                                                   'Quantity__c':0,</span></span></span><br><span class="line"><span class="tag"><span class="string">                                                                   'Price__c':0,</span></span></span><br><span class="line"><span class="tag"><span class="string">                                                                   'Packed__c':false,</span></span></span><br><span class="line"><span class="tag"><span class="string">                                                                   'sobjectType':'Camping_Item__c'&#125;"</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- NEW Campaing FORM --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"slds-col slds-col--padded slds-p-top--large"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">c:campingHeader</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">aria-labelledby</span>=<span class="string">"newCampaingForm"</span>&gt;</span></span><br><span class="line">            </span><br><span class="line">            <span class="comment">&lt;!-- BOXED AREA --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">fieldset</span> <span class="attr">class</span>=<span class="string">"slds-box slds-theme--default slds-container--small"</span>&gt;</span></span><br><span class="line">                </span><br><span class="line">                <span class="tag">&lt;<span class="name">legend</span> <span class="attr">id</span>=<span class="string">"newCampaingForm"</span> <span class="attr">class</span>=<span class="string">"slds-text-heading--small</span></span></span><br><span class="line"><span class="tag"><span class="string">                                                    slds-p-vertical--medium"</span>&gt;</span></span><br><span class="line">                    Add Expense</span><br><span class="line">                <span class="tag">&lt;/<span class="name">legend</span>&gt;</span></span><br><span class="line">                </span><br><span class="line">                <span class="comment">&lt;!-- CREATE NEW Campaing FORM --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">"slds-form--stacked"</span>&gt;</span></span><br><span class="line">                    </span><br><span class="line">                    <span class="comment">&lt;!-- For Name Field --&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">lightning:input</span> <span class="attr">aura:id</span>=<span class="string">"expenseform"</span> <span class="attr">label</span>=<span class="string">"Camping Name"</span></span></span><br><span class="line"><span class="tag">                                     <span class="attr">name</span>=<span class="string">"expensename"</span></span></span><br><span class="line"><span class="tag">                                     <span class="attr">value</span>=<span class="string">"&#123;!v.newItem.Name&#125;"</span></span></span><br><span class="line"><span class="tag">                                     <span class="attr">required</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line">                    <span class="comment">&lt;!-- For Quantity Field --&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">lightning:input</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">aura:id</span>=<span class="string">"campingform"</span> <span class="attr">label</span>=<span class="string">"Quantity"</span></span></span><br><span class="line"><span class="tag">                                     <span class="attr">name</span>=<span class="string">"expenseamount"</span></span></span><br><span class="line"><span class="tag">                                     <span class="attr">min</span>=<span class="string">"1"</span></span></span><br><span class="line"><span class="tag">                                     <span class="attr">value</span>=<span class="string">"&#123;!v.newItem.Quantity__c&#125;"</span></span></span><br><span class="line"><span class="tag">                                     <span class="attr">messageWhenRangeUnderflow</span>=<span class="string">"Enter minimum 1 Quantity"</span>/&gt;</span></span><br><span class="line">                    <span class="comment">&lt;!-- For Price Field --&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">lightning:input</span> <span class="attr">aura:id</span>=<span class="string">"campingform"</span> <span class="attr">label</span>=<span class="string">"Price"</span></span></span><br><span class="line"><span class="tag">                                     <span class="attr">formatter</span>=<span class="string">"currency"</span></span></span><br><span class="line"><span class="tag">                                     <span class="attr">name</span>=<span class="string">"expenseclient"</span></span></span><br><span class="line"><span class="tag">                                     <span class="attr">value</span>=<span class="string">"&#123;!v.newItem.Price__c&#125;"</span></span></span><br><span class="line"><span class="tag">                                     /&gt;</span></span><br><span class="line">                    <span class="comment">&lt;!-- For Check Box --&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">lightning:input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">aura:id</span>=<span class="string">"campingform"</span> <span class="attr">label</span>=<span class="string">"Packed"</span></span></span><br><span class="line"><span class="tag">                                     <span class="attr">name</span>=<span class="string">"expreimbursed"</span></span></span><br><span class="line"><span class="tag">                                     <span class="attr">checked</span>=<span class="string">"&#123;!v.newItem.Packed__c&#125;"</span>/&gt;</span></span><br><span class="line">                    </span><br><span class="line">                    <span class="tag">&lt;<span class="name">lightning:button</span> <span class="attr">label</span>=<span class="string">"Create Camping"</span></span></span><br><span class="line"><span class="tag">                                      <span class="attr">class</span>=<span class="string">"slds-m-top--medium"</span></span></span><br><span class="line"><span class="tag">                                      <span class="attr">variant</span>=<span class="string">"brand"</span></span></span><br><span class="line"><span class="tag">                                      <span class="attr">onclick</span>=<span class="string">"&#123;!c.clickCreateItem&#125;"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- / CREATE NEW EXPENSE FORM --&gt;</span><span class="tag">&lt;/<span class="name">fieldset</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- / BOXED AREA --&gt;</span></span><br><span class="line">            </span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- / CREATE NEW EXPENSE --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- ITERATIING ITEM LISTS --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"slds-card slds-p-top--medium"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">c:campingHeader</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">section</span> <span class="attr">class</span>=<span class="string">"slds-card__body"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"list"</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">aura:iteration</span> <span class="attr">items</span>=<span class="string">"&#123;!v.items&#125;"</span> <span class="attr">var</span>=<span class="string">"item"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">c:campingListItem</span> <span class="attr">item</span>=<span class="string">"&#123;!item&#125;"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">aura:iteration</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- / ITERATIING ITEM LISTS --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">aura:component</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>接下来需要写一个clickCreateItem函数处理当提交上来的数据，将数据传入newItem中。同时将原来的Camping_Item__c里面的值清空。这里只需要写controller就够了，helper文件就不需要了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">(&#123;</span><br><span class="line">    clickCreateItem : <span class="function"><span class="keyword">function</span>(<span class="params">component, event, helper</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> validCamping = component.find(<span class="string">'campingform'</span>).reduce(<span class="function"><span class="keyword">function</span> (<span class="params">validSoFar, inputCmp</span>) </span>&#123;</span><br><span class="line">            <span class="comment">// Displays error messages for invalid fields</span></span><br><span class="line">            inputCmp.showHelpMessageIfInvalid();</span><br><span class="line">            <span class="keyword">return</span> validSoFar &amp;&amp; inputCmp.get(<span class="string">'v.validity'</span>).valid;</span><br><span class="line">        &#125;, <span class="literal">true</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(validCamping)&#123;</span><br><span class="line">            <span class="keyword">var</span> newCampingItem = component.get(<span class="string">"v.newItem"</span>);</span><br><span class="line">            <span class="comment">//helper.createCamping(component,newCampingItem);</span></span><br><span class="line">            <span class="keyword">var</span> campings = component.get(<span class="string">"v.items"</span>);</span><br><span class="line">            <span class="keyword">var</span> item = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(newCampingItem));</span><br><span class="line">            </span><br><span class="line">            campings.push(item);</span><br><span class="line">            </span><br><span class="line">            component.set(<span class="string">"v.items"</span>,campings);</span><br><span class="line">            component.set(<span class="string">"v.newItem"</span>,&#123; <span class="string">'sobjectType'</span>: <span class="string">'Camping_Item__c'</span>,<span class="string">'Name'</span>: <span class="string">''</span>,<span class="string">'Quantity__c'</span>: <span class="number">0</span>,</span><br><span class="line">                                       <span class="string">'Price__c'</span>: <span class="number">0</span>,<span class="string">'Packed__c'</span>: <span class="literal">false</span> &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+<p>接下来需要写campingHeader函数，展示camping的头信息。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">aura:component</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">lightning:layout</span> <span class="attr">class</span>=<span class="string">"slds-page-header slds-page-header--object-home"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">lightning:layoutItem</span> &gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">lightning:icon</span> <span class="attr">iconName</span>=<span class="string">"action:goal"</span> <span class="attr">alternativeText</span>=<span class="string">"My Camping"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">lightning:layoutItem</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">lightning:layoutItem</span> <span class="attr">padding</span>=<span class="string">"horizontal-small"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"page-section page-header"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">h1</span> <span class="attr">class</span>=<span class="string">"slds-text-heading--label"</span>&gt;</span>Camping<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">h2</span> <span class="attr">class</span>=<span class="string">"slds-text-heading--medium"</span>&gt;</span>My Camping<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">lightning:layoutItem</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">lightning:layout</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">aura:component</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>最后的campingListItem 组件可以沿用上一章节‘Handle Actions with Controllers’里面的代码。</p>
+<p>最后新建一个Camping.app，</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">aura:application</span> <span class="attr">extends</span>=<span class="string">"force:slds"</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">c:campingList</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">aura:application</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<p>打开Camping.app，效果如下：</p>
+<p><img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Blog/Lightning-Components-Basics-9.jpg" alt="image"></p>
+<p>就这样，又拿了500分！</p>
+<p><img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Blog/Lightning-Components-Basics-8.jpg" alt="image"></p>
+<h1 id="Connect-to-Salesforce-with-Server-Side-Controllers"><a href="#Connect-to-Salesforce-with-Server-Side-Controllers" class="headerlink" title="Connect to Salesforce with Server-Side Controllers"></a>Connect to Salesforce with Server-Side Controllers</h1><p>相关链接如下：<br><a href="https://trailhead.salesforce.com/content/learn/modules/lex_dev_lc_basics/lex_dev_lc_basics_server" target="_blank" rel="noopener">https://trailhead.salesforce.com/content/learn/modules/lex_dev_lc_basics/lex_dev_lc_basics_server</a></p>
+<h2 id="使用服务器端控制器连接到Salesforce"><a href="#使用服务器端控制器连接到Salesforce" class="headerlink" title="使用服务器端控制器连接到Salesforce"></a>使用服务器端控制器连接到Salesforce</h2><p>我们可以参考如下图，在前端，通过View展示给用户，并且通过JS的Controller实现与Salesforce的服务器端控制器进行连接。</p>
+<p><img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Blog/Lightning-Components-Basics-15.jpg" alt="image"></p>
+<p>在上一章节中，我们提及了利用Lightning组建构建表单，相关架构图如下，</p>
+<p><img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Blog/Lightning-Components-Basics-11.jpg" alt="image"></p>
+<p>整个组建由Create按钮开始，该按钮连接到clickCreate动作处理程序。当操作处理程序运行时，它从表单字段（2）中获取值，然后将新expense添加到expense数组（3）。</p>
+<p>当通过set更新array时，它会触发组建自动重新列出expense清单（4）。</p>
+<h2 id="从Salesforce查询数据"><a href="#从Salesforce查询数据" class="headerlink" title="从Salesforce查询数据"></a>从Salesforce查询数据</h2><p>接着上面的框架图，如何实现在应用启动时加载现有数据列表(如expense)？可以参考如下代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> with sharing <span class="class"><span class="keyword">class</span> <span class="title">ExpensesController</span> </span>&#123;</span><br><span class="line">    <span class="comment">// STERN LECTURE ABOUT WHAT'S MISSING HERE COMING SOON</span></span><br><span class="line">    <span class="meta">@AuraEnabled</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Expense__c&gt; <span class="title">getExpenses</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> [SELECT Id, Name, Amount__c, Client__c, Date__c, </span><br><span class="line">                       Reimbursed__c, CreatedDate </span><br><span class="line">                FROM Expense__c];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一种更为常见的调用方法可以如下。直接通过soql传入查询语句如select id from Account实现动态查询。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@AuraEnabled</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;sObject&gt; <span class="title">QueryRecord</span><span class="params">(String soql)</span></span>&#123;</span><br><span class="line">    List&lt;sObject&gt; sobjs = <span class="keyword">new</span> List&lt;sObject&gt;();</span><br><span class="line">    sobjs= Database.query(soql);</span><br><span class="line">    <span class="keyword">return</span> sobjs;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>“Aura”是Lightning Components核心的开源框架的名称。同时，该 static的关键词。所有@AuraEnabled 控制器方法必须是static方法，并且要么适用 public 要么 global范围。值得注意的另一件事是，该方法对Lightning组件的数据打包没有任何特殊作用，它只是直接返回SOQL查询结果。</p>
+<h2 id="从Salesforce加载数据"><a href="#从Salesforce加载数据" class="headerlink" title="从Salesforce加载数据"></a>从Salesforce加载数据</h2><p>那么我们怎么通过Aura Components 加载相关的数据呢？<br>首先，我们需要在<a href="aura:component">aura:component</a>中写入相关的class，如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">aura:component</span> <span class="attr">controller</span>=<span class="string">"ExpensesController"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>其实，指向Apex控制器实际上并不加载任何数据，也不会调用远程方法。根据上面图示，我们还需要在js调用相关的controller方法(method)。</p>
+<p>首先，我们需要在View层定义一开始js跑的函数。如下图所示，我们调用了js端的doInit函数。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">aura:handler</span> <span class="attr">name</span>=<span class="string">"init"</span> <span class="attr">action</span>=<span class="string">"&#123;!c.doInit&#125;"</span> <span class="attr">value</span>=<span class="string">"&#123;!this&#125;"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="调用服务器端控制器方法"><a href="#调用服务器端控制器方法" class="headerlink" title="调用服务器端控制器方法"></a>调用服务器端控制器方法</h2><p>接下来我看看如何通过js调用服务器端控制器，可以通过component.get(“c.getExpenses”)定义所需要调用的方法。其中，C代表着客户端控制器。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Load expenses from Salesforce</span></span><br><span class="line">doInit: <span class="function"><span class="keyword">function</span>(<span class="params">component, event, helper</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Create the action</span></span><br><span class="line">    <span class="keyword">var</span> action = component.get(<span class="string">"c.getExpenses"</span>);</span><br><span class="line">    <span class="comment">// Add callback behavior for when response is received</span></span><br><span class="line">    action.setCallback(<span class="keyword">this</span>, <span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> state = response.getState();</span><br><span class="line">        <span class="keyword">if</span> (state === <span class="string">"SUCCESS"</span>) &#123;</span><br><span class="line">            component.set(<span class="string">"v.expenses"</span>, response.getReturnValue());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">"Failed with state: "</span> + state);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">// Send action off to be executed</span></span><br><span class="line">    $A.enqueueAction(action);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>值得注意的是，如果是component.get(“v.something”)，代表着在js在前端View层拿数据。action.setCallback（…）的代码块，它将在远程方法调用返回数据时运行。最后，通过$A.enqueueAction(action);实现完整的调用。<br>通过确定state为SUCCESS之后，将返回的结果由response.getReturnValue()取出。之后赋值给v.expenses。</p>
+<p>学了了Aura基本框架之后，我们来看看如下挑战：</p>
+<ul>
+<li>使用服务器端控制器保存和加载记录</li>
+<li>使用服务器端控制器将记录保留到数据库。该campingList部件载荷现有的记录，当它启动和提交表单时保存记录到数据库中。</li>
+<li>使用getItems方法和saveItem方法创建一个CampingListController Apex类。</li>
+<li>添加一个doInit初始化处理程序，在组件启动时从数据库加载现有记录。</li>
+<li>修改JavaScript控制器以使用帮助程序中的createItem方法从有效的表单提交中将记录保存到数据库。新项目将添加到控制器的项目值提供程序中。</li>
+</ul>
+<p>首先根据需要，先需要创建一个CampingListController.cls ，同时需要写两个方法：getItems方法和saveItem方法。<br>可以参考如下代码：</p>
+<script src="https://gitlab.com/snippets/1807866.js"></script>
+<p>或者如下链接：<br><a href="https://gitlab.com/snippets/1807867" target="_blank" rel="noopener">https://gitlab.com/snippets/1807867</a></p>
+<p>getItems方法是获取数据，saveItem方法是保存数据。</p>
+<p>campingList.cmp </p>
+<p>可以参考如下代码：</p>
+<script src="https://gitlab.com/snippets/1807868.js"></script>
+<p>或者如下链接：<br><a href="https://gitlab.com/snippets/1807867" target="_blank" rel="noopener">https://gitlab.com/snippets/1807867</a></p>
+<p>CampingListController.js<br>然后在前端加载一个doInit初始化处理程序：<br>可以参考如下代码：</p>
+<script src="https://gitlab.com/snippets/1807868.js"></script>
+<p>或者如下链接：<br><a href="https://gitlab.com/snippets/1807868" target="_blank" rel="noopener">https://gitlab.com/snippets/1807868</a><br>在组件启动时从数据库调用getItems获得现有记录</p>
+<p>同时需要写保存数据的方法，可以参考CampingListHelper.js<br>可以参考如下代码：</p>
+<script src="https://gitlab.com/snippets/1807869.js"></script>
+<p>或者如下链接：<br><a href="https://gitlab.com/snippets/1807869" target="_blank" rel="noopener">https://gitlab.com/snippets/1807869</a></p>
+<p><img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Blog/Lightning-Components-Basics-14.jpg" alt="image"></p>
+<h1 id="Connect-Components-with-Events"><a href="#Connect-Components-with-Events" class="headerlink" title="Connect Components with Events"></a>Connect Components with Events</h1><p>相关链接如下：<a href="https://trailhead.salesforce.com/content/learn/modules/lex_dev_lc_basics/lex_dev_lc_basics_events" target="_blank" rel="noopener">https://trailhead.salesforce.com/content/learn/modules/lex_dev_lc_basics/lex_dev_lc_basics_events</a></p>
+<p>接下来我们学习如何在component中使用event。下面这个例子展示了如何通过component发送event：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">lightning:input</span> <span class="attr">type</span>=<span class="string">"toggle"</span> </span></span><br><span class="line"><span class="tag">            <span class="attr">label</span>=<span class="string">"Reimbursed?"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">name</span>=<span class="string">"reimbursed"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">class</span>=<span class="string">"slds-p-around--small"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">checked</span>=<span class="string">"&#123;!v.expense.Reimbursed__c&#125;"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">messageToggleActive</span>=<span class="string">"Yes"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">messageToggleInactive</span>=<span class="string">"No"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">onchange</span>=<span class="string">"&#123;!c.clickReimbursed&#125;"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这里使用了lightning:input这个标签，同时定义了类型为type&#x3D;”toggle”，也就是开关类型。<br>当用户点击了这个开关，会触发clickReimbursed事件，下面是clickReimbursed事件，会新建一个event名字为updateExpense。同时传入expense 参数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(&#123;</span><br><span class="line">    clickReimbursed: <span class="function"><span class="keyword">function</span>(<span class="params">component, event, helper</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> expense = component.get(<span class="string">"v.expense"</span>);</span><br><span class="line">        <span class="keyword">var</span> updateEvent = component.getEvent(<span class="string">"updateExpense"</span>);</span><br><span class="line">        updateEvent.setParams(&#123; <span class="string">"expense"</span>: expense &#125;);</span><br><span class="line">        updateEvent.fire();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>接下来定义一个event，其中event有两种类型，组件和应用程序类型。这里我们使用的是组件事件，名字为expensesItemUpdate。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">aura:event</span> <span class="attr">type</span>=<span class="string">"COMPONENT"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aura:attribute</span> <span class="attr">name</span>=<span class="string">"expense"</span> <span class="attr">type</span>=<span class="string">"Expense__c"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">aura:event</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>那么如何发送一个event呢？这里我们需要注册一个event，加上如下代码在expenseItem 组件中。如下代码的意思是埋在本组件里面会触发一个event，名字是updateExpense，其类型为c:expensesItemUpdate。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">aura:registerEvent</span> <span class="attr">name</span>=<span class="string">"updateExpense"</span> <span class="attr">type</span>=<span class="string">"c:expensesItemUpdate"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>发送了event之后，该如何在主component里面处理呢？</p>
+<p>如下代码展示了在主组件expenses中，添加一个aura:handler，接收来自expensesItemUpdate的event，同时会触发一个新的函数handleUpdateExpense。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">aura:handler</span> <span class="attr">name</span>=<span class="string">"updateExpense"</span> <span class="attr">event</span>=<span class="string">"c:expensesItemUpdate"</span></span></span><br><span class="line"><span class="tag">   <span class="attr">action</span>=<span class="string">"&#123;!c.handleUpdateExpense&#125;"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>接下来我们看看handleUpdateExpense如何拿到相关event传过来的参数，直接使用event.getParam(“expense”)获取参数，传给helper函数进行相关处理。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">handleUpdateExpense: <span class="function"><span class="keyword">function</span>(<span class="params">component, event, helper</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> updatedExp = event.getParam(<span class="string">"expense"</span>);</span><br><span class="line">    helper.updateExpense(component, updatedExp);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后，updateExpense 的方法可以如下。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">updateExpense: <span class="function"><span class="keyword">function</span>(<span class="params">component, expense</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> action = component.get(<span class="string">"c.saveExpense"</span>);</span><br><span class="line">    action.setParams(&#123;</span><br><span class="line">        <span class="string">"expense"</span>: expense</span><br><span class="line">    &#125;);</span><br><span class="line">    action.setCallback(<span class="keyword">this</span>, <span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> state = response.getState();</span><br><span class="line">        <span class="keyword">if</span> (state === <span class="string">"SUCCESS"</span>) &#123;</span><br><span class="line">            <span class="comment">// do nothing!</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    $A.enqueueAction(action);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>学习了event如何操作之后，我们来查看相关挑战：</p>
+<p><img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Blog/Lightning-Components-Basics-13.jpg" alt="image"></p>
+<h3 id="Refactor-Components-and-Communicate-with-Events"><a href="#Refactor-Components-and-Communicate-with-Events" class="headerlink" title="Refactor Components and Communicate with Events"></a>Refactor Components and Communicate with Events</h3><p>Refactor the input form for camping list items into its own component and communicate with component events.</p>
+<ul>
+<li><p>Replace the HTML form in the campingList component with a new campingListForm component that calls the clickCreateItem JavaScript controller action when clicked.</p>
+</li>
+<li><p>The campingList component listens for a c:addItemEvent event and executes the action handleAddItem in the JavaScript controller. The handleAdditem method saves the record to the database and adds the record to the items value provider.</p>
+</li>
+<li><p>The addItemEvent event is of type component and has a Camping_Item__c type attribute named item.</p>
+</li>
+<li><p>The campingListForm registers an addItem event of type c:addItemEvent.</p>
+</li>
+<li><p>The campingListFormController JavaScript controller calls the helper’s createItem method if the form is valid.</p>
+</li>
+<li><p>The campingListFormHelper JavaScript helper creates an addItem event with the item to be added and then fires the event. It then resets the newItem value provider with a blank sObjectType of type Camping_Item__c.</p>
+</li>
+<li><p>使用新的campingListForm组件替换campingList组件中的HTML表单，该组件在单击时调用clickCreateItem JavaScript控制器操作。</p>
+</li>
+<li><p>campingList组件侦听c：addItemEvent事件并在JavaScript控制器中执行操作handleAddItem。该handleAdditem方法保存记录到数据库中并添加记录到的物品价值提供商。</p>
+</li>
+<li><p>该addItemEvent事件类型的成分和有一个名为Camping_Item__c类型属性的项目。</p>
+</li>
+<li><p>campingListForm注册了一个类型为c的addItem事件：addItemEvent。</p>
+</li>
+<li><p>如果表单有效，campingListFormController JavaScript控制器将调用帮助程序的createItem方法。</p>
+</li>
+<li><p>campingListFormHelper JavaScript帮助程序使用要添加的项创建addItem事件，然后触发事件。然后，它使用类型为Camping_Item__c的空白sObjectType 重置newItem值提供程序。</p>
+</li>
+</ul>
+<p>相关代码如下：</p>
+<p>addItemEvent.evt</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">aura:event</span> <span class="attr">type</span>=<span class="string">"APPLICATION"</span> <span class="attr">description</span>=<span class="string">"Event template"</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aura:attribute</span> <span class="attr">name</span>=<span class="string">"item"</span> <span class="attr">type</span>=<span class="string">"Camping_Item__c"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">aura:event</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<p>在主组件里面campingList.cmp，这里需要引用&lt;c:campingListForm &#x2F;&gt;,同时添加aura:handler接收来自campingListForm的event，同时触发handleAddItem函数处理。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">aura:component</span> <span class="attr">controller</span>=<span class="string">"CampingListController"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">implements</span>=<span class="string">"force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction"</span> <span class="attr">access</span>=<span class="string">"global"</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aura:handler</span> <span class="attr">name</span>=<span class="string">"init"</span> <span class="attr">action</span>=<span class="string">"&#123;!c.doInit&#125;"</span> <span class="attr">value</span>=<span class="string">"&#123;!this&#125;"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aura:handler</span> <span class="attr">name</span>=<span class="string">"addItem"</span> <span class="attr">event</span>=<span class="string">"c:addItemEvent"</span></span></span><br><span class="line"><span class="tag">                  <span class="attr">action</span>=<span class="string">"&#123;!c.handleAddItem &#125;"</span>/&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">aura:attribute</span> <span class="attr">name</span>=<span class="string">"items"</span> <span class="attr">type</span>=<span class="string">"Camping_Item__c[]"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>Bug Spray<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>Bear Repellant<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>Goat Food<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ol</span>&gt;</span> </span><br><span class="line">    <span class="comment">&lt;!-- PAGE HEADER --&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">c:campingHeader</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">lightning:layout</span> &gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">lightning:layoutItem</span> <span class="attr">padding</span>=<span class="string">"around-small"</span> <span class="attr">size</span>=<span class="string">"6"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">c:campingListForm</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">lightning:layoutItem</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">lightning:layout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">c:campingHeader</span> /&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"slds-card slds-p-top--medium"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">header</span> <span class="attr">class</span>=<span class="string">"slds-card__header"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">"slds-text-heading--small"</span>&gt;</span>Items<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="name">section</span> <span class="attr">class</span>=<span class="string">"slds-card__body"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"list"</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">aura:iteration</span> <span class="attr">items</span>=<span class="string">"&#123;!v.items&#125;"</span> <span class="attr">var</span>=<span class="string">"items"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">c:campingListItem</span> <span class="attr">item</span>=<span class="string">"&#123;!item&#125;"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">aura:iteration</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="tag">&lt;/<span class="name">aura:component</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这里附上campingListController.js代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">(&#123;</span><br><span class="line">    <span class="comment">// Load expenses from Salesforce</span></span><br><span class="line">    doInit: <span class="function"><span class="keyword">function</span>(<span class="params">component, event, helper</span>) </span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// Create the action</span></span><br><span class="line">        <span class="keyword">var</span> action = component.get(<span class="string">"c.getItems"</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// Add callback behavior for when response is received</span></span><br><span class="line">        action.setCallback(<span class="keyword">this</span>, <span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> state = response.getState();</span><br><span class="line">            <span class="keyword">if</span> (state === <span class="string">"SUCCESS"</span>) &#123;</span><br><span class="line">                component.set(<span class="string">"v.items"</span>, response.getReturnValue());</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">"Failed with state: "</span> + state);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// Send action off to be executed</span></span><br><span class="line">        $A.enqueueAction(action);</span><br><span class="line">    &#125;,</span><br><span class="line">    </span><br><span class="line">    handleAddItem: <span class="function"><span class="keyword">function</span>(<span class="params">component, event, helper</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> newItem = event.getParam(<span class="string">"item"</span>);</span><br><span class="line">        <span class="keyword">var</span> action = component.get(<span class="string">"c.saveItem"</span>);</span><br><span class="line">        action.setParams(&#123;<span class="string">"item"</span>: newItem&#125;);</span><br><span class="line">        action.setCallback(<span class="keyword">this</span>, <span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">var</span> state = response.getState();</span><br><span class="line">            <span class="keyword">if</span> (component.isValid() &amp;&amp; state === <span class="string">"SUCCESS"</span>) &#123;</span><br><span class="line">                <span class="keyword">var</span> items = component.get(<span class="string">"v.items"</span>);</span><br><span class="line">                items.push(item);</span><br><span class="line">                component.set(<span class="string">"v.items"</span>,items);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        $A.enqueueAction(action);</span><br><span class="line">        </span><br><span class="line">    &#125; </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>在campingListForm.cmp中，我们注册一个Event，名字为addItem</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&lt;aura:component implements=<span class="string">"force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId"</span> access=<span class="string">"global"</span> &gt;</span><br><span class="line">    &lt;aura:attribute name=<span class="string">"newItem"</span> type=<span class="string">"Camping_Item__c"</span> <span class="keyword">default</span>=<span class="string">"&#123; 'sobjectType': 'Camping_Item__c',</span></span><br><span class="line"><span class="string">                                                                   'Name': '',</span></span><br><span class="line"><span class="string">                                                                   'Quantity__c': 0,                                          </span></span><br><span class="line"><span class="string">                                                                   'Price__c': 0,</span></span><br><span class="line"><span class="string">                                                                   'Packed__c': false &#125;"</span>/&gt;</span><br><span class="line">    &lt;aura:registerEvent name=<span class="string">"addItem"</span> type=<span class="string">"c:addItemEvent"</span>/&gt; </span><br><span class="line">    &lt;lightning:layout &gt;</span><br><span class="line">        &lt;lightning:layoutItem padding=<span class="string">"around-small"</span> size=<span class="string">"6"</span>&gt;</span><br><span class="line">            &lt;div aria-labelledby=<span class="string">"newcampaignform"</span>&gt;</span><br><span class="line">                &lt;fieldset <span class="class"><span class="keyword">class</span></span>=<span class="string">"slds-box slds-theme--default slds-container--small"</span>&gt;</span><br><span class="line">                    &lt;legend id=<span class="string">"newcampaignform"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"slds-text-heading--small slds-p-vertical--medium"</span>&gt;</span><br><span class="line">                        Add Campaign List</span><br><span class="line">                    &lt;<span class="regexp">/legend&gt; </span></span><br><span class="line"><span class="regexp">                    &lt;form class="slds-form--stacked"&gt;</span></span><br><span class="line"><span class="regexp">                        &lt;lightning:input aura:id="campaignform" label="Campaign Item Name"</span></span><br><span class="line"><span class="regexp">                                         name="campaignitemname"</span></span><br><span class="line"><span class="regexp">                                         value="&#123;!v.newItem.Name&#125;"</span></span><br><span class="line"><span class="regexp">                                         required="true"/</span>&gt;</span><br><span class="line">                        &lt;lightning:input type=<span class="string">"number"</span> aura:id=<span class="string">"expenseform"</span> label=<span class="string">"Quantity"</span></span><br><span class="line">                                         name=<span class="string">"campaignitemprice"</span></span><br><span class="line">                                         min=<span class="string">"1"</span></span><br><span class="line">                                         formatter=<span class="string">"number"</span></span><br><span class="line">                                         step=<span class="string">"0.1"</span></span><br><span class="line">                                         value=<span class="string">"&#123;!v.newItem.Quantity__c&#125;"</span></span><br><span class="line">                                         messageWhenRangeUnderflow=<span class="string">"Enter quantity that's at least 1."</span>/&gt;</span><br><span class="line">                        &lt;lightning:input type=<span class="string">"number"</span> aura:id=<span class="string">"expenseform"</span> label=<span class="string">"Price"</span></span><br><span class="line">                                         name=<span class="string">"campaignitemprice"</span></span><br><span class="line">                                         min=<span class="string">"0.1"</span></span><br><span class="line">                                         formatter=<span class="string">"currency"</span></span><br><span class="line">                                         step=<span class="string">"0.01"</span></span><br><span class="line">                                         value=<span class="string">"&#123;!v.newItem.Price__c&#125;"</span></span><br><span class="line">                                         messageWhenRangeUnderflow=<span class="string">"Enter an amount that's at least $0.10."</span>/&gt;</span><br><span class="line">                        &lt;lightning:input type=<span class="string">"checkbox"</span> aura:id=<span class="string">"expenseform"</span> label=<span class="string">"Packed?"</span> </span><br><span class="line">                                         name=<span class="string">"expreimbursed"</span></span><br><span class="line">                                         checked=<span class="string">"&#123;!v.newItem.Packed__c&#125;"</span>/&gt;</span><br><span class="line">                        &lt;lightning:button label=<span class="string">"Create Camping"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"slds-m-top--medium"</span></span><br><span class="line">                                          variant=<span class="string">"brand"</span> onclick=<span class="string">"&#123;!c.clickCreateItem&#125;"</span>/&gt;</span><br><span class="line">                    &lt;<span class="regexp">/form&gt;</span></span><br><span class="line"><span class="regexp">                &lt;/</span>fieldset&gt;</span><br><span class="line">            &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">            </span></span><br><span class="line"><span class="regexp">        &lt;/</span>lightning:layoutItem&gt;</span><br><span class="line">    &lt;<span class="regexp">/lightning:layout&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>aura:component&gt;</span><br></pre></td></tr></table></figure>
+<p>当按钮lightning:button按下时候，触发clickCreateItem函数，在campingListFormController.js里面，同时会调用helper.createItem。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">(&#123;</span><br><span class="line">    clickCreateItem: <span class="function"><span class="keyword">function</span>(<span class="params">component, event, helper</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> validCamping = component.find(<span class="string">'campingform'</span>).reduce(<span class="function"><span class="keyword">function</span> (<span class="params">validSoFar, inputCmp</span>) </span>&#123;</span><br><span class="line">            <span class="comment">// Displays error messages for invalid fields</span></span><br><span class="line">            inputCmp.showHelpMessageIfInvalid();</span><br><span class="line">            <span class="keyword">return</span> validSoFar &amp;&amp; inputCmp.get(<span class="string">'v.validity'</span>).valid;</span><br><span class="line">        &#125;, <span class="literal">true</span>);</span><br><span class="line">        <span class="keyword">if</span>(validCamping)&#123;</span><br><span class="line">            <span class="keyword">var</span> addItm = event.getParam(<span class="string">"v.newItem"</span>);</span><br><span class="line">            helper.createItem(component, addItm);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>当campingListFormHelper.js中，触发event时候，会调用名字为addItem的注册event。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(&#123;</span><br><span class="line">    addItem : <span class="function"><span class="keyword">function</span>(<span class="params">component, campaign</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> createEvent = component.getEvent(<span class="string">"addItem"</span>);</span><br><span class="line">        createEvent.setParams(&#123; <span class="string">"item"</span>: campaign &#125;);</span><br><span class="line">        createEvent.fire();</span><br><span class="line">        component.set(<span class="string">"v.newItem"</span>,&#123; <span class="string">'sobjectType'</span>: <span class="string">'Camping_Item__c'</span>,</span><br><span class="line">                                   <span class="string">'Name'</span>: <span class="string">''</span>,</span><br><span class="line">                                   <span class="string">'Quantity__c'</span>: <span class="number">0</span>,</span><br><span class="line">                                   <span class="string">'Price__c'</span>: <span class="number">0</span>,</span><br><span class="line">                                   <span class="string">'Packed__c'</span>: <span class="literal">false</span> &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Discover-Next-Steps"><a href="#Discover-Next-Steps" class="headerlink" title="Discover Next Steps"></a>Discover Next Steps</h1><p>相关链接如下：<a href="https://trailhead.salesforce.com/content/learn/modules/lex_dev_lc_basics/lex_dev_lc_basics_next_steps" target="_blank" rel="noopener">https://trailhead.salesforce.com/content/learn/modules/lex_dev_lc_basics/lex_dev_lc_basics_next_steps</a></p>
+<p>相关题目：</p>
+<ol>
+<li>What does SLDS stand for?</li>
+</ol>
+<p>A) Salesforce Leadership Does Surf</p>
+<p>B) System Limits Detection System</p>
+<p>C) Salesforce Lightning Design System</p>
+<p>D) sObject Loading Data System</p>
+<p>答案：去官网看看<a href="https://www.lightningdesignsystem.com/%EF%BC%8C%E6%89%80%E4%BB%A5%E7%AD%94%E6%A1%88%E6%98%AFB" target="_blank" rel="noopener">https://www.lightningdesignsystem.com/，所以答案是B</a></p>
+<ol start="2">
+<li>What are Lightning Events used for?</li>
+</ol>
+<p>A) Salesforce mini developer conferences</p>
+<p>B) Communicating between loosely coupled components</p>
+<p>C) Logging critical details during app runtime</p>
+<p>D) Scheduling sales calls in Lightning Experience</p>
+<p>答案：Lightning Events主要用于连接component。所以答案是B</p>
+<p>相关参考文献： Events | Lightning Aura Components Developer Guide | Salesforce Developers: <a href="https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/intro_events.htm" target="_blank" rel="noopener">https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/intro_events.htm</a></p>
+<ol start="3">
+<li>What is the name of the open-source framework that Lightning Components is based on?</li>
+</ol>
+<p>A) Aura<br>B) Angular<br>C) jQuery<br>D) WebObjects</p>
+<p>答案：本文所有内容都是围绕Aura而展开的。所以答案是A。</p>
+<ol start="4">
+<li>In which language do you write Lightning Components action handlers?</li>
+</ol>
+<p>A) Java<br>B) Visualforce<br>C) JavaScript<br>D) Objective-C</p>
+<p>答案：Lightning Components action 主要是用JavaScript写的，所以答案是C。</p>
+<p>就这样我们成功拿下Lightning Components Basics整个模块：</p>
+<p><img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Blog/Lightning-Components-Basics-10.jpg" alt="image"></p>
+<p><img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Blog/Lightning-Components-Basics-16.jpg" alt="image"></p>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献:"></a>参考文献:</h1><ul>
+<li>Lightning Apps Developer Center: <a href="https://developer.salesforce.com/developer-centers/lightning-apps/" target="_blank" rel="noopener">https://developer.salesforce.com/developer-centers/lightning-apps/</a></li>
+</ul>
+
+        </div>
+
+        <section class='meta'>
+            <time class="time" itemprop="dateUpdated" datetime="2025-05-06T03:51:48+00:00" content="2025-05-06">
+                <i class="fas fa-pen fa-fw" aria-hidden="true"></i>
+                本文最后更新于：2025-05-06
+            </time>
+            
+                
+                <div class="tags">
+                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                    <a class="tag" href="/tags/Salesforce/">Salesforce</a>, <a class="tag" href="/tags/Trailhead/">Trailhead</a>, <a class="tag" href="/tags/%E5%BC%80%E5%8F%91%E8%80%85II%E8%80%83%E8%AF%95/">开发者II考试</a>
+                </div>
+            
+        </section>
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <div class="addthis_inline_share_toolbox"></div>
+
+
+        
+            <div class="prev-next">
+                
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一篇</h6>
+                            <h4>
+                                <a href="/2019/01/02/2019-01-02-SFDX/" rel="prev" title="SFDX 常用命令以及相关资料">
+                                  
+                                      SFDX 常用命令以及相关资料
+                                  
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                                    <a class="tag" href="/tags/Salesforce/">Salesforce</a>, <a class="tag" href="/tags/Git/">Git</a>, <a class="tag" href="/tags/LWC/">LWC</a>, <a class="tag" href="/tags/SFDX/">SFDX</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>下一篇&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2018/12/21/2018-12-21-Lightning-Experience-Development/" rel="prev" title="Trailhead学习:解锁Lightning Experience Development">
+                                    
+                                        Trailhead学习:解锁Lightning Experience Development
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                                    <a class="tag" href="/tags/Salesforce/">Salesforce</a>, <a class="tag" href="/tags/Lightning/">Lightning</a>, <a class="tag" href="/tags/Trailhead/">Trailhead</a>, <a class="tag" href="/tags/%E5%BC%80%E5%8F%91%E8%80%85II%E8%80%83%E8%AF%95/">开发者II考试</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+
+    </section>
+
+</article>
+
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+    <article class="post white-box comments">
+        <section class="article typo">
+
+            
+                
+
+    <div class="recommended_posts">
+        <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;你可能感兴趣的文章</h4>
+        <ul>
+            
+                <li><a href="http://tonyrenhk.github.io/2019/01/03/2019-01-03-Campaign-Member-Status/">对Campaign Member Status设置默认值</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2019/01/02/2019-01-02-SFDX/">SFDX 常用命令以及相关资料</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2018/12/21/2018-12-21-Lightning-Experience-Development/">Trailhead学习:解锁Lightning Experience Development</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2018/12/05/2018-12-05-Data-Integration-Specialist-Superbadge/">Trailhead学习:Data Integration Specialist Superbadge</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2018/11/27/2018-11-27-hexo-theme-doc-SupportCN/">hexo-theme-doc主题实现中文搜索</a></li>
+            
+        </ul>
+    </div>
+
+
+            
+
+            
+
+                
+
+                
+
+                
+                    
+                
+            
+
+        </section>
+    </article>
+
+
+<script>
+    window.subData = {
+        title: 'Trailhead学习:Lightning Components Basics',
+        tools: true
+    }
+</script>
+
+
+        </div>
+        <aside class='l_side'>
+            
+    
+        
+  <section class='m_widget author'>
+    
+      <div class='header'>
+        <img class='avatar' src='https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/Me2.jpg'/>
+      </div>
+    
+    
+      <div class='content'>
+        
+          <h2>Tony Ren&#39;s 学习笔记</h2>
+        
+        
+          <p>好学近乎知，力行近乎仁，知耻近乎勇</p>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:renchk@foxmail.com" class="social flat-box" target="_blank" rel="external"><i class="social fas fa-envelope" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://github.com/TonyRenHK" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-github" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://www.weibo.com/6476367461" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-weibo" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://tonyrenhk.github.io/Wechat/" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-weixin" aria-hidden="true"></i></a>
+          
+        
+      </div>
+    
+  </section>
+
+
+    
+    
+        <section class='m_widget links'>
+    <div class='content pure'>
+        <ul class="entry" id="links">
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://tonyrenhk.github.io/2018/01/01/2018-01-01-Salesforce-related-resource/" rel="external nofollow noopener noreferrer" href="https://tonyrenhk.github.io/2018/01/01/2018-01-01-Salesforce-related-resource/">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/IMG_2568.JPG">
+                        
+                        &nbsp;&nbsp;Salesforce
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://tonyrenhk.github.io/2018/01/09/2018-01-09-IT-Study-Resource/" rel="external nofollow noopener noreferrer" href="https://tonyrenhk.github.io/2018/01/09/2018-01-09-IT-Study-Resource/">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88612001-cf62a900-d0bc-11ea-9cbb-a14beeb356c7.png">
+                        
+                        &nbsp;&nbsp;IT
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/Note/OnlineTools.html" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/Note/OnlineTools.html">
+                    
+                    <div class='name'>
+                        
+                            <img src="http://tonyrenhk.github.io/images/notebook.png">
+                        
+                        &nbsp;&nbsp;工具Tools
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/Note/Tutorial.html" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/Note/Tutorial.html">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/Astro_Trailblazer_hoodie_wave.png">
+                        
+                        &nbsp;&nbsp;教程Tutorial
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/2018/02/02/2018-02-02-Git-Study/" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/2018/02/02/2018-02-02-Git-Study/">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/s.png">
+                        
+                        &nbsp;&nbsp;Git
+                    </div>
+                </a></li>
+            
+        </ul>
+    </div>
+</section>
+
+    
+    
+        <section class='m_widget categories'>
+    <header class='header pure'>
+        <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;分类</div>
+    </header>
+    <div class='content pure'>
+        
+            <ul class="entry">
+                
+                    <li><a class="flat-box" href="/categories/English/"><div class='name'>English</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Git/"><div class='name'>Git</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Google/"><div class='name'>Google</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/JavaScript/"><div class='name'>JavaScript</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Others/"><div class='name'>Others</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Python/"><div class='name'>Python</div><div class='badge'>1</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Salesforce/"><div class='name'>Salesforce</div><div class='badge'>35</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Tools/"><div class='name'>Tools</div><div class='badge'>1</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/hexo/"><div class='name'>hexo</div><div class='badge'>1</div></a></li>
+                
+            </ul>
+        
+    </div>
+</section>
+
+    
+    
+        
+    <section class='m_widget tagcloud'>
+        <header class="header pure">
+            <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
+        </header>
+        <div class='content pure'>
+            <a href="/tags/Admin/" style="font-size: 14px; color: #999">Admin</a> <a href="/tags/Apex/" style="font-size: 16.86px; color: #868686">Apex</a> <a href="/tags/BookMark/" style="font-size: 14px; color: #999">BookMark</a> <a href="/tags/CDC/" style="font-size: 14px; color: #999">CDC</a> <a href="/tags/CPQ/" style="font-size: 14px; color: #999">CPQ</a> <a href="/tags/Change-Data-Capture/" style="font-size: 14px; color: #999">Change Data Capture</a> <a href="/tags/Chrome-Extension/" style="font-size: 14px; color: #999">Chrome-Extension</a> <a href="/tags/Community-Cloud/" style="font-size: 14px; color: #999">Community Cloud</a> <a href="/tags/Demo/" style="font-size: 14px; color: #999">Demo</a> <a href="/tags/Flow/" style="font-size: 14px; color: #999">Flow</a> <a href="/tags/Git/" style="font-size: 16.86px; color: #868686">Git</a> <a href="/tags/Google/" style="font-size: 14px; color: #999">Google</a> <a href="/tags/Google-App-Script/" style="font-size: 14px; color: #999">Google App Script</a> <a href="/tags/Heroku/" style="font-size: 14px; color: #999">Heroku</a> <a href="/tags/IT%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">IT学习</a> <a href="/tags/Interactive-Email/" style="font-size: 14px; color: #999">Interactive Email</a> <a href="/tags/JavaScript/" style="font-size: 15.43px; color: #8f8f8f">JavaScript</a> <a href="/tags/Jsforce/" style="font-size: 15.43px; color: #8f8f8f">Jsforce</a> <a href="/tags/LWC/" style="font-size: 22.57px; color: #5f5f5f">LWC</a> <a href="/tags/Lightning/" style="font-size: 15.43px; color: #8f8f8f">Lightning</a> <a href="/tags/Lightning-Components/" style="font-size: 14px; color: #999">Lightning Components</a> <a href="/tags/Lightning-Web-Components/" style="font-size: 18.29px; color: #7c7c7c">Lightning Web Components</a> <a href="/tags/MC/" style="font-size: 15.43px; color: #8f8f8f">MC</a> <a href="/tags/MCC/" style="font-size: 14px; color: #999">MCC</a> <a href="/tags/Marketing-Cloud/" style="font-size: 14px; color: #999">Marketing Cloud</a> <a href="/tags/Marketing-Cloud-Connect/" style="font-size: 14px; color: #999">Marketing Cloud Connect</a> <a href="/tags/Org/" style="font-size: 14px; color: #999">Org</a> <a href="/tags/Others/" style="font-size: 14px; color: #999">Others</a> <a href="/tags/Pardot/" style="font-size: 14px; color: #999">Pardot</a> <a href="/tags/Python/" style="font-size: 15.43px; color: #8f8f8f">Python</a> <a href="/tags/Roll-Up-Summary/" style="font-size: 14px; color: #999">Roll-Up Summary</a> <a href="/tags/SFDC/" style="font-size: 14px; color: #999">SFDC</a> <a href="/tags/SFDX/" style="font-size: 19.71px; color: #727272">SFDX</a> <a href="/tags/Salesforce/" style="font-size: 24px; color: #555">Salesforce</a> <a href="/tags/Salesforce-Mobile/" style="font-size: 14px; color: #999">Salesforce Mobile</a> <a href="/tags/Sandbox/" style="font-size: 14px; color: #999">Sandbox</a> <a href="/tags/Script/" style="font-size: 14px; color: #999">Script</a> <a href="/tags/Site/" style="font-size: 14px; color: #999">Site</a> <a href="/tags/Study/" style="font-size: 18.29px; color: #7c7c7c">Study</a> <a href="/tags/StudyNote/" style="font-size: 14px; color: #999">StudyNote</a> <a href="/tags/Superbadge/" style="font-size: 14px; color: #999">Superbadge</a> <a href="/tags/Tools/" style="font-size: 14px; color: #999">Tools</a> <a href="/tags/Trailhead/" style="font-size: 21.14px; color: #686868">Trailhead</a> <a href="/tags/exam/" style="font-size: 14px; color: #999">exam</a> <a href="/tags/flow/" style="font-size: 14px; color: #999">flow</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/tags/hexo-theme-doc/" style="font-size: 14px; color: #999">hexo-theme-doc</a> <a href="/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/tags/metadata/" style="font-size: 14px; color: #999">metadata</a> <a href="/tags/shortcut/" style="font-size: 14px; color: #999">shortcut</a> <a href="/tags/%E5%85%A5%E9%97%A8/" style="font-size: 14px; color: #999">入门</a> <a href="/tags/%E5%AF%B9Campaign/" style="font-size: 14px; color: #999">对Campaign</a> <a href="/tags/%E5%BC%80%E5%8F%91%E8%80%85II%E8%80%83%E8%AF%95/" style="font-size: 19.71px; color: #727272">开发者II考试</a> <a href="/tags/%E8%87%AA%E5%8A%A8/" style="font-size: 14px; color: #999">自动</a> <a href="/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">英语学习</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 14px; color: #999">面试</a>
+        </div>
+    </section>
+
+
+    
+    
+        
+    <section class='m_widget toc-wrapper'>
+        <header class="header pure">
+            <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;目录</div>
+            <div class='wrapper'><a class="s-toc rightBtn" title="固定到顶部" target="_blank" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+        </header>
+        <div class='content pure'>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#在开始前-Before-You-Start"><span class="toc-text">在开始前(Before You Start)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目"><span class="toc-text">题目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解析"><span class="toc-text">解析</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Get-Started-with-Lightning-Components"><span class="toc-text">Get Started with Lightning Components</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Create-and-Edit-Aura-Components"><span class="toc-text">Create and Edit Aura Components</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Attributes-and-Expressions"><span class="toc-text">Attributes and Expressions</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Handle-Actions-with-Controllers"><span class="toc-text">Handle Actions with Controllers</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#例子"><span class="toc-text">例子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#题目-1"><span class="toc-text">题目</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Input-Data-Using-Forms"><span class="toc-text">Input Data Using Forms</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Connect-to-Salesforce-with-Server-Side-Controllers"><span class="toc-text">Connect to Salesforce with Server-Side Controllers</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用服务器端控制器连接到Salesforce"><span class="toc-text">使用服务器端控制器连接到Salesforce</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#从Salesforce查询数据"><span class="toc-text">从Salesforce查询数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#从Salesforce加载数据"><span class="toc-text">从Salesforce加载数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#调用服务器端控制器方法"><span class="toc-text">调用服务器端控制器方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Connect-Components-with-Events"><span class="toc-text">Connect Components with Events</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Refactor-Components-and-Communicate-with-Events"><span class="toc-text">Refactor Components and Communicate with Events</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Discover-Next-Steps"><span class="toc-text">Discover Next Steps</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文献"><span class="toc-text">参考文献:</span></a></li></ol>
+        </div>
+    </section>
+
+
+    
+    
+        <section class='m_widget links'>
+    <header class='header pure'>
+        <div><i class="fas fa-link fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;更多</div>
+        
+            <a class="rightBtn" title="联系博主添加友链" target="_blank" rel="external nofollow noopener noreferrer" href="mailto:me@xaoxuu.com?subject=交换友链&body=你好，我想和你交换友链，我已经将【Tony Ren&#39;s 学习笔记】添加到我的博客的友链中。我的博客链接是："><i class="fas fa-plus fa-fw"></i></a>
+        
+    </header>
+    <div class='content pure'>
+        <ul class="entry" id="links">
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://docs.qq.com/desktop/" target="_blank" rel="external nofollow noopener noreferrer" href="https://docs.qq.com/desktop/">
+                    
+                        
+                    
+                        
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88069910-a6b24f00-cba4-11ea-837b-d4a0dcf05d94.png">
+                        
+                        &nbsp;&nbsp;腾讯文档
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://www.notion.so/" target="_blank" rel="external nofollow noopener noreferrer" href="https://www.notion.so/">
+                    
+                        
+                    
+                        
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88069945-b16ce400-cba4-11ea-9c3f-d5857b39a5df.png">
+                        
+                        &nbsp;&nbsp;Notion
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://ide.goorm.io/" target="_blank" rel="external nofollow noopener noreferrer" href="https://ide.goorm.io/">
+                    
+                        
+                    
+                        
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88611890-9e827400-d0bc-11ea-893a-5b0af150504a.png">
+                        
+                        &nbsp;&nbsp;Goorm IDE
+                    </div>
+                </a></li>
+            
+        </ul>
+    </div>
+</section>
+
+    
+
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    </div>
+    <footer id="footer" class="clearfix">
+    
+        <div class="social-wrapper">
+          
+              
+                  <a href="mailto:renchk@foxmail.com" class="social fas fa-envelope flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://github.com/TonyRenHK" class="social fab fa-github flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://www.weibo.com/6476367461" class="social fab fa-weibo flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://tonyrenhk.github.io/Wechat/" class="social fab fa-weixin flat-box" target="_blank" rel="external"></a>
+              
+          
+        </div>
+    
+    <br>
+    <div>博客内容遵循 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="licenses">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></div>
+    <div>本站使用 <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a> 作为主题，
+		总访问量为 <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> 次。
+    </div>
+    
+<span id="runtime_span"></span>
+
+<script type="text/javascript">
+function show_runtime(){
+  window.setTimeout("show_runtime()",1000);
+  X=new Date("8/22/2016 18:27:0");
+  Y=new Date();T=(Y.getTime()-X.getTime());M=24*60*60*1000;
+  a=T/M;A=Math.floor(a);
+  b=(a-A)*24;B=Math.floor(b);
+  c=(b-B)*60;C=Math.floor((b-B)*60);
+  D=Math.floor((c-C)*60);
+  runtime_span.innerHTML="—— 本站已稳定运行： "+A+"天"+B+"小时"+C+"分"+D+"秒 ——"}show_runtime();
+
+</script>
+
+
+</footer>
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+    <script>setLoadingBarProgress(80);</script>
+    <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src='//cdn.bootcss.com/node-waves/0.7.5/waves.min.js'></script>
+<script src="//cdn.bootcss.com/scrollReveal.js/3.3.2/scrollreveal.min.js"></script>
+<!-- 访问统计 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5bfb78723c9c4600"></script>
+
+
+
+<script src="/js/jquery.fitvids.js"></script>
+
+
+    <script>
+        var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+        var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+        var ALGOLIA_API_KEY = "";
+        var ALGOLIA_APP_ID = "";
+        var ALGOLIA_INDEX_NAME = "";
+        var AZURE_SERVICE_NAME = "";
+        var AZURE_INDEX_NAME = "";
+        var AZURE_QUERY_KEY = "";
+        var BAIDU_API_ID = "";
+        var SEARCH_SERVICE = "hexo" || "hexo";
+        var ROOT = "/"||"/";
+        if(!ROOT.endsWith('/'))ROOT += '/';
+    </script>
+
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/app.js"></script>
+
+
+
+    
+    
+    
+        
+    
+
+
+    <script>setLoadingBarProgress(100);</script>
+</body>

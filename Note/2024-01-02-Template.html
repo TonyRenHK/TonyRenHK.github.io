@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="036nsNgxuH68xUABF8jrgg8Xzsti4FN8eKjWvA185C4" />
+  <meta name="baidu-site-verification" content="FQRuGMvxtv" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+
+  
+  <title>SFDX 常用命令以及相关资料 | Tony Ren&#39;s 学习笔记</title>
+  
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico">
+  <link rel="alternate" href="/atom.xml" title="Tony Ren's 学习笔记">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico" />
+  <link rel="icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico" />
+  
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono" rel="stylesheet">
+  
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link href='//cdn.bootcss.com/node-waves/0.7.5/waves.min.css' rel='stylesheet'>
+  
+<link rel="stylesheet" href="/style.css">
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+  
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1382646259212001",
+    enable_page_level_ads: true
+  });
+</script>
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading-bar-wrapper">
+  <div id="loading-bar" class="pure"></div>
+</div>
+
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header pure">
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+			<a class="logo flat-box" href='/' >Tony Ren's 学习笔记</a>
+				<div class='menu'>
+					<ul class='h-list'>
+            
+    					
+    						<li>
+    							<a class="nav  flat-box" href="/">
+    								<i class='fas fa-home fa-fw'></i>&nbsp;主页
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/archives/">
+    								<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/Project">
+    								<i class='fas fa-flask fa-fw'></i>&nbsp;项目
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/about/">
+    								<i class='fas fa-user fa-fw'></i>&nbsp;关于
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="https://renchk.github.io" target="_blank" rel="noopener">
+    								<i class='fas fa-globe fa-fw'></i>&nbsp;English
+  								</a>
+  							</li>
+        			
+        		
+					</ul>
+					<div class='underline'></div>
+				</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search" />
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></span></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-top'><a class="fas fa-arrow-circle-up fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-toc'><a class="fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+		<nav>
+      <ul>
+          
+              
+                  <li>
+										<a class="nav  flat-box" href="/">
+											<i class='fas fa-home fa-fw'></i>&nbsp;主页
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/archives/">
+											<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/Project">
+											<i class='fas fa-flask fa-fw'></i>&nbsp;项目
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/about/">
+											<i class='fas fa-user fa-fw'></i>&nbsp;关于
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="https://renchk.github.io" target="_blank" rel="noopener">
+											<i class='fas fa-globe fa-fw'></i>&nbsp;English
+										</a>
+                  </li>
+              
+       
+      </ul>
+		</nav>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            <article id="post-" class="post white-box article-type-post" itemscope itemprop="blogPost">
+    <section class='meta'>
+        
+            <h1 class="title">SFDX 常用命令以及相关资料</h1>
+        
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+            2021-01-02
+        </time>
+        <div class="browse"><i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+        </div>
+        
+
+    </section>
+
+    <section class="article typo">
+
+        <div class="article-entry" itemprop="articleBody">
+            <p>preview</p>
+<a id="more"></a>
+
+
+
+<p><img src="https://upload-images.jianshu.io/upload_images/6156917-643b26e6d245c152?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6156917-2cfb23c8455a2b4d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注&#39;Salesforce考试&#39;公众号"></p>
+<p>Quizlet:</p>
+<p>Between term and definition : \n\n  Answer :<br>Between rows : \n\n\n— \n</p>
+<h1 id="1级标题"><a href="#1级标题" class="headerlink" title="1级标题"></a>1级标题</h1><h2 id="2级标题"><a href="#2级标题" class="headerlink" title="2级标题"></a>2级标题</h2><h3 id="3级标题"><a href="#3级标题" class="headerlink" title="3级标题"></a>3级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><p><em>强调文本</em> <em>强调文本</em></p>
+<p><strong>加粗文本</strong> <strong>加粗文本</strong></p>
+<p>&#x3D;&#x3D;标记文本&#x3D;&#x3D;</p>
+<p><del>删除文本</del></p>
+<blockquote>
+<p>引用文本</p>
+</blockquote>
+<p>H<del>2</del>O is是液体。</p>
+<p>2^10^ 运算结果是 1024。</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>电脑</td>
+<td>$1600</td>
+</tr>
+<tr>
+<td>手机</td>
+<td>$12</td>
+</tr>
+<tr>
+<td>导管</td>
+<td>$1</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">Column 1</th>
+<th align="right">Column 2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">centered 文本居中</td>
+<td align="right">right-aligned 文本居右</td>
+</tr>
+</tbody></table>
+<p>链接: <a href="https://www.csdn.net/" target="_blank" rel="noopener">link</a>.</p>
+<p>图片: <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw" alt="Alt"></p>
+<p>带尺寸的图片: ![Alt](<a href="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw" target="_blank" rel="noopener">https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw</a> &#x3D;30x30)</p>
+<p>居中的图片: <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw#pic_center" alt="Alt"></p>
+<p>居中并且带尺寸的图片: ![Alt](<a href="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw#pic_center" target="_blank" rel="noopener">https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw#pic_center</a> &#x3D;30x30)</p>
+<p><img src="/images/LightningFlow/6.png" alt="alt tag"></p>
+<table>
+<thead>
+<tr>
+<th align="left"><a href="https://wx.qq.com/" target="_blank" rel="noopener">微信网页版</a></th>
+<th align="center"><a href="https://bitbucket.org/" target="_blank" rel="noopener">Bitbucket</a></th>
+<th align="right"><a href="https://note.youdao.com/web/" target="_blank" rel="noopener">有道笔记</a></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="https://trailhead.salesforce.com/en/home" target="_blank" rel="noopener">Trailhead</a></td>
+<td align="center"><a href="http://dict.youdao.com/" target="_blank" rel="noopener">有道首页</a></td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="center"></td>
+<td align="right"></td>
+</tr>
+</tbody></table>
+<h1 id="Dillinger"><a href="#Dillinger" class="headerlink" title="Dillinger"></a>Dillinger</h1><p>222</p>
+<p><img src="https://cldup.com/dTxpPi9lDf.thumb.png" alt="icon"> </p>
+<p>111</p>
+<p><a href="https://nodesource.com/products/nsolid" target="_blank" rel="noopener"><img src="https://cldup.com/dTxpPi9lDf.thumb.png" alt="N|Solid"></a></p>
+<p><a href="https://travis-ci.org/joemccann/dillinger" target="_blank" rel="noopener"><img src="https://travis-ci.org/joemccann/dillinger.svg?branch=master" alt="Build Status"></a></p>
+<p>Dillinger is a cloud-enabled, mobile-ready, offline-storage, AngularJS powered HTML5 Markdown editor.</p>
+<ul>
+<li>Type some Markdown on the left</li>
+<li>See HTML in the right</li>
+<li>Magic</li>
+</ul>
+<h1 id="New-Features"><a href="#New-Features" class="headerlink" title="New Features!"></a>New Features!</h1><ul>
+<li>Import a HTML file and watch it magically convert to Markdown</li>
+<li>Drag and drop images (requires your Dropbox account be linked)</li>
+</ul>
+<p>You can also:</p>
+<ul>
+<li>Import and save files from GitHub, Dropbox, Google Drive and One Drive</li>
+<li>Drag and drop markdown and HTML files into Dillinger</li>
+<li>Export documents as Markdown, HTML and PDF</li>
+</ul>
+<p>Markdown is a lightweight markup language based on the formatting conventions that people naturally use in email.  As <a href="http://daringfireball.net/" target="_blank" rel="noopener">John Gruber</a> writes on the <a href="http://daringfireball.net/projects/markdown/" target="_blank" rel="noopener">Markdown site</a></p>
+<blockquote>
+<p>Aura components can contain Lightning web components. However, the opposite doesn’t apply. Lightning web components can’t contain Aura components.<br>formatting syntax is to make it as readable<br>as possible. The idea is that a<br>Markdown-formatted document should be<br>publishable as-is, as plain text, without<br>looking like it’s been marked up with tags<br>or formatting instructions.</p>
+</blockquote>
+<p>This text you see here is <em>actually</em> written in Markdown! To get a feel for Markdown’s syntax, type some text into the left window and watch the results in the right.</p>
+<h3 id="Tech"><a href="#Tech" class="headerlink" title="Tech"></a>Tech</h3><p>Dillinger uses a number of open source projects to work properly:</p>
+<ul>
+<li><a href="http://angularjs.org/" target="_blank" rel="noopener">AngularJS</a> - HTML enhanced for web apps!</li>
+<li><a href="http://ace.ajax.org/" target="_blank" rel="noopener">Ace Editor</a> - awesome web-based text editor</li>
+<li><a href="https://github.com/markdown-it/markdown-it" target="_blank" rel="noopener">markdown-it</a> - Markdown parser done right. Fast and easy to extend.</li>
+<li><a href="http://twitter.github.com/bootstrap/" target="_blank" rel="noopener">Twitter Bootstrap</a> - great UI boilerplate for modern web apps</li>
+<li><a href="http://nodejs.org/" target="_blank" rel="noopener">node.js</a> - evented I&#x2F;O for the backend</li>
+<li><a href="http://expressjs.com/" target="_blank" rel="noopener">Express</a> - fast node.js network app framework <a href="http://twitter.com/tjholowaychuk" target="_blank" rel="noopener">@tjholowaychuk</a></li>
+<li><a href="http://gulpjs.com/" target="_blank" rel="noopener">Gulp</a> - the streaming build system</li>
+<li><a href="http://breakdance.io/" target="_blank" rel="noopener">Breakdance</a> - HTML to Markdown converter</li>
+<li><a href="http://jquery.com/" target="_blank" rel="noopener">jQuery</a> - duh</li>
+</ul>
+<p>And of course Dillinger itself is open source with a <a href="https://github.com/joemccann/dillinger" target="_blank" rel="noopener">public repository</a><br> on GitHub.</p>
+<h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><p>Dillinger requires <a href="https://nodejs.org/" target="_blank" rel="noopener">Node.js</a> v4+ to run.</p>
+<p>Install the dependencies and devDependencies and start the server.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> dillinger</span><br><span class="line">$ npm install -d</span><br><span class="line">$ node app</span><br></pre></td></tr></table></figure>
+
+<p>For production environments…</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --production</span><br><span class="line">$ NODE_ENV=production node app</span><br></pre></td></tr></table></figure>
+
+<h3 id="Plugins"><a href="#Plugins" class="headerlink" title="Plugins"></a>Plugins</h3><p>Dillinger is currently extended with the following plugins. Instructions on how to use them in your own application are linked below.</p>
+<table>
+<thead>
+<tr>
+<th>Plugin</th>
+<th>README</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Dropbox</td>
+<td><a href="https://github.com/joemccann/dillinger/tree/master/plugins/dropbox/README.md" target="_blank" rel="noopener">plugins&#x2F;dropbox&#x2F;README.md</a></td>
+</tr>
+<tr>
+<td>Github</td>
+<td><a href="https://github.com/joemccann/dillinger/tree/master/plugins/github/README.md" target="_blank" rel="noopener">plugins&#x2F;github&#x2F;README.md</a></td>
+</tr>
+<tr>
+<td>Google Drive</td>
+<td><a href="https://github.com/joemccann/dillinger/tree/master/plugins/googledrive/README.md" target="_blank" rel="noopener">plugins&#x2F;googledrive&#x2F;README.md</a></td>
+</tr>
+<tr>
+<td>OneDrive</td>
+<td><a href="https://github.com/joemccann/dillinger/tree/master/plugins/onedrive/README.md" target="_blank" rel="noopener">plugins&#x2F;onedrive&#x2F;README.md</a></td>
+</tr>
+<tr>
+<td>Medium</td>
+<td><a href="https://github.com/joemccann/dillinger/tree/master/plugins/medium/README.md" target="_blank" rel="noopener">plugins&#x2F;medium&#x2F;README.md</a></td>
+</tr>
+<tr>
+<td>Google Analytics</td>
+<td><a href="https://github.com/RahulHP/dillinger/blob/master/plugins/googleanalytics/README.md" target="_blank" rel="noopener">plugins&#x2F;googleanalytics&#x2F;README.md</a></td>
+</tr>
+</tbody></table>
+<h3 id="Development"><a href="#Development" class="headerlink" title="Development"></a>Development</h3><p>Want to contribute? Great!</p>
+<p>Dillinger uses Gulp + Webpack for fast developing.<br>Make a change in your file and instantanously see your updates!</p>
+<p>Open your favorite Terminal and run these commands.</p>
+<p>First Tab:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node app</span><br></pre></td></tr></table></figure>
+
+<p>Second Tab:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gulp watch</span><br></pre></td></tr></table></figure>
+
+<p>(optional) Third:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ karma <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+<h4 id="Building-for-source"><a href="#Building-for-source" class="headerlink" title="Building for source"></a>Building for source</h4><p>For production release:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gulp build --prod</span><br></pre></td></tr></table></figure>
+<p>Generating pre-built zip archives for distribution:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gulp build dist --prod</span><br></pre></td></tr></table></figure>
+<h3 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h3><p>Dillinger is very easy to install and deploy in a Docker container.</p>
+<p>By default, the Docker will expose port 8080, so change this within the Dockerfile if necessary. When ready, simply use the Dockerfile to build the image.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> dillinger</span><br><span class="line">docker build -t joemccann/dillinger:<span class="variable">$&#123;package.json.version&#125;</span> .</span><br></pre></td></tr></table></figure>
+<p>This will create the dillinger image and pull in the necessary dependencies. Be sure to swap out <code>${package.json.version}</code> with the actual version of Dillinger.</p>
+<p>Once done, run the Docker image and map the port to whatever you wish on your host. In this example, we simply map port 8000 of the host to port 8080 of the Docker (or whatever port was exposed in the Dockerfile):</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 8000:8080 --restart=<span class="string">"always"</span> &lt;youruser&gt;/dillinger:<span class="variable">$&#123;package.json.version&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>Verify the deployment by navigating to your server address in your preferred browser.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:8000</span><br></pre></td></tr></table></figure>
+
+<h4 id="Kubernetes-Google-Cloud"><a href="#Kubernetes-Google-Cloud" class="headerlink" title="Kubernetes + Google Cloud"></a>Kubernetes + Google Cloud</h4><p>See <a href="https://github.com/joemccann/dillinger/blob/master/KUBERNETES.md" target="_blank" rel="noopener">KUBERNETES.md</a></p>
+<h3 id="Todos"><a href="#Todos" class="headerlink" title="Todos"></a>Todos</h3><ul>
+<li>Write MORE Tests</li>
+<li>Add Night Mode</li>
+</ul>
+<h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p>MIT</p>
+<p><strong>Free Software, Hell Yeah!</strong></p>
+<table>
+<thead>
+<tr>
+<th>Tables</th>
+<th align="center">Are</th>
+<th align="right">Cool</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>col 1 is</td>
+<td align="center">left-aligned</td>
+<td align="right">$1600</td>
+</tr>
+<tr>
+<td>col 2 is</td>
+<td align="center">centered</td>
+<td align="right">$12</td>
+</tr>
+<tr>
+<td>col 3 is</td>
+<td align="center">right-aligned</td>
+<td align="right">$1</td>
+</tr>
+</tbody></table>
+<h1 id="欢迎使用-Markdown在线编辑器-MdEditor"><a href="#欢迎使用-Markdown在线编辑器-MdEditor" class="headerlink" title="欢迎使用 Markdown在线编辑器 MdEditor"></a>欢迎使用 Markdown在线编辑器 MdEditor</h1><p><strong>Markdown是一种轻量级的「标记语言」</strong></p>
+<p>**<img src="https://www.mdeditor.com/images/logos/markdown.png" alt="markdown" title="markdown"><br>**</p>
+<p>Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。它允许人们使用易读易写的纯文本格式编写文档，然后转换成格式丰富的HTML页面，Markdown文件的后缀名便是“.md”</p>
+<h2 id="MdEditor是一个在线编辑Markdown文档的编辑器"><a href="#MdEditor是一个在线编辑Markdown文档的编辑器" class="headerlink" title="MdEditor是一个在线编辑Markdown文档的编辑器"></a>MdEditor是一个在线编辑Markdown文档的编辑器</h2><p><em>MdEditor扩展了Markdown的功能（如表格、脚注、内嵌HTML等等），以使让Markdown转换成更多的格式，和更丰富的展示效果，这些功能原初的Markdown尚不具备。</em></p>
+<blockquote>
+<p>Markdown增强版中比较有名的有Markdown Extra、MultiMarkdown、 Maruku等。这些衍生版本要么基于工具，如<del>Pandoc</del>，Pandao；要么基于网站，如GitHub和Wikipedia，在语法上基本兼容，但在一些语法和渲染效果上有改动。</p>
+</blockquote>
+<p>MdEditor源于Pandao的JavaScript开源项目，开源地址<a href="https://github.com/pandao/editor.md" target="_blank" rel="noopener" title="Editor.md">Editor.md</a>，并在MIT开源协议的许可范围内进行了优化，以适应广大用户群体的需求。向优秀的markdown开源编辑器原作者Pandao致敬。</p>
+<p><img src="https://pandao.github.io/editor.md/images/logos/editormd-logo-180x180.png" alt="Pandao editor.md" title="Pandao editor.md"></p>
+<h2 id="MdEditor的功能列表演示"><a href="#MdEditor的功能列表演示" class="headerlink" title="MdEditor的功能列表演示"></a>MdEditor的功能列表演示</h2><h1 id="标题H1"><a href="#标题H1" class="headerlink" title="标题H1"></a>标题H1</h1><h2 id="标题H2"><a href="#标题H2" class="headerlink" title="标题H2"></a>标题H2</h2><h3 id="标题H3"><a href="#标题H3" class="headerlink" title="标题H3"></a>标题H3</h3><h4 id="标题H4"><a href="#标题H4" class="headerlink" title="标题H4"></a>标题H4</h4><h5 id="标题H5"><a href="#标题H5" class="headerlink" title="标题H5"></a>标题H5</h5><h6 id="标题H5-1"><a href="#标题H5-1" class="headerlink" title="标题H5"></a>标题H5</h6><h3 id="字符效果和横线等"><a href="#字符效果和横线等" class="headerlink" title="字符效果和横线等"></a>字符效果和横线等</h3><hr>
+<p><del>删除线</del> <s>删除线（开启识别HTML标签时）</s></p>
+<p><em>斜体字</em>      <em>斜体字</em></p>
+<p><strong>粗体</strong>  <strong>粗体</strong></p>
+<p><em><strong>粗斜体</strong></em> <em><strong>粗斜体</strong></em></p>
+<p>上标：X<sub>2</sub>，下标：O<sup>2</sup></p>
+<p><strong>缩写(同HTML的abbr标签)</strong></p>
+<blockquote>
+<p>即更长的单词或短语的缩写形式，前提是开启识别HTML标签时，已默认开启</p>
+</blockquote>
+<p>The <abbr title="Hyper Text Markup Language">HTML</abbr> specification is maintained by the <abbr title="World Wide Web Consortium">W3C</abbr>.</p>
+<h3 id="引用-Blockquotes"><a href="#引用-Blockquotes" class="headerlink" title="引用 Blockquotes"></a>引用 Blockquotes</h3><blockquote>
+<p>引用文本 Blockquotes</p>
+</blockquote>
+<p>引用的行内混合 Blockquotes</p>
+<blockquote>
+<p>引用：如果想要插入空白换行<code>即&lt;br /&gt;标签</code>，在插入处先键入两个以上的空格然后回车即可，<a href="https://www.mdeditor.com/" target="_blank" rel="noopener">普通链接</a>。</p>
+</blockquote>
+<h3 id="锚点与链接-Links"><a href="#锚点与链接-Links" class="headerlink" title="锚点与链接 Links"></a>锚点与链接 Links</h3><p><a href="https://www.mdeditor.com/" target="_blank" rel="noopener">普通链接</a><br><a href="https://www.mdeditor.com/" target="_blank" rel="noopener" title="普通链接带标题">普通链接带标题</a><br>直接链接：<a href="https://www.mdeditor.com/" target="_blank" rel="noopener">https://www.mdeditor.com</a><br>[锚点链接][anchor-id]<br>[anchor-id]: <a href="https://www.mdeditor.com/" target="_blank" rel="noopener">https://www.mdeditor.com/</a><br><a href="mailto:&#x74;&#101;&#x73;&#116;&#46;&#x74;&#101;&#115;&#116;&#64;&#x67;&#x6d;&#97;&#x69;&#x6c;&#x2e;&#x63;&#111;&#109;">mailto:test.test@gmail.com</a><br>GFM a-tail link @pandao<br>邮箱地址自动链接 <a href="mailto:&#x74;&#x65;&#115;&#116;&#x2e;&#116;&#x65;&#115;&#x74;&#x40;&#103;&#x6d;&#97;&#x69;&#x6c;&#46;&#99;&#111;&#109;">test.test@gmail.com</a>  <a href="mailto:&#119;&#119;&#x77;&#x40;&#118;&#x69;&#x70;&#x2e;&#113;&#113;&#x2e;&#x63;&#111;&#109;">www@vip.qq.com</a></p>
+<blockquote>
+<p>@pandao</p>
+</blockquote>
+<h3 id="多语言代码高亮-Codes"><a href="#多语言代码高亮-Codes" class="headerlink" title="多语言代码高亮 Codes"></a>多语言代码高亮 Codes</h3><h4 id="行内代码-Inline-code"><a href="#行内代码-Inline-code" class="headerlink" title="行内代码 Inline code"></a>行内代码 Inline code</h4><p>执行命令：<code>npm install marked</code></p>
+<h4 id="缩进风格"><a href="#缩进风格" class="headerlink" title="缩进风格"></a>缩进风格</h4><p>即缩进四个空格，也做为实现类似 <code>&lt;pre&gt;</code> 预格式化文本 ( Preformatted Text ) 的功能。</p>
+<pre><code>&lt;?php
+    echo &quot;Hello world!&quot;;
+?&gt;
+</code></pre>
+<p>预格式化文本：</p>
+<pre><code>| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+</code></pre>
+<h4 id="JS代码"><a href="#JS代码" class="headerlink" title="JS代码"></a>JS代码</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"Hello world!"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="HTML-代码-HTML-codes"><a href="#HTML-代码-HTML-codes" class="headerlink" title="HTML 代码 HTML codes"></a>HTML 代码 HTML codes</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mate</span> <span class="attr">charest</span>=<span class="string">"utf-8"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"keywords"</span> <span class="attr">content</span>=<span class="string">"Editor.md, Markdown, Editor"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>Hello world!<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">body</span>&#123;<span class="attribute">font-size</span>:<span class="number">14px</span>;<span class="attribute">color</span>:<span class="number">#444</span>;<span class="attribute">font-family</span>: <span class="string">"Microsoft Yahei"</span>, Tahoma, <span class="string">"Hiragino Sans GB"</span>, Arial;<span class="attribute">background</span>:<span class="number">#fff</span>;&#125;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">ul</span>&#123;<span class="attribute">list-style</span>: none;&#125;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">img</span>&#123;<span class="attribute">border</span>:none;<span class="attribute">vertical-align</span>: middle;&#125;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span> <span class="attr">class</span>=<span class="string">"text-xxl"</span>&gt;</span>Hello world!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"text-green"</span>&gt;</span>Plain text<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="图片-Images"><a href="#图片-Images" class="headerlink" title="图片 Images"></a>图片 Images</h3><p>图片加链接 (Image + Link)：</p>
+<p><a href="https://www.mdeditor.com/images/logos/markdown.png" target="_blank" rel="noopener" title="markdown"><img src="https://www.mdeditor.com/images/logos/markdown.png"></a></p>
+<blockquote>
+<p>Follow your heart.</p>
+</blockquote>
+<hr>
+<h3 id="列表-Lists"><a href="#列表-Lists" class="headerlink" title="列表 Lists"></a>列表 Lists</h3><h4 id="无序列表（减号）Unordered-Lists"><a href="#无序列表（减号）Unordered-Lists" class="headerlink" title="无序列表（减号）Unordered Lists (-)"></a>无序列表（减号）Unordered Lists (-)</h4><ul>
+<li>列表一</li>
+<li>列表二</li>
+<li>列表三</li>
+</ul>
+<h4 id="无序列表（星号）Unordered-Lists"><a href="#无序列表（星号）Unordered-Lists" class="headerlink" title="无序列表（星号）Unordered Lists (*)"></a>无序列表（星号）Unordered Lists (*)</h4><ul>
+<li>列表一</li>
+<li>列表二</li>
+<li>列表三</li>
+</ul>
+<h4 id="无序列表（加号和嵌套）Unordered-Lists"><a href="#无序列表（加号和嵌套）Unordered-Lists" class="headerlink" title="无序列表（加号和嵌套）Unordered Lists (+)"></a>无序列表（加号和嵌套）Unordered Lists (+)</h4><ul>
+<li>列表一</li>
+<li>列表二<ul>
+<li>列表二-1</li>
+<li>列表二-2</li>
+<li>列表二-3</li>
+</ul>
+</li>
+<li>列表三<ul>
+<li>列表一</li>
+<li>列表二</li>
+<li>列表三</li>
+</ul>
+</li>
+</ul>
+<h4 id="有序列表-Ordered-Lists"><a href="#有序列表-Ordered-Lists" class="headerlink" title="有序列表 Ordered Lists (-)"></a>有序列表 Ordered Lists (-)</h4><ol>
+<li>第一行</li>
+<li>第二行</li>
+<li>第三行</li>
+</ol>
+<h4 id="GFM-task-list"><a href="#GFM-task-list" class="headerlink" title="GFM task list"></a>GFM task list</h4><ul>
+<li><input checked="" disabled="" type="checkbox"> GFM task list 1</li>
+<li><input checked="" disabled="" type="checkbox"> GFM task list 2</li>
+<li><input disabled="" type="checkbox"> GFM task list 3<ul>
+<li><input disabled="" type="checkbox"> GFM task list 3-1</li>
+<li><input disabled="" type="checkbox"> GFM task list 3-2</li>
+<li><input disabled="" type="checkbox"> GFM task list 3-3</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"> GFM task list 4<ul>
+<li><input disabled="" type="checkbox"> GFM task list 4-1</li>
+<li><input disabled="" type="checkbox"> GFM task list 4-2</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="绘制表格-Tables"><a href="#绘制表格-Tables" class="headerlink" title="绘制表格 Tables"></a>绘制表格 Tables</h3><table>
+<thead>
+<tr>
+<th>项目</th>
+<th align="right">价格</th>
+<th align="center">数量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>计算机</td>
+<td align="right">$1600</td>
+<td align="center">5</td>
+</tr>
+<tr>
+<td>手机</td>
+<td align="right">$12</td>
+<td align="center">12</td>
+</tr>
+<tr>
+<td>管线</td>
+<td align="right">$1</td>
+<td align="center">234</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>First Header</th>
+<th>Second Header</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Content Cell</td>
+<td>Content Cell</td>
+</tr>
+<tr>
+<td>Content Cell</td>
+<td>Content Cell</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>First Header</th>
+<th>Second Header</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Content Cell</td>
+<td>Content Cell</td>
+</tr>
+<tr>
+<td>Content Cell</td>
+<td>Content Cell</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>Function name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>help()</code></td>
+<td>Display the help window.</td>
+</tr>
+<tr>
+<td><code>destroy()</code></td>
+<td><strong>Destroy your computer!</strong></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="left">Left-Aligned</th>
+<th align="center">Center Aligned</th>
+<th align="right">Right Aligned</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">col 3 is</td>
+<td align="center">some wordy text</td>
+<td align="right">$1600</td>
+</tr>
+<tr>
+<td align="left">col 2 is</td>
+<td align="center">centered</td>
+<td align="right">$12</td>
+</tr>
+<tr>
+<td align="left">zebra stripes</td>
+<td align="center">are neat</td>
+<td align="right">$1</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th align="right">Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Computer</td>
+<td align="right">$1600</td>
+</tr>
+<tr>
+<td>Phone</td>
+<td align="right">$12</td>
+</tr>
+<tr>
+<td>Pipe</td>
+<td align="right">$1</td>
+</tr>
+</tbody></table>
+<hr>
+<h4 id="特殊符号-HTML-Entities-Codes"><a href="#特殊符号-HTML-Entities-Codes" class="headerlink" title="特殊符号 HTML Entities Codes"></a>特殊符号 HTML Entities Codes</h4><p>&copy; &amp;  &uml; &trade; &iexcl; &pound;<br>&amp; &lt; &gt; &yen; &euro; &reg; &plusmn; &para; &sect; &brvbar; &macr; &laquo; &middot;</p>
+<p>X&sup2; Y&sup3; &frac34; &frac14;  &times;  &divide;   &raquo;</p>
+<p>18&ordm;C  &quot;  &apos;</p>
+<p>[&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;]</p>
+<h3 id="Emoji表情-smiley"><a href="#Emoji表情-smiley" class="headerlink" title="Emoji表情 :smiley:"></a>Emoji表情 :smiley:</h3><blockquote>
+<p>Blockquotes :star:</p>
+</blockquote>
+<h4 id="GFM-task-lists-Emoji-fontAwesome-icon-emoji-editormd-logo-emoji-editormd-logo-5x"><a href="#GFM-task-lists-Emoji-fontAwesome-icon-emoji-editormd-logo-emoji-editormd-logo-5x" class="headerlink" title="GFM task lists &amp; Emoji &amp; fontAwesome icon emoji &amp; editormd logo emoji :editormd-logo-5x:"></a>GFM task lists &amp; Emoji &amp; fontAwesome icon emoji &amp; editormd logo emoji :editormd-logo-5x:</h4><ul>
+<li><input checked="" disabled="" type="checkbox"> :smiley: @mentions, :smiley: #refs, <a href="">links</a>, <strong>formatting</strong>, and <del>tags</del> supported :editormd-logo:;</li>
+<li><input checked="" disabled="" type="checkbox"> list syntax required (any unordered or ordered list supported) :editormd-logo-3x:;</li>
+<li><input checked="" disabled="" type="checkbox"> [ ] :smiley: this is a complete item :smiley:;</li>
+<li><input disabled="" type="checkbox"> []this is an incomplete item <a href="#">test link</a> :fa-star: @pandao;</li>
+<li><input disabled="" type="checkbox"> [ ]this is an incomplete item :fa-star: :fa-gear:;<ul>
+<li><input disabled="" type="checkbox"> :smiley: this is an incomplete item <a href="#">test link</a> :fa-star: :fa-gear:;</li>
+<li><input disabled="" type="checkbox"> :smiley: this is  :fa-star: :fa-gear: an incomplete item <a href="#">test link</a>;</li>
+</ul>
+</li>
+</ul>
+<h4 id="反斜杠-Escape"><a href="#反斜杠-Escape" class="headerlink" title="反斜杠 Escape"></a>反斜杠 Escape</h4><p>*literal asterisks*</p>
+<p>[&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;]</p>
+<h3 id="科学公式-TeX-KaTeX"><a href="#科学公式-TeX-KaTeX" class="headerlink" title="科学公式 TeX(KaTeX)"></a>科学公式 TeX(KaTeX)</h3><p>$$E&#x3D;mc^2$$</p>
+<p>行内的公式$$E&#x3D;mc^2$$行内的公式，行内的$$E&#x3D;mc^2$$公式。</p>
+<p>$$x &gt; y$$</p>
+<p>$$(\sqrt{3x-1}+(1+x)^2)$$</p>
+<p>$$\sin(\alpha)^{\theta}&#x3D;\sum_{i&#x3D;0}^{n}(x^i + \cos(f))$$</p>
+<p>多行公式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">\displaystyle</span><br><span class="line">\left( \sum\_&#123;k&#x3D;1&#125;^n a\_k b\_k \right)^2</span><br><span class="line">\leq</span><br><span class="line">\left( \sum\_&#123;k&#x3D;1&#125;^n a\_k^2 \right)</span><br><span class="line">\left( \sum\_&#123;k&#x3D;1&#125;^n b\_k^2 \right)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">\displaystyle</span><br><span class="line">    \frac&#123;1&#125;&#123;</span><br><span class="line">        \Bigl(\sqrt&#123;\phi \sqrt&#123;5&#125;&#125;-\phi\Bigr) e^&#123;</span><br><span class="line">        \frac25 \pi&#125;&#125; &#x3D; 1+\frac&#123;e^&#123;-2\pi&#125;&#125; &#123;1+\frac&#123;e^&#123;-4\pi&#125;&#125; &#123;</span><br><span class="line">        1+\frac&#123;e^&#123;-6\pi&#125;&#125;</span><br><span class="line">        &#123;1+\frac&#123;e^&#123;-8\pi&#125;&#125;</span><br><span class="line">         &#123;1+\cdots&#125; &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">f(x) &#x3D; \int_&#123;-\infty&#125;^\infty</span><br><span class="line">    \hat f(\xi)\,e^&#123;2 \pi i \xi x&#125;</span><br><span class="line">    \,d\xi</span><br></pre></td></tr></table></figure>
+<h3 id="分页符-Page-break"><a href="#分页符-Page-break" class="headerlink" title="分页符 Page break"></a>分页符 Page break</h3><blockquote>
+<p>Print Test: Ctrl + P</p>
+</blockquote>
+<p>[&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;]</p>
+<h3 id="绘制流程图-Flowchart"><a href="#绘制流程图-Flowchart" class="headerlink" title="绘制流程图 Flowchart"></a>绘制流程图 Flowchart</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">st&#x3D;&gt;start: 用户登陆</span><br><span class="line">op&#x3D;&gt;operation: 登陆操作</span><br><span class="line">cond&#x3D;&gt;condition: 登陆成功 Yes or No?</span><br><span class="line">e&#x3D;&gt;end: 进入后台</span><br><span class="line"></span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op</span><br></pre></td></tr></table></figure>
+<p>[&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;]</p>
+<h3 id="绘制序列图-Sequence-Diagram"><a href="#绘制序列图-Sequence-Diagram" class="headerlink" title="绘制序列图 Sequence Diagram"></a>绘制序列图 Sequence Diagram</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Andrew-&gt;China: Says Hello</span><br><span class="line">Note right of China: China thinks\nabout it</span><br><span class="line">China--&gt;Andrew: How are you?</span><br><span class="line">Andrew-&gt;&gt;China: I am good thanks!</span><br></pre></td></tr></table></figure>
+<h3 id="End"><a href="#End" class="headerlink" title="End"></a>End</h3><h2 id="表急送服务号"><a href="#表急送服务号" class="headerlink" title="表急送服务号"></a>表急送服务号</h2><p>公众号搜索“表急送”</p>
+<p><img src="/images/Biaojisong_QRCode.jpg" alt="alt tag"></p>
+<p><img src="/images/Biaojisong_Salesforce.jpg" alt="alt tag"></p>
+<p>@<a href="%E8%BF%99%E9%87%8C%E5%86%99%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%AE%E5%BD%95%E6%A0%87%E9%A2%98">TOC</a></p>
+<h1 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h1><p>你好！ 这是你第一次使用 <strong>Markdown编辑器</strong> 所展示的欢迎页。如果你想学习如何使用Markdown编辑器, 可以仔细阅读这篇文章，了解一下Markdown的基本语法知识。</p>
+<h2 id="新的改变"><a href="#新的改变" class="headerlink" title="新的改变"></a>新的改变</h2><p>我们对Markdown编辑器进行了一些功能拓展与语法支持，除了标准的Markdown编辑器功能，我们增加了如下几点新功能，帮助你用它写博客：</p>
+<ol>
+<li><strong>全新的界面设计</strong> ，将会带来全新的写作体验；</li>
+<li>在创作中心设置你喜爱的代码高亮样式，Markdown <strong>将代码片显示选择的高亮样式</strong> 进行展示；</li>
+<li>增加了 <strong>图片拖拽</strong> 功能，你可以将本地的图片直接拖拽到编辑区域直接展示；</li>
+<li>全新的 <strong>KaTeX数学公式</strong> 语法；</li>
+<li>增加了支持<strong>甘特图的mermaid语法[^1]</strong> 功能；</li>
+<li>增加了 <strong>多屏幕编辑</strong> Markdown文章功能；</li>
+<li>增加了 <strong>焦点写作模式、预览模式、简洁写作模式、左右区域同步滚轮设置</strong> 等功能，功能按钮位于编辑区域与预览区域中间；</li>
+<li>增加了 <strong>检查列表</strong> 功能。<br> [^1]: <a href="https://mermaidjs.github.io/" target="_blank" rel="noopener">mermaid语法说明</a></li>
+</ol>
+<h2 id="功能快捷键"><a href="#功能快捷键" class="headerlink" title="功能快捷键"></a>功能快捷键</h2><p>撤销：<kbd>Ctrl/Command</kbd> + <kbd>Z</kbd><br>重做：<kbd>Ctrl/Command</kbd> + <kbd>Y</kbd><br>加粗：<kbd>Ctrl/Command</kbd> + <kbd>B</kbd><br>斜体：<kbd>Ctrl/Command</kbd> + <kbd>I</kbd><br>标题：<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>H</kbd><br>无序列表：<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>U</kbd><br>有序列表：<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>O</kbd><br>检查列表：<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd><br>插入代码：<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>K</kbd><br>插入链接：<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd><br>插入图片：<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd><br>查找：<kbd>Ctrl/Command</kbd> + <kbd>F</kbd><br>替换：<kbd>Ctrl/Command</kbd> + <kbd>G</kbd></p>
+<h2 id="合理的创建标题，有助于目录的生成"><a href="#合理的创建标题，有助于目录的生成" class="headerlink" title="合理的创建标题，有助于目录的生成"></a>合理的创建标题，有助于目录的生成</h2><p>直接输入1次<kbd>#</kbd>，并按下<kbd>space</kbd>后，将生成1级标题。<br>输入2次<kbd>#</kbd>，并按下<kbd>space</kbd>后，将生成2级标题。<br>以此类推，我们支持6级标题。有助于使用<code>TOC</code>语法后生成一个完美的目录。</p>
+<h2 id="如何改变文本的样式"><a href="#如何改变文本的样式" class="headerlink" title="如何改变文本的样式"></a>如何改变文本的样式</h2><p><em>强调文本</em> <em>强调文本</em></p>
+<p><strong>加粗文本</strong> <strong>加粗文本</strong></p>
+<p>&#x3D;&#x3D;标记文本&#x3D;&#x3D;</p>
+<p>&#x3D;&#x3D;<del>删除文本</del>&#x3D;&#x3D;</p>
+<blockquote>
+<p>引用文本</p>
+</blockquote>
+<p>H<del>2</del>O is是液体。</p>
+<p>2^10^ 运算结果是 1024.</p>
+<h2 id="插入链接与图片"><a href="#插入链接与图片" class="headerlink" title="插入链接与图片"></a>插入链接与图片</h2><p>链接: <a href="https://www.csdn.net/" target="_blank" rel="noopener">link</a>.</p>
+<p>图片: <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw" alt="Alt"></p>
+<p>带尺寸的图片: ![Alt](<a href="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw" target="_blank" rel="noopener">https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw</a> &#x3D;30x30)</p>
+<p>居中的图片: <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw#pic_center" alt="Alt"></p>
+<p>居中并且带尺寸的图片: ![Alt](<a href="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw#pic_center" target="_blank" rel="noopener">https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw#pic_center</a> &#x3D;30x30)</p>
+<p>当然，我们为了让用户更加便捷，我们增加了图片拖拽功能。</p>
+<h2 id="如何插入一段漂亮的代码片"><a href="#如何插入一段漂亮的代码片" class="headerlink" title="如何插入一段漂亮的代码片"></a>如何插入一段漂亮的代码片</h2><p>去<a href="https://mp.csdn.net/console/configBlog" target="_blank" rel="noopener">博客设置</a>页面，选择一款你喜欢的代码片高亮样式，下面展示同样高亮的 <code>代码片</code>.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// An highlighted block</span></span><br><span class="line"><span class="keyword">var</span> foo = <span class="string">'bar'</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="生成一个适合你的列表"><a href="#生成一个适合你的列表" class="headerlink" title="生成一个适合你的列表"></a>生成一个适合你的列表</h2><ul>
+<li>项目<ul>
+<li>项目<ul>
+<li>项目</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>项目1</li>
+<li>项目2</li>
+<li>项目3</li>
+</ol>
+<ul>
+<li><input disabled="" type="checkbox"> 计划任务</li>
+<li><input checked="" disabled="" type="checkbox"> 完成任务</li>
+</ul>
+<h2 id="创建一个表格"><a href="#创建一个表格" class="headerlink" title="创建一个表格"></a>创建一个表格</h2><p>一个简单的表格是这么创建的：</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>电脑</td>
+<td>$1600</td>
+</tr>
+<tr>
+<td>手机</td>
+<td>$12</td>
+</tr>
+<tr>
+<td>导管</td>
+<td>$1</td>
+</tr>
+</tbody></table>
+<h3 id="设定内容居中、居左、居右"><a href="#设定内容居中、居左、居右" class="headerlink" title="设定内容居中、居左、居右"></a>设定内容居中、居左、居右</h3><p>使用<code>:---------:</code>居中<br>使用<code>:----------</code>居左<br>使用<code>----------:</code>居右</p>
+<table>
+<thead>
+<tr>
+<th align="center">第一列</th>
+<th align="right">第二列</th>
+<th align="left">第三列</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">第一列文本居中</td>
+<td align="right">第二列文本居右</td>
+<td align="left">第三列文本居左</td>
+</tr>
+</tbody></table>
+<h3 id="SmartyPants"><a href="#SmartyPants" class="headerlink" title="SmartyPants"></a>SmartyPants</h3><p>SmartyPants将ASCII标点字符转换为“智能”印刷标点HTML实体。例如：</p>
+<table>
+<thead>
+<tr>
+<th>TYPE</th>
+<th>ASCII</th>
+<th>HTML</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Single backticks</td>
+<td><code>&#39;Isn&#39;t this fun?&#39;</code></td>
+<td>‘Isn’t this fun?’</td>
+</tr>
+<tr>
+<td>Quotes</td>
+<td><code>&quot;Isn&#39;t this fun?&quot;</code></td>
+<td>“Isn’t this fun?”</td>
+</tr>
+<tr>
+<td>Dashes</td>
+<td><code>-- is en-dash, --- is em-dash</code></td>
+<td>– is en-dash, — is em-dash</td>
+</tr>
+</tbody></table>
+<h2 id="创建一个自定义列表"><a href="#创建一个自定义列表" class="headerlink" title="创建一个自定义列表"></a>创建一个自定义列表</h2><dl><dt>Markdown</dt><dd>Text-to-HTML conversion tool</dd></dl><dl><dt>Authors<br>:  John</dt><dd>Luke</dd></dl><h2 id="如何创建一个注脚"><a href="#如何创建一个注脚" class="headerlink" title="如何创建一个注脚"></a>如何创建一个注脚</h2><p>一个具有注脚的文本。<a href="%E6%B3%A8%E8%84%9A%E7%9A%84%E8%A7%A3%E9%87%8A">^2</a></p>
+<h2 id="注释也是必不可少的"><a href="#注释也是必不可少的" class="headerlink" title="注释也是必不可少的"></a>注释也是必不可少的</h2><p>Markdown将文本转换为 HTML。</p>
+<p>*[HTML]:   超文本标记语言</p>
+<h2 id="KaTeX数学公式"><a href="#KaTeX数学公式" class="headerlink" title="KaTeX数学公式"></a>KaTeX数学公式</h2><p>您可以使用渲染LaTeX数学表达式 <a href="https://khan.github.io/KaTeX/" target="_blank" rel="noopener">KaTeX</a>:</p>
+<p>Gamma公式展示 $\Gamma(n) &#x3D; (n-1)!\quad\forall<br>n\in\mathbb N$ 是通过欧拉积分</p>
+<p>$$<br>\Gamma(z) &#x3D; \int_0^\infty t^{z-1}e^{-t}dt,.<br>$$</p>
+<blockquote>
+<p>你可以找到更多关于的信息 <strong>LaTeX</strong> 数学表达式<a href="http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference" target="_blank" rel="noopener">here</a>.</p>
+</blockquote>
+<h2 id="新的甘特图功能，丰富你的文章"><a href="#新的甘特图功能，丰富你的文章" class="headerlink" title="新的甘特图功能，丰富你的文章"></a>新的甘特图功能，丰富你的文章</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">gantt</span><br><span class="line">        dateFormat  YYYY-MM-DD</span><br><span class="line">        title Adding GANTT diagram functionality to mermaid</span><br><span class="line">        section 现有任务</span><br><span class="line">        已完成               :done,    des1, 2014-01-06,2014-01-08</span><br><span class="line">        进行中               :active,  des2, 2014-01-09, 3d</span><br><span class="line">        计划一               :         des3, after des2, 5d</span><br><span class="line">        计划二               :         des4, after des3, 5d</span><br></pre></td></tr></table></figure>
+<ul>
+<li>关于 <strong>甘特图</strong> 语法，参考 <a href="https://mermaidjs.github.io/" target="_blank" rel="noopener">这儿</a>,</li>
+</ul>
+<h2 id="UML-图表"><a href="#UML-图表" class="headerlink" title="UML 图表"></a>UML 图表</h2><p>可以使用UML图表进行渲染。 <a href="https://mermaidjs.github.io/" target="_blank" rel="noopener">Mermaid</a>. 例如下面产生的一个序列图：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sequenceDiagram</span><br><span class="line">张三 -&gt;&gt; 李四: 你好！李四, 最近怎么样?</span><br><span class="line">李四--&gt;&gt;王五: 你最近怎么样，王五？</span><br><span class="line">李四--x 张三: 我很好，谢谢!</span><br><span class="line">李四-x 王五: 我很好，谢谢!</span><br><span class="line">Note right of 王五: 李四想了很长时间, 文字太长了&lt;br&#x2F;&gt;不适合放在一行.</span><br><span class="line"></span><br><span class="line">李四--&gt;&gt;张三: 打量着王五...</span><br><span class="line">张三-&gt;&gt;王五: 很好... 王五, 你怎么样?</span><br></pre></td></tr></table></figure>
+
+<p>这将产生一个流程图。:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A[长方形] -- 链接 --&gt; B((圆))</span><br><span class="line">A --&gt; C(圆角长方形)</span><br><span class="line">B --&gt; D&#123;菱形&#125;</span><br><span class="line">C --&gt; D</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>关于 <strong>Mermaid</strong> 语法，参考 <a href="https://mermaidjs.github.io/" target="_blank" rel="noopener">这儿</a>,</li>
+</ul>
+<h2 id="FLowchart流程图"><a href="#FLowchart流程图" class="headerlink" title="FLowchart流程图"></a>FLowchart流程图</h2><p>我们依旧会支持flowchart的流程图：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">flowchat</span><br><span class="line">st&#x3D;&gt;start: 开始</span><br><span class="line">e&#x3D;&gt;end: 结束</span><br><span class="line">op&#x3D;&gt;operation: 我的操作</span><br><span class="line">cond&#x3D;&gt;condition: 确认？</span><br><span class="line"></span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>关于 <strong>Flowchart流程图</strong> 语法，参考 <a href="http://adrai.github.io/flowchart.js/" target="_blank" rel="noopener">这儿</a>.</li>
+</ul>
+<h2 id="导出与导入"><a href="#导出与导入" class="headerlink" title="导出与导入"></a>导出与导入</h2><h3 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h3><p>如果你想尝试使用此编辑器, 你可以在此篇文章任意编辑。当你完成了一篇文章的写作, 在上方工具栏找到 <strong>文章导出</strong> ，生成一个.md文件或者.html文件进行本地保存。</p>
+<h3 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h3><p>如果你想加载一篇你写过的.md文件，在上方工具栏可以选择导入功能进行对应扩展名的文件导入，<br>继续你的创作。</p>
+
+        </div>
+
+        <section class='meta'>
+            <time class="time" itemprop="dateUpdated" datetime="2025-05-06T03:51:48+00:00" content="2025-05-06">
+                <i class="fas fa-pen fa-fw" aria-hidden="true"></i>
+                本文最后更新于：2025-05-06
+            </time>
+            
+        </section>
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <div class="addthis_inline_share_toolbox"></div>
+
+
+        
+
+    </section>
+
+</article>
+
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+    <article class="post white-box comments">
+        <section class="article typo">
+
+            
+                
+
+
+            
+
+            
+
+                
+
+                
+
+                
+                    
+                
+            
+
+        </section>
+    </article>
+
+
+<script>
+    window.subData = {
+        title: 'SFDX 常用命令以及相关资料',
+        tools: true
+    }
+</script>
+
+
+        </div>
+        <aside class='l_side'>
+            
+    
+        
+  <section class='m_widget author'>
+    
+      <div class='header'>
+        <img class='avatar' src='https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/Me2.jpg'/>
+      </div>
+    
+    
+      <div class='content'>
+        
+          <h2>Tony Ren&#39;s 学习笔记</h2>
+        
+        
+          <p>好学近乎知，力行近乎仁，知耻近乎勇</p>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:renchk@foxmail.com" class="social flat-box" target="_blank" rel="external"><i class="social fas fa-envelope" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://github.com/TonyRenHK" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-github" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://www.weibo.com/6476367461" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-weibo" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://tonyrenhk.github.io/Wechat/" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-weixin" aria-hidden="true"></i></a>
+          
+        
+      </div>
+    
+  </section>
+
+
+    
+    
+        <section class='m_widget links'>
+    <div class='content pure'>
+        <ul class="entry" id="links">
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://tonyrenhk.github.io/2018/01/01/2018-01-01-Salesforce-related-resource/" rel="external nofollow noopener noreferrer" href="https://tonyrenhk.github.io/2018/01/01/2018-01-01-Salesforce-related-resource/">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/IMG_2568.JPG">
+                        
+                        &nbsp;&nbsp;Salesforce
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://tonyrenhk.github.io/2018/01/09/2018-01-09-IT-Study-Resource/" rel="external nofollow noopener noreferrer" href="https://tonyrenhk.github.io/2018/01/09/2018-01-09-IT-Study-Resource/">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88612001-cf62a900-d0bc-11ea-9cbb-a14beeb356c7.png">
+                        
+                        &nbsp;&nbsp;IT
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/Note/OnlineTools.html" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/Note/OnlineTools.html">
+                    
+                    <div class='name'>
+                        
+                            <img src="http://tonyrenhk.github.io/images/notebook.png">
+                        
+                        &nbsp;&nbsp;工具Tools
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/Note/Tutorial.html" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/Note/Tutorial.html">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/Astro_Trailblazer_hoodie_wave.png">
+                        
+                        &nbsp;&nbsp;教程Tutorial
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/2018/02/02/2018-02-02-Git-Study/" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/2018/02/02/2018-02-02-Git-Study/">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/s.png">
+                        
+                        &nbsp;&nbsp;Git
+                    </div>
+                </a></li>
+            
+        </ul>
+    </div>
+</section>
+
+    
+    
+        <section class='m_widget categories'>
+    <header class='header pure'>
+        <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;分类</div>
+    </header>
+    <div class='content pure'>
+        
+            <ul class="entry">
+                
+                    <li><a class="flat-box" href="/categories/English/"><div class='name'>English</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Git/"><div class='name'>Git</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Google/"><div class='name'>Google</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/JavaScript/"><div class='name'>JavaScript</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Others/"><div class='name'>Others</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Python/"><div class='name'>Python</div><div class='badge'>1</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Salesforce/"><div class='name'>Salesforce</div><div class='badge'>35</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Tools/"><div class='name'>Tools</div><div class='badge'>1</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/hexo/"><div class='name'>hexo</div><div class='badge'>1</div></a></li>
+                
+            </ul>
+        
+    </div>
+</section>
+
+    
+    
+        
+    <section class='m_widget tagcloud'>
+        <header class="header pure">
+            <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
+        </header>
+        <div class='content pure'>
+            <a href="/tags/Admin/" style="font-size: 14px; color: #999">Admin</a> <a href="/tags/Apex/" style="font-size: 16.86px; color: #868686">Apex</a> <a href="/tags/BookMark/" style="font-size: 14px; color: #999">BookMark</a> <a href="/tags/CDC/" style="font-size: 14px; color: #999">CDC</a> <a href="/tags/CPQ/" style="font-size: 14px; color: #999">CPQ</a> <a href="/tags/Change-Data-Capture/" style="font-size: 14px; color: #999">Change Data Capture</a> <a href="/tags/Chrome-Extension/" style="font-size: 14px; color: #999">Chrome-Extension</a> <a href="/tags/Community-Cloud/" style="font-size: 14px; color: #999">Community Cloud</a> <a href="/tags/Demo/" style="font-size: 14px; color: #999">Demo</a> <a href="/tags/Flow/" style="font-size: 14px; color: #999">Flow</a> <a href="/tags/Git/" style="font-size: 16.86px; color: #868686">Git</a> <a href="/tags/Google/" style="font-size: 14px; color: #999">Google</a> <a href="/tags/Google-App-Script/" style="font-size: 14px; color: #999">Google App Script</a> <a href="/tags/Heroku/" style="font-size: 14px; color: #999">Heroku</a> <a href="/tags/IT%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">IT学习</a> <a href="/tags/Interactive-Email/" style="font-size: 14px; color: #999">Interactive Email</a> <a href="/tags/JavaScript/" style="font-size: 15.43px; color: #8f8f8f">JavaScript</a> <a href="/tags/Jsforce/" style="font-size: 15.43px; color: #8f8f8f">Jsforce</a> <a href="/tags/LWC/" style="font-size: 22.57px; color: #5f5f5f">LWC</a> <a href="/tags/Lightning/" style="font-size: 15.43px; color: #8f8f8f">Lightning</a> <a href="/tags/Lightning-Components/" style="font-size: 14px; color: #999">Lightning Components</a> <a href="/tags/Lightning-Web-Components/" style="font-size: 18.29px; color: #7c7c7c">Lightning Web Components</a> <a href="/tags/MC/" style="font-size: 15.43px; color: #8f8f8f">MC</a> <a href="/tags/MCC/" style="font-size: 14px; color: #999">MCC</a> <a href="/tags/Marketing-Cloud/" style="font-size: 14px; color: #999">Marketing Cloud</a> <a href="/tags/Marketing-Cloud-Connect/" style="font-size: 14px; color: #999">Marketing Cloud Connect</a> <a href="/tags/Org/" style="font-size: 14px; color: #999">Org</a> <a href="/tags/Others/" style="font-size: 14px; color: #999">Others</a> <a href="/tags/Pardot/" style="font-size: 14px; color: #999">Pardot</a> <a href="/tags/Python/" style="font-size: 15.43px; color: #8f8f8f">Python</a> <a href="/tags/Roll-Up-Summary/" style="font-size: 14px; color: #999">Roll-Up Summary</a> <a href="/tags/SFDC/" style="font-size: 14px; color: #999">SFDC</a> <a href="/tags/SFDX/" style="font-size: 19.71px; color: #727272">SFDX</a> <a href="/tags/Salesforce/" style="font-size: 24px; color: #555">Salesforce</a> <a href="/tags/Salesforce-Mobile/" style="font-size: 14px; color: #999">Salesforce Mobile</a> <a href="/tags/Sandbox/" style="font-size: 14px; color: #999">Sandbox</a> <a href="/tags/Script/" style="font-size: 14px; color: #999">Script</a> <a href="/tags/Site/" style="font-size: 14px; color: #999">Site</a> <a href="/tags/Study/" style="font-size: 18.29px; color: #7c7c7c">Study</a> <a href="/tags/StudyNote/" style="font-size: 14px; color: #999">StudyNote</a> <a href="/tags/Superbadge/" style="font-size: 14px; color: #999">Superbadge</a> <a href="/tags/Tools/" style="font-size: 14px; color: #999">Tools</a> <a href="/tags/Trailhead/" style="font-size: 21.14px; color: #686868">Trailhead</a> <a href="/tags/exam/" style="font-size: 14px; color: #999">exam</a> <a href="/tags/flow/" style="font-size: 14px; color: #999">flow</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/tags/hexo-theme-doc/" style="font-size: 14px; color: #999">hexo-theme-doc</a> <a href="/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/tags/metadata/" style="font-size: 14px; color: #999">metadata</a> <a href="/tags/shortcut/" style="font-size: 14px; color: #999">shortcut</a> <a href="/tags/%E5%85%A5%E9%97%A8/" style="font-size: 14px; color: #999">入门</a> <a href="/tags/%E5%AF%B9Campaign/" style="font-size: 14px; color: #999">对Campaign</a> <a href="/tags/%E5%BC%80%E5%8F%91%E8%80%85II%E8%80%83%E8%AF%95/" style="font-size: 19.71px; color: #727272">开发者II考试</a> <a href="/tags/%E8%87%AA%E5%8A%A8/" style="font-size: 14px; color: #999">自动</a> <a href="/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">英语学习</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 14px; color: #999">面试</a>
+        </div>
+    </section>
+
+
+    
+    
+        
+    <section class='m_widget toc-wrapper'>
+        <header class="header pure">
+            <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;目录</div>
+            <div class='wrapper'><a class="s-toc rightBtn" title="固定到顶部" target="_blank" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+        </header>
+        <div class='content pure'>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1级标题"><span class="toc-text">1级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2级标题"><span class="toc-text">2级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3级标题"><span class="toc-text">3级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#四级标题"><span class="toc-text">四级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#五级标题"><span class="toc-text">五级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#六级标题"><span class="toc-text">六级标题</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Dillinger"><span class="toc-text">Dillinger</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#New-Features"><span class="toc-text">New Features!</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Tech"><span class="toc-text">Tech</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Installation"><span class="toc-text">Installation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Plugins"><span class="toc-text">Plugins</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Development"><span class="toc-text">Development</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Building-for-source"><span class="toc-text">Building for source</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker"><span class="toc-text">Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Kubernetes-Google-Cloud"><span class="toc-text">Kubernetes + Google Cloud</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Todos"><span class="toc-text">Todos</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#License"><span class="toc-text">License</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#欢迎使用-Markdown在线编辑器-MdEditor"><span class="toc-text">欢迎使用 Markdown在线编辑器 MdEditor</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#MdEditor是一个在线编辑Markdown文档的编辑器"><span class="toc-text">MdEditor是一个在线编辑Markdown文档的编辑器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MdEditor的功能列表演示"><span class="toc-text">MdEditor的功能列表演示</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#标题H1"><span class="toc-text">标题H1</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#标题H2"><span class="toc-text">标题H2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#标题H3"><span class="toc-text">标题H3</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#标题H4"><span class="toc-text">标题H4</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#标题H5"><span class="toc-text">标题H5</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#标题H5-1"><span class="toc-text">标题H5</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符效果和横线等"><span class="toc-text">字符效果和横线等</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引用-Blockquotes"><span class="toc-text">引用 Blockquotes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#锚点与链接-Links"><span class="toc-text">锚点与链接 Links</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多语言代码高亮-Codes"><span class="toc-text">多语言代码高亮 Codes</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#行内代码-Inline-code"><span class="toc-text">行内代码 Inline code</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缩进风格"><span class="toc-text">缩进风格</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JS代码"><span class="toc-text">JS代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTML-代码-HTML-codes"><span class="toc-text">HTML 代码 HTML codes</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图片-Images"><span class="toc-text">图片 Images</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#列表-Lists"><span class="toc-text">列表 Lists</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#无序列表（减号）Unordered-Lists"><span class="toc-text">无序列表（减号）Unordered Lists (-)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#无序列表（星号）Unordered-Lists"><span class="toc-text">无序列表（星号）Unordered Lists (*)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#无序列表（加号和嵌套）Unordered-Lists"><span class="toc-text">无序列表（加号和嵌套）Unordered Lists (+)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#有序列表-Ordered-Lists"><span class="toc-text">有序列表 Ordered Lists (-)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GFM-task-list"><span class="toc-text">GFM task list</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绘制表格-Tables"><span class="toc-text">绘制表格 Tables</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#特殊符号-HTML-Entities-Codes"><span class="toc-text">特殊符号 HTML Entities Codes</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Emoji表情-smiley"><span class="toc-text">Emoji表情 :smiley:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#GFM-task-lists-Emoji-fontAwesome-icon-emoji-editormd-logo-emoji-editormd-logo-5x"><span class="toc-text">GFM task lists &amp; Emoji &amp; fontAwesome icon emoji &amp; editormd logo emoji :editormd-logo-5x:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#反斜杠-Escape"><span class="toc-text">反斜杠 Escape</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#科学公式-TeX-KaTeX"><span class="toc-text">科学公式 TeX(KaTeX)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分页符-Page-break"><span class="toc-text">分页符 Page break</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绘制流程图-Flowchart"><span class="toc-text">绘制流程图 Flowchart</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绘制序列图-Sequence-Diagram"><span class="toc-text">绘制序列图 Sequence Diagram</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#End"><span class="toc-text">End</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#表急送服务号"><span class="toc-text">表急送服务号</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Link"><span class="toc-text">Link</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#新的改变"><span class="toc-text">新的改变</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#功能快捷键"><span class="toc-text">功能快捷键</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#合理的创建标题，有助于目录的生成"><span class="toc-text">合理的创建标题，有助于目录的生成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何改变文本的样式"><span class="toc-text">如何改变文本的样式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#插入链接与图片"><span class="toc-text">插入链接与图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何插入一段漂亮的代码片"><span class="toc-text">如何插入一段漂亮的代码片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成一个适合你的列表"><span class="toc-text">生成一个适合你的列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建一个表格"><span class="toc-text">创建一个表格</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设定内容居中、居左、居右"><span class="toc-text">设定内容居中、居左、居右</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SmartyPants"><span class="toc-text">SmartyPants</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建一个自定义列表"><span class="toc-text">创建一个自定义列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何创建一个注脚"><span class="toc-text">如何创建一个注脚</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注释也是必不可少的"><span class="toc-text">注释也是必不可少的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#KaTeX数学公式"><span class="toc-text">KaTeX数学公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新的甘特图功能，丰富你的文章"><span class="toc-text">新的甘特图功能，丰富你的文章</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UML-图表"><span class="toc-text">UML 图表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FLowchart流程图"><span class="toc-text">FLowchart流程图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#导出与导入"><span class="toc-text">导出与导入</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#导出"><span class="toc-text">导出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#导入"><span class="toc-text">导入</span></a></li></ol></li></ol></li></ol>
+        </div>
+    </section>
+
+
+    
+    
+        <section class='m_widget links'>
+    <header class='header pure'>
+        <div><i class="fas fa-link fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;更多</div>
+        
+            <a class="rightBtn" title="联系博主添加友链" target="_blank" rel="external nofollow noopener noreferrer" href="mailto:me@xaoxuu.com?subject=交换友链&body=你好，我想和你交换友链，我已经将【Tony Ren&#39;s 学习笔记】添加到我的博客的友链中。我的博客链接是："><i class="fas fa-plus fa-fw"></i></a>
+        
+    </header>
+    <div class='content pure'>
+        <ul class="entry" id="links">
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://docs.qq.com/desktop/" target="_blank" rel="external nofollow noopener noreferrer" href="https://docs.qq.com/desktop/">
+                    
+                        
+                    
+                        
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88069910-a6b24f00-cba4-11ea-837b-d4a0dcf05d94.png">
+                        
+                        &nbsp;&nbsp;腾讯文档
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://www.notion.so/" target="_blank" rel="external nofollow noopener noreferrer" href="https://www.notion.so/">
+                    
+                        
+                    
+                        
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88069945-b16ce400-cba4-11ea-9c3f-d5857b39a5df.png">
+                        
+                        &nbsp;&nbsp;Notion
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://ide.goorm.io/" target="_blank" rel="external nofollow noopener noreferrer" href="https://ide.goorm.io/">
+                    
+                        
+                    
+                        
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88611890-9e827400-d0bc-11ea-893a-5b0af150504a.png">
+                        
+                        &nbsp;&nbsp;Goorm IDE
+                    </div>
+                </a></li>
+            
+        </ul>
+    </div>
+</section>
+
+    
+
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    </div>
+    <footer id="footer" class="clearfix">
+    
+        <div class="social-wrapper">
+          
+              
+                  <a href="mailto:renchk@foxmail.com" class="social fas fa-envelope flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://github.com/TonyRenHK" class="social fab fa-github flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://www.weibo.com/6476367461" class="social fab fa-weibo flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://tonyrenhk.github.io/Wechat/" class="social fab fa-weixin flat-box" target="_blank" rel="external"></a>
+              
+          
+        </div>
+    
+    <br>
+    <div>博客内容遵循 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="licenses">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></div>
+    <div>本站使用 <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a> 作为主题，
+		总访问量为 <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> 次。
+    </div>
+    
+<span id="runtime_span"></span>
+
+<script type="text/javascript">
+function show_runtime(){
+  window.setTimeout("show_runtime()",1000);
+  X=new Date("8/22/2016 18:27:0");
+  Y=new Date();T=(Y.getTime()-X.getTime());M=24*60*60*1000;
+  a=T/M;A=Math.floor(a);
+  b=(a-A)*24;B=Math.floor(b);
+  c=(b-B)*60;C=Math.floor((b-B)*60);
+  D=Math.floor((c-C)*60);
+  runtime_span.innerHTML="—— 本站已稳定运行： "+A+"天"+B+"小时"+C+"分"+D+"秒 ——"}show_runtime();
+
+</script>
+
+
+</footer>
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+    <script>setLoadingBarProgress(80);</script>
+    <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src='//cdn.bootcss.com/node-waves/0.7.5/waves.min.js'></script>
+<script src="//cdn.bootcss.com/scrollReveal.js/3.3.2/scrollreveal.min.js"></script>
+<!-- 访问统计 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5bfb78723c9c4600"></script>
+
+
+
+<script src="/js/jquery.fitvids.js"></script>
+
+
+    <script>
+        var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+        var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+        var ALGOLIA_API_KEY = "";
+        var ALGOLIA_APP_ID = "";
+        var ALGOLIA_INDEX_NAME = "";
+        var AZURE_SERVICE_NAME = "";
+        var AZURE_INDEX_NAME = "";
+        var AZURE_QUERY_KEY = "";
+        var BAIDU_API_ID = "";
+        var SEARCH_SERVICE = "hexo" || "hexo";
+        var ROOT = "/"||"/";
+        if(!ROOT.endsWith('/'))ROOT += '/';
+    </script>
+
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/app.js"></script>
+
+
+
+    
+    
+    
+        
+    
+
+
+    <script>setLoadingBarProgress(100);</script>
+</body>

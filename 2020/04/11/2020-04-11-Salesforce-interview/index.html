@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="036nsNgxuH68xUABF8jrgg8Xzsti4FN8eKjWvA185C4" />
+  <meta name="baidu-site-verification" content="FQRuGMvxtv" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+
+  
+  <title>Salesforce 面试 | Tony Ren&#39;s 学习笔记</title>
+  
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico">
+  <link rel="alternate" href="/atom.xml" title="Tony Ren's 学习笔记">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico" />
+  <link rel="icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico" />
+  
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono" rel="stylesheet">
+  
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link href='//cdn.bootcss.com/node-waves/0.7.5/waves.min.css' rel='stylesheet'>
+  
+<link rel="stylesheet" href="/style.css">
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+  
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1382646259212001",
+    enable_page_level_ads: true
+  });
+</script>
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading-bar-wrapper">
+  <div id="loading-bar" class="pure"></div>
+</div>
+
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header pure">
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+			<a class="logo flat-box" href='/' >Tony Ren's 学习笔记</a>
+				<div class='menu'>
+					<ul class='h-list'>
+            
+    					
+    						<li>
+    							<a class="nav  flat-box" href="/">
+    								<i class='fas fa-home fa-fw'></i>&nbsp;主页
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/archives/">
+    								<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/Project">
+    								<i class='fas fa-flask fa-fw'></i>&nbsp;项目
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/about/">
+    								<i class='fas fa-user fa-fw'></i>&nbsp;关于
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="https://renchk.github.io" target="_blank" rel="noopener">
+    								<i class='fas fa-globe fa-fw'></i>&nbsp;English
+  								</a>
+  							</li>
+        			
+        		
+					</ul>
+					<div class='underline'></div>
+				</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search" />
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></span></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-top'><a class="fas fa-arrow-circle-up fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-toc'><a class="fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+		<nav>
+      <ul>
+          
+              
+                  <li>
+										<a class="nav  flat-box" href="/">
+											<i class='fas fa-home fa-fw'></i>&nbsp;主页
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/archives/">
+											<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/Project">
+											<i class='fas fa-flask fa-fw'></i>&nbsp;项目
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/about/">
+											<i class='fas fa-user fa-fw'></i>&nbsp;关于
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="https://renchk.github.io" target="_blank" rel="noopener">
+											<i class='fas fa-globe fa-fw'></i>&nbsp;English
+										</a>
+                  </li>
+              
+       
+      </ul>
+		</nav>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            <article id="post-2020-04-11-Salesforce-interview" class="post white-box article-type-post" itemscope itemprop="blogPost">
+    <section class='meta'>
+        
+            <h1 class="title">Salesforce 面试</h1>
+        
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+            2020-04-11
+        </time>
+        <div class="browse"><i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+        </div>
+        
+    
+    <div class='cats'>
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+        <a class="categories" href="/categories/Salesforce/">Salesforce</a>
+    </div>
+
+
+    </section>
+
+    <section class="article typo">
+
+        <div class="article-entry" itemprop="articleBody">
+            <p>面试经验</p>
+<a id="more"></a>
+
+
+<p><strong>​1. 什么是Apex？</strong></p>
+<p>Apex是一种强类型，面向对象(object-oriented)的编程语言，允许开发人员通过将自己的业务逻辑编写到平台中来扩展Salesforce平台。Apex看起来类似于Java，可以通过各种用户启动的事件启动，例如记录更新，按钮单击，对象触发器或外部Web服务请求等。</p>
+<p>官方参考链接：</p>
+<p><a href="https://trailhead.salesforce.com/en/content/learn/modules/apex_database" target="_blank" rel="noopener">https://trailhead.salesforce.com/en/content/learn/modules/apex_database</a></p>
+<p><strong>2. 您可以直接在生产组织Production中自定义Apex和Visualforce吗？</strong></p>
+<p>Apex无法在生产组织中进行自定义，必须通过沙盒环境进行更改和部署并满足测试覆盖率。另一方面，Visualforce可以直接在生产中定制（这不是最佳实践 ）</p>
+<p><strong>3. Apex触发器可运行的两个选项是什么？</strong></p>
+<p>Apex触发器可以在保存记录之前或者之后运行。之前的操作通常用于验证将要插入的信息。之后的触发器操作用于处理其他数据而不是当前数据，如访问系统设置的当前对象的字段值（例如记录）ID 或者LastModifiedDate字段），并影响其他记录的更改。</p>
+<p>官方参考链接：</p>
+<p><a href="https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_triggers.htm" target="_blank" rel="noopener">https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_triggers.htm</a></p>
+<p><strong>4. Apex何时应该用于Flow或Process Builder？</strong></p>
+<p>您应该使用Apex而不是声明性自动化选项有多种原因：</p>
+<p>1）Flow和Process Builder操作有时会有一些功能限制，需要用到Apex。例如，从外部系统中提取信息或者与外部系统进行交互。</p>
+<ol start="2">
+<li>在处理某些或大型数据集时，由于限制较少，Apex可以比声明性选项更有效。</li>
+</ol>
+<p><strong>5. Governor Limits是做什么的？</strong></p>
+<p>Salesforce在多multitenant环境中运行，这意味着Salesforce平台上的其他公司共享资源（存储，CPU，内存）。这也意味着必须有一定的限制以确保使用Salesforce体系结构的所有公司遵守某些规则，并且不要让他们的代码或流程独占共享资源。常见的Governor Limits限制的几个例子有如下一些：</p>
+<ol>
+<li><p>SOQL查询检索的记录总数 - 50,000</p>
+</li>
+<li><p>发出的SOQL查询总数（次数） - 100（同步）200（异步）</p>
+</li>
+<li><p>发布的DML报表总数 - 150</p>
+</li>
+<li><p>在一次transaction中可以用到的callouts次数（HTTP请求或Web服务调用） - 100</p>
+</li>
+<li><p>Salesforce服务器上的最大CPU运行时间 - 10,000毫秒（同步）60,000毫秒（异步）</p>
+</li>
+</ol>
+<p>官方参考链接：</p>
+<p><a href="https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_gov_limits.htm" target="_blank" rel="noopener">https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_gov_limits.htm</a></p>
+<p><strong>6. 知道如何进行Apex测试吗？</strong></p>
+<p>该类问题的常见问法是：Apex测试覆盖范围是什么？部署所需的最低测试覆盖率是多少？</p>
+<p>为了确保您的代码符合一定的标准，Apex Code覆盖率显示了您的类和触发器中的代码可执行行数，同时需要成功执行。<strong>代码覆盖百分比</strong>是覆盖的代码行数除以覆盖代码行数和未覆盖代码行数之和。部署到生产所需的最低测试覆盖率为75％。</p>
+<p>官方参考链接：</p>
+<p><a href="https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_code_coverage_intro.htm" target="_blank" rel="noopener">https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_code_coverage_intro.htm</a></p>
+<p><strong>7. Apex 最佳实践例子和我们分享一下？</strong></p>
+<p><strong>参见的最佳实践有这些：</strong> </p>
+<ul>
+<li><p>整理您的代码</p>
+</li>
+<li><p>避免FOR循环中的SOQL查询或DML语句</p>
+</li>
+<li><p>避免使用硬编码ID</p>
+</li>
+</ul>
+<p>官方参考链接：</p>
+<p><a href="https://developer.salesforce.com/page/Apex_Code_Best_Practices" target="_blank" rel="noopener">https://developer.salesforce.com/page/Apex_Code_Best_Practices</a></p>
+<p>**8. 如下代码有什么问题？**<strong>需要怎么改？</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">trigger accountTestTrggr on Account (before insert, before update) &#123;</span><br><span class="line">   for(Account a: Trigger.new) &#123;      	  </span><br><span class="line">      List&lt;Contact&gt; contacts &#x3D; [select id, salutation, firstname, lastname, email</span><br><span class="line">                        from Contact where accountId &#x3D; :a.Id];</span><br><span class="line"> 		  </span><br><span class="line">      for(Contact c: contacts) &#123;</span><br><span class="line">         System.debug(&#39;Contact Id[&#39; + c.Id + &#39;], FirstName[&#39; + c.firstname + &#39;],</span><br><span class="line">                                         LastName[&#39; + c.lastname +&#39;]&#39;);</span><br><span class="line">         c.Description&#x3D;c.salutation + &#39; &#39; + c.firstName + &#39; &#39; + c.lastname;</span><br><span class="line">         update c;</span><br><span class="line">      &#125;	  </span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>主要问题是在for循环中使用了查询或DML语句。一次transaction可以执行最大SOQL查询次数是100，如果这操作放在for循环中时，每次迭代循环都会调用一次数据库操作，这使得很容易达到这些调控器限制。如果一批超过100个帐户记录调用此触发器，则调控器限制将引发运行时异常。</p>
+<p>现在修改如下，把update的动作放到For循环外面，如果使用单个帐户记录或最多200个帐户记录调用此触发器，则只执行一个SOQL查询和一个更新语句。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">trigger accountTestTrggr on Account (before insert, before update) &#123;</span><br><span class="line">  List&lt;Account&gt; accountsWithContacts &#x3D; [select id, name, (select id, salutation, description,</span><br><span class="line">                                                                firstname, lastname, email from Contacts)</span><br><span class="line">                                                                from Account where Id IN :Trigger.newMap.keySet()];</span><br><span class="line">	  </span><br><span class="line">  List&lt;Contact&gt; contactsToUpdate &#x3D; new List&lt;Contact&gt;&#123;&#125;;</span><br><span class="line">  for(Account a: accountsWithContacts)&#123;</span><br><span class="line">     for(Contact c: a.Contacts)&#123;</span><br><span class="line">   	  System.debug(&#39;Contact Id[&#39; + c.Id + &#39;], FirstName[&#39; + c.firstname + &#39;], LastName[&#39; + c.lastname +&#39;]&#39;);</span><br><span class="line">   	  c.Description&#x3D;c.salutation + &#39; &#39; + c.firstName + &#39; &#39; + c.lastname;</span><br><span class="line">   	  contactsToUpdate.add(c);</span><br><span class="line">     &#125;	  </span><br><span class="line">   &#125;</span><br><span class="line">   update contactsToUpdate;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>#9. Apex Email Service是什么？</p>
+<p>您可以使用Apex Email Service来处理入站电子邮件的内容，标题和附件。例如，您可以创建一个电子邮件服务，该服务根据邮件中的联系信息自动创建联系人记录。<br>参考链接：</p>
+<p><a href="https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_email_inbound_what_is.htm" target="_blank" rel="noopener">https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_email_inbound_what_is.htm</a></p>
+<p>#10. List, Set, Map在Apex中有什么区别？</p>
+<p>List- 列表是按其索引区分的有序元素集合。列表元素可以是任何数据类型：基元类型，集合，对象，sObject，用户定义类型和内置Apex类型。<br>Set - 集合是不包含任何重复的元素的无序集合。集合元素可以是任何数据类型 - 基元类型，集合，sObject，用户定义类型和内置Apex类型。<br>Map - 地图是键值对的集合，其中每个唯一键映射到单个值。键和值可以是任何数据类型 - 基元类型，集合，sObject，用户定义类型和内置Apex类型。</p>
+<p>参考链接：<br><a href="https://www.salesforceben.com/30-salesforce-developer-interview-questions-answers/" target="_blank" rel="noopener">https://www.salesforceben.com/30-salesforce-developer-interview-questions-answers/</a></p>
+<p>#11.Custom labels是什么？有什么限制？</p>
+<p>Custom Labels是可从 Apex 类或 Visualforce 页访问的自定义文本值。此处的值可以转换为 Salesforce 支持的任何语言。它们的好处是使开发人员能够创建多语言应用程序, 这些应用程序以用户的母语自动显示信息。最多可以为组织创建 5, 000个Custom Labels, 它们的长度最多可以为 1000个字符。</p>
+<p>#12. 用Visualforce写一个分页的例子<br><img src="https://user-images.githubusercontent.com/9688136/88123638-e35e6480-cbfd-11ea-9b73-777f2e613dd5.png"></p>
+<p>#13. 如何在JavaScript调用controller的方法？</p>
+<p>利用actionfunction。相关参考代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">function JSmethodCallFromAnyAction()</span><br><span class="line">&#123;</span><br><span class="line">callfromJS();</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;apex:page&gt;</span><br></pre></td></tr></table></figure>
+
+<p>#14. Get 和Set在Apex有什么用？</p>
+<p>简单来说，Get方法用于将值从控制器传递到 VF 页。而Set方法用于将值设置回控制器变量中。</p>
+<p>​在实际面试中会遇到不同的面试题目，以下列出了常见的面试题目供大家参考和学习。</p>
+<p>#1. Role 和Profile有什么区别？</p>
+<ol>
+<li>Profiles是可以，也是必须加到用户记录中，而Roles是可以选择性地加入到用户记录中。</li>
+<li>Profile是可以控制用户CRED权限如（创建，读取，编辑，删除）。 它们还包含用户可以执行的系统权限，例如导出数据。<br>3） Roles在整个组织内共享记录。 它们以hierarchical方式工作，使用户可以访问在公司组织结构中较低层的人的记录，如你的经理可以查看你的记录。<br>官方参考链接：<br><a href="https://help.salesforce.com/articleView?id=admin_userprofiles.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=admin_userprofiles.htm&amp;type=5</a></li>
+</ol>
+<p>#2. 能否列出三种对象关系？</p>
+<p>1）查找关系Lookup：可用于将两个对象链接在一起。它是在两个对象之间创建子父关系(child-parent)的最基本的关系类型。<br>2）主 - 细节关系 master-detail ：也可用于将两个对象链接在一起。主 - 细节关系在父母和孩子之间建立紧密的关系。子记录继承父级的安全性，如果删除父级，则还将删除所有关联的子级记录。主 - 细节关系创建了一些额外的功能，例如汇总汇总字段( roll-up summary)，其功能是允许在父项上计算子项的统计数据。<br>3）多对多关系many-to-many：（也称为联结对象junction）允许您在需要建模多对多关系的两个对象之间创建关系。主要表现为一个子对象具有两个父对象，且是基于主 - 细节关系建立的。 </p>
+<p>官方参考链接：</p>
+<p><a href="https://help.salesforce.com/articleView?id=overview_of_custom_object_relationships.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=overview_of_custom_object_relationships.htm&amp;type=5</a></p>
+<p>#3. SOQL是干嘛的？</p>
+<p>SOQL代表Salesforce对象查询语言。它与广泛使用的语言SQL（结构化查询语言）非常相似，用于查询数据库。SOQL专为Salesforce数据设计，用于查询Salesforce平台以检索数据。SOQL在Apex和Visualforce中用于返回数据集。注意SQL英文为Structured Query Language。</p>
+<p>官方参考链接：</p>
+<p><a href="https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm" target="_blank" rel="noopener">https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm</a></p>
+<p>#4. Salesforce.com 和 Force.com有什么区别？</p>
+<p>Salesforce.com是SaaS（软件即服务）产品，而Force.com是PaaS产品（平台即服务）。Salesforce.com提供一系列预先打包的解决方案，例如专为特定目的而设计的销售Sales Cloud和服务云 &amp; Service Cloud。而Force.com允许您构建自己的应用程序。Salesforce.com建立在Force.com平台上。</p>
+<p>#5.从沙盒环节部署到生产环境可以使用哪些选项？</p>
+<p>有多种方法可以从Sandbox 部署到Production。主要方法是使用名为Change Sets的Salesforce功能。这些允许您打包组件，然后将它们部署到另一个Salesforce组织。还有其他各种方法，包括ANT MIgration Tool，SFDX, Unmanaged包，metaforce, DreamFactory等。</p>
+<p>官方参考链接:<br><a href="https://help.salesforce.com/articleView?id=deploy_overview.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=deploy_overview.htm&amp;type=5</a></p>
+<p>#6. 听说过bucket字段吗？知道是干什么的吗？</p>
+<p>可以在Salesforce报告中使用存储桶字段将字段值组合在一起。这些字段不是在Salesforce平台上创建的，只存在于报表本身中。<br>官方参考链接:<br><a href="https://help.salesforce.com/articleView?id=reports_bucketing_overview.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=reports_bucketing_overview.htm&amp;type=5</a></p>
+<p>#7. 解释Workflow和Process Builder之间的区别？</p>
+<p>Workflow和Process Builder是自动化工具，可用于扩展Salesforce平台功能。两者都是通过点击页面实现创建Workflow和PB，并具有各种功能和特性来自动化业务流程。</p>
+<p>Workflow - 一种自动化工具，可以评估参数，并启动自动化功能。这些功能可以包括字段更新，发送电子邮件，创建任务或发送出站邮件。</p>
+<p>Process Builder - 流程构建器是一种更新的自动化工具，具有更广泛的功能。这些包括创建记录，更新子记录，发布到聊天，启动Flow等。简单来说，流程构建器可以评估多个条件，并根据满足的条件触发不同的自动化。<br>官方参考链接:</p>
+<p><a href="https://help.salesforce.com/articleView?id=process_overview.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=process_overview.htm&amp;type=5</a></p>
+<p>#8. Sharing Rules一般是怎么使用的？</p>
+<p>Sharing Rules的设置是用于拓展现有的共享设置。并根据定义的标准授予用户对一组记录的访问权限。可以基于记录的所有者或字段值分享给不同的profile，role或公共组。<br>官方参考链接:</p>
+<p><a href="https://help.salesforce.com/articleView?id=security_about_sharing_rules.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=security_about_sharing_rules.htm&amp;type=5</a></p>
+<p>#9. 解释汇总字段的使用以及可以使用的地方</p>
+<p>汇总字段可用于根据父记录子记录计算信息。虽然公式字段可以计算单个记录中的信息，但汇总汇总字段可以计算一组子记录中的数据。<br>例如，汇总字段可用于计算帐户上所有close won机会的总价值。汇总字段只能用于主 - 详细信息关系。</p>
+<p>#10.记录类型Record Type和页面布局之间有什么关系Page Layouts</p>
+<p>页面布局用于定义向用户显示哪些字段，部分和相关列表。页面布局控制对象记录页面上按钮，字段，s控件，Visualforce，自定义链接和相关列表的布局和组织。它们还有助于确定哪些字段是可见的，只读的和必需的。使用页面布局为用户自定义记录页面的内容。</p>
+<p>可以参考官方参考链接:<br><a href="https://help.salesforce.com/articleView?id=customize_layout.htm&type=0" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=customize_layout.htm&amp;type=0</a></p>
+<p>记录类型Record Type可以通过定义不同的业务流程来扩展它。管理员可以创建不同的记录类型Record Type，以区分销售交易类别，为每个交易提供不同的选项列表值。</p>
+<p>可以参考官方参考链接:<br><a href="https://help.salesforce.com/articleView?id=customize_recordtype.htm&type=0" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=customize_recordtype.htm&amp;type=0</a></p>
+<p>页面布局可以用于控制在记录上向用户显示哪些数据。如上所述，管理员可以更改页面中的任何元素，删除字段，部分，链接和自定义Visualforce代码等一系列模块。您可以将页面布局应用于不同的用户组（销售，支持，财务，管理），仅显示与该组用户相关的数据。而且，管理员还可以将页面布局应用于记录类型。</p>
+<p>使用页面布局时需要注意的一件重要事项是，每个记录类型Record Type所对应的页面布局只能应用一个组用户的Profile。例如，如果您在帐户上有一种记录类型Record Type，则每个Profile只能应用一种页面布局。</p>
+
+        </div>
+
+        <section class='meta'>
+            <time class="time" itemprop="dateUpdated" datetime="2025-05-06T03:51:48+00:00" content="2025-05-06">
+                <i class="fas fa-pen fa-fw" aria-hidden="true"></i>
+                本文最后更新于：2025-05-06
+            </time>
+            
+                
+                <div class="tags">
+                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                    <a class="tag" href="/tags/Salesforce/">Salesforce</a>, <a class="tag" href="/tags/%E9%9D%A2%E8%AF%95/">面试</a>
+                </div>
+            
+        </section>
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <div class="addthis_inline_share_toolbox"></div>
+
+
+        
+            <div class="prev-next">
+                
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一篇</h6>
+                            <h4>
+                                <a href="/2020/05/01/2020-05-01-LWC-Study/" rel="prev" title="LWC学习">
+                                  
+                                      LWC学习
+                                  
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                                    <a class="tag" href="/tags/Salesforce/">Salesforce</a>, <a class="tag" href="/tags/LWC/">LWC</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>下一篇&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2020/04/10/2020-03-09-How-Salesforce-exam/" rel="prev" title="如何在家进行Salesforce考试？">
+                                    
+                                        如何在家进行Salesforce考试？
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                                    <a class="tag" href="/tags/Salesforce/">Salesforce</a>, <a class="tag" href="/tags/exam/">exam</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+
+    </section>
+
+</article>
+
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+    <article class="post white-box comments">
+        <section class="article typo">
+
+            
+                
+
+    <div class="recommended_posts">
+        <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;你可能感兴趣的文章</h4>
+        <ul>
+            
+                <li><a href="http://tonyrenhk.github.io/2020/06/02/2020-06-01-CPQ-Study/">Salesforce CPQ 学习资料</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2020/05/01/2020-05-01-LWC-Study/">LWC学习</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2020/04/10/2020-03-09-How-Salesforce-exam/">如何在家进行Salesforce考试？</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2020/04/10/2020-04-10-Salesforce-Covid-19-List/">如何在Salesforce上搭建一个全球疫情排行榜？</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2020/04/03/2020-04-03-Salesforce-mobile/">6招教你如何自定义Salesforce新版本移动应用程序！</a></li>
+            
+        </ul>
+    </div>
+
+
+            
+
+            
+
+                
+
+                
+
+                
+                    
+                
+            
+
+        </section>
+    </article>
+
+
+<script>
+    window.subData = {
+        title: 'Salesforce 面试',
+        tools: true
+    }
+</script>
+
+
+        </div>
+        <aside class='l_side'>
+            
+    
+        
+  <section class='m_widget author'>
+    
+      <div class='header'>
+        <img class='avatar' src='https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/Me2.jpg'/>
+      </div>
+    
+    
+      <div class='content'>
+        
+          <h2>Tony Ren&#39;s 学习笔记</h2>
+        
+        
+          <p>好学近乎知，力行近乎仁，知耻近乎勇</p>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:renchk@foxmail.com" class="social flat-box" target="_blank" rel="external"><i class="social fas fa-envelope" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://github.com/TonyRenHK" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-github" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://www.weibo.com/6476367461" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-weibo" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://tonyrenhk.github.io/Wechat/" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-weixin" aria-hidden="true"></i></a>
+          
+        
+      </div>
+    
+  </section>
+
+
+    
+    
+        <section class='m_widget links'>
+    <div class='content pure'>
+        <ul class="entry" id="links">
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://tonyrenhk.github.io/2018/01/01/2018-01-01-Salesforce-related-resource/" rel="external nofollow noopener noreferrer" href="https://tonyrenhk.github.io/2018/01/01/2018-01-01-Salesforce-related-resource/">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/IMG_2568.JPG">
+                        
+                        &nbsp;&nbsp;Salesforce
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://tonyrenhk.github.io/2018/01/09/2018-01-09-IT-Study-Resource/" rel="external nofollow noopener noreferrer" href="https://tonyrenhk.github.io/2018/01/09/2018-01-09-IT-Study-Resource/">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88612001-cf62a900-d0bc-11ea-9cbb-a14beeb356c7.png">
+                        
+                        &nbsp;&nbsp;IT
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/Note/OnlineTools.html" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/Note/OnlineTools.html">
+                    
+                    <div class='name'>
+                        
+                            <img src="http://tonyrenhk.github.io/images/notebook.png">
+                        
+                        &nbsp;&nbsp;工具Tools
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/Note/Tutorial.html" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/Note/Tutorial.html">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/Astro_Trailblazer_hoodie_wave.png">
+                        
+                        &nbsp;&nbsp;教程Tutorial
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/2018/02/02/2018-02-02-Git-Study/" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/2018/02/02/2018-02-02-Git-Study/">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/s.png">
+                        
+                        &nbsp;&nbsp;Git
+                    </div>
+                </a></li>
+            
+        </ul>
+    </div>
+</section>
+
+    
+    
+        <section class='m_widget categories'>
+    <header class='header pure'>
+        <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;分类</div>
+    </header>
+    <div class='content pure'>
+        
+            <ul class="entry">
+                
+                    <li><a class="flat-box" href="/categories/English/"><div class='name'>English</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Git/"><div class='name'>Git</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Google/"><div class='name'>Google</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/JavaScript/"><div class='name'>JavaScript</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Others/"><div class='name'>Others</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Python/"><div class='name'>Python</div><div class='badge'>1</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Salesforce/"><div class='name'>Salesforce</div><div class='badge'>35</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Tools/"><div class='name'>Tools</div><div class='badge'>1</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/hexo/"><div class='name'>hexo</div><div class='badge'>1</div></a></li>
+                
+            </ul>
+        
+    </div>
+</section>
+
+    
+    
+        
+    <section class='m_widget tagcloud'>
+        <header class="header pure">
+            <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
+        </header>
+        <div class='content pure'>
+            <a href="/tags/Admin/" style="font-size: 14px; color: #999">Admin</a> <a href="/tags/Apex/" style="font-size: 16.86px; color: #868686">Apex</a> <a href="/tags/BookMark/" style="font-size: 14px; color: #999">BookMark</a> <a href="/tags/CDC/" style="font-size: 14px; color: #999">CDC</a> <a href="/tags/CPQ/" style="font-size: 14px; color: #999">CPQ</a> <a href="/tags/Change-Data-Capture/" style="font-size: 14px; color: #999">Change Data Capture</a> <a href="/tags/Chrome-Extension/" style="font-size: 14px; color: #999">Chrome-Extension</a> <a href="/tags/Community-Cloud/" style="font-size: 14px; color: #999">Community Cloud</a> <a href="/tags/Demo/" style="font-size: 14px; color: #999">Demo</a> <a href="/tags/Flow/" style="font-size: 14px; color: #999">Flow</a> <a href="/tags/Git/" style="font-size: 16.86px; color: #868686">Git</a> <a href="/tags/Google/" style="font-size: 14px; color: #999">Google</a> <a href="/tags/Google-App-Script/" style="font-size: 14px; color: #999">Google App Script</a> <a href="/tags/Heroku/" style="font-size: 14px; color: #999">Heroku</a> <a href="/tags/IT%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">IT学习</a> <a href="/tags/Interactive-Email/" style="font-size: 14px; color: #999">Interactive Email</a> <a href="/tags/JavaScript/" style="font-size: 15.43px; color: #8f8f8f">JavaScript</a> <a href="/tags/Jsforce/" style="font-size: 15.43px; color: #8f8f8f">Jsforce</a> <a href="/tags/LWC/" style="font-size: 22.57px; color: #5f5f5f">LWC</a> <a href="/tags/Lightning/" style="font-size: 15.43px; color: #8f8f8f">Lightning</a> <a href="/tags/Lightning-Components/" style="font-size: 14px; color: #999">Lightning Components</a> <a href="/tags/Lightning-Web-Components/" style="font-size: 18.29px; color: #7c7c7c">Lightning Web Components</a> <a href="/tags/MC/" style="font-size: 15.43px; color: #8f8f8f">MC</a> <a href="/tags/MCC/" style="font-size: 14px; color: #999">MCC</a> <a href="/tags/Marketing-Cloud/" style="font-size: 14px; color: #999">Marketing Cloud</a> <a href="/tags/Marketing-Cloud-Connect/" style="font-size: 14px; color: #999">Marketing Cloud Connect</a> <a href="/tags/Org/" style="font-size: 14px; color: #999">Org</a> <a href="/tags/Others/" style="font-size: 14px; color: #999">Others</a> <a href="/tags/Pardot/" style="font-size: 14px; color: #999">Pardot</a> <a href="/tags/Python/" style="font-size: 15.43px; color: #8f8f8f">Python</a> <a href="/tags/Roll-Up-Summary/" style="font-size: 14px; color: #999">Roll-Up Summary</a> <a href="/tags/SFDC/" style="font-size: 14px; color: #999">SFDC</a> <a href="/tags/SFDX/" style="font-size: 19.71px; color: #727272">SFDX</a> <a href="/tags/Salesforce/" style="font-size: 24px; color: #555">Salesforce</a> <a href="/tags/Salesforce-Mobile/" style="font-size: 14px; color: #999">Salesforce Mobile</a> <a href="/tags/Sandbox/" style="font-size: 14px; color: #999">Sandbox</a> <a href="/tags/Script/" style="font-size: 14px; color: #999">Script</a> <a href="/tags/Site/" style="font-size: 14px; color: #999">Site</a> <a href="/tags/Study/" style="font-size: 18.29px; color: #7c7c7c">Study</a> <a href="/tags/StudyNote/" style="font-size: 14px; color: #999">StudyNote</a> <a href="/tags/Superbadge/" style="font-size: 14px; color: #999">Superbadge</a> <a href="/tags/Tools/" style="font-size: 14px; color: #999">Tools</a> <a href="/tags/Trailhead/" style="font-size: 21.14px; color: #686868">Trailhead</a> <a href="/tags/exam/" style="font-size: 14px; color: #999">exam</a> <a href="/tags/flow/" style="font-size: 14px; color: #999">flow</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/tags/hexo-theme-doc/" style="font-size: 14px; color: #999">hexo-theme-doc</a> <a href="/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/tags/metadata/" style="font-size: 14px; color: #999">metadata</a> <a href="/tags/shortcut/" style="font-size: 14px; color: #999">shortcut</a> <a href="/tags/%E5%85%A5%E9%97%A8/" style="font-size: 14px; color: #999">入门</a> <a href="/tags/%E5%AF%B9Campaign/" style="font-size: 14px; color: #999">对Campaign</a> <a href="/tags/%E5%BC%80%E5%8F%91%E8%80%85II%E8%80%83%E8%AF%95/" style="font-size: 19.71px; color: #727272">开发者II考试</a> <a href="/tags/%E8%87%AA%E5%8A%A8/" style="font-size: 14px; color: #999">自动</a> <a href="/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">英语学习</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 14px; color: #999">面试</a>
+        </div>
+    </section>
+
+
+    
+    
+        
+
+    
+    
+        <section class='m_widget links'>
+    <header class='header pure'>
+        <div><i class="fas fa-link fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;更多</div>
+        
+            <a class="rightBtn" title="联系博主添加友链" target="_blank" rel="external nofollow noopener noreferrer" href="mailto:me@xaoxuu.com?subject=交换友链&body=你好，我想和你交换友链，我已经将【Tony Ren&#39;s 学习笔记】添加到我的博客的友链中。我的博客链接是："><i class="fas fa-plus fa-fw"></i></a>
+        
+    </header>
+    <div class='content pure'>
+        <ul class="entry" id="links">
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://docs.qq.com/desktop/" target="_blank" rel="external nofollow noopener noreferrer" href="https://docs.qq.com/desktop/">
+                    
+                        
+                    
+                        
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88069910-a6b24f00-cba4-11ea-837b-d4a0dcf05d94.png">
+                        
+                        &nbsp;&nbsp;腾讯文档
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://www.notion.so/" target="_blank" rel="external nofollow noopener noreferrer" href="https://www.notion.so/">
+                    
+                        
+                    
+                        
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88069945-b16ce400-cba4-11ea-9c3f-d5857b39a5df.png">
+                        
+                        &nbsp;&nbsp;Notion
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://ide.goorm.io/" target="_blank" rel="external nofollow noopener noreferrer" href="https://ide.goorm.io/">
+                    
+                        
+                    
+                        
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88611890-9e827400-d0bc-11ea-893a-5b0af150504a.png">
+                        
+                        &nbsp;&nbsp;Goorm IDE
+                    </div>
+                </a></li>
+            
+        </ul>
+    </div>
+</section>
+
+    
+
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    </div>
+    <footer id="footer" class="clearfix">
+    
+        <div class="social-wrapper">
+          
+              
+                  <a href="mailto:renchk@foxmail.com" class="social fas fa-envelope flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://github.com/TonyRenHK" class="social fab fa-github flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://www.weibo.com/6476367461" class="social fab fa-weibo flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://tonyrenhk.github.io/Wechat/" class="social fab fa-weixin flat-box" target="_blank" rel="external"></a>
+              
+          
+        </div>
+    
+    <br>
+    <div>博客内容遵循 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="licenses">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></div>
+    <div>本站使用 <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a> 作为主题，
+		总访问量为 <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> 次。
+    </div>
+    
+<span id="runtime_span"></span>
+
+<script type="text/javascript">
+function show_runtime(){
+  window.setTimeout("show_runtime()",1000);
+  X=new Date("8/22/2016 18:27:0");
+  Y=new Date();T=(Y.getTime()-X.getTime());M=24*60*60*1000;
+  a=T/M;A=Math.floor(a);
+  b=(a-A)*24;B=Math.floor(b);
+  c=(b-B)*60;C=Math.floor((b-B)*60);
+  D=Math.floor((c-C)*60);
+  runtime_span.innerHTML="—— 本站已稳定运行： "+A+"天"+B+"小时"+C+"分"+D+"秒 ——"}show_runtime();
+
+</script>
+
+
+</footer>
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+    <script>setLoadingBarProgress(80);</script>
+    <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src='//cdn.bootcss.com/node-waves/0.7.5/waves.min.js'></script>
+<script src="//cdn.bootcss.com/scrollReveal.js/3.3.2/scrollreveal.min.js"></script>
+<!-- 访问统计 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5bfb78723c9c4600"></script>
+
+
+
+<script src="/js/jquery.fitvids.js"></script>
+
+
+    <script>
+        var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+        var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+        var ALGOLIA_API_KEY = "";
+        var ALGOLIA_APP_ID = "";
+        var ALGOLIA_INDEX_NAME = "";
+        var AZURE_SERVICE_NAME = "";
+        var AZURE_INDEX_NAME = "";
+        var AZURE_QUERY_KEY = "";
+        var BAIDU_API_ID = "";
+        var SEARCH_SERVICE = "hexo" || "hexo";
+        var ROOT = "/"||"/";
+        if(!ROOT.endsWith('/'))ROOT += '/';
+    </script>
+
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/app.js"></script>
+
+
+
+    
+    
+    
+        
+    
+
+
+    <script>setLoadingBarProgress(100);</script>
+</body>

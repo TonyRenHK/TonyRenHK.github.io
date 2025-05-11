@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="036nsNgxuH68xUABF8jrgg8Xzsti4FN8eKjWvA185C4" />
+  <meta name="baidu-site-verification" content="FQRuGMvxtv" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+
+  
+  <title>Lightning Web Components学习入门(一) | Tony Ren&#39;s 学习笔记</title>
+  
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico">
+  <link rel="alternate" href="/atom.xml" title="Tony Ren's 学习笔记">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico" />
+  <link rel="icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico" />
+  
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono" rel="stylesheet">
+  
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link href='//cdn.bootcss.com/node-waves/0.7.5/waves.min.css' rel='stylesheet'>
+  
+<link rel="stylesheet" href="/style.css">
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+  
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1382646259212001",
+    enable_page_level_ads: true
+  });
+</script>
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading-bar-wrapper">
+  <div id="loading-bar" class="pure"></div>
+</div>
+
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header pure">
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+			<a class="logo flat-box" href='/' >Tony Ren's 学习笔记</a>
+				<div class='menu'>
+					<ul class='h-list'>
+            
+    					
+    						<li>
+    							<a class="nav  flat-box" href="/">
+    								<i class='fas fa-home fa-fw'></i>&nbsp;主页
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/archives/">
+    								<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/Project">
+    								<i class='fas fa-flask fa-fw'></i>&nbsp;项目
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/about/">
+    								<i class='fas fa-user fa-fw'></i>&nbsp;关于
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="https://renchk.github.io" target="_blank" rel="noopener">
+    								<i class='fas fa-globe fa-fw'></i>&nbsp;English
+  								</a>
+  							</li>
+        			
+        		
+					</ul>
+					<div class='underline'></div>
+				</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search" />
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></span></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-top'><a class="fas fa-arrow-circle-up fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-toc'><a class="fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+		<nav>
+      <ul>
+          
+              
+                  <li>
+										<a class="nav  flat-box" href="/">
+											<i class='fas fa-home fa-fw'></i>&nbsp;主页
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/archives/">
+											<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/Project">
+											<i class='fas fa-flask fa-fw'></i>&nbsp;项目
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/about/">
+											<i class='fas fa-user fa-fw'></i>&nbsp;关于
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="https://renchk.github.io" target="_blank" rel="noopener">
+											<i class='fas fa-globe fa-fw'></i>&nbsp;English
+										</a>
+                  </li>
+              
+       
+      </ul>
+		</nav>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            <article id="post-2019-01-06-Lightning-Web-Components" class="post white-box article-type-post" itemscope itemprop="blogPost">
+    <section class='meta'>
+        
+            <h1 class="title">Lightning Web Components学习入门(一)</h1>
+        
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+            2019-01-06
+        </time>
+        <div class="browse"><i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+        </div>
+        
+    
+    <div class='cats'>
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+        <a class="categories" href="/categories/Salesforce/">Salesforce</a>
+    </div>
+
+
+    </section>
+
+    <section class="article typo">
+
+        <div class="article-entry" itemprop="articleBody">
+            <p>学习Lightning Web Components(LWC) ，其中需要使用到SFDX。</p>
+<a id="more"></a>
+
+
+<p>现在可以用Lightning Web Components(业内简称LWC)和 Aura Components开发相关的Lightning components。两者都可以相互存在同一个页面下面。LWC是基于传统的HTML和现代的JavaScript进行开发，其主要内核是基于w3c的webcomponents相关开源源码：<a href="https://github.com/w3c/webcomponents/" target="_blank" rel="noopener">https://github.com/w3c/webcomponents/</a></p>
+<p>所以，大部分的代码是基于标准的HTML和JS。同时，支持使用 JavaScript Jest测试(<a href="https://jestjs.io/" target="_blank" rel="noopener">https://jestjs.io/</a>)</p>
+<h1 id="设置开发环境"><a href="#设置开发环境" class="headerlink" title="设置开发环境"></a>设置开发环境</h1><h2 id="安装Salesforce-CLI"><a href="#安装Salesforce-CLI" class="headerlink" title="安装Salesforce CLI"></a>安装Salesforce CLI</h2><h3 id="安装CLI"><a href="#安装CLI" class="headerlink" title="安装CLI"></a>安装CLI</h3><p>如果你的电脑里已经安装了nodejs，可以直接通过npm进行安装</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install sfdx-cli --global</span><br></pre></td></tr></table></figure>
+
+<p>或者参考官方安装方法：<a href="https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm" target="_blank" rel="noopener">https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm</a></p>
+<h3 id="查看CLI版本"><a href="#查看CLI版本" class="headerlink" title="查看CLI版本"></a>查看CLI版本</h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sfdx plugins --core</span><br></pre></td></tr></table></figure>
+<p>由于使用LWC需要sfdx 45以上的版本，所以我们需要对sfdx版本进行更新。</p>
+<h3 id="更新至最新的版本"><a href="#更新至最新的版本" class="headerlink" title="更新至最新的版本"></a>更新至最新的版本</h3><p>在2019年3月以前需要安装pre-release版本</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sfdx plugins:install salesforcedx@pre-release</span><br></pre></td></tr></table></figure>
+
+<p>在2019年3月之后可以直接卸载pre-release版本，并且输入：sfdx update进行安装。</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sfdx plugins:uninstall salesforcedx</span><br><span class="line">sfdx update</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="IDE"><a href="#IDE" class="headerlink" title="IDE"></a>IDE</h2><p>由于LWC无法在Developer Console打开，所以需要使用外部IDE进行开发。</p>
+<ul>
+<li>官方的playground:为了方便测试，官方给出了在线版的playground，如下：<a href="https://developer.salesforce.com/docs/component-library/tools/playground" target="_blank" rel="noopener">https://developer.salesforce.com/docs/component-library/tools/playground</a></li>
+<li>Visual Studio Code (VS Code)：<a href="https://code.visualstudio.com/" target="_blank" rel="noopener">https://code.visualstudio.com/</a></li>
+<li>VS Code的Salesforce 开发插件 Salesforce Extension Pack for Visual Studio Code，<a href="https://marketplace.visualstudio.com/items?itemName=salesforce.salesforcedx-vscode" target="_blank" rel="noopener">https://marketplace.visualstudio.com/items?itemName=salesforce.salesforcedx-vscode</a></li>
+<li>Ligthning Web Components for Visual Studio Code，这个是基于VS Code的LWC开发插件，比较实用，而且具有自动填补功能，建议开发人员下载使用。<ul>
+<li>安装下载地址：<a href="https://marketplace.visualstudio.com/items?itemName=salesforce.salesforcedx-vscode-lwc" target="_blank" rel="noopener">https://marketplace.visualstudio.com/items?itemName=salesforce.salesforcedx-vscode-lwc</a></li>
+<li>源码下载地址：<a href="https://github.com/forcedotcom/salesforcedx-vscode" target="_blank" rel="noopener">https://github.com/forcedotcom/salesforcedx-vscode</a></li>
+</ul>
+</li>
+<li>ESLint Extension for VS Code，这个插件能够在未编译前，发现你在开发过程中的错误，<a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint" target="_blank" rel="noopener">https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint</a></li>
+<li>SalesforceXyTools：此IDE也支持LWC独立开发<ul>
+<li>安装使用教程如下：<a href="http://salesforcexytools.com/Salesforce/SalesforceXyTools-For-Sublime.html" target="_blank" rel="noopener">http://salesforcexytools.com/Salesforce/SalesforceXyTools-For-Sublime.html</a></li>
+<li>源码如下：<a href="https://github.com/exiahuang/SalesforceXyTools" target="_blank" rel="noopener">https://github.com/exiahuang/SalesforceXyTools</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="申请免费的试用Spring-’19-组织"><a href="#申请免费的试用Spring-’19-组织" class="headerlink" title="申请免费的试用Spring ’19 组织"></a>申请免费的试用Spring ’19 组织</h1><p>如果你是Salesforce的客户，你可以使用如下链接进行注册：<br><a href="https://www.salesforce.com/form/signup/prerelease-spring19.jsp" target="_blank" rel="noopener">https://www.salesforce.com/form/signup/prerelease-spring19.jsp</a><br>如果你是Salesforce的Partner，你可以使用如下链接进行注册：<br><a href="https://www.salesforce.com/form/signup/prerelease-spring19-partner.jsp" target="_blank" rel="noopener">https://www.salesforce.com/form/signup/prerelease-spring19-partner.jsp</a></p>
+<h1 id="兼容性问题"><a href="#兼容性问题" class="headerlink" title="兼容性问题"></a>兼容性问题</h1><p>根据官方的说法：</p>
+<blockquote>
+<p>Aura components can contain Lightning web components. However, the opposite doesn’t apply. Lightning web components can’t contain Aura components.</p>
+</blockquote>
+<p>Aura组件可以使用LWC作为一个组件，反过来，LWC里面不能包含Aura组件。但是JavaScript Code，可以在两边相互共享使用。</p>
+<h1 id="开发流程"><a href="#开发流程" class="headerlink" title="开发流程"></a>开发流程</h1><p>目前有两种开发流程，一种是在IDE上直接开发，然后部署至沙盒环境。另外一种是使用Scratch Orgs，具体流程可以如下</p>
+<ul>
+<li>用SFDX 连入你的生产环境组织</li>
+<li>新建一个Scratch Orgs</li>
+<li>利用VS Code在本地开发LWC</li>
+<li>将LWC推送至新建的Scratch Orgs进行查看，预览和测试</li>
+<li>用SFDX 连入你的沙盒环境</li>
+<li>将本地的LWC转成元数据</li>
+<li>部署元数据至你的沙盒环境进行查看，预览和测试</li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><h2 id="使用-Dev-Hub"><a href="#使用-Dev-Hub" class="headerlink" title="使用 Dev Hub"></a>使用 Dev Hub</h2><p>在设置(Setup),搜索’Dev Hub’,并且点Enable。只有打开Dev Hub才可以新建和使用Scratch Org。</p>
+<h2 id="新建DX项目"><a href="#新建DX项目" class="headerlink" title="新建DX项目"></a>新建DX项目</h2><p>首先需要新建一个 Salesforce DX 项目，下面例子中的mywork可以换成你的项目名字如‘HelloWorld’</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sfdx force:project:create --projectname mywork</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="登入Salesforce-组织"><a href="#登入Salesforce-组织" class="headerlink" title="登入Salesforce 组织"></a>登入Salesforce 组织</h2><p>首先需要登入你的</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sfdx force:auth:web:login -d -a DevHub</span><br></pre></td></tr></table></figure>
+<p>授权登入沙盒环境:</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sfdx force:auth:web:login -r https://test.salesforce.com</span><br></pre></td></tr></table></figure>
+
+<p>或者可以添加新的Sandbox Login</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sfdx force:auth:web:login -r https://test.salesforce.com  -d -a DevHub</span><br></pre></td></tr></table></figure>
+<p>登入之后，会跳转到Salesforce授权页面，开发者需要在浏览器页面授权</p>
+<h2 id="查看你所拥有的Org"><a href="#查看你所拥有的Org" class="headerlink" title="查看你所拥有的Org"></a>查看你所拥有的Org</h2><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">sfdx force:org:list</span><br><span class="line">=== Orgs</span><br><span class="line">    ALIAS         USERNAME              ORG ID      CONNECTED STATUS</span><br><span class="line">    -----------   --------------------  --------    ----------------</span><br><span class="line">    DD-ORG        jdoe@dd-<span class="number">204</span>.com       <span class="number">00</span>D...OEA   Connected</span><br><span class="line">(D) devhuborg     jdoe@mydevhub.com     <span class="number">00</span>D...MAC   Connected</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    ALIAS      SCRATCH ORG NAME USERNAME                   ORG ID    EXPIRATION <span class="built_in">DATE</span></span><br><span class="line">    ---------- ------------     -------------------------- --------- ----------</span><br><span class="line">    my-scratch Your Company     test-wvkm5z113@example.com <span class="number">00</span>D...UAI <span class="number">2017</span>-<span class="number">06</span>-<span class="number">13</span></span><br><span class="line">(U) scratch208 Your Company     test-wvkm5z113@example.com <span class="number">00</span>D...UAY <span class="number">2017</span>-<span class="number">06</span>-<span class="number">13</span></span><br></pre></td></tr></table></figure>
+
+
+<p>这里顺便教几个小技巧，如果需要删除non-active 的Scratch Org，可以输入如下命令行</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sfdx force:org:list --clean</span><br></pre></td></tr></table></figure>
+<p>设置默认的 Dev Hub，可以输入如下命令行，新建新的Scratch Org需要生产环境，所以需要把默认的 Dev Hub设置为你的生产环境</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sfdx force:config:<span class="built_in">set</span> defaultdevhubusername=org@username.com  --global</span><br></pre></td></tr></table></figure>
+
+<h2 id="新建一个Scratch-Org"><a href="#新建一个Scratch-Org" class="headerlink" title="新建一个Scratch Org"></a>新建一个Scratch Org</h2><p>开发者需要利用项目文件夹中的配置文件新建一个Scratch Org</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sfdx force:org:create -s -f config/project-scratch-def.json -a dreamhouse-org</span><br><span class="line">or</span><br><span class="line">sfdx force:org:create -f config/project-scratch-def.json</span><br></pre></td></tr></table></figure>
+
+<p>如新建成功，会有如下成功的结果并给出用户名:</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Successfully created scratch org: <span class="number">00</span>XXX0000009PENEA2, username: test-XXXX@example.com</span><br></pre></td></tr></table></figure>
+<p>开发者利用用户名可以登入这个Scratch Org，如果需要删除一个某一个Scratch Org，可以输入如下命令行：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sfdx force:org:delete -u  test-XXXX@example.com</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="设置默认的用户名"><a href="#设置默认的用户名" class="headerlink" title="设置默认的用户名"></a>设置默认的用户名</h2><p>开发者需要设置默认的用户名defaultusername，这里设置之后，在下面打开Scratch Org时候可以不需要输入。</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sfdx force:config:<span class="built_in">set</span> defaultusername=test-XXXX@example.com</span><br><span class="line">=== <span class="built_in">Set</span> Config</span><br><span class="line">NAME             VALUE</span><br><span class="line">───────────────  ─────────────────────────────</span><br><span class="line">defaultusername  test-XXXX@example.com</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="打开Scratch-Org"><a href="#打开Scratch-Org" class="headerlink" title="打开Scratch Org"></a>打开Scratch Org</h2><p>当开发者建立好了Scratch Org，可以利用默认的用户名打开Scratch Org，</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sfdx force:org:open</span><br><span class="line">Access org <span class="number">00</span>D0l00ddd as user test-XXXX@example.com with the following URL: https://force-data-<span class="number">1039</span>-dev-ed.cs58.my.sxxxx.com                                              alesforce.com//secur/frontdoor.jsp?sid=<span class="number">00</span>D0l0000009PEN!ARoAQCCFPl.pwPYTXXNszi9rR0Q6CMrJc77771yynXH.jbnJbweH5b19bc_6KXo9BkMtMY1PLz_nY                                              BO9SSEOyQnPnCWAU3gP</span><br></pre></td></tr></table></figure>
+
+<p>如果没有设置默认的用户名，可以在命令行中指定某一个用户名：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sfdx force:org:open -u  test-phvqjvms7dsj@example.com</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="新建-Lightning-Web-Component-LWC"><a href="#新建-Lightning-Web-Component-LWC" class="headerlink" title="新建 Lightning Web Component(LWC)"></a>新建 Lightning Web Component(LWC)</h2><p>首先需要新建LWC在如下路径force-app&#x2F;main&#x2F;default&#x2F;lwc，同时文件夹是以lwc为命名.</p>
+<p>然后创建LWC</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> force-app/main/default/lwc</span><br><span class="line">sfdx force:lightning:component:create --<span class="built_in">type</span> lwc -n helloWorld -d force-app/main/default/lwc</span><br></pre></td></tr></table></figure>
+<p>在LWC文件夹下会见到一个名字为helloWorld的文件夹，里面有三个文件helloWorld.html，helloWorld.js，helloWorld.js-meta.xml</p>
+<p>其中helloWorld.html是我们熟悉的HTML文件，设置一个input，然后当有输入时候，调用JS函数。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">lightning-card</span> <span class="attr">title</span>=<span class="string">"HelloWorld"</span> <span class="attr">icon-name</span>=<span class="string">"custom:custom14"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"slds-m-around_medium"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>Hello, &#123;greeting&#125;!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">lightning-input</span> <span class="attr">label</span>=<span class="string">"Name"</span> <span class="attr">value</span>=<span class="string">&#123;greeting&#125;</span> <span class="attr">onchange</span>=<span class="string">&#123;changeHandler&#125;</span>&gt;</span><span class="tag">&lt;/<span class="name">lightning-input</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">lightning-card</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在helloWorld.js文件中是JavaScript代码。设置greeting的默认值为’World’，当有输入值修改时，将修改值赋予greeting。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; LightningElement, track &#125; <span class="keyword">from</span> <span class="string">'lwc'</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> <span class="keyword">extends</span> <span class="title">LightningElement</span> </span>&#123;</span><br><span class="line">    @track greeting = <span class="string">'World'</span>;</span><br><span class="line">    changeHandler(event) &#123;</span><br><span class="line">        <span class="keyword">this</span>.greeting = event.target.value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最后是XML文件helloWorld.js-meta.xml，这里定义API版本和是否需要在其他LWC显示出来，同时，开发人员可以设置LWC应用于lightning App Page，lightning Record Page，lightning Home Page。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">LightningComponentBundle</span> <span class="attr">xmlns</span>=<span class="string">"http://soap.sforce.com/2006/04/metadata"</span> <span class="attr">fqn</span>=<span class="string">"helloWorld"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">apiVersion</span>&gt;</span>45.0<span class="tag">&lt;/<span class="name">apiVersion</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">isExposed</span>&gt;</span>true<span class="tag">&lt;/<span class="name">isExposed</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">targets</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">target</span>&gt;</span>lightning__AppPage<span class="tag">&lt;/<span class="name">target</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">target</span>&gt;</span>lightning__RecordPage<span class="tag">&lt;/<span class="name">target</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">target</span>&gt;</span>lightning__HomePage<span class="tag">&lt;/<span class="name">target</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">targets</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">LightningComponentBundle</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="推送本地修改至Scratch-Org"><a href="#推送本地修改至Scratch-Org" class="headerlink" title="推送本地修改至Scratch Org"></a>推送本地修改至Scratch Org</h2><p>当开发者在本地修改或者新建LWC完毕之后，需要推送有关代码到Scratch Org</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sfdx force:source:push</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="在lightning-Home-Page使用LWC"><a href="#在lightning-Home-Page使用LWC" class="headerlink" title="在lightning Home Page使用LWC"></a>在lightning Home Page使用LWC</h2><ul>
+<li>打开Scratch Org，选择Sales App或者选择‘Home’ Tab。</li>
+<li>选择‘Edit Page’ ，编辑当前lightning主页。</li>
+<li>在右边的custom 栏目中拖曳helloWorld LWC 到中间的 组件位置。</li>
+<li>保存并查看。</li>
+</ul>
+<h2 id="新建元数据package"><a href="#新建元数据package" class="headerlink" title="新建元数据package"></a>新建元数据package</h2><p>首先可以新建文件夹mdapi_output_dir：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">mkdir</span> mdapi_output_dir</span><br></pre></td></tr></table></figure>
+
+<p>其次，创建package，这个package之后会在部署时候运用到：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sfdx force:source:<span class="built_in">convert</span> -d mdapi_output_dir/ --packagename package_name</span><br><span class="line">Source was successfully converted to Metadata API <span class="built_in">format</span> and written to the location: C:\Users\Administrator\my_sfdx_project\dreamhouse-sfdx\mdapi_output_dir</span><br></pre></td></tr></table></figure>
+
+<p>这里附上一些小技巧，如下命令行可以查看有什么改变：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls -lR mdapi_output_dir/</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>最后我们需要将上面生成的含有package的文件夹部署至指定目录，可以部署目录至沙盒环境或者生产环境，同时开发者可以定义需要跑的测试类 ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sfdx force:mdapi:deploy -d mdapioutput_dir&#x2F; -u &quot;sandbox_username&quot; -l RunSpecifiedTests -r test1,test2,test3,test4</span><br></pre></td></tr></table></figure>
+
+<p>或者利用 sfdx force:mdapi:deploy -d &lt;same directory as step 1&gt; -u <username or alias> 直接部署</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> sfdx force:mdapi:deploy --deploydir mdapi_output_dir --targetusername username@email.com</span><br><span class="line">495048 bytes written to C:\Users\youname~1\AppData\Local\Temp\2\mdapi_output_dir.zip using 1693.299ms</span><br><span class="line">Deploying C:\Users\youname~1\AppData\Local\Temp\2\mdapi_output_dir.zip...</span><br></pre></td></tr></table></figure>
+<p>之后会出现状态信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x3D;&#x3D;&#x3D; Status</span><br><span class="line">Status:  Queued</span><br><span class="line">jobid:  0AfXX00000wgOnhSAE</span><br><span class="line"></span><br><span class="line">The deploy request did not complete within the specified wait time [0 minutes].</span><br><span class="line">To check the status of this deployment, run &quot;sfdx force:mdapi:deploy:report&quot;</span><br></pre></td></tr></table></figure>
+<p>推送默认至org里面：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sfdx force:source:deploy -p force-app&#x2F;main&#x2F;default</span><br></pre></td></tr></table></figure>
+<p>如下命令行可以查看部署结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sfdx force:mdapi:deploy:report</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h1 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h1><ul>
+<li>【Trailhead 资源】Quick Start: Lightning Web Components，这是官方的Trailhead 教程，建议初学者可以试试做一遍就知道整个开发流程了： <a href="https://trailhead.salesforce.com/content/learn/projects/quick-start-lightning-web-components" target="_blank" rel="noopener">https://trailhead.salesforce.com/content/learn/projects/quick-start-lightning-web-components</a></li>
+<li>【Trailhead 资源】这也是官方的Trailhead 教程，教开发者使用SFDX，Get Started with Salesforce DX: <a href="https://trailhead.salesforce.com/content/learn/trails/sfdx_get_started" target="_blank" rel="noopener">https://trailhead.salesforce.com/content/learn/trails/sfdx_get_started</a></li>
+<li>【源码】Sample Gallery: <a href="https://trailhead.salesforce.com/sample-gallery" target="_blank" rel="noopener">https://trailhead.salesforce.com/sample-gallery</a></li>
+<li>【开发者文档】Lightning Web Components Documentation - Salesforce Lightning Component Library: <a href="https://developer.salesforce.com/docs/component-library/documentation/lwc" target="_blank" rel="noopener">https://developer.salesforce.com/docs/component-library/documentation/lwc</a></li>
+<li>【开发者文档】Salesforce DX Developer Guide | Salesforce Developers: <a href="https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm" target="_blank" rel="noopener">https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm</a></li>
+<li>【源码】这里提供一些Github源码学习：<a href="https://github.com/trailheadapps" target="_blank" rel="noopener">https://github.com/trailheadapps</a></li>
+<li><a href="http://www.apexhours.com/introduction-to-lightning-web-components-lwc/" target="_blank" rel="noopener">Introduction to Lightning Web Components (LWC) – Apex Hours</a></li>
+<li><a href="https://developer.salesforce.com/blogs/2019/01/introducing-dreamhouse-dreaminvest-pure-aloe-and-easy-spaces-sample-apps-for-lightning-web-components.html" target="_blank" rel="noopener">Introducing DreamHouse, DreamInvest, Pure Aloe and Easy Spaces Sample Apps for Lightning Web Components | Developer Force Blog</a></li>
+</ul>
+
+        </div>
+
+        <section class='meta'>
+            <time class="time" itemprop="dateUpdated" datetime="2025-05-06T03:51:48+00:00" content="2025-05-06">
+                <i class="fas fa-pen fa-fw" aria-hidden="true"></i>
+                本文最后更新于：2025-05-06
+            </time>
+            
+                
+                <div class="tags">
+                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                    <a class="tag" href="/tags/Salesforce/">Salesforce</a>, <a class="tag" href="/tags/LWC/">LWC</a>, <a class="tag" href="/tags/SFDX/">SFDX</a>, <a class="tag" href="/tags/Lightning-Web-Components/">Lightning Web Components</a>
+                </div>
+            
+        </section>
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <div class="addthis_inline_share_toolbox"></div>
+
+
+        
+            <div class="prev-next">
+                
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一篇</h6>
+                            <h4>
+                                <a href="/2019/01/11/2019-01-11-shortcut/" rel="prev" title="常用快捷键shortcut收录">
+                                  
+                                      常用快捷键shortcut收录
+                                  
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                                    <a class="tag" href="/tags/Tools/">Tools</a>, <a class="tag" href="/tags/shortcut/">shortcut</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>下一篇&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2019/01/03/2019-01-03-Campaign-Member-Status/" rel="prev" title="对Campaign Member Status设置默认值">
+                                    
+                                        对Campaign Member Status设置默认值
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                                    <a class="tag" href="/tags/Salesforce/">Salesforce</a>, <a class="tag" href="/tags/%E5%AF%B9Campaign/">对Campaign</a>, <a class="tag" href="/tags/Apex/">Apex</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+
+    </section>
+
+</article>
+
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+    <article class="post white-box comments">
+        <section class="article typo">
+
+            
+                
+
+    <div class="recommended_posts">
+        <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;你可能感兴趣的文章</h4>
+        <ul>
+            
+                <li><a href="http://tonyrenhk.github.io/2019/02/17/2019-02-17-Lightning-Web-Components-Basics/">Lightning Web Components入门(二)</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2019/01/11/2019-01-11-shortcut/">常用快捷键shortcut收录</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2019/01/03/2019-01-03-Campaign-Member-Status/">对Campaign Member Status设置默认值</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2019/01/02/2019-01-02-SFDX/">SFDX 常用命令以及相关资料</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2018/12/22/2018-12-22-Lightning-Components-Basics/">Trailhead学习:Lightning Components Basics</a></li>
+            
+        </ul>
+    </div>
+
+
+            
+
+            
+
+                
+
+                
+
+                
+                    
+                
+            
+
+        </section>
+    </article>
+
+
+<script>
+    window.subData = {
+        title: 'Lightning Web Components学习入门(一)',
+        tools: true
+    }
+</script>
+
+
+        </div>
+        <aside class='l_side'>
+            
+    
+        
+  <section class='m_widget author'>
+    
+      <div class='header'>
+        <img class='avatar' src='https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/Me2.jpg'/>
+      </div>
+    
+    
+      <div class='content'>
+        
+          <h2>Tony Ren&#39;s 学习笔记</h2>
+        
+        
+          <p>好学近乎知，力行近乎仁，知耻近乎勇</p>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:renchk@foxmail.com" class="social flat-box" target="_blank" rel="external"><i class="social fas fa-envelope" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://github.com/TonyRenHK" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-github" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://www.weibo.com/6476367461" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-weibo" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://tonyrenhk.github.io/Wechat/" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-weixin" aria-hidden="true"></i></a>
+          
+        
+      </div>
+    
+  </section>
+
+
+    
+    
+        <section class='m_widget links'>
+    <div class='content pure'>
+        <ul class="entry" id="links">
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://tonyrenhk.github.io/2018/01/01/2018-01-01-Salesforce-related-resource/" rel="external nofollow noopener noreferrer" href="https://tonyrenhk.github.io/2018/01/01/2018-01-01-Salesforce-related-resource/">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/IMG_2568.JPG">
+                        
+                        &nbsp;&nbsp;Salesforce
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://tonyrenhk.github.io/2018/01/09/2018-01-09-IT-Study-Resource/" rel="external nofollow noopener noreferrer" href="https://tonyrenhk.github.io/2018/01/09/2018-01-09-IT-Study-Resource/">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88612001-cf62a900-d0bc-11ea-9cbb-a14beeb356c7.png">
+                        
+                        &nbsp;&nbsp;IT
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/Note/OnlineTools.html" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/Note/OnlineTools.html">
+                    
+                    <div class='name'>
+                        
+                            <img src="http://tonyrenhk.github.io/images/notebook.png">
+                        
+                        &nbsp;&nbsp;工具Tools
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/Note/Tutorial.html" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/Note/Tutorial.html">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/Astro_Trailblazer_hoodie_wave.png">
+                        
+                        &nbsp;&nbsp;教程Tutorial
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/2018/02/02/2018-02-02-Git-Study/" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/2018/02/02/2018-02-02-Git-Study/">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/s.png">
+                        
+                        &nbsp;&nbsp;Git
+                    </div>
+                </a></li>
+            
+        </ul>
+    </div>
+</section>
+
+    
+    
+        <section class='m_widget categories'>
+    <header class='header pure'>
+        <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;分类</div>
+    </header>
+    <div class='content pure'>
+        
+            <ul class="entry">
+                
+                    <li><a class="flat-box" href="/categories/English/"><div class='name'>English</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Git/"><div class='name'>Git</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Google/"><div class='name'>Google</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/JavaScript/"><div class='name'>JavaScript</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Others/"><div class='name'>Others</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Python/"><div class='name'>Python</div><div class='badge'>1</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Salesforce/"><div class='name'>Salesforce</div><div class='badge'>35</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Tools/"><div class='name'>Tools</div><div class='badge'>1</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/hexo/"><div class='name'>hexo</div><div class='badge'>1</div></a></li>
+                
+            </ul>
+        
+    </div>
+</section>
+
+    
+    
+        
+    <section class='m_widget tagcloud'>
+        <header class="header pure">
+            <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
+        </header>
+        <div class='content pure'>
+            <a href="/tags/Admin/" style="font-size: 14px; color: #999">Admin</a> <a href="/tags/Apex/" style="font-size: 16.86px; color: #868686">Apex</a> <a href="/tags/BookMark/" style="font-size: 14px; color: #999">BookMark</a> <a href="/tags/CDC/" style="font-size: 14px; color: #999">CDC</a> <a href="/tags/CPQ/" style="font-size: 14px; color: #999">CPQ</a> <a href="/tags/Change-Data-Capture/" style="font-size: 14px; color: #999">Change Data Capture</a> <a href="/tags/Chrome-Extension/" style="font-size: 14px; color: #999">Chrome-Extension</a> <a href="/tags/Community-Cloud/" style="font-size: 14px; color: #999">Community Cloud</a> <a href="/tags/Demo/" style="font-size: 14px; color: #999">Demo</a> <a href="/tags/Flow/" style="font-size: 14px; color: #999">Flow</a> <a href="/tags/Git/" style="font-size: 16.86px; color: #868686">Git</a> <a href="/tags/Google/" style="font-size: 14px; color: #999">Google</a> <a href="/tags/Google-App-Script/" style="font-size: 14px; color: #999">Google App Script</a> <a href="/tags/Heroku/" style="font-size: 14px; color: #999">Heroku</a> <a href="/tags/IT%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">IT学习</a> <a href="/tags/Interactive-Email/" style="font-size: 14px; color: #999">Interactive Email</a> <a href="/tags/JavaScript/" style="font-size: 15.43px; color: #8f8f8f">JavaScript</a> <a href="/tags/Jsforce/" style="font-size: 15.43px; color: #8f8f8f">Jsforce</a> <a href="/tags/LWC/" style="font-size: 22.57px; color: #5f5f5f">LWC</a> <a href="/tags/Lightning/" style="font-size: 15.43px; color: #8f8f8f">Lightning</a> <a href="/tags/Lightning-Components/" style="font-size: 14px; color: #999">Lightning Components</a> <a href="/tags/Lightning-Web-Components/" style="font-size: 18.29px; color: #7c7c7c">Lightning Web Components</a> <a href="/tags/MC/" style="font-size: 15.43px; color: #8f8f8f">MC</a> <a href="/tags/MCC/" style="font-size: 14px; color: #999">MCC</a> <a href="/tags/Marketing-Cloud/" style="font-size: 14px; color: #999">Marketing Cloud</a> <a href="/tags/Marketing-Cloud-Connect/" style="font-size: 14px; color: #999">Marketing Cloud Connect</a> <a href="/tags/Org/" style="font-size: 14px; color: #999">Org</a> <a href="/tags/Others/" style="font-size: 14px; color: #999">Others</a> <a href="/tags/Pardot/" style="font-size: 14px; color: #999">Pardot</a> <a href="/tags/Python/" style="font-size: 15.43px; color: #8f8f8f">Python</a> <a href="/tags/Roll-Up-Summary/" style="font-size: 14px; color: #999">Roll-Up Summary</a> <a href="/tags/SFDC/" style="font-size: 14px; color: #999">SFDC</a> <a href="/tags/SFDX/" style="font-size: 19.71px; color: #727272">SFDX</a> <a href="/tags/Salesforce/" style="font-size: 24px; color: #555">Salesforce</a> <a href="/tags/Salesforce-Mobile/" style="font-size: 14px; color: #999">Salesforce Mobile</a> <a href="/tags/Sandbox/" style="font-size: 14px; color: #999">Sandbox</a> <a href="/tags/Script/" style="font-size: 14px; color: #999">Script</a> <a href="/tags/Site/" style="font-size: 14px; color: #999">Site</a> <a href="/tags/Study/" style="font-size: 18.29px; color: #7c7c7c">Study</a> <a href="/tags/StudyNote/" style="font-size: 14px; color: #999">StudyNote</a> <a href="/tags/Superbadge/" style="font-size: 14px; color: #999">Superbadge</a> <a href="/tags/Tools/" style="font-size: 14px; color: #999">Tools</a> <a href="/tags/Trailhead/" style="font-size: 21.14px; color: #686868">Trailhead</a> <a href="/tags/exam/" style="font-size: 14px; color: #999">exam</a> <a href="/tags/flow/" style="font-size: 14px; color: #999">flow</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/tags/hexo-theme-doc/" style="font-size: 14px; color: #999">hexo-theme-doc</a> <a href="/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/tags/metadata/" style="font-size: 14px; color: #999">metadata</a> <a href="/tags/shortcut/" style="font-size: 14px; color: #999">shortcut</a> <a href="/tags/%E5%85%A5%E9%97%A8/" style="font-size: 14px; color: #999">入门</a> <a href="/tags/%E5%AF%B9Campaign/" style="font-size: 14px; color: #999">对Campaign</a> <a href="/tags/%E5%BC%80%E5%8F%91%E8%80%85II%E8%80%83%E8%AF%95/" style="font-size: 19.71px; color: #727272">开发者II考试</a> <a href="/tags/%E8%87%AA%E5%8A%A8/" style="font-size: 14px; color: #999">自动</a> <a href="/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">英语学习</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 14px; color: #999">面试</a>
+        </div>
+    </section>
+
+
+    
+    
+        
+    <section class='m_widget toc-wrapper'>
+        <header class="header pure">
+            <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;目录</div>
+            <div class='wrapper'><a class="s-toc rightBtn" title="固定到顶部" target="_blank" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+        </header>
+        <div class='content pure'>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#设置开发环境"><span class="toc-text">设置开发环境</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Salesforce-CLI"><span class="toc-text">安装Salesforce CLI</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装CLI"><span class="toc-text">安装CLI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看CLI版本"><span class="toc-text">查看CLI版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更新至最新的版本"><span class="toc-text">更新至最新的版本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IDE"><span class="toc-text">IDE</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#申请免费的试用Spring-’19-组织"><span class="toc-text">申请免费的试用Spring ’19 组织</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#兼容性问题"><span class="toc-text">兼容性问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#开发流程"><span class="toc-text">开发流程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实例"><span class="toc-text">实例</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用-Dev-Hub"><span class="toc-text">使用 Dev Hub</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新建DX项目"><span class="toc-text">新建DX项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#登入Salesforce-组织"><span class="toc-text">登入Salesforce 组织</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看你所拥有的Org"><span class="toc-text">查看你所拥有的Org</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新建一个Scratch-Org"><span class="toc-text">新建一个Scratch Org</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置默认的用户名"><span class="toc-text">设置默认的用户名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#打开Scratch-Org"><span class="toc-text">打开Scratch Org</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新建-Lightning-Web-Component-LWC"><span class="toc-text">新建 Lightning Web Component(LWC)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#推送本地修改至Scratch-Org"><span class="toc-text">推送本地修改至Scratch Org</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在lightning-Home-Page使用LWC"><span class="toc-text">在lightning Home Page使用LWC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新建元数据package"><span class="toc-text">新建元数据package</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署"><span class="toc-text">部署</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#资源"><span class="toc-text">资源</span></a></li></ol>
+        </div>
+    </section>
+
+
+    
+    
+        <section class='m_widget links'>
+    <header class='header pure'>
+        <div><i class="fas fa-link fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;更多</div>
+        
+            <a class="rightBtn" title="联系博主添加友链" target="_blank" rel="external nofollow noopener noreferrer" href="mailto:me@xaoxuu.com?subject=交换友链&body=你好，我想和你交换友链，我已经将【Tony Ren&#39;s 学习笔记】添加到我的博客的友链中。我的博客链接是："><i class="fas fa-plus fa-fw"></i></a>
+        
+    </header>
+    <div class='content pure'>
+        <ul class="entry" id="links">
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://docs.qq.com/desktop/" target="_blank" rel="external nofollow noopener noreferrer" href="https://docs.qq.com/desktop/">
+                    
+                        
+                    
+                        
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88069910-a6b24f00-cba4-11ea-837b-d4a0dcf05d94.png">
+                        
+                        &nbsp;&nbsp;腾讯文档
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://www.notion.so/" target="_blank" rel="external nofollow noopener noreferrer" href="https://www.notion.so/">
+                    
+                        
+                    
+                        
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88069945-b16ce400-cba4-11ea-9c3f-d5857b39a5df.png">
+                        
+                        &nbsp;&nbsp;Notion
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://ide.goorm.io/" target="_blank" rel="external nofollow noopener noreferrer" href="https://ide.goorm.io/">
+                    
+                        
+                    
+                        
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88611890-9e827400-d0bc-11ea-893a-5b0af150504a.png">
+                        
+                        &nbsp;&nbsp;Goorm IDE
+                    </div>
+                </a></li>
+            
+        </ul>
+    </div>
+</section>
+
+    
+
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    </div>
+    <footer id="footer" class="clearfix">
+    
+        <div class="social-wrapper">
+          
+              
+                  <a href="mailto:renchk@foxmail.com" class="social fas fa-envelope flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://github.com/TonyRenHK" class="social fab fa-github flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://www.weibo.com/6476367461" class="social fab fa-weibo flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://tonyrenhk.github.io/Wechat/" class="social fab fa-weixin flat-box" target="_blank" rel="external"></a>
+              
+          
+        </div>
+    
+    <br>
+    <div>博客内容遵循 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="licenses">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></div>
+    <div>本站使用 <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a> 作为主题，
+		总访问量为 <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> 次。
+    </div>
+    
+<span id="runtime_span"></span>
+
+<script type="text/javascript">
+function show_runtime(){
+  window.setTimeout("show_runtime()",1000);
+  X=new Date("8/22/2016 18:27:0");
+  Y=new Date();T=(Y.getTime()-X.getTime());M=24*60*60*1000;
+  a=T/M;A=Math.floor(a);
+  b=(a-A)*24;B=Math.floor(b);
+  c=(b-B)*60;C=Math.floor((b-B)*60);
+  D=Math.floor((c-C)*60);
+  runtime_span.innerHTML="—— 本站已稳定运行： "+A+"天"+B+"小时"+C+"分"+D+"秒 ——"}show_runtime();
+
+</script>
+
+
+</footer>
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+    <script>setLoadingBarProgress(80);</script>
+    <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src='//cdn.bootcss.com/node-waves/0.7.5/waves.min.js'></script>
+<script src="//cdn.bootcss.com/scrollReveal.js/3.3.2/scrollreveal.min.js"></script>
+<!-- 访问统计 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5bfb78723c9c4600"></script>
+
+
+
+<script src="/js/jquery.fitvids.js"></script>
+
+
+    <script>
+        var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+        var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+        var ALGOLIA_API_KEY = "";
+        var ALGOLIA_APP_ID = "";
+        var ALGOLIA_INDEX_NAME = "";
+        var AZURE_SERVICE_NAME = "";
+        var AZURE_INDEX_NAME = "";
+        var AZURE_QUERY_KEY = "";
+        var BAIDU_API_ID = "";
+        var SEARCH_SERVICE = "hexo" || "hexo";
+        var ROOT = "/"||"/";
+        if(!ROOT.endsWith('/'))ROOT += '/';
+    </script>
+
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/app.js"></script>
+
+
+
+    
+    
+    
+        
+    
+
+
+    <script>setLoadingBarProgress(100);</script>
+</body>

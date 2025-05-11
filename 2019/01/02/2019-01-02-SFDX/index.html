@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="036nsNgxuH68xUABF8jrgg8Xzsti4FN8eKjWvA185C4" />
+  <meta name="baidu-site-verification" content="FQRuGMvxtv" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+
+  
+  <title>SFDX 常用命令以及相关资料 | Tony Ren&#39;s 学习笔记</title>
+  
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico">
+  <link rel="alternate" href="/atom.xml" title="Tony Ren's 学习笔记">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico" />
+  <link rel="icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico" />
+  
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono" rel="stylesheet">
+  
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link href='//cdn.bootcss.com/node-waves/0.7.5/waves.min.css' rel='stylesheet'>
+  
+<link rel="stylesheet" href="/style.css">
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+  
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1382646259212001",
+    enable_page_level_ads: true
+  });
+</script>
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading-bar-wrapper">
+  <div id="loading-bar" class="pure"></div>
+</div>
+
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header pure">
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+			<a class="logo flat-box" href='/' >Tony Ren's 学习笔记</a>
+				<div class='menu'>
+					<ul class='h-list'>
+            
+    					
+    						<li>
+    							<a class="nav  flat-box" href="/">
+    								<i class='fas fa-home fa-fw'></i>&nbsp;主页
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/archives/">
+    								<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/Project">
+    								<i class='fas fa-flask fa-fw'></i>&nbsp;项目
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/about/">
+    								<i class='fas fa-user fa-fw'></i>&nbsp;关于
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="https://renchk.github.io" target="_blank" rel="noopener">
+    								<i class='fas fa-globe fa-fw'></i>&nbsp;English
+  								</a>
+  							</li>
+        			
+        		
+					</ul>
+					<div class='underline'></div>
+				</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search" />
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></span></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-top'><a class="fas fa-arrow-circle-up fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-toc'><a class="fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+		<nav>
+      <ul>
+          
+              
+                  <li>
+										<a class="nav  flat-box" href="/">
+											<i class='fas fa-home fa-fw'></i>&nbsp;主页
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/archives/">
+											<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/Project">
+											<i class='fas fa-flask fa-fw'></i>&nbsp;项目
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/about/">
+											<i class='fas fa-user fa-fw'></i>&nbsp;关于
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="https://renchk.github.io" target="_blank" rel="noopener">
+											<i class='fas fa-globe fa-fw'></i>&nbsp;English
+										</a>
+                  </li>
+              
+       
+      </ul>
+		</nav>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            <article id="post-2019-01-02-SFDX" class="post white-box article-type-post" itemscope itemprop="blogPost">
+    <section class='meta'>
+        
+            <h1 class="title">SFDX 常用命令以及相关资料</h1>
+        
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+            2019-01-02
+        </time>
+        <div class="browse"><i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+        </div>
+        
+    
+    <div class='cats'>
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+        <a class="categories" href="/categories/Salesforce/">Salesforce</a>
+    </div>
+
+
+    </section>
+
+    <section class="article typo">
+
+        <div class="article-entry" itemprop="articleBody">
+            <p>这里会学习到SFDX 常用命令，同时需要具备Git的相关知识。</p>
+<a id="more"></a>
+
+<h1 id="SFDX"><a href="#SFDX" class="headerlink" title="SFDX"></a>SFDX</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install sfdx-cli --global</span><br></pre></td></tr></table></figure>
+<p>更新：</p>
+<p>sfdx update</p>
+<h2 id="登入Salesforce-Org"><a href="#登入Salesforce-Org" class="headerlink" title="登入Salesforce Org"></a>登入Salesforce Org</h2><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sfdx force:auth:web:login -d -a DevHub</span><br></pre></td></tr></table></figure>
+<p>登入 Sandbox:</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sfdx force:auth:web:login -r https://test.salesforce.com</span><br></pre></td></tr></table></figure>
+
+<p>or<br>添加新的Sandbox Login</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sfdx force:auth:web:login -r https://test.salesforce.com  -d -a DevHub</span><br></pre></td></tr></table></figure>
+
+<h2 id="新建DX项目"><a href="#新建DX项目" class="headerlink" title="新建DX项目"></a>新建DX项目</h2><p>Create a Salesforce DX Project</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sfdx force:project:create --projectname mywork</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="查看你所拥有的Org"><a href="#查看你所拥有的Org" class="headerlink" title="查看你所拥有的Org"></a>查看你所拥有的Org</h2><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">sfdx force:org:list</span><br><span class="line">=== Orgs</span><br><span class="line">    ALIAS         USERNAME              ORG ID      CONNECTED STATUS</span><br><span class="line">    -----------   --------------------  --------    ----------------</span><br><span class="line">    DD-ORG        jdoe@dd-<span class="number">204</span>.com       <span class="number">00</span>D...OEA   Connected</span><br><span class="line">(D) devhuborg     jdoe@mydevhub.com     <span class="number">00</span>D...MAC   Connected</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    ALIAS      SCRATCH ORG NAME USERNAME                   ORG ID    EXPIRATION <span class="built_in">DATE</span></span><br><span class="line">    ---------- ------------     -------------------------- --------- ----------</span><br><span class="line">    my-scratch Your Company     test-wvkm5z113@example.com <span class="number">00</span>D...UAI <span class="number">2017</span>-<span class="number">06</span>-<span class="number">13</span></span><br><span class="line">(U) scratch208 Your Company     test-wvkm5z113@example.com <span class="number">00</span>D...UAY <span class="number">2017</span>-<span class="number">06</span>-<span class="number">13</span></span><br></pre></td></tr></table></figure>
+
+<p>删除non-active 的Scratch Org：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sfdx force:org:list --clean</span><br></pre></td></tr></table></figure>
+<p>设置默认的 Dev Hub</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sfdx force:config:<span class="built_in">set</span> defaultdevhubusername=org@username.com  --global</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="新建一个Scratch-Org"><a href="#新建一个Scratch-Org" class="headerlink" title="新建一个Scratch Org"></a>新建一个Scratch Org</h2><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sfdx force:org:create -s -f config/project-scratch-def.json -a dreamhouse-org</span><br><span class="line">or</span><br><span class="line">sfdx force:org:create -f config/project-scratch-def.json</span><br></pre></td></tr></table></figure>
+
+<p>成功的结果:</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Successfully created scratch org: <span class="number">00</span>D0l0000009PENEA2, username: test-im44gkueld8k@example.com</span><br></pre></td></tr></table></figure>
+<p>删除一个Scratch Org</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sfdx force:org:delete -u  test-s6r2le1cgpnd@example.com</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="设置defaultusername"><a href="#设置defaultusername" class="headerlink" title="设置defaultusername"></a>设置defaultusername</h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sfdx force:config:<span class="built_in">set</span> defaultusername=test-phvqjvms7dsj@example.com</span><br><span class="line">=== <span class="built_in">Set</span> Config</span><br><span class="line">NAME             VALUE</span><br><span class="line">───────────────  ─────────────────────────────</span><br><span class="line">defaultusername  test-phvqjvms7dsj@example.com</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="打开Scratch-Org"><a href="#打开Scratch-Org" class="headerlink" title="打开Scratch Org"></a>打开Scratch Org</h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sfdx force:org:open</span><br><span class="line">Access org <span class="number">00</span>D0l0000009PENEA2 as user test-im44gkueld8k@example.com with the following URL: https://force-data-<span class="number">1839</span>-dev-ed.cs58.my.sxxxx.com                                              alesforce.com//secur/frontdoor.jsp?sid=<span class="number">00</span>D0l0000009PEN!ARoAQCCFPl.pwPYTXXNszi9rR0Q6CMrJc77771yynXH.jbnJbweH5b19bc_6KXo9BkMtMY1PLz_nY                                              BO9SSEOyQnPnCWAU3gP</span><br></pre></td></tr></table></figure>
+
+<p>用username打开Scratch Org </p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sfdx force:org:open -u  test-phvqjvms7dsj@example.com</span><br></pre></td></tr></table></figure>
+
+<h2 id="推送本地修改至Scratch-Org"><a href="#推送本地修改至Scratch-Org" class="headerlink" title="推送本地修改至Scratch Org"></a>推送本地修改至Scratch Org</h2><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sfdx force:source:push</span><br></pre></td></tr></table></figure>
+<h2 id="拉取所有metadata-from-Scratch-Org"><a href="#拉取所有metadata-from-Scratch-Org" class="headerlink" title="拉取所有metadata from Scratch Org"></a>拉取所有metadata from Scratch Org</h2><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sfdx force:source:pull</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="添加Permission"><a href="#添加Permission" class="headerlink" title="添加Permission"></a>添加Permission</h2><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sfdx force:user:permset:assign -n Dreamhouse</span><br><span class="line">=== Permsets Assigned</span><br><span class="line">USERNAME                       PERMISSION <span class="built_in">SET</span> ASSIGNMENT</span><br><span class="line">─────────────────────────────  ─────────────────────────</span><br><span class="line">test-im44gkueld8k@example.com  Dreamhouse</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="导入数据"><a href="#导入数据" class="headerlink" title="导入数据"></a>导入数据</h2><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Administrator@EC2AMAZ-IOQ3I22 MINGW64 ~/my_sfdx_project/dreamhouse-sfdx (my_branch)</span><br><span class="line">$ sfdx force:data:<span class="built_in">tree</span>:import --plan data/sample-data-plan.json</span><br></pre></td></tr></table></figure>
+
+<p>其中，数据格式如下：</p>
+<p>sample-data-plan.json：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">"sobject"</span>: <span class="string">"Broker__c"</span>,</span><br><span class="line">    <span class="attr">"saveRefs"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"files"</span>: [</span><br><span class="line">      <span class="string">"brokers-data.json"</span></span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">"sobject"</span>: <span class="string">"Property__c"</span>,</span><br><span class="line">    <span class="attr">"resolveRefs"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"files"</span>: [</span><br><span class="line">      <span class="string">"properties-data.json"</span></span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+
+
+<p>有两个文件，一个是properties-data.json</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"records"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"attributes"</span>: &#123;</span><br><span class="line">        <span class="attr">"type"</span>: <span class="string">"Property__c"</span>,</span><br><span class="line">        <span class="attr">"referenceId"</span>: <span class="string">"18HenryStRef"</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">"Name"</span>: <span class="string">"Stunning Victorian"</span>,</span><br><span class="line">      <span class="attr">"Address__c"</span>: <span class="string">"18 Henry St"</span>,</span><br><span class="line">      <span class="attr">"City__c"</span>: <span class="string">"Cambridge"</span>,</span><br><span class="line">      <span class="attr">"State__c"</span>: <span class="string">"MA"</span>,</span><br><span class="line">      <span class="attr">"Zip__c"</span>: <span class="string">"01742"</span>,</span><br><span class="line">      <span class="attr">"Price__c"</span>: <span class="number">975000</span>,</span><br><span class="line">      <span class="attr">"Title__c"</span>: <span class="string">"Stunning Victorian"</span>,</span><br><span class="line">      <span class="attr">"Beds__c"</span>: <span class="number">4</span>,</span><br><span class="line">      <span class="attr">"Baths__c"</span>: <span class="number">3</span>,</span><br><span class="line">      <span class="attr">"Location__Longitude__s"</span>: <span class="number">-71.11095</span>,</span><br><span class="line">      <span class="attr">"Location__Latitude__s"</span>: <span class="number">42.35663</span>,</span><br><span class="line">      <span class="attr">"Picture__c"</span>: <span class="string">"https://s3-us-west-1.amazonaws.com/sfdc-demo/realty/house01.jpg"</span>,</span><br><span class="line">      <span class="attr">"Thumbnail__c"</span>: <span class="string">"https://s3-us-west-1.amazonaws.com/sfdc-demo/realty/house01sq.jpg"</span>,</span><br><span class="line">      <span class="attr">"Description__c"</span>: <span class="string">"Lorem ipsum dolor sit amet"</span>,</span><br><span class="line">      <span class="attr">"Broker__c"</span>: <span class="string">"@CarolineBrookerRef"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"attributes"</span>: &#123;</span><br><span class="line">        <span class="attr">"type"</span>: <span class="string">"Property__c"</span>,</span><br><span class="line">        <span class="attr">"referenceId"</span>: <span class="string">"24PearlStRef"</span></span><br><span class="line">      &#125;,</span><br><span class="line">        <span class="attr">"Name"</span>: <span class="string">"Ultimate Sophistication"</span>,</span><br><span class="line">        <span class="attr">"Address__c"</span>: <span class="string">"24 Pearl St"</span>,</span><br><span class="line">        <span class="attr">"City__c"</span>: <span class="string">"Cambridge"</span>,</span><br><span class="line">        <span class="attr">"State__c"</span>: <span class="string">"MA"</span>,</span><br><span class="line">        <span class="attr">"Zip__c"</span>: <span class="string">"02420"</span>,</span><br><span class="line">        <span class="attr">"Price__c"</span>: <span class="number">1200000</span>,</span><br><span class="line">        <span class="attr">"Title__c"</span>: <span class="string">"Ultimate Sophistication"</span>,</span><br><span class="line">        <span class="attr">"Beds__c"</span>: <span class="number">5</span>,</span><br><span class="line">        <span class="attr">"Baths__c"</span>: <span class="number">4</span>,</span><br><span class="line">        <span class="attr">"Location__Longitude__s"</span>: <span class="number">-71.10869</span>,</span><br><span class="line">        <span class="attr">"Location__Latitude__s"</span>: <span class="number">42.359103</span>,</span><br><span class="line">        <span class="attr">"Picture__c"</span>: <span class="string">"https://s3-us-west-1.amazonaws.com/sfdc-demo/realty/house02.jpg"</span>,</span><br><span class="line">        <span class="attr">"Thumbnail__c"</span>: <span class="string">"https://s3-us-west-1.amazonaws.com/sfdc-demo/realty/house02sq.jpg"</span>,</span><br><span class="line">        <span class="attr">"Description__c"</span>: <span class="string">"Lorem ipsum dolor sit amet"</span>,</span><br><span class="line">        <span class="attr">"Broker__c"</span>: <span class="string">"@MichaelJonesRef"</span></span><br><span class="line">    &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">另外一个brokers-data.json，格式如下：</span><br><span class="line">```json</span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">"records"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"attributes"</span>: &#123;</span><br><span class="line">        <span class="attr">"type"</span>: <span class="string">"Broker__c"</span>,</span><br><span class="line">        <span class="attr">"referenceId"</span>: <span class="string">"CarolineBrookerRef"</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"Caroline Kingsley"</span>,</span><br><span class="line">	   <span class="attr">"Title__c"</span>: <span class="string">"Senior Broker"</span>,</span><br><span class="line">	  <span class="attr">"Phone__c"</span>: <span class="string">"617-244-3672"</span>,</span><br><span class="line">	  <span class="attr">"Mobile_Phone__c"</span>: <span class="string">"617-244-3672"</span>,</span><br><span class="line">	  <span class="attr">"Email__c"</span>: <span class="string">"caroline@dreamhouse.demo"</span>,</span><br><span class="line">	  <span class="attr">"Picture__c"</span>: <span class="string">"https://s3-us-west-1.amazonaws.com/sfdc-demo/people/caroline_kingsley.jpg"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"attributes"</span>: &#123;</span><br><span class="line">        <span class="attr">"type"</span>: <span class="string">"Broker__c"</span>,</span><br><span class="line">        <span class="attr">"referenceId"</span>: <span class="string">"MichaelJonesRef"</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"Michael Jones"</span>,</span><br><span class="line">      <span class="attr">"Title__c"</span>: <span class="string">"Senior Broker"</span>,</span><br><span class="line">	  <span class="attr">"Phone__c"</span>: <span class="string">"617-244-3672"</span>,</span><br><span class="line">	  <span class="attr">"Mobile_Phone__c"</span>: <span class="string">"617-244-3672"</span>,</span><br><span class="line">	  <span class="attr">"Email__c"</span>: <span class="string">"michael@dreamhouse.demo"</span>,</span><br><span class="line">	  <span class="attr">"Picture__c"</span>: <span class="string">"https://s3-us-west-1.amazonaws.com/sfdc-demo/people/michael_jones.jpg"</span></span><br><span class="line">    &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="新建metadata-package"><a href="#新建metadata-package" class="headerlink" title="新建metadata package"></a>新建metadata package</h2><p>首先新建文件夹mdapi_output_dir：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">mkdir</span> mdapi_output_dir</span><br></pre></td></tr></table></figure>
+
+<p>创建package</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sfdx force:source:<span class="built_in">convert</span> -d mdapi_output_dir/ --packagename package_name</span><br><span class="line">Source was successfully converted to Metadata API <span class="built_in">format</span> and written to the location: C:\Users\Administrator\my_sfdx_project\dreamhouse-sfdx\mdapi_output_dir</span><br></pre></td></tr></table></figure>
+
+<p>查看改变</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls -lR mdapi_output_dir/</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>部署目录至沙盒环境可以定义需要跑的测试类 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sfdx force:mdapi:deploy -d mdapioutput_dir&#x2F; -u &quot;sandbox_username&quot; -l RunSpecifiedTests -r test1,test2,test3,test4</span><br></pre></td></tr></table></figure>
+
+<p>或者利用 sfdx force:mdapi:deploy -d &lt;same directory as step 1&gt; -u <username or alias> 直接部署</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> sfdx force:mdapi:deploy --deploydir mdapi_output_dir --targetusername username@email.com</span><br><span class="line">495048 bytes written to C:\Users\ADMINI~1\AppData\Local\Temp\2\mdapi_output_dir.zip using 1693.299ms</span><br><span class="line">Deploying C:\Users\ADMINI~1\AppData\Local\Temp\2\mdapi_output_dir.zip...</span><br><span class="line"></span><br><span class="line">&#x3D;&#x3D;&#x3D; Status</span><br><span class="line">Status:  Queued</span><br><span class="line">jobid:  0Af6F00000wgOnhSAE</span><br><span class="line"></span><br><span class="line">The deploy request did not complete within the specified wait time [0 minutes].</span><br><span class="line">To check the status of this deployment, run &quot;sfdx force:mdapi:deploy:report&quot;</span><br></pre></td></tr></table></figure>
+
+<p>如下代码查看部署结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sfdx force:mdapi:deploy:report</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="转换"><a href="#转换" class="headerlink" title="转换"></a>转换</h2><p><strong>mdapi:convert</strong></p>
+<p>Converts metadata retrieved via Metadata API into the source format used in Salesforce DX projects.<br>转换由package.ml拉取的Metadata到DX项目文件的格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sfdx force:mdapi:convert -r mdapipackage&#x2F;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="获取沙盒的metadata"><a href="#获取沙盒的metadata" class="headerlink" title="获取沙盒的metadata"></a>获取沙盒的metadata</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sfdx force:mdapi:retrieve --retrievetargetdir force-app  -k package.xml</span><br></pre></td></tr></table></figure>
+<p>或者如下代码，将生成的metadata放在force-app下面：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sfdx force:mdapi:retrieve --retrievetargetdir force-app  -k package.xml  --targetusername tony.ren@scmp.com.itdev</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><ul>
+<li>salesforcedx - Retrieve all metadata from an existing sandbox (for Salesforce DX conversion) - Salesforce Stack Exchange: <a href="https://salesforce.stackexchange.com/questions/197186/retrieve-all-metadata-from-an-existing-sandbox-for-salesforce-dx-conversion" target="_blank" rel="noopener">https://salesforce.stackexchange.com/questions/197186/retrieve-all-metadata-from-an-existing-sandbox-for-salesforce-dx-conversion</a></li>
+</ul>
+
+        </div>
+
+        <section class='meta'>
+            <time class="time" itemprop="dateUpdated" datetime="2025-05-06T03:51:48+00:00" content="2025-05-06">
+                <i class="fas fa-pen fa-fw" aria-hidden="true"></i>
+                本文最后更新于：2025-05-06
+            </time>
+            
+                
+                <div class="tags">
+                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                    <a class="tag" href="/tags/Salesforce/">Salesforce</a>, <a class="tag" href="/tags/Git/">Git</a>, <a class="tag" href="/tags/LWC/">LWC</a>, <a class="tag" href="/tags/SFDX/">SFDX</a>
+                </div>
+            
+        </section>
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <div class="addthis_inline_share_toolbox"></div>
+
+
+        
+            <div class="prev-next">
+                
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一篇</h6>
+                            <h4>
+                                <a href="/2019/01/03/2019-01-03-Campaign-Member-Status/" rel="prev" title="对Campaign Member Status设置默认值">
+                                  
+                                      对Campaign Member Status设置默认值
+                                  
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                                    <a class="tag" href="/tags/Salesforce/">Salesforce</a>, <a class="tag" href="/tags/%E5%AF%B9Campaign/">对Campaign</a>, <a class="tag" href="/tags/Apex/">Apex</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>下一篇&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2018/12/22/2018-12-22-Lightning-Components-Basics/" rel="prev" title="Trailhead学习:Lightning Components Basics">
+                                    
+                                        Trailhead学习:Lightning Components Basics
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                                    <a class="tag" href="/tags/Salesforce/">Salesforce</a>, <a class="tag" href="/tags/Trailhead/">Trailhead</a>, <a class="tag" href="/tags/%E5%BC%80%E5%8F%91%E8%80%85II%E8%80%83%E8%AF%95/">开发者II考试</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+
+    </section>
+
+</article>
+
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+    <article class="post white-box comments">
+        <section class="article typo">
+
+            
+                
+
+    <div class="recommended_posts">
+        <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;你可能感兴趣的文章</h4>
+        <ul>
+            
+                <li><a href="http://tonyrenhk.github.io/2019/01/06/2019-01-06-Lightning-Web-Components/">Lightning Web Components学习入门(一)</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2019/01/03/2019-01-03-Campaign-Member-Status/">对Campaign Member Status设置默认值</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2018/12/22/2018-12-22-Lightning-Components-Basics/">Trailhead学习:Lightning Components Basics</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2018/12/21/2018-12-21-Lightning-Experience-Development/">Trailhead学习:解锁Lightning Experience Development</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2018/12/05/2018-12-05-Data-Integration-Specialist-Superbadge/">Trailhead学习:Data Integration Specialist Superbadge</a></li>
+            
+        </ul>
+    </div>
+
+
+            
+
+            
+
+                
+
+                
+
+                
+                    
+                
+            
+
+        </section>
+    </article>
+
+
+<script>
+    window.subData = {
+        title: 'SFDX 常用命令以及相关资料',
+        tools: true
+    }
+</script>
+
+
+        </div>
+        <aside class='l_side'>
+            
+    
+        
+  <section class='m_widget author'>
+    
+      <div class='header'>
+        <img class='avatar' src='https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/Me2.jpg'/>
+      </div>
+    
+    
+      <div class='content'>
+        
+          <h2>Tony Ren&#39;s 学习笔记</h2>
+        
+        
+          <p>好学近乎知，力行近乎仁，知耻近乎勇</p>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:renchk@foxmail.com" class="social flat-box" target="_blank" rel="external"><i class="social fas fa-envelope" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://github.com/TonyRenHK" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-github" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://www.weibo.com/6476367461" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-weibo" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://tonyrenhk.github.io/Wechat/" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-weixin" aria-hidden="true"></i></a>
+          
+        
+      </div>
+    
+  </section>
+
+
+    
+    
+        <section class='m_widget links'>
+    <div class='content pure'>
+        <ul class="entry" id="links">
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://tonyrenhk.github.io/2018/01/01/2018-01-01-Salesforce-related-resource/" rel="external nofollow noopener noreferrer" href="https://tonyrenhk.github.io/2018/01/01/2018-01-01-Salesforce-related-resource/">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/IMG_2568.JPG">
+                        
+                        &nbsp;&nbsp;Salesforce
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://tonyrenhk.github.io/2018/01/09/2018-01-09-IT-Study-Resource/" rel="external nofollow noopener noreferrer" href="https://tonyrenhk.github.io/2018/01/09/2018-01-09-IT-Study-Resource/">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88612001-cf62a900-d0bc-11ea-9cbb-a14beeb356c7.png">
+                        
+                        &nbsp;&nbsp;IT
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/Note/OnlineTools.html" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/Note/OnlineTools.html">
+                    
+                    <div class='name'>
+                        
+                            <img src="http://tonyrenhk.github.io/images/notebook.png">
+                        
+                        &nbsp;&nbsp;工具Tools
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/Note/Tutorial.html" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/Note/Tutorial.html">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/Astro_Trailblazer_hoodie_wave.png">
+                        
+                        &nbsp;&nbsp;教程Tutorial
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/2018/02/02/2018-02-02-Git-Study/" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/2018/02/02/2018-02-02-Git-Study/">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/s.png">
+                        
+                        &nbsp;&nbsp;Git
+                    </div>
+                </a></li>
+            
+        </ul>
+    </div>
+</section>
+
+    
+    
+        <section class='m_widget categories'>
+    <header class='header pure'>
+        <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;分类</div>
+    </header>
+    <div class='content pure'>
+        
+            <ul class="entry">
+                
+                    <li><a class="flat-box" href="/categories/English/"><div class='name'>English</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Git/"><div class='name'>Git</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Google/"><div class='name'>Google</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/JavaScript/"><div class='name'>JavaScript</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Others/"><div class='name'>Others</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Python/"><div class='name'>Python</div><div class='badge'>1</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Salesforce/"><div class='name'>Salesforce</div><div class='badge'>35</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Tools/"><div class='name'>Tools</div><div class='badge'>1</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/hexo/"><div class='name'>hexo</div><div class='badge'>1</div></a></li>
+                
+            </ul>
+        
+    </div>
+</section>
+
+    
+    
+        
+    <section class='m_widget tagcloud'>
+        <header class="header pure">
+            <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
+        </header>
+        <div class='content pure'>
+            <a href="/tags/Admin/" style="font-size: 14px; color: #999">Admin</a> <a href="/tags/Apex/" style="font-size: 16.86px; color: #868686">Apex</a> <a href="/tags/BookMark/" style="font-size: 14px; color: #999">BookMark</a> <a href="/tags/CDC/" style="font-size: 14px; color: #999">CDC</a> <a href="/tags/CPQ/" style="font-size: 14px; color: #999">CPQ</a> <a href="/tags/Change-Data-Capture/" style="font-size: 14px; color: #999">Change Data Capture</a> <a href="/tags/Chrome-Extension/" style="font-size: 14px; color: #999">Chrome-Extension</a> <a href="/tags/Community-Cloud/" style="font-size: 14px; color: #999">Community Cloud</a> <a href="/tags/Demo/" style="font-size: 14px; color: #999">Demo</a> <a href="/tags/Flow/" style="font-size: 14px; color: #999">Flow</a> <a href="/tags/Git/" style="font-size: 16.86px; color: #868686">Git</a> <a href="/tags/Google/" style="font-size: 14px; color: #999">Google</a> <a href="/tags/Google-App-Script/" style="font-size: 14px; color: #999">Google App Script</a> <a href="/tags/Heroku/" style="font-size: 14px; color: #999">Heroku</a> <a href="/tags/IT%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">IT学习</a> <a href="/tags/Interactive-Email/" style="font-size: 14px; color: #999">Interactive Email</a> <a href="/tags/JavaScript/" style="font-size: 15.43px; color: #8f8f8f">JavaScript</a> <a href="/tags/Jsforce/" style="font-size: 15.43px; color: #8f8f8f">Jsforce</a> <a href="/tags/LWC/" style="font-size: 22.57px; color: #5f5f5f">LWC</a> <a href="/tags/Lightning/" style="font-size: 15.43px; color: #8f8f8f">Lightning</a> <a href="/tags/Lightning-Components/" style="font-size: 14px; color: #999">Lightning Components</a> <a href="/tags/Lightning-Web-Components/" style="font-size: 18.29px; color: #7c7c7c">Lightning Web Components</a> <a href="/tags/MC/" style="font-size: 15.43px; color: #8f8f8f">MC</a> <a href="/tags/MCC/" style="font-size: 14px; color: #999">MCC</a> <a href="/tags/Marketing-Cloud/" style="font-size: 14px; color: #999">Marketing Cloud</a> <a href="/tags/Marketing-Cloud-Connect/" style="font-size: 14px; color: #999">Marketing Cloud Connect</a> <a href="/tags/Org/" style="font-size: 14px; color: #999">Org</a> <a href="/tags/Others/" style="font-size: 14px; color: #999">Others</a> <a href="/tags/Pardot/" style="font-size: 14px; color: #999">Pardot</a> <a href="/tags/Python/" style="font-size: 15.43px; color: #8f8f8f">Python</a> <a href="/tags/Roll-Up-Summary/" style="font-size: 14px; color: #999">Roll-Up Summary</a> <a href="/tags/SFDC/" style="font-size: 14px; color: #999">SFDC</a> <a href="/tags/SFDX/" style="font-size: 19.71px; color: #727272">SFDX</a> <a href="/tags/Salesforce/" style="font-size: 24px; color: #555">Salesforce</a> <a href="/tags/Salesforce-Mobile/" style="font-size: 14px; color: #999">Salesforce Mobile</a> <a href="/tags/Sandbox/" style="font-size: 14px; color: #999">Sandbox</a> <a href="/tags/Script/" style="font-size: 14px; color: #999">Script</a> <a href="/tags/Site/" style="font-size: 14px; color: #999">Site</a> <a href="/tags/Study/" style="font-size: 18.29px; color: #7c7c7c">Study</a> <a href="/tags/StudyNote/" style="font-size: 14px; color: #999">StudyNote</a> <a href="/tags/Superbadge/" style="font-size: 14px; color: #999">Superbadge</a> <a href="/tags/Tools/" style="font-size: 14px; color: #999">Tools</a> <a href="/tags/Trailhead/" style="font-size: 21.14px; color: #686868">Trailhead</a> <a href="/tags/exam/" style="font-size: 14px; color: #999">exam</a> <a href="/tags/flow/" style="font-size: 14px; color: #999">flow</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/tags/hexo-theme-doc/" style="font-size: 14px; color: #999">hexo-theme-doc</a> <a href="/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/tags/metadata/" style="font-size: 14px; color: #999">metadata</a> <a href="/tags/shortcut/" style="font-size: 14px; color: #999">shortcut</a> <a href="/tags/%E5%85%A5%E9%97%A8/" style="font-size: 14px; color: #999">入门</a> <a href="/tags/%E5%AF%B9Campaign/" style="font-size: 14px; color: #999">对Campaign</a> <a href="/tags/%E5%BC%80%E5%8F%91%E8%80%85II%E8%80%83%E8%AF%95/" style="font-size: 19.71px; color: #727272">开发者II考试</a> <a href="/tags/%E8%87%AA%E5%8A%A8/" style="font-size: 14px; color: #999">自动</a> <a href="/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">英语学习</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 14px; color: #999">面试</a>
+        </div>
+    </section>
+
+
+    
+    
+        
+    <section class='m_widget toc-wrapper'>
+        <header class="header pure">
+            <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;目录</div>
+            <div class='wrapper'><a class="s-toc rightBtn" title="固定到顶部" target="_blank" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+        </header>
+        <div class='content pure'>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SFDX"><span class="toc-text">SFDX</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#登入Salesforce-Org"><span class="toc-text">登入Salesforce Org</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新建DX项目"><span class="toc-text">新建DX项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看你所拥有的Org"><span class="toc-text">查看你所拥有的Org</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新建一个Scratch-Org"><span class="toc-text">新建一个Scratch Org</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设置defaultusername"><span class="toc-text">设置defaultusername</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#打开Scratch-Org"><span class="toc-text">打开Scratch Org</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#推送本地修改至Scratch-Org"><span class="toc-text">推送本地修改至Scratch Org</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#拉取所有metadata-from-Scratch-Org"><span class="toc-text">拉取所有metadata from Scratch Org</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加Permission"><span class="toc-text">添加Permission</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#导入数据"><span class="toc-text">导入数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新建metadata-package"><span class="toc-text">新建metadata package</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署"><span class="toc-text">部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#转换"><span class="toc-text">转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获取沙盒的metadata"><span class="toc-text">获取沙盒的metadata</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考："><span class="toc-text">参考：</span></a></li></ol>
+        </div>
+    </section>
+
+
+    
+    
+        <section class='m_widget links'>
+    <header class='header pure'>
+        <div><i class="fas fa-link fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;更多</div>
+        
+            <a class="rightBtn" title="联系博主添加友链" target="_blank" rel="external nofollow noopener noreferrer" href="mailto:me@xaoxuu.com?subject=交换友链&body=你好，我想和你交换友链，我已经将【Tony Ren&#39;s 学习笔记】添加到我的博客的友链中。我的博客链接是："><i class="fas fa-plus fa-fw"></i></a>
+        
+    </header>
+    <div class='content pure'>
+        <ul class="entry" id="links">
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://docs.qq.com/desktop/" target="_blank" rel="external nofollow noopener noreferrer" href="https://docs.qq.com/desktop/">
+                    
+                        
+                    
+                        
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88069910-a6b24f00-cba4-11ea-837b-d4a0dcf05d94.png">
+                        
+                        &nbsp;&nbsp;腾讯文档
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://www.notion.so/" target="_blank" rel="external nofollow noopener noreferrer" href="https://www.notion.so/">
+                    
+                        
+                    
+                        
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88069945-b16ce400-cba4-11ea-9c3f-d5857b39a5df.png">
+                        
+                        &nbsp;&nbsp;Notion
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://ide.goorm.io/" target="_blank" rel="external nofollow noopener noreferrer" href="https://ide.goorm.io/">
+                    
+                        
+                    
+                        
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88611890-9e827400-d0bc-11ea-893a-5b0af150504a.png">
+                        
+                        &nbsp;&nbsp;Goorm IDE
+                    </div>
+                </a></li>
+            
+        </ul>
+    </div>
+</section>
+
+    
+
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    </div>
+    <footer id="footer" class="clearfix">
+    
+        <div class="social-wrapper">
+          
+              
+                  <a href="mailto:renchk@foxmail.com" class="social fas fa-envelope flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://github.com/TonyRenHK" class="social fab fa-github flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://www.weibo.com/6476367461" class="social fab fa-weibo flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://tonyrenhk.github.io/Wechat/" class="social fab fa-weixin flat-box" target="_blank" rel="external"></a>
+              
+          
+        </div>
+    
+    <br>
+    <div>博客内容遵循 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="licenses">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></div>
+    <div>本站使用 <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a> 作为主题，
+		总访问量为 <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> 次。
+    </div>
+    
+<span id="runtime_span"></span>
+
+<script type="text/javascript">
+function show_runtime(){
+  window.setTimeout("show_runtime()",1000);
+  X=new Date("8/22/2016 18:27:0");
+  Y=new Date();T=(Y.getTime()-X.getTime());M=24*60*60*1000;
+  a=T/M;A=Math.floor(a);
+  b=(a-A)*24;B=Math.floor(b);
+  c=(b-B)*60;C=Math.floor((b-B)*60);
+  D=Math.floor((c-C)*60);
+  runtime_span.innerHTML="—— 本站已稳定运行： "+A+"天"+B+"小时"+C+"分"+D+"秒 ——"}show_runtime();
+
+</script>
+
+
+</footer>
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+    <script>setLoadingBarProgress(80);</script>
+    <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src='//cdn.bootcss.com/node-waves/0.7.5/waves.min.js'></script>
+<script src="//cdn.bootcss.com/scrollReveal.js/3.3.2/scrollreveal.min.js"></script>
+<!-- 访问统计 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5bfb78723c9c4600"></script>
+
+
+
+<script src="/js/jquery.fitvids.js"></script>
+
+
+    <script>
+        var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+        var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+        var ALGOLIA_API_KEY = "";
+        var ALGOLIA_APP_ID = "";
+        var ALGOLIA_INDEX_NAME = "";
+        var AZURE_SERVICE_NAME = "";
+        var AZURE_INDEX_NAME = "";
+        var AZURE_QUERY_KEY = "";
+        var BAIDU_API_ID = "";
+        var SEARCH_SERVICE = "hexo" || "hexo";
+        var ROOT = "/"||"/";
+        if(!ROOT.endsWith('/'))ROOT += '/';
+    </script>
+
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/app.js"></script>
+
+
+
+    
+    
+    
+        
+    
+
+
+    <script>setLoadingBarProgress(100);</script>
+</body>

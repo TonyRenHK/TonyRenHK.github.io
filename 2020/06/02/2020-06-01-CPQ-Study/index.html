@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="036nsNgxuH68xUABF8jrgg8Xzsti4FN8eKjWvA185C4" />
+  <meta name="baidu-site-verification" content="FQRuGMvxtv" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+
+  
+  <title>Salesforce CPQ 学习资料 | Tony Ren&#39;s 学习笔记</title>
+  
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico">
+  <link rel="alternate" href="/atom.xml" title="Tony Ren's 学习笔记">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico" />
+  <link rel="icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico" />
+  
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono" rel="stylesheet">
+  
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link href='//cdn.bootcss.com/node-waves/0.7.5/waves.min.css' rel='stylesheet'>
+  
+<link rel="stylesheet" href="/style.css">
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+  
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1382646259212001",
+    enable_page_level_ads: true
+  });
+</script>
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading-bar-wrapper">
+  <div id="loading-bar" class="pure"></div>
+</div>
+
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header pure">
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+			<a class="logo flat-box" href='/' >Tony Ren's 学习笔记</a>
+				<div class='menu'>
+					<ul class='h-list'>
+            
+    					
+    						<li>
+    							<a class="nav  flat-box" href="/">
+    								<i class='fas fa-home fa-fw'></i>&nbsp;主页
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/archives/">
+    								<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/Project">
+    								<i class='fas fa-flask fa-fw'></i>&nbsp;项目
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/about/">
+    								<i class='fas fa-user fa-fw'></i>&nbsp;关于
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="https://renchk.github.io" target="_blank" rel="noopener">
+    								<i class='fas fa-globe fa-fw'></i>&nbsp;English
+  								</a>
+  							</li>
+        			
+        		
+					</ul>
+					<div class='underline'></div>
+				</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search" />
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></span></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-top'><a class="fas fa-arrow-circle-up fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-toc'><a class="fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+		<nav>
+      <ul>
+          
+              
+                  <li>
+										<a class="nav  flat-box" href="/">
+											<i class='fas fa-home fa-fw'></i>&nbsp;主页
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/archives/">
+											<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/Project">
+											<i class='fas fa-flask fa-fw'></i>&nbsp;项目
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/about/">
+											<i class='fas fa-user fa-fw'></i>&nbsp;关于
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="https://renchk.github.io" target="_blank" rel="noopener">
+											<i class='fas fa-globe fa-fw'></i>&nbsp;English
+										</a>
+                  </li>
+              
+       
+      </ul>
+		</nav>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            <article id="post-2020-06-01-CPQ-Study" class="post white-box article-type-post" itemscope itemprop="blogPost">
+    <section class='meta'>
+        
+            <h1 class="title">Salesforce CPQ 学习资料</h1>
+        
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+            2020-06-02
+        </time>
+        <div class="browse"><i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+        </div>
+        
+    
+    <div class='cats'>
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+        <a class="categories" href="/categories/Salesforce/">Salesforce</a>
+    </div>
+
+
+    </section>
+
+    <section class="article typo">
+
+        <div class="article-entry" itemprop="articleBody">
+            <p>CPQ 学习笔记</p>
+<a id="more"></a>
+
+<p>今天带大家了解一下Salesforce Certified CPQ Specialist考试是如何备考的。本文不会涉及任何考题，只会涉及考试知识点，所以，只要官方考点没有进行大的改版，本文长期有效。本文信息量巨大，建议直接分享至朋友圈或者当场收藏以便日后快速查阅。关于CPQ考试，Salesforce是建议有6到12个月的Salesforce CPQ项目经验的人参加考试。 </p>
+<p><strong>01官方考纲</strong></p>
+<p>理想情况下，您将从事5到10个Salesforce CPQ项目的经验后参加考试。 如果你这从事过Salesforce CPQ相关项目经验，我们强烈建议您在开发者组织中基于实际业务场景构建解决方案。</p>
+<p>如果您没有练习的环境，建议您注册一个<strong>CPQ 开发者环境</strong>，注册链接：<a href="https://developer.salesforce.com/promotions/orgs/cpqtrails" target="_blank" rel="noopener">https://developer.salesforce.com/promotions/orgs/cpqtrails</a></p>
+<p>如果您是Salesforce客户，想将CPQ安装到您的Sandbox，可以利用如下链接</p>
+<p><a href="http://steelbrick2.force.com/Installcpq" target="_blank" rel="noopener">http://steelbrick2.force.com/Installcpq</a></p>
+<p><strong>考点分布</strong>：</p>
+<p><a href="https://trailhead.salesforce.com/en/help?article=Salesforce-Certified-CPQ-Specialist-Exam-Guide" target="_blank" rel="noopener">https://trailhead.salesforce.com/en/help?article=Salesforce-Certified-CPQ-Specialist-Exam-Guide</a></p>
+<p><strong>Trailhead 的 Trailmix</strong> : </p>
+<p><a href="https://trailhead.salesforce.com/users/strailhead/trailmixes/prepare-for-your-salesforce-cpq-specialist-credential" target="_blank" rel="noopener">https://trailhead.salesforce.com/users/strailhead/trailmixes/prepare-for-your-salesforce-cpq-specialist-credential</a></p>
+<p><strong>02知识点</strong></p>
+<p>本学习指南旨在帮助您回顾CPQ专家考试的目标和重点Salesforce CPQ概念。下面是考点分布。</p>
+<p> <strong>考点</strong></p>
+<p><img src="https://user-images.githubusercontent.com/9688136/88122929-62eb3400-cbfc-11ea-9d02-0649f76bb4a7.png" alt="考点"></p>
+<p>总结一下考点分布如下：</p>
+<p><img src="https://user-images.githubusercontent.com/9688136/88122945-6f6f8c80-cbfc-11ea-9a8a-2531f4448fe8.png"></p>
+<p>在每个部分中，您都可以从官方考试指南中找到业务场景，以及您必须了解Salesforce CPQ主题，才能为每个业务构建解决方案场景。</p>
+<p><strong>CPQ Platform****23%</strong></p>
+<p>用户会用到的关系图如下：</p>
+<p><img src="https://user-images.githubusercontent.com/9688136/88122976-80b89900-cbfc-11ea-9015-cd59a5038ced.png"></p>
+<p>首先需要了解Products，Price Book和 Price book entries是做什么的。Products是您出售的所有项目和服务及其标准价格的基本目录。通过Price books，您可以创建具有特定用途的相关标价的自定义产品集合。</p>
+<p>Price books公司向客户提供的产品和服务的价格。Price book entries跟踪每种产品的不同价格类型，以适应您向不同细分市场和客户销售产品的方式。可以参考如下官方帮助文档：<a href="https://help.salesforce.com/articleView?id=products_prices_sfx.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=products_prices_sfx.htm&amp;type=5</a></p>
+<p>考点：Design, configure, and troubleshoot price rules using lookup objects and formula fields to meet business requirements.</p>
+<p><strong>Price Rules</strong></p>
+<p><a href="https://help.salesforce.com/articleView?id=cpq_price_rules_intro.htm" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_price_rules_intro.htm</a></p>
+<p>价格规则可以定位到配置器或报价行编辑器的计算器。如果您以计算器为目标，则可以设置“计算器评估事件”字段以应用价格规则：</p>
+<ul>
+<li><p>Before calculation</p>
+</li>
+<li><p>After calculation</p>
+</li>
+<li><p>During calculation</p>
+</li>
+<li><p>Or during any combination of the above three</p>
+</li>
+</ul>
+<p><strong>Price Rule 注意事项</strong></p>
+<p>可以参考链接：<a href="https://help.salesforce.com/articleView?id=cpq_price_rule_considerations.htm&type=0" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_price_rule_considerations.htm&amp;type=0</a></p>
+<p>**Price Rule Fields：**<a href="https://help.salesforce.com/articleView?id=cpq_price_rule_fields.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_price_rule_fields.htm&amp;type=5</a></p>
+<p><strong>Create a Price Condition</strong></p>
+<p>链接：<a href="https://help.salesforce.com/articleView?id=cpq_create_price_cond.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_create_price_cond.htm&amp;type=5</a></p>
+<p>注意：在执行Apex test class期间，Salesforce CPQ不执行price rules。Javascript报价计算器在外部网络服务中执行触发式计算，而Apex测试类不能进行任意触发。</p>
+<p><strong>Price Condition Fields</strong></p>
+<p>链接：<a href="https://help.salesforce.com/articleView?id=cpq_price_condition_fields.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_price_condition_fields.htm&amp;type=5</a></p>
+<p><strong>Price Actions</strong></p>
+<p>链接：<a href="https://help.salesforce.com/articleView?id=cpq_price_action_parent.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_price_action_parent.htm&amp;type=5</a></p>
+<p><strong>Configurator Evaluation Events</strong></p>
+<p>链接：<a href="https://help.salesforce.com/articleView?id=cpq_config_pr_examples.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_config_pr_examples.htm&amp;type=5</a></p>
+<p><strong>Price Rules for Pricing Guidance</strong></p>
+<p>链接：<a href="https://help.salesforce.com/articleView?id=cpq_price_rule_pricing_guidance.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_price_rule_pricing_guidance.htm&amp;type=5</a></p>
+<p><strong>考点</strong>：应用对报价计算顺序和报价行定价字段的了解，以满足定价和业务需求。这里可以参考如下帮助文档。</p>
+<p><strong>The CPQ Quote Calculation Sequence</strong></p>
+<p><a href="https://help.salesforce.com/articleView?id=cpq_manage_calc_seq.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_manage_calc_seq.htm&amp;type=5</a></p>
+<p>**考点：**Utilize out-of-the-box and custom permissions, record types, field sets, and page layouts to ensure users can fulfill their job requirements.</p>
+<p>Salesforce CPQ User permission set没有对CPQ对象的读取，创建，编辑或删除权限。我们建议您创建对quote, quote line group, quote line item, quote template, and quote document对象具有读取和写入权限的单独权限集，并将其分配给您的Salesforce CPQ用户。注意，用户必须具有一个字段的编辑权限才能将其映射到另一个字段。各种对象所需要的权限可以参考如下文档。 <strong>Salesforce CPQ Profile Permissions</strong></p>
+<p><a href="https://help.salesforce.com/articleView?id=cpq_profile_permissions.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_profile_permissions.htm&amp;type=5</a></p>
+<p>**考点：**Given a business process, demonstrate knowledge of CPQ data flow (e.g., twin fields) across CPQ objects.</p>
+<p>这里需要的是对twin fields的掌握。</p>
+<p>CPQ Twin Fields (Mapping Data Between Objects)</p>
+<p><a href="https://help.salesforce.com/articleView?id=cpq_twin_fields.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_twin_fields.htm&amp;type=5</a></p>
+<p>**考点：**展示有关CPQ对象数据模型的知识，因为它与数据迁移有关。</p>
+<p>这里可以观看如下视频，**Best Practices &amp; Considerations for CPQ Data Migration **(Video)</p>
+<p><a href="https://www.salesforce.com/video/1765277/" target="_blank" rel="noopener">https://www.salesforce.com/video/1765277/</a></p>
+<p>**考点：**为国际客户和用户设置用于本地化和多币种的CPQ。</p>
+<p>重点链接：<strong>Translating CPQ Records</strong></p>
+<p><a href="https://help.salesforce.com/articleView?id=cpq_localization_concept.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_localization_concept.htm&amp;type=5</a></p>
+<p>这里需要注意，Primary quote必须与其parent opportunity具有相同的币种。Pricebooks可以包含多种货币。但是，为了使产品出现在quote line编辑器的“产品选择”页面中，该产品必须具有与quote有相同的pricebook entry和币种在pricebook中。当您根据opportunity创建primary quote时，它将继承opportunity的货币。用户无法通过opportunity的primary quote字段更改与该opportunity相关的报价的币种。创建时，非primary quote默认为用户的货币值。所有的机会和报价都需要Price books 。当您根据opportunity创建quotes时，它会继承opportunity的Price books。Price books可以包含几种货币的价格，但是Salesforce CPQ仅会在opportunity的页面或者或“产品选择”页面上显示货币。其他关于多币种的信息，可以参考如下帮助文档。</p>
+<p><strong>Guidelines for CPQ in Multicurrency Orgs</strong></p>
+<p><a href="https://help.salesforce.com/articleView?id=cpq_multicurrency_cpq.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_multicurrency_cpq.htm&amp;type=5</a></p>
+<p>考点：Given a scenario, determine the necessary CPQ package-level settings.</p>
+<p>需要了解package级别的设置，相关设置可以在Installed Packages里面进行设置。</p>
+<p><img src="https://user-images.githubusercontent.com/9688136/88122994-9037e200-cbfc-11ea-86f3-f485a2665ddd.png"></p>
+<p><img src="https://user-images.githubusercontent.com/9688136/88123015-9b8b0d80-cbfc-11ea-8209-b0fe09201c65.png"></p>
+<p>具体设置可以参考如下帮助文档，Salesforce CPQ Package Settings</p>
+<p><a href="https://help.salesforce.com/articleView?id=cpq_package_settings.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_package_settings.htm&amp;type=5</a></p>
+<p>**考点：**Determine how the CPQ managed package fits within a Salesforce org.</p>
+<p>这里推荐给大家一个Trailhead模块。</p>
+<p><strong>Master Salesforce Billing Admin Fundamentals</strong></p>
+<p><a href="https://trailhead.salesforce.com/en/content/learn/trails/salesforce-billing-admin-fundamentals" target="_blank" rel="noopener">https://trailhead.salesforce.com/en/content/learn/trails/salesforce-billing-admin-fundamentals</a></p>
+<p><strong>Bundle Configurations****17%</strong></p>
+<p><strong>Bundle Configurations</strong>还是比较重要的，占有 17%的考试比例。</p>
+<p><strong>Learn Salesforce CPQ Admin Fundamentals</strong>:</p>
+<p><a href="https://trailhead.salesforce.com/en/content/learn/trails/cpq-admin" target="_blank" rel="noopener">https://trailhead.salesforce.com/en/content/learn/trails/cpq-admin</a></p>
+<p>Bundle的意思大概是捆绑销售商品。有的地方叫Pack。 </p>
+<p>考点：Given a scenario, set up a bundle structure to meet business requirements.</p>
+<p>那么如何新建Bundle呢？我们可以创建或选择一种产品作为您的Bundle父项。然后 从父产品的相关列表中创建所需的Features。关于Bundle的全部内容，可以参考如下帮助文档。</p>
+<p><strong>CPQ Product Bundles</strong></p>
+<p><a href="https://help.salesforce.com/articleView?id=cpq_bundle_products.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_bundle_products.htm&amp;type=5</a></p>
+<p>这里特别需要注意的是基于Bundle 配置的唯一Quote Line码，当您的销售代表报价bundle 产品时，Salesforce CPQ可以根据bundle 的配置为其分配quote line唯一的打包产品代码。您可以为包装产品代码定义一个模板，该模板包含静态文本和变量的组合。然后，您的销售代表可以将每个包装产品代码用作SKU，并将已配置的bundle 销售数据快速发送给他们的订单小组。其他信息可以参考如下链接：<a href="https://help.salesforce.com/articleView?id=cpq_product_code_layout.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_product_code_layout.htm&amp;type=5</a></p>
+<p>还有一个Product Actions的例子，也可以参考如下链接，</p>
+<p><a href="https://help.salesforce.com/articleView?id=cpq_product_actions.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_product_actions.htm&amp;type=5</a></p>
+<p>**考点：**Given a scenario, set up product rules to meet business requirements.</p>
+<p>这个考点主要考察产品规则的知识点掌握。所有产品规则均包含错误条件( Error Conditions)，Actions和配置规则( Configuration Rules)的相关列表。注意任何规则都需要有Error Condition。这里可以参考下面两篇文章</p>
+<p><strong>Product Rules Overview</strong></p>
+<p>链接：<a href="https://help.salesforce.com/articleView?id=cpq_product_rules.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_product_rules.htm&amp;type=5</a></p>
+<p><strong>Product Rule Guidelines</strong></p>
+<p><a href="https://help.salesforce.com/articleView?id=cpq_product_rule_guidelines.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_product_rule_guidelines.htm&amp;type=5</a></p>
+<p>嵌套Bundles中的验证规则 ：<a href="https://help.salesforce.com/articleView?id=cpq_nested_validation_rules.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_nested_validation_rules.htm&amp;type=5</a></p>
+<p>****Pricing:****<strong>16%</strong></p>
+<p>价格的考点也是CPQ考试比较重要的一环节，同时需要留意折扣和加价的一些模块。考点之一是：Given a scenario, identify the appropriate pricing strategy (discount schedules, block pricing, contracted prices, subscription pricing, percent-of-total, usage-based pricing).</p>
+<p><strong>CPQ Pricing Methods</strong></p>
+<p><a href="https://help.salesforce.com/articleView?id=cpq_pricing_methods.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_pricing_methods.htm&amp;type=5</a></p>
+<p>您可以根据几个不同的数量范围为产品定价，这个就是大宗定价(Block Pricing)。当销售代表将该产品添加到报价中时，Salesforce CPQ会检查该产品在数量范围内的位置，并相应地对报价行进行定价。，示例如下，您可能出售小型企业某些订阅许可证，并按许可证数量进行收费，一到五个许可证$ 200，六到十个许可证$ 150，十一个或更多许可证$ 100。让我们看看如何在许可证的产品记录上设置批量定价。<br><img src="https://user-images.githubusercontent.com/9688136/88123052-ad6cb080-cbfc-11ea-9e79-8e3060b1711f.png"></p>
+<p>订阅产品的定期折扣时间表也是一个考点之一。如果您使用的是期限折扣计划，我们建议您按期限对层进行命名，以方便参考。假如有下表。<br><img src="https://user-images.githubusercontent.com/9688136/88123089-c2494400-cbfc-11ea-94a2-b5c0fa43c71c.png"></p>
+<p>如果客户购买有效期为12个月的产品，则可以享受20％的折扣。相关参考文档如下 <strong>Term-Based Discount Schedules</strong></p>
+<p><a href="https://help.salesforce.com/articleView?id=cpq_term_discount_schedules.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_term_discount_schedules.htm&amp;type=5</a></p>
+<p>还有一种折扣方式 <strong>Slab-Based Discount Schedules</strong>，考生也需要留意，</p>
+<p><a href="https://help.salesforce.com/articleView?id=cpq_slab_ds_with_block.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_slab_ds_with_block.htm&amp;type=5</a></p>
+<p><strong>合约价格Contracted Pricing</strong>相关参考文档如下</p>
+<p><a href="https://help.salesforce.com/articleView?id=cpq_contracted_prices_parent.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_contracted_prices_parent.htm&amp;type=5</a></p>
+<p>有一种常见的报价方式叫Multi-Dimensional Quoting (MDQ)，中文叫多维报价。您可以在quote line编辑器中将固定价格订阅产品显示为细分为一条quote line。每个细分代表一个时间单位（季度，月，年或自定义），并且定价和数量独立于该行的其他细分。相关参考文档如下 <strong>Guidelines for MDQ Products</strong></p>
+<p><a href="https://help.salesforce.com/articleView?id=cpq_mdq_guidelines.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_mdq_guidelines.htm&amp;type=5</a></p>
+<p>比方说，一个长达4年的MDQ，每年$4,000的报价如下所示。</p>
+<p><img src="https://user-images.githubusercontent.com/9688136/88123123-d2612380-cbfc-11ea-9165-44abfcd87afd.png"></p>
+<p>使用MDQ需要有正确的开始日期才可以进行报价。同时，MDQ产品仅支持基于月的订阅条款单位，而且是不支持Usage Pricing。MDQ产品不能成为bundle产品的父母。</p>
+<p>另外一个考点是：给定方案，确定预期的定价结果，这个也是常见的考点之一。这里有一个例子可以参考 <strong>Price Waterfall Example：</strong></p>
+<p><a href="https://help.salesforce.com/articleView?id=000271078&language=en_US&type=1" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=000271078&amp;language=en_US&amp;type=1</a></p>
+<p>合作伙伴的定价流程是：</p>
+<p><strong>List 单价-&gt; Partner 单价-&gt; Regular 单价-&gt; Customer 单价-&gt;Net 单价</strong></p>
+<p>比如原价是：$ 10,000，合作伙伴折扣有 20％，系统折扣为10％，额外折扣为 50％，分销商折扣为50％，最终价格为多少？</p>
+<ol>
+<li><p>合作伙伴折扣有 20％，那么$ 10,000 * 0.80 &#x3D; $ 8,000，Partner 单价：$ 8,000。</p>
+</li>
+<li><p>系统折扣为10％，$ 8000 * 0.9 &#x3D; $ 7,200，最后Regular 价格：$ 7,200</p>
+</li>
+<li><p>额外折扣为 50％，经过计算$ 7,200 * .05 &#x3D; $ 3,600，则Customer 单位价格：$ 3,600</p>
+</li>
+<li><p>分销商折扣为50％，之后$ 3,600 * 0.5 &#x3D; $ 1,800，结果净单价：$ 1,800</p>
+</li>
+</ol>
+<p><strong>Quote Templates 7%</strong></p>
+<p>Quote 模板其实是CPQ的重要环节，但是考点却只有7%。</p>
+<p>Given a scenario, set up a quote template to meet business requirements.</p>
+<p>考生需要掌握使用CPQ模板构建CPQ文档。Quote Templates控制报价单文件的格式和组织。每个模板都包含一些部分，您可以在其中自定义单个内容记录的显示方式。在报价文件中显示产品图像字段，在报价单草稿预览中显示水印在报价，添加或者删除CPQ报价文档的页眉和页脚，甚至可以显示Discount Schedules 在CPQ报价文档中。可以参考如下文章，<strong>Quote Template Overview</strong></p>
+<p><a href="https://help.salesforce.com/articleView?id=cpq_quote_templates.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_quote_templates.htm&amp;type=5</a></p>
+<p>您可以设置您的CPQ报价单的样式，<strong>Styling Your Quote Documents</strong></p>
+<p><a href="https://help.salesforce.com/articleView?id=cpq_styling_cpq_quote_doc.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_styling_cpq_quote_doc.htm&amp;type=5</a></p>
+<p>如何通过’Conditional Print Field’控制Quote Line的显示。可以参考如下文章，<strong>Conditionally Display Line Columns</strong></p>
+<p><a href="https://help.salesforce.com/articleView?id=cpq_conditional_line_columns.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_conditional_line_columns.htm&amp;type=5</a></p>
+<p>注意，如果是有隐藏行列时，默认情况下，Salesforce CPQ会自动分配宽度给最右边的行列。</p>
+<p>如何利用quote的字段值有效控制整个章节进行有条件显示，同样也是利用’Conditional Print Field’进行控制。可以参考如下章节，<strong>Conditionally Display Template Sections</strong></p>
+<p><a href="https://help.salesforce.com/articleView?id=cpq_conditional_temp_section.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_conditional_temp_section.htm&amp;type=5</a></p>
+<p>如果您的文档可能包含基于销售代表所销售quote类型的一些补充材料，则此功能很有用。</p>
+<p>Quote templates 拥有很多选项对您的文档的布局 layout进行定制化。可以参考如下文章 <strong>Line Item Print Options</strong></p>
+<p><a href="https://help.salesforce.com/articleView?id=cpq_print_option_guidelines.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_print_option_guidelines.htm&amp;type=5</a></p>
+<p>同时，文档支持的字体有如下：<a href="https://help.salesforce.com/articleView?id=cpq_doc_fonts.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_doc_fonts.htm&amp;type=5</a></p>
+<p><strong><strong><strong>Product Selection</strong></strong></strong><strong>7%</strong></p>
+<p>Given a scenario, use search filters, field sets, and custom actions to enable product selection and configuration.</p>
+<p><strong>CPQ Search Filters</strong></p>
+<p><a href="https://help.salesforce.com/articleView?id=cpq_search_filters.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_search_filters.htm&amp;type=5</a></p>
+<p>创建一个自定义操作(Custom Action)，以在报价行编辑器或配置器中过滤产品，订阅或资产。</p>
+<p><strong>Filtering Custom Action</strong></p>
+<p><a href="https://help.salesforce.com/articleView?id=cpq_filter_custom_action.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_filter_custom_action.htm&amp;type=5</a></p>
+<p><strong>Orders, Contracts, Amendments, and Renewals 15%</strong></p>
+<p>如下图是CPQ各种对象的关系图。</p>
+<p><img src="https://user-images.githubusercontent.com/9688136/88123162-e2790300-cbfc-11ea-840f-3f88ccf451ba.png"></p>
+<p>**考点：**展示出对生成订单和合同所需数据的理解。</p>
+<p>先来看看Order，您必须从Primary Quote价创建Orders。在Salesforce CPQ中，从Primary Quote创建Orders后，将无法编辑Primary Quote。新建Order时，您的订购产品将从其Primary Quote继承这些字段：List Price：Unit Price：Total Price。Order的状态字段默认设置为Draft草稿。您可以在Order为草稿时编辑Order上的字段并订购产品。单击Activate激活，将订单状态设置为已激活，并锁定字段编辑中的记录。您只能在订单激活后才能开票(invoice)或订立合同(contract)。单击Deactivate停用以使订单返回草稿状态并进行进一步的字段编辑。<strong>Guidelines for CPQ Orders</strong></p>
+<p><a href="https://help.salesforce.com/articleView?id=cpq_guidelines_create_orders.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_guidelines_create_orders.htm&amp;type=5</a></p>
+<p>再来看看合同，如果需要从opportunity创建合同时，Salesforce CPQ需要以下对象和设置。</p>
+<ul>
+<li><p>至少有一个订阅产品的机会</p>
+</li>
+<li><p>要有一个Lookup到业务机会的primary quote主要报价</p>
+</li>
+<li><p>在opportunity上有一个基于合同的续订方法</p>
+</li>
+</ul>
+<p>默认情况下，订阅将从quote Lines的开始日期和结束日期继承其开始日期和结束日期。相关参考文档如下 <strong>Creating a Contract from an Opportunity</strong></p>
+<p><a href="https://help.salesforce.com/articleView?id=cpq_contract_opp_concept.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_contract_opp_concept.htm&amp;type=5</a></p>
+<p>当然，也可以可以通过Order新建合同</p>
+<p><strong>Creating a Contract from an Order</strong></p>
+<p><a href="https://help.salesforce.com/articleView?id=cpq_contract_order_concept.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_contract_order_concept.htm&amp;type=5</a></p>
+<p>**考点：**Demonstrate understanding of how to generate renewal and amendment quotes to meet business requirements.</p>
+<p>修改你的合同</p>
+<p><strong>Amend Your Contracts</strong></p>
+<p><a href="https://help.salesforce.com/articleView?id=cpq_amend_contracts.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_amend_contracts.htm&amp;type=5</a></p>
+<p>其次需要了解如何修正程序， 如果您需要修改产品合同，而合同里面包含MDQ products，您的修订报价仅包含将来的MDQ products，不可以修改过去的MDQ，而且Salesforce CPQ不支持修改多个具有不同开始日期的MDQ订阅，在这种情况下，每个MDQ订阅的续订报价行开始日期等于报价或报价行组的开始日期。<strong>Amendment Processes</strong></p>
+<p><a href="https://help.salesforce.com/articleView?id=cpq_amendment_processes.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_amendment_processes.htm&amp;type=5</a></p>
+<p><strong>Renew Your Contracts and Assets</strong></p>
+<p><a href="https://help.salesforce.com/articleView?id=cpq_renewal_parent_new.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_renewal_parent_new.htm&amp;type=5</a></p>
+<p>考点：Given a scenario, recommend when to use orders, contracts, subscriptions, and assets to meet business requirements.</p>
+<p><strong>Subscription Guidelines</strong></p>
+<p><a href="https://help.salesforce.com/articleView?id=cpq_subscription_overview.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_subscription_overview.htm&amp;type=5</a></p>
+<p>也可以参考如下</p>
+<p><a href="https://help.salesforce.com/articleView?id=cpq_twin_fields.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_twin_fields.htm&amp;type=5</a></p>
+<p>** Products 11%**</p>
+<p>产品也占有11%的比例。考点之一就是如何设置产品，价目表和价目表条目( products, pricebooks, and pricebook entries)。这里重点还包括MDQ的考察。可以参考如下文章，<strong>Guidelines for MDQ Products</strong></p>
+<p><a href="https://help.salesforce.com/articleView?id=cpq_mdq_guidelines.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_mdq_guidelines.htm&amp;type=5</a></p>
+<p>同时需要了解和使用定价准则，产品如果有消费计划(Consumption Schedules) 是不能有价格维度(Price Dimensions)，同时，报价行只能有一个数量。修改或续订时，您可以将数量从1更改为0。，而且也不支持持续订价格(Renewal Pricing)。注意，消费率帐单条款(Consumption Rate Billing Terms)必须大于或等于一个月,而且必须少于或等于5年或60个月。</p>
+<p><strong>Usage Pricing Guidelines</strong></p>
+<p><a href="https://help.salesforce.com/articleView?id=cpq_usage_pricing_guidelines.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_usage_pricing_guidelines.htm&amp;type=5</a></p>
+<p>price book是什么？是产品的价格手册，也就是价格列表。standard price book就是标准价格。custom price book就是自定义价格，自定义价格手册是可以面向不同市场，地区或客户集提供不同产品价格。</p>
+<p><strong>Manage Pricebooks</strong></p>
+<p><a href="https://help.salesforce.com/articleView?id=pricebooks_landing_page.htm&type=0" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=pricebooks_landing_page.htm&amp;type=0</a></p>
+<p><strong>Considerations for Creating and Maintaining Pricebooks</strong></p>
+<p><a href="https://help.salesforce.com/articleView?id=pricebooks_considerations_for_creating.htm&type=0" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=pricebooks_considerations_for_creating.htm&amp;type=0</a></p>
+<p>考点：演示产品目录设置如何影响总体CPQ数据流。</p>
+<p>重点学习文章为：CPQ: Create a Product Catalog</p>
+<p><a href="https://help.salesforce.com/articleView?id=000350951&language=en_US&type=1&mode=1" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=000350951&amp;language=en_US&amp;type=1&amp;mode=1</a></p>
+<p><strong>Approvals 4%</strong></p>
+<p>考点：Select and set up advanced or native approvals to meet business requirements.</p>
+<p>CPQ有自己的高级审批流程。<strong>Setting Up Advanced Approvals</strong></p>
+<p><a href="https://help.salesforce.com/articleView?id=cpq_aa_setup_parent.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=cpq_aa_setup_parent.htm&amp;type=5</a></p>
+<p><strong>03资源</strong></p>
+<p>这里列举了一些资源给大家：</p>
+<ul>
+<li><p><a href="https://www.udemy.com/course/introduction-salesforce-cpq/" target="_blank" rel="noopener">https://www.udemy.com/course/introduction-salesforce-cpq/</a></p>
+</li>
+<li><p>Help List:<a href="http://www.salesforcechris.com/salesforce-cpq-specialist-resource-guide/" target="_blank" rel="noopener">http://www.salesforcechris.com/salesforce-cpq-specialist-resource-guide/</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzIyMzY4OTU3Mw==&mid=2247488341&idx=1&sn=8bbd90758cdf7d051c2fab8f991663b6&chksm=e81b3d5fdf6cb449760411cbedf5e63866c2ee9d5ee8a6e2038e45854f9d79d40855ce537631&scene=21#wechat_redirect" target="_blank" rel="noopener">Salesforce管理员认证备考秘籍</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzIyMzY4OTU3Mw==&mid=2247488235&idx=1&sn=c1d76c80c5c4db8c27d0e5016405f00c&chksm=e81b3ce1df6cb5f7d99458b4fc73c37b24138e0608767c9c33bf83e04854cf359f800584cd15&scene=21#wechat_redirect" target="_blank" rel="noopener">Pardot专家认证备考秘籍</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzIyMzY4OTU3Mw==&mid=2247488178&idx=1&sn=5719c7f7a606155e3624b26a40c46f6c&chksm=e81b3cb8df6cb5ae769b847a0cf4903b4e1f442d6e72c1f73af390ba2d9153a37436ab077a75&scene=21#wechat_redirect" target="_blank" rel="noopener">Salesforce销售云考试备考秘籍</a></p>
+</li>
+</ul>
+
+        </div>
+
+        <section class='meta'>
+            <time class="time" itemprop="dateUpdated" datetime="2025-05-06T03:51:48+00:00" content="2025-05-06">
+                <i class="fas fa-pen fa-fw" aria-hidden="true"></i>
+                本文最后更新于：2025-05-06
+            </time>
+            
+                
+                <div class="tags">
+                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                    <a class="tag" href="/tags/Salesforce/">Salesforce</a>, <a class="tag" href="/tags/CPQ/">CPQ</a>, <a class="tag" href="/tags/SFDC/">SFDC</a>
+                </div>
+            
+        </section>
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <div class="addthis_inline_share_toolbox"></div>
+
+
+        
+            <div class="prev-next">
+                
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一篇</h6>
+                            <h4>
+                                <a href="/2020/06/12/2020-06-12-Marketing-Cloud-Interactive-Email/" rel="prev" title="三分钟教你设计出一封交互式邮件">
+                                  
+                                      三分钟教你设计出一封交互式邮件
+                                  
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                                    <a class="tag" href="/tags/Salesforce/">Salesforce</a>, <a class="tag" href="/tags/MC/">MC</a>, <a class="tag" href="/tags/Marketing-Cloud/">Marketing Cloud</a>, <a class="tag" href="/tags/Interactive-Email/">Interactive Email</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>下一篇&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2020/05/01/2020-05-01-LWC-Study/" rel="prev" title="LWC学习">
+                                    
+                                        LWC学习
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                                    <a class="tag" href="/tags/Salesforce/">Salesforce</a>, <a class="tag" href="/tags/LWC/">LWC</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+
+    </section>
+
+</article>
+
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+    <article class="post white-box comments">
+        <section class="article typo">
+
+            
+                
+
+    <div class="recommended_posts">
+        <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;你可能感兴趣的文章</h4>
+        <ul>
+            
+                <li><a href="http://tonyrenhk.github.io/2020/07/10/2020-07-10-Marketing-Cloud/">营销云 Marketing Cloud 学习笔记</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2020/06/12/2020-06-12-Marketing-Cloud-Interactive-Email/">三分钟教你设计出一封交互式邮件</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2020/05/01/2020-05-01-LWC-Study/">LWC学习</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2020/04/11/2020-04-11-Salesforce-interview/">Salesforce 面试</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2020/04/10/2020-03-09-How-Salesforce-exam/">如何在家进行Salesforce考试？</a></li>
+            
+        </ul>
+    </div>
+
+
+            
+
+            
+
+                
+
+                
+
+                
+                    
+                
+            
+
+        </section>
+    </article>
+
+
+<script>
+    window.subData = {
+        title: 'Salesforce CPQ 学习资料',
+        tools: true
+    }
+</script>
+
+
+        </div>
+        <aside class='l_side'>
+            
+    
+        
+  <section class='m_widget author'>
+    
+      <div class='header'>
+        <img class='avatar' src='https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/Me2.jpg'/>
+      </div>
+    
+    
+      <div class='content'>
+        
+          <h2>Tony Ren&#39;s 学习笔记</h2>
+        
+        
+          <p>好学近乎知，力行近乎仁，知耻近乎勇</p>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:renchk@foxmail.com" class="social flat-box" target="_blank" rel="external"><i class="social fas fa-envelope" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://github.com/TonyRenHK" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-github" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://www.weibo.com/6476367461" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-weibo" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://tonyrenhk.github.io/Wechat/" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-weixin" aria-hidden="true"></i></a>
+          
+        
+      </div>
+    
+  </section>
+
+
+    
+    
+        <section class='m_widget links'>
+    <div class='content pure'>
+        <ul class="entry" id="links">
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://tonyrenhk.github.io/2018/01/01/2018-01-01-Salesforce-related-resource/" rel="external nofollow noopener noreferrer" href="https://tonyrenhk.github.io/2018/01/01/2018-01-01-Salesforce-related-resource/">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/IMG_2568.JPG">
+                        
+                        &nbsp;&nbsp;Salesforce
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://tonyrenhk.github.io/2018/01/09/2018-01-09-IT-Study-Resource/" rel="external nofollow noopener noreferrer" href="https://tonyrenhk.github.io/2018/01/09/2018-01-09-IT-Study-Resource/">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88612001-cf62a900-d0bc-11ea-9cbb-a14beeb356c7.png">
+                        
+                        &nbsp;&nbsp;IT
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/Note/OnlineTools.html" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/Note/OnlineTools.html">
+                    
+                    <div class='name'>
+                        
+                            <img src="http://tonyrenhk.github.io/images/notebook.png">
+                        
+                        &nbsp;&nbsp;工具Tools
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/Note/Tutorial.html" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/Note/Tutorial.html">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/Astro_Trailblazer_hoodie_wave.png">
+                        
+                        &nbsp;&nbsp;教程Tutorial
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/2018/02/02/2018-02-02-Git-Study/" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/2018/02/02/2018-02-02-Git-Study/">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/s.png">
+                        
+                        &nbsp;&nbsp;Git
+                    </div>
+                </a></li>
+            
+        </ul>
+    </div>
+</section>
+
+    
+    
+        <section class='m_widget categories'>
+    <header class='header pure'>
+        <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;分类</div>
+    </header>
+    <div class='content pure'>
+        
+            <ul class="entry">
+                
+                    <li><a class="flat-box" href="/categories/English/"><div class='name'>English</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Git/"><div class='name'>Git</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Google/"><div class='name'>Google</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/JavaScript/"><div class='name'>JavaScript</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Others/"><div class='name'>Others</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Python/"><div class='name'>Python</div><div class='badge'>1</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Salesforce/"><div class='name'>Salesforce</div><div class='badge'>35</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Tools/"><div class='name'>Tools</div><div class='badge'>1</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/hexo/"><div class='name'>hexo</div><div class='badge'>1</div></a></li>
+                
+            </ul>
+        
+    </div>
+</section>
+
+    
+    
+        
+    <section class='m_widget tagcloud'>
+        <header class="header pure">
+            <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
+        </header>
+        <div class='content pure'>
+            <a href="/tags/Admin/" style="font-size: 14px; color: #999">Admin</a> <a href="/tags/Apex/" style="font-size: 16.86px; color: #868686">Apex</a> <a href="/tags/BookMark/" style="font-size: 14px; color: #999">BookMark</a> <a href="/tags/CDC/" style="font-size: 14px; color: #999">CDC</a> <a href="/tags/CPQ/" style="font-size: 14px; color: #999">CPQ</a> <a href="/tags/Change-Data-Capture/" style="font-size: 14px; color: #999">Change Data Capture</a> <a href="/tags/Chrome-Extension/" style="font-size: 14px; color: #999">Chrome-Extension</a> <a href="/tags/Community-Cloud/" style="font-size: 14px; color: #999">Community Cloud</a> <a href="/tags/Demo/" style="font-size: 14px; color: #999">Demo</a> <a href="/tags/Flow/" style="font-size: 14px; color: #999">Flow</a> <a href="/tags/Git/" style="font-size: 16.86px; color: #868686">Git</a> <a href="/tags/Google/" style="font-size: 14px; color: #999">Google</a> <a href="/tags/Google-App-Script/" style="font-size: 14px; color: #999">Google App Script</a> <a href="/tags/Heroku/" style="font-size: 14px; color: #999">Heroku</a> <a href="/tags/IT%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">IT学习</a> <a href="/tags/Interactive-Email/" style="font-size: 14px; color: #999">Interactive Email</a> <a href="/tags/JavaScript/" style="font-size: 15.43px; color: #8f8f8f">JavaScript</a> <a href="/tags/Jsforce/" style="font-size: 15.43px; color: #8f8f8f">Jsforce</a> <a href="/tags/LWC/" style="font-size: 22.57px; color: #5f5f5f">LWC</a> <a href="/tags/Lightning/" style="font-size: 15.43px; color: #8f8f8f">Lightning</a> <a href="/tags/Lightning-Components/" style="font-size: 14px; color: #999">Lightning Components</a> <a href="/tags/Lightning-Web-Components/" style="font-size: 18.29px; color: #7c7c7c">Lightning Web Components</a> <a href="/tags/MC/" style="font-size: 15.43px; color: #8f8f8f">MC</a> <a href="/tags/MCC/" style="font-size: 14px; color: #999">MCC</a> <a href="/tags/Marketing-Cloud/" style="font-size: 14px; color: #999">Marketing Cloud</a> <a href="/tags/Marketing-Cloud-Connect/" style="font-size: 14px; color: #999">Marketing Cloud Connect</a> <a href="/tags/Org/" style="font-size: 14px; color: #999">Org</a> <a href="/tags/Others/" style="font-size: 14px; color: #999">Others</a> <a href="/tags/Pardot/" style="font-size: 14px; color: #999">Pardot</a> <a href="/tags/Python/" style="font-size: 15.43px; color: #8f8f8f">Python</a> <a href="/tags/Roll-Up-Summary/" style="font-size: 14px; color: #999">Roll-Up Summary</a> <a href="/tags/SFDC/" style="font-size: 14px; color: #999">SFDC</a> <a href="/tags/SFDX/" style="font-size: 19.71px; color: #727272">SFDX</a> <a href="/tags/Salesforce/" style="font-size: 24px; color: #555">Salesforce</a> <a href="/tags/Salesforce-Mobile/" style="font-size: 14px; color: #999">Salesforce Mobile</a> <a href="/tags/Sandbox/" style="font-size: 14px; color: #999">Sandbox</a> <a href="/tags/Script/" style="font-size: 14px; color: #999">Script</a> <a href="/tags/Site/" style="font-size: 14px; color: #999">Site</a> <a href="/tags/Study/" style="font-size: 18.29px; color: #7c7c7c">Study</a> <a href="/tags/StudyNote/" style="font-size: 14px; color: #999">StudyNote</a> <a href="/tags/Superbadge/" style="font-size: 14px; color: #999">Superbadge</a> <a href="/tags/Tools/" style="font-size: 14px; color: #999">Tools</a> <a href="/tags/Trailhead/" style="font-size: 21.14px; color: #686868">Trailhead</a> <a href="/tags/exam/" style="font-size: 14px; color: #999">exam</a> <a href="/tags/flow/" style="font-size: 14px; color: #999">flow</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/tags/hexo-theme-doc/" style="font-size: 14px; color: #999">hexo-theme-doc</a> <a href="/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/tags/metadata/" style="font-size: 14px; color: #999">metadata</a> <a href="/tags/shortcut/" style="font-size: 14px; color: #999">shortcut</a> <a href="/tags/%E5%85%A5%E9%97%A8/" style="font-size: 14px; color: #999">入门</a> <a href="/tags/%E5%AF%B9Campaign/" style="font-size: 14px; color: #999">对Campaign</a> <a href="/tags/%E5%BC%80%E5%8F%91%E8%80%85II%E8%80%83%E8%AF%95/" style="font-size: 19.71px; color: #727272">开发者II考试</a> <a href="/tags/%E8%87%AA%E5%8A%A8/" style="font-size: 14px; color: #999">自动</a> <a href="/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">英语学习</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 14px; color: #999">面试</a>
+        </div>
+    </section>
+
+
+    
+    
+        
+
+    
+    
+        <section class='m_widget links'>
+    <header class='header pure'>
+        <div><i class="fas fa-link fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;更多</div>
+        
+            <a class="rightBtn" title="联系博主添加友链" target="_blank" rel="external nofollow noopener noreferrer" href="mailto:me@xaoxuu.com?subject=交换友链&body=你好，我想和你交换友链，我已经将【Tony Ren&#39;s 学习笔记】添加到我的博客的友链中。我的博客链接是："><i class="fas fa-plus fa-fw"></i></a>
+        
+    </header>
+    <div class='content pure'>
+        <ul class="entry" id="links">
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://docs.qq.com/desktop/" target="_blank" rel="external nofollow noopener noreferrer" href="https://docs.qq.com/desktop/">
+                    
+                        
+                    
+                        
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88069910-a6b24f00-cba4-11ea-837b-d4a0dcf05d94.png">
+                        
+                        &nbsp;&nbsp;腾讯文档
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://www.notion.so/" target="_blank" rel="external nofollow noopener noreferrer" href="https://www.notion.so/">
+                    
+                        
+                    
+                        
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88069945-b16ce400-cba4-11ea-9c3f-d5857b39a5df.png">
+                        
+                        &nbsp;&nbsp;Notion
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://ide.goorm.io/" target="_blank" rel="external nofollow noopener noreferrer" href="https://ide.goorm.io/">
+                    
+                        
+                    
+                        
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88611890-9e827400-d0bc-11ea-893a-5b0af150504a.png">
+                        
+                        &nbsp;&nbsp;Goorm IDE
+                    </div>
+                </a></li>
+            
+        </ul>
+    </div>
+</section>
+
+    
+
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    </div>
+    <footer id="footer" class="clearfix">
+    
+        <div class="social-wrapper">
+          
+              
+                  <a href="mailto:renchk@foxmail.com" class="social fas fa-envelope flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://github.com/TonyRenHK" class="social fab fa-github flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://www.weibo.com/6476367461" class="social fab fa-weibo flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://tonyrenhk.github.io/Wechat/" class="social fab fa-weixin flat-box" target="_blank" rel="external"></a>
+              
+          
+        </div>
+    
+    <br>
+    <div>博客内容遵循 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="licenses">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></div>
+    <div>本站使用 <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a> 作为主题，
+		总访问量为 <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> 次。
+    </div>
+    
+<span id="runtime_span"></span>
+
+<script type="text/javascript">
+function show_runtime(){
+  window.setTimeout("show_runtime()",1000);
+  X=new Date("8/22/2016 18:27:0");
+  Y=new Date();T=(Y.getTime()-X.getTime());M=24*60*60*1000;
+  a=T/M;A=Math.floor(a);
+  b=(a-A)*24;B=Math.floor(b);
+  c=(b-B)*60;C=Math.floor((b-B)*60);
+  D=Math.floor((c-C)*60);
+  runtime_span.innerHTML="—— 本站已稳定运行： "+A+"天"+B+"小时"+C+"分"+D+"秒 ——"}show_runtime();
+
+</script>
+
+
+</footer>
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+    <script>setLoadingBarProgress(80);</script>
+    <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src='//cdn.bootcss.com/node-waves/0.7.5/waves.min.js'></script>
+<script src="//cdn.bootcss.com/scrollReveal.js/3.3.2/scrollreveal.min.js"></script>
+<!-- 访问统计 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5bfb78723c9c4600"></script>
+
+
+
+<script src="/js/jquery.fitvids.js"></script>
+
+
+    <script>
+        var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+        var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+        var ALGOLIA_API_KEY = "";
+        var ALGOLIA_APP_ID = "";
+        var ALGOLIA_INDEX_NAME = "";
+        var AZURE_SERVICE_NAME = "";
+        var AZURE_INDEX_NAME = "";
+        var AZURE_QUERY_KEY = "";
+        var BAIDU_API_ID = "";
+        var SEARCH_SERVICE = "hexo" || "hexo";
+        var ROOT = "/"||"/";
+        if(!ROOT.endsWith('/'))ROOT += '/';
+    </script>
+
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/app.js"></script>
+
+
+
+    
+    
+    
+        
+    
+
+
+    <script>setLoadingBarProgress(100);</script>
+</body>

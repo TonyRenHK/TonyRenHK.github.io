@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="036nsNgxuH68xUABF8jrgg8Xzsti4FN8eKjWvA185C4" />
+  <meta name="baidu-site-verification" content="FQRuGMvxtv" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+
+  
+  <title>Trailhead学习:Lightning Flow | Tony Ren&#39;s 学习笔记</title>
+  
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico">
+  <link rel="alternate" href="/atom.xml" title="Tony Ren's 学习笔记">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico" />
+  <link rel="icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico" />
+  
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono" rel="stylesheet">
+  
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link href='//cdn.bootcss.com/node-waves/0.7.5/waves.min.css' rel='stylesheet'>
+  
+<link rel="stylesheet" href="/style.css">
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+  
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1382646259212001",
+    enable_page_level_ads: true
+  });
+</script>
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading-bar-wrapper">
+  <div id="loading-bar" class="pure"></div>
+</div>
+
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header pure">
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+			<a class="logo flat-box" href='/' >Tony Ren's 学习笔记</a>
+				<div class='menu'>
+					<ul class='h-list'>
+            
+    					
+    						<li>
+    							<a class="nav  flat-box" href="/">
+    								<i class='fas fa-home fa-fw'></i>&nbsp;主页
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/archives/">
+    								<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/Project">
+    								<i class='fas fa-flask fa-fw'></i>&nbsp;项目
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/about/">
+    								<i class='fas fa-user fa-fw'></i>&nbsp;关于
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="https://renchk.github.io" target="_blank" rel="noopener">
+    								<i class='fas fa-globe fa-fw'></i>&nbsp;English
+  								</a>
+  							</li>
+        			
+        		
+					</ul>
+					<div class='underline'></div>
+				</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search" />
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></span></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-top'><a class="fas fa-arrow-circle-up fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-toc'><a class="fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+		<nav>
+      <ul>
+          
+              
+                  <li>
+										<a class="nav  flat-box" href="/">
+											<i class='fas fa-home fa-fw'></i>&nbsp;主页
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/archives/">
+											<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/Project">
+											<i class='fas fa-flask fa-fw'></i>&nbsp;项目
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/about/">
+											<i class='fas fa-user fa-fw'></i>&nbsp;关于
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="https://renchk.github.io" target="_blank" rel="noopener">
+											<i class='fas fa-globe fa-fw'></i>&nbsp;English
+										</a>
+                  </li>
+              
+       
+      </ul>
+		</nav>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            <article id="post-2018-11-26-Lightning-Flow" class="post white-box article-type-post" itemscope itemprop="blogPost">
+    <section class='meta'>
+        
+            <h1 class="title">Trailhead学习:Lightning Flow</h1>
+        
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+            2018-11-26
+        </time>
+        <div class="browse"><i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+        </div>
+        
+    
+    <div class='cats'>
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+        <a class="categories" href="/categories/Salesforce/">Salesforce</a>
+    </div>
+
+
+    </section>
+
+    <section class="article typo">
+
+        <div class="article-entry" itemprop="articleBody">
+            <p>Trailhead学习：Data Integration Specialist Superbadge中的Lightning Flow章节。</p>
+<a id="more"></a>
+
+
+<h1 id="Choose-the-Right-Automation-Tool"><a href="#Choose-the-Right-Automation-Tool" class="headerlink" title="Choose the Right Automation Tool"></a>Choose the Right Automation Tool</h1><p>这里解析Data Integration Specialist Superbadge中的Lightning Flow章节的’选择正确的自动化工具’(Choose the Right Automation Tool)，相关链接如下： </p>
+<p><a href="https://trailhead.salesforce.com/content/learn/modules/business_process_automation/process_whichtool" target="_blank" rel="noopener">https://trailhead.salesforce.com/content/learn/modules/business_process_automation/process_whichtool</a> </p>
+<h3 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h3><p>Lightning Flow和Cloud Flow Designer，还有Process Builder有什么区别呢？ </p>
+<ul>
+<li><p>Lightning Flow 是产品的名字 </p>
+</li>
+<li><p>Process Builder 和Cloud Flow Designer 是工具的名字 </p>
+</li>
+<li><p>管理员可以用Process Builder制作Process; 可以用Cloud Flow Designer 制作flows.</p>
+</li>
+</ul>
+<p>利用Process Builder 和Cloud Flow Designer，Lightning Flow可以让你实现如下功能：</p>
+<ul>
+<li><p>使用一个页面创建指导教程或向导。 </p>
+</li>
+<li><p>设置自动化任务(tasks)和流程(process)。使用Process Builder或Cloud Flow Designer可以声明业务流程配置逻辑和操作。 如果需要，可以构建自定义Apex代码以实现相关功能。 </p>
+</li>
+<li><p>连接外部系统 </p>
+</li>
+<li><p>为页面和应用添加自动化功能。 </p>
+</li>
+<li><p>可以不断重用之前所见的Process Builder 和Cloud Flow Designer。在Process Builder中，创建一个可调用的流程(invocable process)，以便在其他业务流程中重用该流程的逻辑或操作。在Cloud Flow Designer中，任何flow都可以用作子flow。</p>
+</li>
+</ul>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p><strong>题目</strong>如下： </p>
+<ol>
+<li>Which tools are included with the Lightning Flow product?</li>
+</ol>
+<p>A:Lightning Experience and Cloud Flow Designer </p>
+<p>B:Lightning App Builder and Process Builder </p>
+<p>C:Process Builder and Cloud Flow Designer </p>
+<p>D:Process Builder, Cloud Flow Designer, and Approvals </p>
+<p><strong>解析</strong>：题目问的是Lightning Flow产品包含哪些工具？答案是C。 </p>
+<ol start="2">
+<li>Which declarative tool would you use for the following use case? Guide customers through the process of troubleshooting issues with your product.</li>
+</ol>
+<p>A) Process Builder </p>
+<p>B)Cloud Flow Designer </p>
+<p>C)Approvals </p>
+<p>D)Apex </p>
+<p><strong>解析</strong>：哪一个工具可以指导客户完成产品问题排查过程。根据上文功能的第一点，答案是B </p>
+<ol start="3">
+<li>Which declarative tool would you use for the following use case? When an opportunity’s discount is higher than 40%, notify the CEO via email and request sign-off. Provide a way for the CEO to leave comments.</li>
+</ol>
+<p>A) Process Builder </p>
+<p>B)Cloud Flow Designer </p>
+<p>C)Approvals </p>
+<p>D)Apex </p>
+<p><strong>解析</strong>：如果一个opportunity的折扣是高于40%，需要邮件通知CEO，并且CEO留下意见，很显然，这是通过审批流程实现。所以答案是答案是C </p>
+<p>4)Which declarative tool would you use for the following use case? When the Annual Revenue field exceeds $500,000 on an account, automatically update the Customer Priority field to High. </p>
+<p>A) Process Builder </p>
+<p>B)Cloud Flow Designer </p>
+<p>C)Approvals </p>
+<p>D)Apex </p>
+<p><strong>解析</strong>：当客户的年度收入(Annual Revenue)字段超过500,000美元时，系统会知道将“客户优先级”更新为“高”。根据上文的功能2，可以通过Process Builder可以实现这样逻辑。答案是A。之后的文章会通过实例详细学习如何构建Process Builder。 </p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p>答案链接在此，关于Lightning Flow的答题卡，有需要的话可以参考： </p>
+<p><a href="https://quizlet.com/298965518/lightning-flow-flash-cards/" target="_blank" rel="noopener">https://quizlet.com/298965518/lightning-flow-flash-cards/</a> </p>
+<hr>
+<h1 id="Automate-Simple-Business-Processes-with-Process-Builder"><a href="#Automate-Simple-Business-Processes-with-Process-Builder" class="headerlink" title="Automate Simple Business Processes with Process Builder"></a>Automate Simple Business Processes with Process Builder</h1><p>这里解析Data Integration Specialist Superbadge中的Lightning Flow章节的’Process Builder的简单业务逻辑’(Automate Simple Business Processes with Process Builder)，相关链接如下 </p>
+<p><a href="https://trailhead.salesforce.com/content/learn/modules/business_process_automation/process_builder" target="_blank" rel="noopener">https://trailhead.salesforce.com/content/learn/modules/business_process_automation/process_builder</a> </p>
+<h3 id="学习-1"><a href="#学习-1" class="headerlink" title="学习"></a>学习</h3><p>Process Builder是一个点击式工具，可让您轻松自动化if &#x2F; then业务流程，并在构建时查看流程的图形表示。 </p>
+<p>**触发器(trigger)**识别什么时候进程(process)可以运行。 对于记录更改过程，触发器决定哪个对象以及下面什么情况，该进程(process)要监听相关数据变动： </p>
+<ul>
+<li><p>只有当数据是新建的时候 </p>
+</li>
+<li><p>任何时候数据被新建或者更新。</p>
+</li>
+</ul>
+<p><strong>条件(Criteria)</strong>:决定是否执行该操作。在此条件，管理员可以设置如下： </p>
+<ul>
+<li><p>设置过滤条件。 </p>
+</li>
+<li><p>输入自定义公式(formula)。 与验证规则(validation rules)一样，公式必须解析为true或false。 </p>
+</li>
+<li><p>选择退出标准并始终执行相关操作。</p>
+</li>
+</ul>
+<p>** 操作(Action) **,开发者可以实现如下操作(不完全举例)： </p>
+<ul>
+<li><p>新建数据 </p>
+</li>
+<li><p>更新数据或者其他有关数据 </p>
+</li>
+<li><p>提交审批 </p>
+</li>
+<li><p>发邮件。</p>
+</li>
+</ul>
+<p>*发 Chatter feed. </p>
+<p>同时，系统设置了三种Process Types，Process Builder可以自动化几种业务流程。 其主要区别在于生命时候触发触发器(trigger)。 </p>
+<p>1）Record Change，数据改变 </p>
+<p>2）Invocable，调用其他Process Builder </p>
+<p>3）Platform Event ，平台事件，收到平台事件消息 </p>
+<p>其中，Lightning Process Builder 相关帮助文档可以参考如下： </p>
+<p><a href="https://help.salesforce.com/articleView?id=process_overview.htm&type=5" target="_blank" rel="noopener">https://help.salesforce.com/articleView?id=process_overview.htm&amp;type=5</a> </p>
+<h3 id="题目-1"><a href="#题目-1" class="headerlink" title="题目"></a>题目</h3><p>原题题目如下： </p>
+<p>Keep contact addresses in sync with their account’s address </p>
+<p>You’ve been given a requirement to keep contact addresses in sync with the accounts they belong to. Use Process Builder to create a process on the Account object that updates child Contact addresses when an account’s address is updated. </p>
+<p>Challenge Requirements: </p>
+<p>The process can have any name </p>
+<p>The process must have an Update Records action that updates Contact mailing address fields (Street, City, State, Postal Code, Country) when the parent Account shipping address field values are updated </p>
+<p>The process must be active </p>
+<h3 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h3><p>题目要求联系人的地址时刻与客户的地址保持一致。具体来说就是当客户的shipping address被更新时候，联系人的mailing address相关字段如Street, City, State, Postal Code, Country)也要被一致更新。 </p>
+<p>这里我们新建一个Process Builder，名字可以为任意名字。 </p>
+<p><img src="/images/LightningFlow/1.png" alt="alt tag"></p>
+<p>然后设置如下几步流程，</p>
+<p><img src="/images/LightningFlow/2.png" alt="alt tag"></p>
+<p>1）选择Account 无论是被更新还是新建时候都执行该流程<br><img src="/images/LightningFlow/3.png" alt="alt tag"><br>2）系统判定Account是否被新建。<br><img src="/images/LightningFlow/4.png" alt="alt tag"><br>3）如果是新建的Account，则新建一个Contact，同时设置相关字段值，令Contact mailing address相关字段等于shipping address相关字段。<br><img src="/images/LightningFlow/5.png" alt="alt tag"><br>4）判断Account是否被update，注意条件选择OR<br><img src="/images/LightningFlow/6.png" alt="alt tag"><br>5）最后，如果Account是更新的话，会同步更新Contact相关字段<br><img src="/images/LightningFlow/7.png" alt="alt tag"><br>最后记得要激活该Process Builder。<br><img src="/images/LightningFlow/8.png" alt="alt tag"></p>
+<h1 id="流-Flow"><a href="#流-Flow" class="headerlink" title="流(Flow)"></a>流(Flow)</h1><p>本章的主题为Guide Users Through Your Business Processes with Cloud Flow Designer，主要学习流(Flow)的制作方法。</p>
+<p>相关链接为：<a href="https://trailhead.salesforce.com/content/learn/modules/business_process_automation/flow" target="_blank" rel="noopener">https://trailhead.salesforce.com/content/learn/modules/business_process_automation/flow</a></p>
+<p>题目如下：</p>
+<p>Guide users through creating a lead<br>Build a flow that creates a lead with user-entered information and uploads a related file for the lead. Then add the flow to a Home page.</p>
+<p>具体要求如下：<br><strong>Challenge Requirements:</strong></p>
+<ul>
+<li>Create a flow:<ul>
+<li>Name: New Lead</li>
+<li>Type: Screen Flow</li>
+</ul>
+</li>
+<li>In the flow, add a screen with these required screen fields.<ul>
+<li>Last Name</li>
+<li>Company Name</li>
+</ul>
+</li>
+<li>In the flow, create a lead record.<ul>
+<li>Use the screen fields to set the lead’s Last Name and Company.</li>
+<li>Store the lead’s ID in a Text variable called leadId.</li>
+</ul>
+</li>
+<li>In the flow, add another screen with a Lightning component screen field.<ul>
+<li>Name the field Upload_File</li>
+<li>Choose the forceContent:fileUpload Lightning component.<br>  *Use the leadId variable to set the component’s Related Record ID attribute.</li>
+</ul>
+</li>
+<li>Activate the New Lead flow.</li>
+<li>Create a new Lightning page:<ul>
+<li>Type: Home page</li>
+<li>Label: Process Automation Home</li>
+</ul>
+</li>
+<li>In Process Automation Home, add a Flow component that references the New Lead flow.</li>
+<li>Activate the page and set it as the default Home page.</li>
+</ul>
+<p>题目解析：<br>题目要求开发者建一个流(Flow),并且输入名字和公司名字，同时实现新建一条Lead的数据。<br>同时实现上传文档的功能。而相关上传的文档是储存于Lead的附件。最后，用户可以在Home 的页面使用流(Flow)。</p>
+<p>首先，在流(Flow)里面先新建一个screen。</p>
+<p><img src="/images/LightningFlow/flow-1.jpg" alt="image"></p>
+<p>可以输入名字为screen。<br><img src="/images/LightningFlow/flow-2.jpg" alt="image"></p>
+<p>同时，加上需要用户输入的两个field：’Last Name’ 和’Company Name’:<br><img src="/images/LightningFlow/flow-3.jpg" alt="image"></p>
+<p>新建’Record Create’的模块。</p>
+<p><img src="/images/LightningFlow/flow-4.jpg" alt="image"></p>
+<p>这里需要新建另外一个变量为’leadId’,是生成新的Lead的时候的Id。也就是下一步需要上传附件时候所对应的leadId。</p>
+<p><img src="/images/LightningFlow/flow-5.jpg" alt="image"></p>
+<p>再填加新的上传附件的lightning component。<br><img src="/images/LightningFlow/flow-6.jpg" alt="image"></p>
+<p>设置上传附件的lightning component的变量。<br><img src="/images/LightningFlow/flow-7.jpg" alt="image"></p>
+<p>同时，需要设置整个流(Flow)的开始点，点击screen的右上角的绿色按钮。</p>
+<p><img src="/images/LightningFlow/flow-8.jpg" alt="image"></p>
+<p>整个流(Flow)份三个模块如下：</p>
+<p><img src="/images/LightningFlow/flow-9.jpg" alt="image"></p>
+<p>最后保存整个流(Flow)。<br><img src="/images/LightningFlow/flow-10.jpg" alt="image"></p>
+<p>保存之后需要激活：<br><img src="/images/LightningFlow/flow-11.jpg" alt="image"></p>
+<p>之后，需要在Home 的页面加上该流(Flow)。</p>
+<ul>
+<li>路径： SETUP–&gt; Lightning App Builder–&gt;New</li>
+<li>选择 ‘Home Page’</li>
+<li>点击’Next’</li>
+<li>Label 打上’Process Automation Home’</li>
+<li>点击’Finish’</li>
+<li>在左边选择’Flow’拖至home页面，</li>
+</ul>
+<p><img src="/images/LightningFlow/flow-12.jpg" alt="image"></p>
+<p>就这样，解锁了：<br><img src="/images/LightningFlow/flow-13.jpg" alt="image"></p>
+<h1 id="Combine-the-Power-of-Process-Builder-and-Cloud-Flow-Designer"><a href="#Combine-the-Power-of-Process-Builder-and-Cloud-Flow-Designer" class="headerlink" title="Combine the Power of Process Builder and Cloud Flow Designer"></a>Combine the Power of Process Builder and Cloud Flow Designer</h1><p>接下来的主题是’Combine the Power of Process Builder and Cloud Flow Designer’,讲的是如何将进程生成器(Process Builder)和流(Flow)紧密结合起来。</p>
+<p>链接如下: <a href="https://trailhead.salesforce.com/content/learn/modules/business_process_automation/business_process_automation_combined" target="_blank" rel="noopener">https://trailhead.salesforce.com/content/learn/modules/business_process_automation/business_process_automation_combined</a></p>
+<p>进程生成器(Process Builder)不能解决所有的自动化流程的问题。</p>
+<ul>
+<li>发布到社区</li>
+<li>提交审批</li>
+<li>删除数据</li>
+<li>新建一系列数据，并使之相互关联</li>
+<li>实施复杂的业务逻辑</li>
+</ul>
+<p>管理员或者开发者不必在另一个工具中重建整个业务逻辑。 在流(Flow)中配置更复杂的功能，然后向进程生成器(Process Builder)添加流(Flow)操作。 如果流(Flow)也无法满足您的实际业务需求，您或许可以要求有关开发人员可以编写Apex来执行此操作。 同时通过您的流(Flow)来添加Apex操作。</p>
+<p>假如，现在有一个需求是需求是：更新closed won的业务机会(opportunity)。由于closed won的业务机会(opportunity)已经完结，需要复制现有的业务机会(opportunity)。 那么该如何实现呢？ 开发人员可以通过进程生成器(Process Builder)复制一个现在已经处于closed won阶段的业务机会(opportunity)，但是如果想复制产品(products)并且将其与新的业务机会(opportunity)产生连接。</p>
+<p>在进程生成器(Process Builder)中，我们不能获取新建数据的ID，并用于其他用户。但是我们可以在流(Flow)中应用。对于上述的需求，开发人员可以新建一个流(Flow)，复制业务机会(opportunity)和其对应的产品(products)。同时新建一个进程生成器(Process Builder)当业务机会(opportunity)时处于closed won阶段，自动调用该流(Flow)。</p>
+<p>对于流(Flow)的步骤可以如下：</p>
+<ul>
+<li>复制业务机会(opportunity)</li>
+<li>复制其对应的产品(products)</li>
+<li>连接新建的产品(products)和新建的业务机会(opportunity)</li>
+<li>下面来做题目。题目如下：</li>
+</ul>
+<p><em>题目1.</em> An sObject variable can store A）A single value</p>
+<p>B）A set of field values for a single record</p>
+<p>C）Multiple values of the same data type</p>
+<p>D）A set of field values for multiple records that have the same object</p>
+<p>解析： 问题是一个sObject可以储存什么。B</p>
+<p><em>题目2.</em> For which use case is it appropriate to combine a process and a flow? </p>
+<p>A）Post to an internal Chatter group.</p>
+<p>B）Clone a record and its children.</p>
+<p>C）Delete a related record.</p>
+<p>D）B and C</p>
+<p>解析：什么情况需要结合进程生成器(Process Builder)和流(Flow)操作，根据上面的案例，需要复制master-detail的数据，需要用到答案是D。</p>
+<p>*题目3.*Inside a loop, you should avoid:</p>
+<p>A）Executing actions, like creating or updating records.</p>
+<p>B）Assigning new values to variables.</p>
+<p>C）Displaying data to the user.</p>
+<p>D）esting another loop.</p>
+<p>解析：在一个循环里面，开发者需要避免的是A执行新建或者更新数据的操作。切记，除非开发人员已经确认该循环只执行有限数量次数，任何DML操作都得在循环外面执行。</p>
+<p>就这样解锁了。  </p>
+<p><img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Blog/Lightning-Flow-1.jpg" alt="image"></p>
+<h1 id="Customize-How-Records-Get-Approved-with-Approvals"><a href="#Customize-How-Records-Get-Approved-with-Approvals" class="headerlink" title="Customize How Records Get Approved with Approvals"></a>Customize How Records Get Approved with Approvals</h1><p>本章节讲述的是批准过程(Approval Process)。相关链接如下：</p>
+<p><a href="https://trailhead.salesforce.com/en/content/learn/modules/business_process_automation/approvals" target="_blank" rel="noopener">https://trailhead.salesforce.com/en/content/learn/modules/business_process_automation/approvals</a></p>
+<p><strong>挑战</strong>如下：</p>
+<p><strong>Make sure that prospect amounts are approved before they’re converted to customers</strong></p>
+<p>Due to local regulation, new customers must be approved by the legal team. When a user creates an account that has a type of Prospect, they manually submit it for approval by clicking Submit for Approval on the account. The record is evaluated only if its type is Prospect and there are more than 500 employees. When the account enters the approval process, Type gets set to Pending and the record is locked. If approved, Type gets set to Customer and the record is unlocked. If not approved, Type gets set back to Prospect and the record is unlocked.</p>
+<p><strong>Before You Start</strong><br>Verify that the Account object’s Type field has the following picklist values: Prospect, Customer, Pending. </p>
+<p><strong>Challenge Requirements:</strong>‘</p>
+<ul>
+<li>Use the Jump Start Wizard to create a new approval process for the <strong>Account</strong> object</li>
+<li>The approval process name must be <strong>Approve New Account</strong></li>
+<li>Pick any email template for approval assignment email template</li>
+<li>For Entry Criteria, use the following criteria.<ul>
+<li><strong>Account: Type</strong> equals <strong>Prospect</strong></li>
+<li><strong>Account: Employees</strong> greater than <strong>500</strong></li>
+</ul>
+</li>
+<li>For Approver, choose <strong>Automatically assign to approver(s)</strong> and assign yourself as the approver</li>
+<li>Click <strong>View Approval Process Detail Page</strong> and finish off the remaining requirements.<ul>
+<li>In the Initial Submission section, add a Field Update action that updates the Account: Type field to Pending. The name of the action must be <strong>Account Type To Pending</strong>.</li>
+<li>In the Final Approval Actions, add a Field Update action that updates the Account: Type field to Customer. The name of the action must be <strong>Account Type To Customer</strong>.</li>
+<li>In the Final Approval Actions section, edit the Record Lock action to unlock the record</li>
+<li>In the Final Rejection Actions section, add a Field Update action that updates the Account: Type field to Prospect. The name of the action must be <strong>Account Type To Prospect</strong></li>
+</ul>
+</li>
+<li>Activate the approval process</li>
+</ul>
+<p><strong>题目解析</strong></p>
+<p>题目要求开发者在客户(Account)对象下新建一个批准过程(Approval Process)，由于法律的需要，在成为真正客户前需要提交法务部门审批，当审批通过后，该客户(Account)会真正成为客户。</p>
+<p>开始前需要确认Account 对象中的Type字段需要有Prospect, Customer, Pending这个三个选项，这三个状态在批准过程(Approval Process)会用到。</p>
+<p>在SETUP里面输入Approval Processes，然后找到对应到的Acount对象。选择Jump Start Wizard新建一个批准过程(Approval Process)。<br>其中，名字必须设置为Approve New Account。项目条件可以设置为(客户: 类型等于Prospect) 和 (客户: 员工大于500)。</p>
+<p><img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Blog/Lightning-Flow-2.jpg" alt="image"></p>
+<p>在“初始提交操作”中，需要添加新的字段更新，将客户: 类型更新为Pending状态。</p>
+<p>在“最终批准操作”中，需要添加新的字段更新，将客户: 类型更新为Customer状态，同时在‘记录锁定’中选择“取消锁定可以进行编辑”。</p>
+<p>在“最终拒绝操作”中，需要添加新的字段更新，将客户: 类型更新为原有的状态Prospect。</p>
+<p>最终流程如下：<br><img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Blog/Lightning-Flow-3.jpg" alt="image"></p>
+<p>批准分配电子邮件模板可以任意选择一个。批准人可以设置为自己。</p>
+<p>然后点击“启用”按钮，就这样整个批准过程就激活了。然后，我们就这样解锁了Lightning Flow模块：</p>
+<p><img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Blog/Lightning-Flow-4.jpg" alt="image"></p>
+<h3 id="参考-1"><a href="#参考-1" class="headerlink" title="参考"></a>参考</h3><p>相关参考链接： </p>
+<ul>
+<li><p><a href="https://salesforce.stackexchange.com/questions/134054/process-builder-create-a-child-contact-and-keep-it-in-sync-with-parent-account" target="_blank" rel="noopener">https://salesforce.stackexchange.com/questions/134054/process-builder-create-a-child-contact-and-keep-it-in-sync-with-parent-account</a> </p>
+</li>
+<li><p><a href="https://technologyflows.com/2015/03/01/process-builder-update-contact-address-from-account/" target="_blank" rel="noopener">https://technologyflows.com/2015/03/01/process-builder-update-contact-address-from-account/</a></p>
+</li>
+<li><p><a href="https://www.youtube.com/watch?v=EhnuJ32Oq6o" target="_blank" rel="noopener">https://www.youtube.com/watch?v=EhnuJ32Oq6o</a></p>
+</li>
+<li><p><a href="https://www.youtube.com/watch?v=zBFPcFZ1zSQ" target="_blank" rel="noopener">https://www.youtube.com/watch?v=zBFPcFZ1zSQ</a></p>
+</li>
+<li><p><a href="https://www.youtube.com/watch?v=sjOWbErHvtY" target="_blank" rel="noopener">https://www.youtube.com/watch?v=sjOWbErHvtY</a></p>
+</li>
+</ul>
+<hr>
+
+        </div>
+
+        <section class='meta'>
+            <time class="time" itemprop="dateUpdated" datetime="2025-05-06T03:51:48+00:00" content="2025-05-06">
+                <i class="fas fa-pen fa-fw" aria-hidden="true"></i>
+                本文最后更新于：2025-05-06
+            </time>
+            
+                
+                <div class="tags">
+                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                    <a class="tag" href="/tags/Salesforce/">Salesforce</a>, <a class="tag" href="/tags/Lightning/">Lightning</a>, <a class="tag" href="/tags/Trailhead/">Trailhead</a>, <a class="tag" href="/tags/%E5%BC%80%E5%8F%91%E8%80%85II%E8%80%83%E8%AF%95/">开发者II考试</a>
+                </div>
+            
+        </section>
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <div class="addthis_inline_share_toolbox"></div>
+
+
+        
+            <div class="prev-next">
+                
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一篇</h6>
+                            <h4>
+                                <a href="/2018/11/27/2018-11-27-hexo-theme-doc-SupportCN/" rel="prev" title="hexo-theme-doc主题实现中文搜索">
+                                  
+                                      hexo-theme-doc主题实现中文搜索
+                                  
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                                    <a class="tag" href="/tags/hexo/">hexo</a>, <a class="tag" href="/tags/hexo-theme-doc/">hexo-theme-doc</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>下一篇&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2018/11/25/2018-11-25-WesingPlugins/" rel="prev" title="全民K歌小外挂：自动评论插件">
+                                    
+                                        全民K歌小外挂：自动评论插件
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                                    <a class="tag" href="/tags/%E8%87%AA%E5%8A%A8/">自动</a>, <a class="tag" href="/tags/Python/">Python</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+
+    </section>
+
+</article>
+
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+    <article class="post white-box comments">
+        <section class="article typo">
+
+            
+                
+
+    <div class="recommended_posts">
+        <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;你可能感兴趣的文章</h4>
+        <ul>
+            
+                <li><a href="http://tonyrenhk.github.io/2018/12/05/2018-12-05-Data-Integration-Specialist-Superbadge/">Trailhead学习:Data Integration Specialist Superbadge</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2018/11/27/2018-11-27-hexo-theme-doc-SupportCN/">hexo-theme-doc主题实现中文搜索</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2018/11/25/2018-11-25-WesingPlugins/">全民K歌小外挂：自动评论插件</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2018/11/24/2018-11-24-Google-App-Script-Note/">Google App Script 学习</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2018/09/28/2018-09-28-JSForce-Study/">JSforce使用技巧</a></li>
+            
+        </ul>
+    </div>
+
+
+            
+
+            
+
+                
+
+                
+
+                
+                    
+                
+            
+
+        </section>
+    </article>
+
+
+<script>
+    window.subData = {
+        title: 'Trailhead学习:Lightning Flow',
+        tools: true
+    }
+</script>
+
+
+        </div>
+        <aside class='l_side'>
+            
+    
+        
+  <section class='m_widget author'>
+    
+      <div class='header'>
+        <img class='avatar' src='https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/Me2.jpg'/>
+      </div>
+    
+    
+      <div class='content'>
+        
+          <h2>Tony Ren&#39;s 学习笔记</h2>
+        
+        
+          <p>好学近乎知，力行近乎仁，知耻近乎勇</p>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:renchk@foxmail.com" class="social flat-box" target="_blank" rel="external"><i class="social fas fa-envelope" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://github.com/TonyRenHK" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-github" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://www.weibo.com/6476367461" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-weibo" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://tonyrenhk.github.io/Wechat/" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-weixin" aria-hidden="true"></i></a>
+          
+        
+      </div>
+    
+  </section>
+
+
+    
+    
+        <section class='m_widget links'>
+    <div class='content pure'>
+        <ul class="entry" id="links">
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://tonyrenhk.github.io/2018/01/01/2018-01-01-Salesforce-related-resource/" rel="external nofollow noopener noreferrer" href="https://tonyrenhk.github.io/2018/01/01/2018-01-01-Salesforce-related-resource/">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/IMG_2568.JPG">
+                        
+                        &nbsp;&nbsp;Salesforce
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://tonyrenhk.github.io/2018/01/09/2018-01-09-IT-Study-Resource/" rel="external nofollow noopener noreferrer" href="https://tonyrenhk.github.io/2018/01/09/2018-01-09-IT-Study-Resource/">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88612001-cf62a900-d0bc-11ea-9cbb-a14beeb356c7.png">
+                        
+                        &nbsp;&nbsp;IT
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/Note/OnlineTools.html" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/Note/OnlineTools.html">
+                    
+                    <div class='name'>
+                        
+                            <img src="http://tonyrenhk.github.io/images/notebook.png">
+                        
+                        &nbsp;&nbsp;工具Tools
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/Note/Tutorial.html" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/Note/Tutorial.html">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/Astro_Trailblazer_hoodie_wave.png">
+                        
+                        &nbsp;&nbsp;教程Tutorial
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/2018/02/02/2018-02-02-Git-Study/" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/2018/02/02/2018-02-02-Git-Study/">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/s.png">
+                        
+                        &nbsp;&nbsp;Git
+                    </div>
+                </a></li>
+            
+        </ul>
+    </div>
+</section>
+
+    
+    
+        <section class='m_widget categories'>
+    <header class='header pure'>
+        <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;分类</div>
+    </header>
+    <div class='content pure'>
+        
+            <ul class="entry">
+                
+                    <li><a class="flat-box" href="/categories/English/"><div class='name'>English</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Git/"><div class='name'>Git</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Google/"><div class='name'>Google</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/JavaScript/"><div class='name'>JavaScript</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Others/"><div class='name'>Others</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Python/"><div class='name'>Python</div><div class='badge'>1</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Salesforce/"><div class='name'>Salesforce</div><div class='badge'>35</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Tools/"><div class='name'>Tools</div><div class='badge'>1</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/hexo/"><div class='name'>hexo</div><div class='badge'>1</div></a></li>
+                
+            </ul>
+        
+    </div>
+</section>
+
+    
+    
+        
+    <section class='m_widget tagcloud'>
+        <header class="header pure">
+            <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
+        </header>
+        <div class='content pure'>
+            <a href="/tags/Admin/" style="font-size: 14px; color: #999">Admin</a> <a href="/tags/Apex/" style="font-size: 16.86px; color: #868686">Apex</a> <a href="/tags/BookMark/" style="font-size: 14px; color: #999">BookMark</a> <a href="/tags/CDC/" style="font-size: 14px; color: #999">CDC</a> <a href="/tags/CPQ/" style="font-size: 14px; color: #999">CPQ</a> <a href="/tags/Change-Data-Capture/" style="font-size: 14px; color: #999">Change Data Capture</a> <a href="/tags/Chrome-Extension/" style="font-size: 14px; color: #999">Chrome-Extension</a> <a href="/tags/Community-Cloud/" style="font-size: 14px; color: #999">Community Cloud</a> <a href="/tags/Demo/" style="font-size: 14px; color: #999">Demo</a> <a href="/tags/Flow/" style="font-size: 14px; color: #999">Flow</a> <a href="/tags/Git/" style="font-size: 16.86px; color: #868686">Git</a> <a href="/tags/Google/" style="font-size: 14px; color: #999">Google</a> <a href="/tags/Google-App-Script/" style="font-size: 14px; color: #999">Google App Script</a> <a href="/tags/Heroku/" style="font-size: 14px; color: #999">Heroku</a> <a href="/tags/IT%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">IT学习</a> <a href="/tags/Interactive-Email/" style="font-size: 14px; color: #999">Interactive Email</a> <a href="/tags/JavaScript/" style="font-size: 15.43px; color: #8f8f8f">JavaScript</a> <a href="/tags/Jsforce/" style="font-size: 15.43px; color: #8f8f8f">Jsforce</a> <a href="/tags/LWC/" style="font-size: 22.57px; color: #5f5f5f">LWC</a> <a href="/tags/Lightning/" style="font-size: 15.43px; color: #8f8f8f">Lightning</a> <a href="/tags/Lightning-Components/" style="font-size: 14px; color: #999">Lightning Components</a> <a href="/tags/Lightning-Web-Components/" style="font-size: 18.29px; color: #7c7c7c">Lightning Web Components</a> <a href="/tags/MC/" style="font-size: 15.43px; color: #8f8f8f">MC</a> <a href="/tags/MCC/" style="font-size: 14px; color: #999">MCC</a> <a href="/tags/Marketing-Cloud/" style="font-size: 14px; color: #999">Marketing Cloud</a> <a href="/tags/Marketing-Cloud-Connect/" style="font-size: 14px; color: #999">Marketing Cloud Connect</a> <a href="/tags/Org/" style="font-size: 14px; color: #999">Org</a> <a href="/tags/Others/" style="font-size: 14px; color: #999">Others</a> <a href="/tags/Pardot/" style="font-size: 14px; color: #999">Pardot</a> <a href="/tags/Python/" style="font-size: 15.43px; color: #8f8f8f">Python</a> <a href="/tags/Roll-Up-Summary/" style="font-size: 14px; color: #999">Roll-Up Summary</a> <a href="/tags/SFDC/" style="font-size: 14px; color: #999">SFDC</a> <a href="/tags/SFDX/" style="font-size: 19.71px; color: #727272">SFDX</a> <a href="/tags/Salesforce/" style="font-size: 24px; color: #555">Salesforce</a> <a href="/tags/Salesforce-Mobile/" style="font-size: 14px; color: #999">Salesforce Mobile</a> <a href="/tags/Sandbox/" style="font-size: 14px; color: #999">Sandbox</a> <a href="/tags/Script/" style="font-size: 14px; color: #999">Script</a> <a href="/tags/Site/" style="font-size: 14px; color: #999">Site</a> <a href="/tags/Study/" style="font-size: 18.29px; color: #7c7c7c">Study</a> <a href="/tags/StudyNote/" style="font-size: 14px; color: #999">StudyNote</a> <a href="/tags/Superbadge/" style="font-size: 14px; color: #999">Superbadge</a> <a href="/tags/Tools/" style="font-size: 14px; color: #999">Tools</a> <a href="/tags/Trailhead/" style="font-size: 21.14px; color: #686868">Trailhead</a> <a href="/tags/exam/" style="font-size: 14px; color: #999">exam</a> <a href="/tags/flow/" style="font-size: 14px; color: #999">flow</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/tags/hexo-theme-doc/" style="font-size: 14px; color: #999">hexo-theme-doc</a> <a href="/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/tags/metadata/" style="font-size: 14px; color: #999">metadata</a> <a href="/tags/shortcut/" style="font-size: 14px; color: #999">shortcut</a> <a href="/tags/%E5%85%A5%E9%97%A8/" style="font-size: 14px; color: #999">入门</a> <a href="/tags/%E5%AF%B9Campaign/" style="font-size: 14px; color: #999">对Campaign</a> <a href="/tags/%E5%BC%80%E5%8F%91%E8%80%85II%E8%80%83%E8%AF%95/" style="font-size: 19.71px; color: #727272">开发者II考试</a> <a href="/tags/%E8%87%AA%E5%8A%A8/" style="font-size: 14px; color: #999">自动</a> <a href="/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">英语学习</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 14px; color: #999">面试</a>
+        </div>
+    </section>
+
+
+    
+    
+        
+    <section class='m_widget toc-wrapper'>
+        <header class="header pure">
+            <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;目录</div>
+            <div class='wrapper'><a class="s-toc rightBtn" title="固定到顶部" target="_blank" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+        </header>
+        <div class='content pure'>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Choose-the-Right-Automation-Tool"><span class="toc-text">Choose the Right Automation Tool</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#学习"><span class="toc-text">学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题目"><span class="toc-text">题目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Automate-Simple-Business-Processes-with-Process-Builder"><span class="toc-text">Automate Simple Business Processes with Process Builder</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#学习-1"><span class="toc-text">学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题目-1"><span class="toc-text">题目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解析"><span class="toc-text">解析</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#流-Flow"><span class="toc-text">流(Flow)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Combine-the-Power-of-Process-Builder-and-Cloud-Flow-Designer"><span class="toc-text">Combine the Power of Process Builder and Cloud Flow Designer</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Customize-How-Records-Get-Approved-with-Approvals"><span class="toc-text">Customize How Records Get Approved with Approvals</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考-1"><span class="toc-text">参考</span></a></li></ol></li></ol></li></ol>
+        </div>
+    </section>
+
+
+    
+    
+        <section class='m_widget links'>
+    <header class='header pure'>
+        <div><i class="fas fa-link fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;更多</div>
+        
+            <a class="rightBtn" title="联系博主添加友链" target="_blank" rel="external nofollow noopener noreferrer" href="mailto:me@xaoxuu.com?subject=交换友链&body=你好，我想和你交换友链，我已经将【Tony Ren&#39;s 学习笔记】添加到我的博客的友链中。我的博客链接是："><i class="fas fa-plus fa-fw"></i></a>
+        
+    </header>
+    <div class='content pure'>
+        <ul class="entry" id="links">
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://docs.qq.com/desktop/" target="_blank" rel="external nofollow noopener noreferrer" href="https://docs.qq.com/desktop/">
+                    
+                        
+                    
+                        
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88069910-a6b24f00-cba4-11ea-837b-d4a0dcf05d94.png">
+                        
+                        &nbsp;&nbsp;腾讯文档
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://www.notion.so/" target="_blank" rel="external nofollow noopener noreferrer" href="https://www.notion.so/">
+                    
+                        
+                    
+                        
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88069945-b16ce400-cba4-11ea-9c3f-d5857b39a5df.png">
+                        
+                        &nbsp;&nbsp;Notion
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://ide.goorm.io/" target="_blank" rel="external nofollow noopener noreferrer" href="https://ide.goorm.io/">
+                    
+                        
+                    
+                        
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88611890-9e827400-d0bc-11ea-893a-5b0af150504a.png">
+                        
+                        &nbsp;&nbsp;Goorm IDE
+                    </div>
+                </a></li>
+            
+        </ul>
+    </div>
+</section>
+
+    
+
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    </div>
+    <footer id="footer" class="clearfix">
+    
+        <div class="social-wrapper">
+          
+              
+                  <a href="mailto:renchk@foxmail.com" class="social fas fa-envelope flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://github.com/TonyRenHK" class="social fab fa-github flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://www.weibo.com/6476367461" class="social fab fa-weibo flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://tonyrenhk.github.io/Wechat/" class="social fab fa-weixin flat-box" target="_blank" rel="external"></a>
+              
+          
+        </div>
+    
+    <br>
+    <div>博客内容遵循 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="licenses">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></div>
+    <div>本站使用 <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a> 作为主题，
+		总访问量为 <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> 次。
+    </div>
+    
+<span id="runtime_span"></span>
+
+<script type="text/javascript">
+function show_runtime(){
+  window.setTimeout("show_runtime()",1000);
+  X=new Date("8/22/2016 18:27:0");
+  Y=new Date();T=(Y.getTime()-X.getTime());M=24*60*60*1000;
+  a=T/M;A=Math.floor(a);
+  b=(a-A)*24;B=Math.floor(b);
+  c=(b-B)*60;C=Math.floor((b-B)*60);
+  D=Math.floor((c-C)*60);
+  runtime_span.innerHTML="—— 本站已稳定运行： "+A+"天"+B+"小时"+C+"分"+D+"秒 ——"}show_runtime();
+
+</script>
+
+
+</footer>
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+    <script>setLoadingBarProgress(80);</script>
+    <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src='//cdn.bootcss.com/node-waves/0.7.5/waves.min.js'></script>
+<script src="//cdn.bootcss.com/scrollReveal.js/3.3.2/scrollreveal.min.js"></script>
+<!-- 访问统计 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5bfb78723c9c4600"></script>
+
+
+
+<script src="/js/jquery.fitvids.js"></script>
+
+
+    <script>
+        var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+        var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+        var ALGOLIA_API_KEY = "";
+        var ALGOLIA_APP_ID = "";
+        var ALGOLIA_INDEX_NAME = "";
+        var AZURE_SERVICE_NAME = "";
+        var AZURE_INDEX_NAME = "";
+        var AZURE_QUERY_KEY = "";
+        var BAIDU_API_ID = "";
+        var SEARCH_SERVICE = "hexo" || "hexo";
+        var ROOT = "/"||"/";
+        if(!ROOT.endsWith('/'))ROOT += '/';
+    </script>
+
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/app.js"></script>
+
+
+
+    
+    
+    
+        
+    
+
+
+    <script>setLoadingBarProgress(100);</script>
+</body>

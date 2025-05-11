@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="036nsNgxuH68xUABF8jrgg8Xzsti4FN8eKjWvA185C4" />
+  <meta name="baidu-site-verification" content="FQRuGMvxtv" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+
+  
+  <title>如何利用流(flow)新建一个累计汇总(Roll-Up Summary)字段？ | Tony Ren&#39;s 学习笔记</title>
+  
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico">
+  <link rel="alternate" href="/atom.xml" title="Tony Ren's 学习笔记">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico" />
+  <link rel="icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico" />
+  
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono" rel="stylesheet">
+  
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link href='//cdn.bootcss.com/node-waves/0.7.5/waves.min.css' rel='stylesheet'>
+  
+<link rel="stylesheet" href="/style.css">
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+  
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1382646259212001",
+    enable_page_level_ads: true
+  });
+</script>
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading-bar-wrapper">
+  <div id="loading-bar" class="pure"></div>
+</div>
+
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header pure">
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+			<a class="logo flat-box" href='/' >Tony Ren's 学习笔记</a>
+				<div class='menu'>
+					<ul class='h-list'>
+            
+    					
+    						<li>
+    							<a class="nav  flat-box" href="/">
+    								<i class='fas fa-home fa-fw'></i>&nbsp;主页
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/archives/">
+    								<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/Project">
+    								<i class='fas fa-flask fa-fw'></i>&nbsp;项目
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/about/">
+    								<i class='fas fa-user fa-fw'></i>&nbsp;关于
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="https://renchk.github.io" target="_blank" rel="noopener">
+    								<i class='fas fa-globe fa-fw'></i>&nbsp;English
+  								</a>
+  							</li>
+        			
+        		
+					</ul>
+					<div class='underline'></div>
+				</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search" />
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></span></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-top'><a class="fas fa-arrow-circle-up fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-toc'><a class="fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+		<nav>
+      <ul>
+          
+              
+                  <li>
+										<a class="nav  flat-box" href="/">
+											<i class='fas fa-home fa-fw'></i>&nbsp;主页
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/archives/">
+											<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/Project">
+											<i class='fas fa-flask fa-fw'></i>&nbsp;项目
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/about/">
+											<i class='fas fa-user fa-fw'></i>&nbsp;关于
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="https://renchk.github.io" target="_blank" rel="noopener">
+											<i class='fas fa-globe fa-fw'></i>&nbsp;English
+										</a>
+                  </li>
+              
+       
+      </ul>
+		</nav>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            <article id="post-2020-01-15-Salesforce-flow-Roll-Up-Summary" class="post white-box article-type-post" itemscope itemprop="blogPost">
+    <section class='meta'>
+        
+            <h1 class="title">如何利用流(flow)新建一个累计汇总(Roll-Up Summary)字段？</h1>
+        
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+            2020-01-15
+        </time>
+        <div class="browse"><i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+        </div>
+        
+    
+    <div class='cats'>
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+        <a class="categories" href="/categories/Salesforce/">Salesforce</a>
+    </div>
+
+
+    </section>
+
+    <section class="article typo">
+
+        <div class="article-entry" itemprop="articleBody">
+            <p>Salesforce flow study</p>
+<a id="more"></a>
+
+<p><strong>​累计汇总(Roll-Up Summary)<strong>字段广泛应用于Salesforce中，但是其限制是只能适用于</strong>Master-Detail</strong>关系，而普通的查找关系(Lookup Relationship)是不能新建**累计汇总(Roll-Up Summary)**字段。如果有该需求，常用做法是新建一个字段，通过系统的触发器进行计算。</p>
+<p>今天带大家来探讨一下，<strong>如何利用流(flow)和进程生成器(Process builder)在查找关系(Lookup Relationship)中新建一个累计汇总(Roll-Up Summary)字段</strong>？</p>
+<p>假设现在我们有如下案例：</p>
+<p>我们新建一个对象名字为Project ，同时与Account建立查找关系(Lookup Relationship)，并且建立如下字段：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6156917-2a9928f1f612f5b0?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"> </p>
+<p>现在需要做的是每一次添加一个Project，都会计算该Project对应的Account一共拥有多少个Project，由于Account和Project不是Master-Detail 关系，我们无法新建累计汇总(Roll-Up Summary)字段。因此，可以在Account对象下，新建一个Number字段，名字为Project Count Total。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6156917-34d089f31b7f73d7?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"> </p>
+<p>接下来需要做的是：每一次Project数据变动，通过进程生成器(Process builder)调用流(flow)统计Project的Account下面的所有Project数量，并且更新回Account的字段：Project Count Total。</p>
+<p>现在我们先新建一个Flow。</p>
+<p>Flow的步骤如下：</p>
+<ol>
+<li><p>通过外部传入Project对象的Account的Id, 利用这个Account的Id获得有关的Project</p>
+</li>
+<li><p>创建循环，遍历这个Account下面的Project数据</p>
+</li>
+<li><p>在每一次循环时候，累加总数。</p>
+</li>
+<li><p>将该总数更新回Account字段中。</p>
+</li>
+</ol>
+<p>现在我们先实现第一步，利用一个外部参数：Account的Id，查询到所有有关的Project数据。现在，新建一个Get Records：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6156917-aa9b7103203f0948?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"> </p>
+<p>这里对象选择的是Project，因为我们需要统计的是Project一共有多少数据。在Account等于某一个Value处，我们需要新建一个value，选择新建一个resource，选择variable，这里命名为curAccountID。我们会在之后其他地方传入这个ID，同时，我们会在之后基于这个变量更新Account的相关字段。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6156917-cfcbf4950db2f700?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"> </p>
+<p>新建完输入变量之后，在store Project Records处，新建另外一个variable，设定输出变量。<img src="https://upload-images.jianshu.io/upload_images/6156917-8998abcf9b392ab5?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p>
+<p>这里命名store的Records为curAccountProjects，同时选择Allow multiple values， 因为可能查询多于一个Project的记录。这个在Apex中就是List<Project__c>的变量。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6156917-426846e8af185215?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"> </p>
+<p>最后整个Get Records页面如下，并点击Done。该步骤返回的是一组Project数据。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6156917-696d116f27d39bc6?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"> </p>
+<p>接下来，我们写上面步骤的第二步：设计循环。这里新建一个Loop，Collection Variable选择Get Records 里面定义的curAccountProjects。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6156917-87ab28b4ebb7efd1?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"> </p>
+<p>在select Loop Variable里面，需要新建一个变量Variable，也就是每一次遍历时候的Project这个变量。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6156917-33e0b612eff5e47f?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"> </p>
+<p>然后，在Select Loop Variable中选择 Loop Variable 为{!Project}，如下：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6156917-18771fb8c703b800?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p>
+<p>建完循环之后，需要新建一个Assignment，也就是基于上面的循环Loop，统计有多少记录数目。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6156917-ac586be436eb2aca?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"> </p>
+<p>在Set Variable Values处，新建一个Variable,命名其为TotalProjectCount</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6156917-087ed93defd18009?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"> </p>
+<p>然后，在Set Variable Values，选择Equals Count 之前Loop的变量值curAccountProjects，也就是不断累加，最后Assignment如下。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6156917-8fb7acb0798a05f0?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"> </p>
+<p>最后，把countProjects(Loop)和Total Project Count(Assignment)连起来，选择每一个item都执行累加计算。然后，再把Total Project Count(Assignment)和countProjects(Loop)连一次，形成一个循环。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6156917-cc61a1470cff41cb?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"> </p>
+<p>截止目前的整个Flow如下，已经实现了统计循环里面的数据数目的功能：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6156917-85670d84e139f2d4?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"> </p>
+<p>计算了总共的Project数目之后，需要把总数更新回Account中，这里我们新建一个Update Records 元素：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6156917-cc291a45c03c38e2?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"> </p>
+<p>这里选择Specify conditions to identify records, and set fields individually，并且选择更新的是Account对象：<img src="https://upload-images.jianshu.io/upload_images/6156917-3bb93fe41994a89a?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"> </p>
+<p>选择Account数据的条件为设定Account的ID为之前定义的会有外部传入的curAccountID。也就是说，之后会传入一个Account ID经过一系列计算，把总值更新回Account对象里面。然后更新的字段为我们新建的Account roll up summary的number field。注意这里是一个普通数字的字段。并且把Total Project Count(Assignment)里面的变量TotalProjectCount传入Account的字段中。</p>
+<p>最后的flow样式如下：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6156917-8cc8f5e55d7828f3?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"> </p>
+<p>最后保存Flow：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6156917-05f4b6ee5ceff9cc?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"> </p>
+<p>至此，整个Flow已经完成了。</p>
+<p>现在可以测试你的flow，点击flow的右上角的debug，输入Account Id。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6156917-6a48193efac1818e?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"> </p>
+<p>这里拿了两条数据的Account进行测试</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6156917-6c8262d7f9fa6f4e?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"> </p>
+<p>可以看到debug的结果是计算出有两条Project 数据，并且更新了现在的Account。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6156917-a3fd012994b37554?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"> </p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6156917-f1665bed1bc2c9aa?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p>
+<p>测试完成之后，返回Flow，激活你的flow。</p>
+<p>然后需要新建一个进程生成器(Process builder)触发这个Flow。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6156917-ba3bf0dccc3ceda4?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"> </p>
+<p>选择每次新建或者编辑Project数据时候都执行这个进程生成器(Process builder)：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6156917-eb8ce5a4ab289432?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"> </p>
+<p>然后选择无条件进入Flow：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6156917-b75508ff0cb8c817?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"> </p>
+<p>进入Flow需要传入变量，把Project对象上的Account字段传进去：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6156917-6b90bef372bc3ea2?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p>
+<p>这里value 处选择[Project__c].Account__c，传入Account Id。</p>
+<p>然后点保存并且激活Process builder。至此整个功能已经完成了。整个过程没有用代码实现。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6156917-f6904ef517e77306?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p>
+<p><strong>后记：</strong></p>
+<p>由于process builder我们设定只能是数据更新和建立才能被触发，如果数据被删除是不能被触发的。目前Workflow, Visual Workflow, Process Builder都无法在数据被删除时候被触发，有关idea可以参考如下链接：</p>
+<p><a href="https://success.salesforce.com/ideaView?id=08730000000DlPBAA0" target="_blank" rel="noopener">https://success.salesforce.com/ideaView?id=08730000000DlPBAA0</a></p>
+<p>参考链接：</p>
+<p>【1】<a href="https://admin.salesforce.com/use-flow-builder-to-create-a-roll-up-summary-field" target="_blank" rel="noopener">https://admin.salesforce.com/use-flow-builder-to-create-a-roll-up-summary-field</a></p>
+<p>【2】<a href="https://youtu.be/EDD_7wDmPGY" target="_blank" rel="noopener">https://youtu.be/EDD_7wDmPGY</a></p>
+<hr>
+
+        </div>
+
+        <section class='meta'>
+            <time class="time" itemprop="dateUpdated" datetime="2025-05-06T03:51:48+00:00" content="2025-05-06">
+                <i class="fas fa-pen fa-fw" aria-hidden="true"></i>
+                本文最后更新于：2025-05-06
+            </time>
+            
+                
+                <div class="tags">
+                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                    <a class="tag" href="/tags/Salesforce/">Salesforce</a>, <a class="tag" href="/tags/flow/">flow</a>, <a class="tag" href="/tags/Roll-Up-Summary/">Roll-Up Summary</a>
+                </div>
+            
+        </section>
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <div class="addthis_inline_share_toolbox"></div>
+
+
+        
+            <div class="prev-next">
+                
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一篇</h6>
+                            <h4>
+                                <a href="/2020/02/02/2020-02-02-SFDC-CDC/" rel="prev" title="Salesforce的CDC是做什么的？">
+                                  
+                                      Salesforce的CDC是做什么的？
+                                  
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                                    <a class="tag" href="/tags/Salesforce/">Salesforce</a>, <a class="tag" href="/tags/SFDX/">SFDX</a>, <a class="tag" href="/tags/CDC/">CDC</a>, <a class="tag" href="/tags/Change-Data-Capture/">Change Data Capture</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>下一篇&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2020/01/06/2020-01-06-SFDC-Public-Site/" rel="prev" title="Salesforce Public Site 学习">
+                                    
+                                        Salesforce Public Site 学习
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                                    <a class="tag" href="/tags/Salesforce/">Salesforce</a>, <a class="tag" href="/tags/Site/">Site</a>, <a class="tag" href="/tags/Flow/">Flow</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+
+    </section>
+
+</article>
+
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+    <article class="post white-box comments">
+        <section class="article typo">
+
+            
+                
+
+    <div class="recommended_posts">
+        <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;你可能感兴趣的文章</h4>
+        <ul>
+            
+                <li><a href="http://tonyrenhk.github.io/2020/02/20/2020-02-20-Salesforce-Sandbox-design/">Salesforce Sandbox设计最佳实践</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2020/02/02/2020-02-02-SFDC-CDC/">Salesforce的CDC是做什么的？</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2020/01/06/2020-01-06-SFDC-Public-Site/">Salesforce Public Site 学习</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2019/12/21/2019-12-21-Salesforce-free-org/">【收藏贴】Salesforce各种免费学习Org申请链接大全</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2019/09/12/2019-09-12-JsforceMetadata/">JSforce-metadata-tools 使用refresh Token登入Salesforce</a></li>
+            
+        </ul>
+    </div>
+
+
+            
+
+            
+
+                
+
+                
+
+                
+                    
+                
+            
+
+        </section>
+    </article>
+
+
+<script>
+    window.subData = {
+        title: '如何利用流(flow)新建一个累计汇总(Roll-Up Summary)字段？',
+        tools: true
+    }
+</script>
+
+
+        </div>
+        <aside class='l_side'>
+            
+    
+        
+  <section class='m_widget author'>
+    
+      <div class='header'>
+        <img class='avatar' src='https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/Me2.jpg'/>
+      </div>
+    
+    
+      <div class='content'>
+        
+          <h2>Tony Ren&#39;s 学习笔记</h2>
+        
+        
+          <p>好学近乎知，力行近乎仁，知耻近乎勇</p>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:renchk@foxmail.com" class="social flat-box" target="_blank" rel="external"><i class="social fas fa-envelope" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://github.com/TonyRenHK" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-github" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://www.weibo.com/6476367461" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-weibo" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://tonyrenhk.github.io/Wechat/" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-weixin" aria-hidden="true"></i></a>
+          
+        
+      </div>
+    
+  </section>
+
+
+    
+    
+        <section class='m_widget links'>
+    <div class='content pure'>
+        <ul class="entry" id="links">
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://tonyrenhk.github.io/2018/01/01/2018-01-01-Salesforce-related-resource/" rel="external nofollow noopener noreferrer" href="https://tonyrenhk.github.io/2018/01/01/2018-01-01-Salesforce-related-resource/">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/IMG_2568.JPG">
+                        
+                        &nbsp;&nbsp;Salesforce
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://tonyrenhk.github.io/2018/01/09/2018-01-09-IT-Study-Resource/" rel="external nofollow noopener noreferrer" href="https://tonyrenhk.github.io/2018/01/09/2018-01-09-IT-Study-Resource/">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88612001-cf62a900-d0bc-11ea-9cbb-a14beeb356c7.png">
+                        
+                        &nbsp;&nbsp;IT
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/Note/OnlineTools.html" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/Note/OnlineTools.html">
+                    
+                    <div class='name'>
+                        
+                            <img src="http://tonyrenhk.github.io/images/notebook.png">
+                        
+                        &nbsp;&nbsp;工具Tools
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/Note/Tutorial.html" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/Note/Tutorial.html">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/Astro_Trailblazer_hoodie_wave.png">
+                        
+                        &nbsp;&nbsp;教程Tutorial
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/2018/02/02/2018-02-02-Git-Study/" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/2018/02/02/2018-02-02-Git-Study/">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/s.png">
+                        
+                        &nbsp;&nbsp;Git
+                    </div>
+                </a></li>
+            
+        </ul>
+    </div>
+</section>
+
+    
+    
+        <section class='m_widget categories'>
+    <header class='header pure'>
+        <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;分类</div>
+    </header>
+    <div class='content pure'>
+        
+            <ul class="entry">
+                
+                    <li><a class="flat-box" href="/categories/English/"><div class='name'>English</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Git/"><div class='name'>Git</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Google/"><div class='name'>Google</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/JavaScript/"><div class='name'>JavaScript</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Others/"><div class='name'>Others</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Python/"><div class='name'>Python</div><div class='badge'>1</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Salesforce/"><div class='name'>Salesforce</div><div class='badge'>35</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Tools/"><div class='name'>Tools</div><div class='badge'>1</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/hexo/"><div class='name'>hexo</div><div class='badge'>1</div></a></li>
+                
+            </ul>
+        
+    </div>
+</section>
+
+    
+    
+        
+    <section class='m_widget tagcloud'>
+        <header class="header pure">
+            <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
+        </header>
+        <div class='content pure'>
+            <a href="/tags/Admin/" style="font-size: 14px; color: #999">Admin</a> <a href="/tags/Apex/" style="font-size: 16.86px; color: #868686">Apex</a> <a href="/tags/BookMark/" style="font-size: 14px; color: #999">BookMark</a> <a href="/tags/CDC/" style="font-size: 14px; color: #999">CDC</a> <a href="/tags/CPQ/" style="font-size: 14px; color: #999">CPQ</a> <a href="/tags/Change-Data-Capture/" style="font-size: 14px; color: #999">Change Data Capture</a> <a href="/tags/Chrome-Extension/" style="font-size: 14px; color: #999">Chrome-Extension</a> <a href="/tags/Community-Cloud/" style="font-size: 14px; color: #999">Community Cloud</a> <a href="/tags/Demo/" style="font-size: 14px; color: #999">Demo</a> <a href="/tags/Flow/" style="font-size: 14px; color: #999">Flow</a> <a href="/tags/Git/" style="font-size: 16.86px; color: #868686">Git</a> <a href="/tags/Google/" style="font-size: 14px; color: #999">Google</a> <a href="/tags/Google-App-Script/" style="font-size: 14px; color: #999">Google App Script</a> <a href="/tags/Heroku/" style="font-size: 14px; color: #999">Heroku</a> <a href="/tags/IT%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">IT学习</a> <a href="/tags/Interactive-Email/" style="font-size: 14px; color: #999">Interactive Email</a> <a href="/tags/JavaScript/" style="font-size: 15.43px; color: #8f8f8f">JavaScript</a> <a href="/tags/Jsforce/" style="font-size: 15.43px; color: #8f8f8f">Jsforce</a> <a href="/tags/LWC/" style="font-size: 22.57px; color: #5f5f5f">LWC</a> <a href="/tags/Lightning/" style="font-size: 15.43px; color: #8f8f8f">Lightning</a> <a href="/tags/Lightning-Components/" style="font-size: 14px; color: #999">Lightning Components</a> <a href="/tags/Lightning-Web-Components/" style="font-size: 18.29px; color: #7c7c7c">Lightning Web Components</a> <a href="/tags/MC/" style="font-size: 15.43px; color: #8f8f8f">MC</a> <a href="/tags/MCC/" style="font-size: 14px; color: #999">MCC</a> <a href="/tags/Marketing-Cloud/" style="font-size: 14px; color: #999">Marketing Cloud</a> <a href="/tags/Marketing-Cloud-Connect/" style="font-size: 14px; color: #999">Marketing Cloud Connect</a> <a href="/tags/Org/" style="font-size: 14px; color: #999">Org</a> <a href="/tags/Others/" style="font-size: 14px; color: #999">Others</a> <a href="/tags/Pardot/" style="font-size: 14px; color: #999">Pardot</a> <a href="/tags/Python/" style="font-size: 15.43px; color: #8f8f8f">Python</a> <a href="/tags/Roll-Up-Summary/" style="font-size: 14px; color: #999">Roll-Up Summary</a> <a href="/tags/SFDC/" style="font-size: 14px; color: #999">SFDC</a> <a href="/tags/SFDX/" style="font-size: 19.71px; color: #727272">SFDX</a> <a href="/tags/Salesforce/" style="font-size: 24px; color: #555">Salesforce</a> <a href="/tags/Salesforce-Mobile/" style="font-size: 14px; color: #999">Salesforce Mobile</a> <a href="/tags/Sandbox/" style="font-size: 14px; color: #999">Sandbox</a> <a href="/tags/Script/" style="font-size: 14px; color: #999">Script</a> <a href="/tags/Site/" style="font-size: 14px; color: #999">Site</a> <a href="/tags/Study/" style="font-size: 18.29px; color: #7c7c7c">Study</a> <a href="/tags/StudyNote/" style="font-size: 14px; color: #999">StudyNote</a> <a href="/tags/Superbadge/" style="font-size: 14px; color: #999">Superbadge</a> <a href="/tags/Tools/" style="font-size: 14px; color: #999">Tools</a> <a href="/tags/Trailhead/" style="font-size: 21.14px; color: #686868">Trailhead</a> <a href="/tags/exam/" style="font-size: 14px; color: #999">exam</a> <a href="/tags/flow/" style="font-size: 14px; color: #999">flow</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/tags/hexo-theme-doc/" style="font-size: 14px; color: #999">hexo-theme-doc</a> <a href="/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/tags/metadata/" style="font-size: 14px; color: #999">metadata</a> <a href="/tags/shortcut/" style="font-size: 14px; color: #999">shortcut</a> <a href="/tags/%E5%85%A5%E9%97%A8/" style="font-size: 14px; color: #999">入门</a> <a href="/tags/%E5%AF%B9Campaign/" style="font-size: 14px; color: #999">对Campaign</a> <a href="/tags/%E5%BC%80%E5%8F%91%E8%80%85II%E8%80%83%E8%AF%95/" style="font-size: 19.71px; color: #727272">开发者II考试</a> <a href="/tags/%E8%87%AA%E5%8A%A8/" style="font-size: 14px; color: #999">自动</a> <a href="/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">英语学习</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 14px; color: #999">面试</a>
+        </div>
+    </section>
+
+
+    
+    
+        
+
+    
+    
+        <section class='m_widget links'>
+    <header class='header pure'>
+        <div><i class="fas fa-link fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;更多</div>
+        
+            <a class="rightBtn" title="联系博主添加友链" target="_blank" rel="external nofollow noopener noreferrer" href="mailto:me@xaoxuu.com?subject=交换友链&body=你好，我想和你交换友链，我已经将【Tony Ren&#39;s 学习笔记】添加到我的博客的友链中。我的博客链接是："><i class="fas fa-plus fa-fw"></i></a>
+        
+    </header>
+    <div class='content pure'>
+        <ul class="entry" id="links">
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://docs.qq.com/desktop/" target="_blank" rel="external nofollow noopener noreferrer" href="https://docs.qq.com/desktop/">
+                    
+                        
+                    
+                        
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88069910-a6b24f00-cba4-11ea-837b-d4a0dcf05d94.png">
+                        
+                        &nbsp;&nbsp;腾讯文档
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://www.notion.so/" target="_blank" rel="external nofollow noopener noreferrer" href="https://www.notion.so/">
+                    
+                        
+                    
+                        
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88069945-b16ce400-cba4-11ea-9c3f-d5857b39a5df.png">
+                        
+                        &nbsp;&nbsp;Notion
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://ide.goorm.io/" target="_blank" rel="external nofollow noopener noreferrer" href="https://ide.goorm.io/">
+                    
+                        
+                    
+                        
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88611890-9e827400-d0bc-11ea-893a-5b0af150504a.png">
+                        
+                        &nbsp;&nbsp;Goorm IDE
+                    </div>
+                </a></li>
+            
+        </ul>
+    </div>
+</section>
+
+    
+
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    </div>
+    <footer id="footer" class="clearfix">
+    
+        <div class="social-wrapper">
+          
+              
+                  <a href="mailto:renchk@foxmail.com" class="social fas fa-envelope flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://github.com/TonyRenHK" class="social fab fa-github flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://www.weibo.com/6476367461" class="social fab fa-weibo flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://tonyrenhk.github.io/Wechat/" class="social fab fa-weixin flat-box" target="_blank" rel="external"></a>
+              
+          
+        </div>
+    
+    <br>
+    <div>博客内容遵循 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="licenses">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></div>
+    <div>本站使用 <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a> 作为主题，
+		总访问量为 <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> 次。
+    </div>
+    
+<span id="runtime_span"></span>
+
+<script type="text/javascript">
+function show_runtime(){
+  window.setTimeout("show_runtime()",1000);
+  X=new Date("8/22/2016 18:27:0");
+  Y=new Date();T=(Y.getTime()-X.getTime());M=24*60*60*1000;
+  a=T/M;A=Math.floor(a);
+  b=(a-A)*24;B=Math.floor(b);
+  c=(b-B)*60;C=Math.floor((b-B)*60);
+  D=Math.floor((c-C)*60);
+  runtime_span.innerHTML="—— 本站已稳定运行： "+A+"天"+B+"小时"+C+"分"+D+"秒 ——"}show_runtime();
+
+</script>
+
+
+</footer>
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+    <script>setLoadingBarProgress(80);</script>
+    <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src='//cdn.bootcss.com/node-waves/0.7.5/waves.min.js'></script>
+<script src="//cdn.bootcss.com/scrollReveal.js/3.3.2/scrollreveal.min.js"></script>
+<!-- 访问统计 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5bfb78723c9c4600"></script>
+
+
+
+<script src="/js/jquery.fitvids.js"></script>
+
+
+    <script>
+        var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+        var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+        var ALGOLIA_API_KEY = "";
+        var ALGOLIA_APP_ID = "";
+        var ALGOLIA_INDEX_NAME = "";
+        var AZURE_SERVICE_NAME = "";
+        var AZURE_INDEX_NAME = "";
+        var AZURE_QUERY_KEY = "";
+        var BAIDU_API_ID = "";
+        var SEARCH_SERVICE = "hexo" || "hexo";
+        var ROOT = "/"||"/";
+        if(!ROOT.endsWith('/'))ROOT += '/';
+    </script>
+
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/app.js"></script>
+
+
+
+    
+    
+    
+        
+    
+
+
+    <script>setLoadingBarProgress(100);</script>
+</body>

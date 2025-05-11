@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="036nsNgxuH68xUABF8jrgg8Xzsti4FN8eKjWvA185C4" />
+  <meta name="baidu-site-verification" content="FQRuGMvxtv" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+
+  
+  <title>Heroku学习以及相关资料 | Tony Ren&#39;s 学习笔记</title>
+  
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico">
+  <link rel="alternate" href="/atom.xml" title="Tony Ren's 学习笔记">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico" />
+  <link rel="icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico" />
+  
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono" rel="stylesheet">
+  
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link href='//cdn.bootcss.com/node-waves/0.7.5/waves.min.css' rel='stylesheet'>
+  
+<link rel="stylesheet" href="/style.css">
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+  
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1382646259212001",
+    enable_page_level_ads: true
+  });
+</script>
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading-bar-wrapper">
+  <div id="loading-bar" class="pure"></div>
+</div>
+
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header pure">
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+			<a class="logo flat-box" href='/' >Tony Ren's 学习笔记</a>
+				<div class='menu'>
+					<ul class='h-list'>
+            
+    					
+    						<li>
+    							<a class="nav  flat-box" href="/">
+    								<i class='fas fa-home fa-fw'></i>&nbsp;主页
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/archives/">
+    								<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/Project">
+    								<i class='fas fa-flask fa-fw'></i>&nbsp;项目
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/about/">
+    								<i class='fas fa-user fa-fw'></i>&nbsp;关于
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="https://renchk.github.io" target="_blank" rel="noopener">
+    								<i class='fas fa-globe fa-fw'></i>&nbsp;English
+  								</a>
+  							</li>
+        			
+        		
+					</ul>
+					<div class='underline'></div>
+				</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search" />
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></span></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-top'><a class="fas fa-arrow-circle-up fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-toc'><a class="fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+		<nav>
+      <ul>
+          
+              
+                  <li>
+										<a class="nav  flat-box" href="/">
+											<i class='fas fa-home fa-fw'></i>&nbsp;主页
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/archives/">
+											<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/Project">
+											<i class='fas fa-flask fa-fw'></i>&nbsp;项目
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/about/">
+											<i class='fas fa-user fa-fw'></i>&nbsp;关于
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="https://renchk.github.io" target="_blank" rel="noopener">
+											<i class='fas fa-globe fa-fw'></i>&nbsp;English
+										</a>
+                  </li>
+              
+       
+      </ul>
+		</nav>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            <article id="post-2020-08-01-Heroku-Study" class="post white-box article-type-post" itemscope itemprop="blogPost">
+    <section class='meta'>
+        
+            <h1 class="title">Heroku学习以及相关资料</h1>
+        
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+            2020-08-01
+        </time>
+        <div class="browse"><i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+        </div>
+        
+    
+    <div class='cats'>
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+        <a class="categories" href="/categories/Salesforce/">Salesforce</a>
+    </div>
+
+
+    </section>
+
+    <section class="article typo">
+
+        <div class="article-entry" itemprop="articleBody">
+            <p>Heroku 常用命令行</p>
+<a id="more"></a>
+
+
+
+<h1 id="安装Heroku-CLI"><a href="#安装Heroku-CLI" class="headerlink" title="安装Heroku CLI"></a>安装Heroku CLI</h1><p>首先需要安装Heroku CLI在本地中，安装连接如下：</p>
+<p>macOS Homebrew 安装如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew tap heroku&#x2F;brew &amp;&amp; brew install heroku</span><br></pre></td></tr></table></figure>
+
+<p>Ubuntu 16+ 安装如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo snap install --classic heroku</span><br></pre></td></tr></table></figure>
+<p>或者：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  curl https:&#x2F;&#x2F;cli-assets.heroku.com&#x2F;install.sh | sh</span><br></pre></td></tr></table></figure>
+<p>当然，在snapcraft上也是可以<a href="https://snapcraft.io/" target="_blank" rel="noopener">https://snapcraft.io/</a> 也是可以下载的。<br>snapcraft链接如下：<br><a href="https://snapcraft.io/heroku" target="_blank" rel="noopener">https://snapcraft.io/heroku</a></p>
+<p>或者参考官方链接：<a href="https://devcenter.heroku.com/articles/heroku-cli#download-and-install" target="_blank" rel="noopener">https://devcenter.heroku.com/articles/heroku-cli#download-and-install</a></p>
+<p>npm方法：<br>npm的方法需要提前安装Node和npm</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g heroku</span><br></pre></td></tr></table></figure>
+
+<p>Windows电脑<br>64位电脑安装下载：<br><a href="https://cli-assets.heroku.com/heroku-x64.exe" target="_blank" rel="noopener">https://cli-assets.heroku.com/heroku-x64.exe</a><br>32位电脑安装下载：<br><a href="https://cli-assets.heroku.com/heroku-x86.exe" target="_blank" rel="noopener">https://cli-assets.heroku.com/heroku-x86.exe</a></p>
+<h1 id="如何检查自己是否安装成功？"><a href="#如何检查自己是否安装成功？" class="headerlink" title="如何检查自己是否安装成功？"></a>如何检查自己是否安装成功？</h1><p>如下命令行查看目前版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">heroku --version</span><br></pre></td></tr></table></figure>
+<p>如果发现自己版本不够新，可以使用下面命令行更新</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">heroku update</span><br></pre></td></tr></table></figure>
+
+<h1 id="登入Heroku"><a href="#登入Heroku" class="headerlink" title="登入Heroku"></a>登入Heroku</h1><p>首先需要在本地登入，如下方法是会跳转到网页进行授权登入。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ heroku login</span><br></pre></td></tr></table></figure>
+<p>有时候，我们在服务器上登入，可以用下面的方法登入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ heroku login -i</span><br><span class="line">heroku: Enter your login credentials</span><br><span class="line">Email: me@example.com</span><br><span class="line">Password: ***************</span><br><span class="line">Two-factor code: ********</span><br><span class="line">Logged in as me@heroku.com</span><br></pre></td></tr></table></figure>
+<p>登入后，命令行会将您的电子邮件地址和API token 保存到~&#x2F;.netrc 中。</p>
+<p>#如果登入有问题怎么办？<br>如果您在登录时遇到问题，请尝试移动.netrc文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mv ~&#x2F;.netrc ~&#x2F;.netrc.backup</span><br><span class="line">heroku login</span><br></pre></td></tr></table></figure>
+<p>同时，登出命令行为heroku logout。</p>
+<h1 id="如何查看自己的token？"><a href="#如何查看自己的token？" class="headerlink" title="如何查看自己的token？"></a>如何查看自己的token？</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ heroku auth:token</span><br><span class="line">c4cd94da15ea0544802c2cfd5ec4ead324327430</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="如何新建一个项目"><a href="#如何新建一个项目" class="headerlink" title="如何新建一个项目?"></a>如何新建一个项目?</h1><p>直接输入heroku create就会新建一个app</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$  heroku create</span><br><span class="line"> ›  Creating app... done, ⬢ fierce-sands-29965</span><br><span class="line">https:&#x2F;&#x2F;fierce-sands-29965.herokuapp.com&#x2F; | https:&#x2F;&#x2F;git.heroku.com&#x2F;fierce-sands-29965.git</span><br></pre></td></tr></table></figure>
+<p>但是该方法会新建一个随机名字的app，这里是fierce-sands-29965，它的git地址为<a href="https://git.heroku.com/fierce-sands-29965.git%E3%80%82" target="_blank" rel="noopener">https://git.heroku.com/fierce-sands-29965.git。</a></p>
+<p>如果我们需要创建一个名为“ example”的新应用，可以参考如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir example</span><br><span class="line">$ cd example</span><br><span class="line">$ git init</span><br><span class="line">$ heroku apps:create example</span><br><span class="line">Creating ⬢ example... done</span><br><span class="line">https:&#x2F;&#x2F;example.herokuapp.com&#x2F; | https:&#x2F;&#x2F;git.heroku.com&#x2F;example.git</span><br><span class="line">Git remote heroku added</span><br></pre></td></tr></table></figure>
+
+
+<p>如果你已经有Repository，可以 在新目录或现有目录中初始化git存储库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cd my-project&#x2F;</span><br><span class="line">$ git init</span><br><span class="line">$ heroku git:remote -a my-project</span><br><span class="line">这里所谓的git:remote -a， 翻译成git语言就是git remote add heroku my-project</span><br></pre></td></tr></table></figure>
+
+<p>#如何删除你的app？<br>假如这里我要删除上午新建的app ‘fierce-sands-29965’，可以使用heroku apps:destroy命令行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> heroku apps:destroy fierce-sands-29965</span><br><span class="line"> ›   ▸    WARNING: This will delete ⬢ fierce-sands-29965 including all add-ons.</span><br><span class="line"> ▸    To proceed, type fierce-sands-29965 or re-run this command with --confirm fierce-sands-29965</span><br><span class="line"></span><br><span class="line">&gt; fierce-sands-29965</span><br><span class="line">Destroying ⬢ fierce-sands-29965 (including all add-ons)... done</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="如何复制你的Repository-到本地？"><a href="#如何复制你的Repository-到本地？" class="headerlink" title="如何复制你的Repository 到本地？"></a>如何复制你的Repository 到本地？</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ heroku git:clone -a test-app</span><br><span class="line">$ cd test-app</span><br></pre></td></tr></table></figure>
+<p>test-app为你在Heroku上的app</p>
+<p>#​如何部署你的应用？<br>​参考如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git add .</span><br><span class="line">$ git commit -am &quot;make it better&quot;</span><br><span class="line">$ git push heroku master</span><br></pre></td></tr></table></figure>
+<p>这里就是完全使用Git语言。</p>
+<h1 id="如何分叉应用？"><a href="#如何分叉应用？" class="headerlink" title="如何分叉应用？"></a>如何分叉应用？</h1><p>有时候你可能需要fork 一个production出来，使用heroku fork复制现有的应用程序，包括加载项，config vars和Heroku Postgres数据。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ heroku fork --from sourceapp --to targetapp</span><br><span class="line">Creating fork targetapp... done</span><br><span class="line">Copying slug... done</span><br><span class="line">Adding heroku-postgresql:dev... done</span><br><span class="line">Creating database backup from sourcapp... .. done</span><br><span class="line">Restoring database backup to targetapp... .. done</span><br><span class="line">Copying config vars... done</span><br><span class="line">Fork complete, view it at http:&#x2F;&#x2F;targetapp.herokuapp.com&#x2F;</span><br></pre></td></tr></table></figure>
+<p>注意：原始应用程序称为sourceapp，而新的分支应用程序称为targetapp。</p>
+<p>#如何查看现有的app?</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ heroku apps</span><br></pre></td></tr></table></figure>
+<p>如何查看自己收藏的应用(favorited apps)？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ heroku apps:favorites</span><br></pre></td></tr></table></figure>
+
+<h1 id="如何查看你的app信息？"><a href="#如何查看你的app信息？" class="headerlink" title="如何查看你的app信息？"></a>如何查看你的app信息？</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ heroku apps:info your-app</span><br></pre></td></tr></table></figure>
+<p>这里可以查看你的app网站url和安装了那些Addons，还有容量等信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#x3D;&#x3D;&#x3D; sfdc-nodejs</span><br><span class="line">Addons:         scheduler:standard</span><br><span class="line">Auto Cert Mgmt: false</span><br><span class="line">Dynos:          web: 1</span><br><span class="line">Git URL:        https:&#x2F;&#x2F;git.heroku.com&#x2F;sfdc-nodejs.git</span><br><span class="line">Owner:          youname@qq.com</span><br><span class="line">Region:         us</span><br><span class="line">Repo Size:      5 MB</span><br><span class="line">Slug Size:      27 MB</span><br><span class="line">Stack:          heroku-16</span><br><span class="line">Web URL:        https:&#x2F;&#x2F;sfdc-nodejs.herokuapp.com&#x2F;</span><br></pre></td></tr></table></figure>
+<p>同时，有时候需要查看你的Heroku配置变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ heroku config -a sfdc-nodejs</span><br></pre></td></tr></table></figure>
+<p>那么怎么添加变量呢？这里我们添加RAILS_ENV和RACK_ENV都为staging。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ heroku config:set -a sfdc-nodejs RAILS_ENV&#x3D;staging RACK_ENV&#x3D;staging</span><br></pre></td></tr></table></figure>
+<p>sfdc-nodejs为你的app名字。<br>假如需要删除变量，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ heroku config:unset -a pernod-ricard-sfdc-nodejs  RAILS_ENV</span><br></pre></td></tr></table></figure>
+
+
+<p>如何重启dyno？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ heroku dyno:restart -a your-app</span><br></pre></td></tr></table></figure>
+<p>如何查看日志Logs?</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ heroku logs -a your-app</span><br></pre></td></tr></table></figure>
+<p>查看postgresql 数据库信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ heroku pg -a your-app</span><br></pre></td></tr></table></figure>
+<p>这里可以查看有多少条数据和几个表。</p>
+<p>#如何对app进行重命名？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ heroku apps:rename --app oldname newname</span><br></pre></td></tr></table></figure>
+<p>注意名字需要用小写。同时，如果修改名字，所有本地Git URL都得修改。</p>
+<h1 id="展示Heroku-服务器的地区"><a href="#展示Heroku-服务器的地区" class="headerlink" title="展示Heroku 服务器的地区"></a>展示Heroku 服务器的地区</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ heroku regions</span><br></pre></td></tr></table></figure>
+<p>会显示如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ID         Location                 Runtime</span><br><span class="line">─────────  ───────────────────────  ──────────────</span><br><span class="line">eu         Europe                   Common Runtime</span><br><span class="line">us         United States            Common Runtime</span><br><span class="line">dublin     Dublin, Ireland          Private Spaces</span><br><span class="line">frankfurt  Frankfurt, Germany       Private Spaces</span><br><span class="line">oregon     Oregon, United States    Private Spaces</span><br><span class="line">sydney     Sydney, Australia        Private Spaces</span><br><span class="line">tokyo      Tokyo, Japan             Private Spaces</span><br><span class="line">virginia   Virginia, United States  Private Spaces</span><br></pre></td></tr></table></figure>
+
+<h1 id="如何run-console"><a href="#如何run-console" class="headerlink" title="如何run console?"></a>如何run console?</h1><p>假如在yourApp 下面有nodeFile.js，需要执行，可以执行如下代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ heroku run -a yourApp node nodeFile.js</span><br></pre></td></tr></table></figure>
+
+<p>#查看目前sessions</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ heroku sessions</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="查看目前的add-ons"><a href="#查看目前的add-ons" class="headerlink" title="查看目前的add-ons"></a>查看目前的add-ons</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ heroku addons</span><br><span class="line">Owning App                 Add-on                          Plan                         Price  State  </span><br><span class="line">─────────────────────────  ──────────────────────────────  ───────────────────────────  ─────  ───────</span><br><span class="line">bitnews1                   mongolab-shaped-58019           mongolab:sandbox             free   created</span><br><span class="line">bitnews1                   newrelic-slippery-34265         newrelic:wayne               free   created</span><br><span class="line">bitnews1                   scheduler-dimensional-71609     scheduler:standard           free   created</span><br></pre></td></tr></table></figure>
+
+<h1 id="如何新建一个PostgreSQL数据库"><a href="#如何新建一个PostgreSQL数据库" class="headerlink" title="如何新建一个PostgreSQL数据库"></a>如何新建一个PostgreSQL数据库</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ heroku addons:create  heroku-postgresql:hobby-dev  -a yourApp</span><br></pre></td></tr></table></figure>
+
+<h1 id="如何新建一个mongolab-数据库"><a href="#如何新建一个mongolab-数据库" class="headerlink" title="如何新建一个mongolab 数据库"></a>如何新建一个mongolab 数据库</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ heroku addons:create  mongolab  -a yourApp</span><br></pre></td></tr></table></figure>
+<p>列表可以参考 ：<a href="https://devcenter.heroku.com/categories/add-on-documentation" target="_blank" rel="noopener">https://devcenter.heroku.com/categories/add-on-documentation</a></p>
+<h1 id="新建一个scheduler"><a href="#新建一个scheduler" class="headerlink" title="新建一个scheduler"></a>新建一个scheduler</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ heroku addons:create  scheduler:standard -a yourApp</span><br></pre></td></tr></table></figure>
+
+
+
+
+<p>本文系笔者在开发时候积累的常用命令行，并不是全部命令行，欲查阅全部命令行，请参考Heroku 开发者中心</p>
+<p>参考文章：</p>
+<ul>
+<li><a href="https://devcenter.heroku.com/articles/heroku-cli" target="_blank" rel="noopener">https://devcenter.heroku.com/articles/heroku-cli</a></li>
+<li><a href="https://devcenter.heroku.com/articles/heroku-cli-commands" target="_blank" rel="noopener">https://devcenter.heroku.com/articles/heroku-cli-commands</a></li>
+</ul>
+
+        </div>
+
+        <section class='meta'>
+            <time class="time" itemprop="dateUpdated" datetime="2025-05-06T03:51:48+00:00" content="2025-05-06">
+                <i class="fas fa-pen fa-fw" aria-hidden="true"></i>
+                本文最后更新于：2025-05-06
+            </time>
+            
+                
+                <div class="tags">
+                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                    <a class="tag" href="/tags/Salesforce/">Salesforce</a>, <a class="tag" href="/tags/Heroku/">Heroku</a>
+                </div>
+            
+        </section>
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <div class="addthis_inline_share_toolbox"></div>
+
+
+        
+            <div class="prev-next">
+                
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一篇</h6>
+                            <h4>
+                                <a href="/2020/11/25/2020-11-25-SalesforceStudyNote/" rel="prev" title="Salesforce  开发者笔记">
+                                  
+                                      Salesforce  开发者笔记
+                                  
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                                    <a class="tag" href="/tags/Salesforce/">Salesforce</a>, <a class="tag" href="/tags/Apex/">Apex</a>, <a class="tag" href="/tags/StudyNote/">StudyNote</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>下一篇&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2020/07/11/2020-07-11-Pardot-Study-Note/" rel="prev" title="Salesforce Pardot Study">
+                                    
+                                        Salesforce Pardot Study
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                                    <a class="tag" href="/tags/Salesforce/">Salesforce</a>, <a class="tag" href="/tags/Pardot/">Pardot</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+
+    </section>
+
+</article>
+
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+    <article class="post white-box comments">
+        <section class="article typo">
+
+            
+                
+
+    <div class="recommended_posts">
+        <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;你可能感兴趣的文章</h4>
+        <ul>
+            
+                <li><a href="http://tonyrenhk.github.io/2021/11/01/2021-11-01-SalesforceAdminNote/">Salesforce 管理员笔记</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2020/11/25/2020-11-25-SalesforceStudyNote/">Salesforce  开发者笔记</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2020/07/11/2020-07-11-Pardot-Study-Note/">Salesforce Pardot Study</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2020/07/10/2020-07-10-Marketing-Cloud/">营销云 Marketing Cloud 学习笔记</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2020/06/12/2020-06-12-Marketing-Cloud-Interactive-Email/">三分钟教你设计出一封交互式邮件</a></li>
+            
+        </ul>
+    </div>
+
+
+            
+
+            
+
+                
+
+                
+
+                
+                    
+                
+            
+
+        </section>
+    </article>
+
+
+<script>
+    window.subData = {
+        title: 'Heroku学习以及相关资料',
+        tools: true
+    }
+</script>
+
+
+        </div>
+        <aside class='l_side'>
+            
+    
+        
+  <section class='m_widget author'>
+    
+      <div class='header'>
+        <img class='avatar' src='https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/Me2.jpg'/>
+      </div>
+    
+    
+      <div class='content'>
+        
+          <h2>Tony Ren&#39;s 学习笔记</h2>
+        
+        
+          <p>好学近乎知，力行近乎仁，知耻近乎勇</p>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:renchk@foxmail.com" class="social flat-box" target="_blank" rel="external"><i class="social fas fa-envelope" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://github.com/TonyRenHK" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-github" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://www.weibo.com/6476367461" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-weibo" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://tonyrenhk.github.io/Wechat/" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-weixin" aria-hidden="true"></i></a>
+          
+        
+      </div>
+    
+  </section>
+
+
+    
+    
+        <section class='m_widget links'>
+    <div class='content pure'>
+        <ul class="entry" id="links">
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://tonyrenhk.github.io/2018/01/01/2018-01-01-Salesforce-related-resource/" rel="external nofollow noopener noreferrer" href="https://tonyrenhk.github.io/2018/01/01/2018-01-01-Salesforce-related-resource/">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/IMG_2568.JPG">
+                        
+                        &nbsp;&nbsp;Salesforce
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://tonyrenhk.github.io/2018/01/09/2018-01-09-IT-Study-Resource/" rel="external nofollow noopener noreferrer" href="https://tonyrenhk.github.io/2018/01/09/2018-01-09-IT-Study-Resource/">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88612001-cf62a900-d0bc-11ea-9cbb-a14beeb356c7.png">
+                        
+                        &nbsp;&nbsp;IT
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/Note/OnlineTools.html" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/Note/OnlineTools.html">
+                    
+                    <div class='name'>
+                        
+                            <img src="http://tonyrenhk.github.io/images/notebook.png">
+                        
+                        &nbsp;&nbsp;工具Tools
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/Note/Tutorial.html" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/Note/Tutorial.html">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/Astro_Trailblazer_hoodie_wave.png">
+                        
+                        &nbsp;&nbsp;教程Tutorial
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/2018/02/02/2018-02-02-Git-Study/" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/2018/02/02/2018-02-02-Git-Study/">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/s.png">
+                        
+                        &nbsp;&nbsp;Git
+                    </div>
+                </a></li>
+            
+        </ul>
+    </div>
+</section>
+
+    
+    
+        <section class='m_widget categories'>
+    <header class='header pure'>
+        <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;分类</div>
+    </header>
+    <div class='content pure'>
+        
+            <ul class="entry">
+                
+                    <li><a class="flat-box" href="/categories/English/"><div class='name'>English</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Git/"><div class='name'>Git</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Google/"><div class='name'>Google</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/JavaScript/"><div class='name'>JavaScript</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Others/"><div class='name'>Others</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Python/"><div class='name'>Python</div><div class='badge'>1</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Salesforce/"><div class='name'>Salesforce</div><div class='badge'>35</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Tools/"><div class='name'>Tools</div><div class='badge'>1</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/hexo/"><div class='name'>hexo</div><div class='badge'>1</div></a></li>
+                
+            </ul>
+        
+    </div>
+</section>
+
+    
+    
+        
+    <section class='m_widget tagcloud'>
+        <header class="header pure">
+            <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
+        </header>
+        <div class='content pure'>
+            <a href="/tags/Admin/" style="font-size: 14px; color: #999">Admin</a> <a href="/tags/Apex/" style="font-size: 16.86px; color: #868686">Apex</a> <a href="/tags/BookMark/" style="font-size: 14px; color: #999">BookMark</a> <a href="/tags/CDC/" style="font-size: 14px; color: #999">CDC</a> <a href="/tags/CPQ/" style="font-size: 14px; color: #999">CPQ</a> <a href="/tags/Change-Data-Capture/" style="font-size: 14px; color: #999">Change Data Capture</a> <a href="/tags/Chrome-Extension/" style="font-size: 14px; color: #999">Chrome-Extension</a> <a href="/tags/Community-Cloud/" style="font-size: 14px; color: #999">Community Cloud</a> <a href="/tags/Demo/" style="font-size: 14px; color: #999">Demo</a> <a href="/tags/Flow/" style="font-size: 14px; color: #999">Flow</a> <a href="/tags/Git/" style="font-size: 16.86px; color: #868686">Git</a> <a href="/tags/Google/" style="font-size: 14px; color: #999">Google</a> <a href="/tags/Google-App-Script/" style="font-size: 14px; color: #999">Google App Script</a> <a href="/tags/Heroku/" style="font-size: 14px; color: #999">Heroku</a> <a href="/tags/IT%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">IT学习</a> <a href="/tags/Interactive-Email/" style="font-size: 14px; color: #999">Interactive Email</a> <a href="/tags/JavaScript/" style="font-size: 15.43px; color: #8f8f8f">JavaScript</a> <a href="/tags/Jsforce/" style="font-size: 15.43px; color: #8f8f8f">Jsforce</a> <a href="/tags/LWC/" style="font-size: 22.57px; color: #5f5f5f">LWC</a> <a href="/tags/Lightning/" style="font-size: 15.43px; color: #8f8f8f">Lightning</a> <a href="/tags/Lightning-Components/" style="font-size: 14px; color: #999">Lightning Components</a> <a href="/tags/Lightning-Web-Components/" style="font-size: 18.29px; color: #7c7c7c">Lightning Web Components</a> <a href="/tags/MC/" style="font-size: 15.43px; color: #8f8f8f">MC</a> <a href="/tags/MCC/" style="font-size: 14px; color: #999">MCC</a> <a href="/tags/Marketing-Cloud/" style="font-size: 14px; color: #999">Marketing Cloud</a> <a href="/tags/Marketing-Cloud-Connect/" style="font-size: 14px; color: #999">Marketing Cloud Connect</a> <a href="/tags/Org/" style="font-size: 14px; color: #999">Org</a> <a href="/tags/Others/" style="font-size: 14px; color: #999">Others</a> <a href="/tags/Pardot/" style="font-size: 14px; color: #999">Pardot</a> <a href="/tags/Python/" style="font-size: 15.43px; color: #8f8f8f">Python</a> <a href="/tags/Roll-Up-Summary/" style="font-size: 14px; color: #999">Roll-Up Summary</a> <a href="/tags/SFDC/" style="font-size: 14px; color: #999">SFDC</a> <a href="/tags/SFDX/" style="font-size: 19.71px; color: #727272">SFDX</a> <a href="/tags/Salesforce/" style="font-size: 24px; color: #555">Salesforce</a> <a href="/tags/Salesforce-Mobile/" style="font-size: 14px; color: #999">Salesforce Mobile</a> <a href="/tags/Sandbox/" style="font-size: 14px; color: #999">Sandbox</a> <a href="/tags/Script/" style="font-size: 14px; color: #999">Script</a> <a href="/tags/Site/" style="font-size: 14px; color: #999">Site</a> <a href="/tags/Study/" style="font-size: 18.29px; color: #7c7c7c">Study</a> <a href="/tags/StudyNote/" style="font-size: 14px; color: #999">StudyNote</a> <a href="/tags/Superbadge/" style="font-size: 14px; color: #999">Superbadge</a> <a href="/tags/Tools/" style="font-size: 14px; color: #999">Tools</a> <a href="/tags/Trailhead/" style="font-size: 21.14px; color: #686868">Trailhead</a> <a href="/tags/exam/" style="font-size: 14px; color: #999">exam</a> <a href="/tags/flow/" style="font-size: 14px; color: #999">flow</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/tags/hexo-theme-doc/" style="font-size: 14px; color: #999">hexo-theme-doc</a> <a href="/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/tags/metadata/" style="font-size: 14px; color: #999">metadata</a> <a href="/tags/shortcut/" style="font-size: 14px; color: #999">shortcut</a> <a href="/tags/%E5%85%A5%E9%97%A8/" style="font-size: 14px; color: #999">入门</a> <a href="/tags/%E5%AF%B9Campaign/" style="font-size: 14px; color: #999">对Campaign</a> <a href="/tags/%E5%BC%80%E5%8F%91%E8%80%85II%E8%80%83%E8%AF%95/" style="font-size: 19.71px; color: #727272">开发者II考试</a> <a href="/tags/%E8%87%AA%E5%8A%A8/" style="font-size: 14px; color: #999">自动</a> <a href="/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">英语学习</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 14px; color: #999">面试</a>
+        </div>
+    </section>
+
+
+    
+    
+        
+    <section class='m_widget toc-wrapper'>
+        <header class="header pure">
+            <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;目录</div>
+            <div class='wrapper'><a class="s-toc rightBtn" title="固定到顶部" target="_blank" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+        </header>
+        <div class='content pure'>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装Heroku-CLI"><span class="toc-text">安装Heroku CLI</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何检查自己是否安装成功？"><span class="toc-text">如何检查自己是否安装成功？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#登入Heroku"><span class="toc-text">登入Heroku</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何查看自己的token？"><span class="toc-text">如何查看自己的token？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何新建一个项目"><span class="toc-text">如何新建一个项目?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何复制你的Repository-到本地？"><span class="toc-text">如何复制你的Repository 到本地？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何分叉应用？"><span class="toc-text">如何分叉应用？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何查看你的app信息？"><span class="toc-text">如何查看你的app信息？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#展示Heroku-服务器的地区"><span class="toc-text">展示Heroku 服务器的地区</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何run-console"><span class="toc-text">如何run console?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#查看目前的add-ons"><span class="toc-text">查看目前的add-ons</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何新建一个PostgreSQL数据库"><span class="toc-text">如何新建一个PostgreSQL数据库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何新建一个mongolab-数据库"><span class="toc-text">如何新建一个mongolab 数据库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#新建一个scheduler"><span class="toc-text">新建一个scheduler</span></a></li></ol>
+        </div>
+    </section>
+
+
+    
+    
+        <section class='m_widget links'>
+    <header class='header pure'>
+        <div><i class="fas fa-link fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;更多</div>
+        
+            <a class="rightBtn" title="联系博主添加友链" target="_blank" rel="external nofollow noopener noreferrer" href="mailto:me@xaoxuu.com?subject=交换友链&body=你好，我想和你交换友链，我已经将【Tony Ren&#39;s 学习笔记】添加到我的博客的友链中。我的博客链接是："><i class="fas fa-plus fa-fw"></i></a>
+        
+    </header>
+    <div class='content pure'>
+        <ul class="entry" id="links">
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://docs.qq.com/desktop/" target="_blank" rel="external nofollow noopener noreferrer" href="https://docs.qq.com/desktop/">
+                    
+                        
+                    
+                        
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88069910-a6b24f00-cba4-11ea-837b-d4a0dcf05d94.png">
+                        
+                        &nbsp;&nbsp;腾讯文档
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://www.notion.so/" target="_blank" rel="external nofollow noopener noreferrer" href="https://www.notion.so/">
+                    
+                        
+                    
+                        
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88069945-b16ce400-cba4-11ea-9c3f-d5857b39a5df.png">
+                        
+                        &nbsp;&nbsp;Notion
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://ide.goorm.io/" target="_blank" rel="external nofollow noopener noreferrer" href="https://ide.goorm.io/">
+                    
+                        
+                    
+                        
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88611890-9e827400-d0bc-11ea-893a-5b0af150504a.png">
+                        
+                        &nbsp;&nbsp;Goorm IDE
+                    </div>
+                </a></li>
+            
+        </ul>
+    </div>
+</section>
+
+    
+
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    </div>
+    <footer id="footer" class="clearfix">
+    
+        <div class="social-wrapper">
+          
+              
+                  <a href="mailto:renchk@foxmail.com" class="social fas fa-envelope flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://github.com/TonyRenHK" class="social fab fa-github flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://www.weibo.com/6476367461" class="social fab fa-weibo flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://tonyrenhk.github.io/Wechat/" class="social fab fa-weixin flat-box" target="_blank" rel="external"></a>
+              
+          
+        </div>
+    
+    <br>
+    <div>博客内容遵循 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="licenses">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></div>
+    <div>本站使用 <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a> 作为主题，
+		总访问量为 <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> 次。
+    </div>
+    
+<span id="runtime_span"></span>
+
+<script type="text/javascript">
+function show_runtime(){
+  window.setTimeout("show_runtime()",1000);
+  X=new Date("8/22/2016 18:27:0");
+  Y=new Date();T=(Y.getTime()-X.getTime());M=24*60*60*1000;
+  a=T/M;A=Math.floor(a);
+  b=(a-A)*24;B=Math.floor(b);
+  c=(b-B)*60;C=Math.floor((b-B)*60);
+  D=Math.floor((c-C)*60);
+  runtime_span.innerHTML="—— 本站已稳定运行： "+A+"天"+B+"小时"+C+"分"+D+"秒 ——"}show_runtime();
+
+</script>
+
+
+</footer>
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+    <script>setLoadingBarProgress(80);</script>
+    <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src='//cdn.bootcss.com/node-waves/0.7.5/waves.min.js'></script>
+<script src="//cdn.bootcss.com/scrollReveal.js/3.3.2/scrollreveal.min.js"></script>
+<!-- 访问统计 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5bfb78723c9c4600"></script>
+
+
+
+<script src="/js/jquery.fitvids.js"></script>
+
+
+    <script>
+        var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+        var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+        var ALGOLIA_API_KEY = "";
+        var ALGOLIA_APP_ID = "";
+        var ALGOLIA_INDEX_NAME = "";
+        var AZURE_SERVICE_NAME = "";
+        var AZURE_INDEX_NAME = "";
+        var AZURE_QUERY_KEY = "";
+        var BAIDU_API_ID = "";
+        var SEARCH_SERVICE = "hexo" || "hexo";
+        var ROOT = "/"||"/";
+        if(!ROOT.endsWith('/'))ROOT += '/';
+    </script>
+
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/app.js"></script>
+
+
+
+    
+    
+    
+        
+    
+
+
+    <script>setLoadingBarProgress(100);</script>
+</body>
