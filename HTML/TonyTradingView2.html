@@ -1,247 +1,261 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tony Trading</title>
-    <style>
-        /* 基础样式 */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, sans-serif;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tony Trading</title>
+  <style>
+    /* 基础样式 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, sans-serif;
+    }
 
-        /* 标签导航 */
-        .tab-container {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: #fff;
-            z-index: 1000;
-        }
+    /* 标签导航 */
+    .tab-container {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #fff;
+      z-index: 1000;
+    }
 
-        .tab-buttons {
-            display: flex;
-            overflow-x: auto;
-            padding: 10px 0;
-            background: #f8f9fa;
-        }
+    .tab-buttons {
+      display: flex;
+      overflow-x: auto;
+      padding: 10px 0;
+      background: #f8f9fa;
+    }
 
-        .tab-button {
-            flex: 1;
-            min-width: 80px;
-            padding: 12px 16px;
-            font-size: 14px;
-            color: #666;
-            border: none;
-            background: transparent;
-            cursor: pointer;
-            white-space: nowrap;
-        }
+    .tab-button {
+      flex: 1;
+      min-width: 80px;
+      padding: 12px 16px;
+      font-size: 14px;
+      color: #666;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      white-space: nowrap;
+    }
 
-        .tab-button.active {
-            color: #007AFF;
-            border-bottom: 2px solid #007AFF;
-        }
+    .tab-button.active {
+      color: #007AFF;
+      border-bottom: 2px solid #007AFF;
+    }
 
-        /* 内容区域 */
-        .content-container {
-            margin-top: 50px;
-            padding: 15px;
-        }
+    /* 内容区域 */
+    .content-container {
+      margin-top: 50px;
+      padding: 15px;
+    }
 
-        .tab-content {
-            display: none;
-        }
+    .tab-content {
+      display: none;
+    }
 
-        .tab-content.active {
-            display: block;
-        }
+    .tab-content.active {
+      display: block;
+    }
 
-        /* 市场网格布局 */
-        .market-grid {
-            display: grid;
-            gap: 15px;
-            grid-template-columns: repeat(3, 1fr);
-        }
+    /* 市场网格布局 */
+    .market-grid {
+      display: grid;
+      gap: 15px;
+      grid-template-columns: repeat(3, 1fr);
+    }
 
-        /* 外汇布局 */
-        .forex-grid {
-            display: grid;
-            gap: 15px;
-            grid-template-columns: repeat(2, 1fr);
-        }
+    /* 外汇布局 */
+    .forex-grid {
+      display: grid;
+      gap: 15px;
+      grid-template-columns: repeat(2, 1fr);
+    }
 
-        /* 加密新闻图表 */
-        .crypto-charts {
-            display: grid;
-            gap: 15px;
-            grid-template-columns: repeat(2, 1fr);
-        }
+    /* 加密新闻图表 */
+    .crypto-charts {
+      display: grid;
+      gap: 15px;
+      grid-template-columns: repeat(2, 1fr);
+    }
 
-        /* 通用卡片样式 */
-        .data-card, .chart-container {
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
+    /* 通用卡片样式 */
+    .data-card,
+    .chart-container {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
 
-        /* 响应式布局 */
-        @media (max-width: 768px) {
-            .market-grid, .crypto-charts, .forex-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .tradingview-widget-container {
-                width: 100%!important;
-            }
-        }
-    </style>
+    /* 响应式布局 */
+    @media (max-width: 768px) {
+
+      .market-grid,
+      .crypto-charts,
+      .forex-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tradingview-widget-container {
+        width: 100% !important;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <div class="tab-container">
-        <div class="tab-buttons">
-            <button class="tab-button active" onclick="switchTab('market')">市场</button>
-            <button class="tab-button" onclick="switchTab('forex')">外汇</button>
-            <button class="tab-button" onclick="switchTab('crypto')">加密图表</button>
-            <button class="tab-button" onclick="switchTab('stock')">股票新闻</button>
+  <div class="tab-container">
+    <div class="tab-buttons">
+      <button class="tab-button active" onclick="switchTab('market')">市场</button>
+      <button class="tab-button" onclick="switchTab('forex')">外汇</button>
+      <button class="tab-button" onclick="switchTab('crypto')">加密图表</button>
+      <button class="tab-button" onclick="switchTab('stock')">股票新闻</button>
+    </div>
+  </div>
+
+  <div class="content-container">
+    <!-- 市场数据 -->
+    <div id="market" class="tab-content active">
+      <div class="market-grid">
+        <!-- 港股数据 -->
+        <div class="data-card">
+
+
+          <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow"
+                target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+            <script type="text/javascript"
+              src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js" async>
+                {
+                  "symbol": "HSI:HSI",
+                    "width": "100%",
+                      "locale": "en",
+                        "colorTheme": "light",
+                          "isTransparent": false
+                }
+              </script>
+          </div>
+
+
         </div>
+
+        <!-- 恒生科技 -->
+        <div class="data-card">
+          <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow"
+                target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+            <script type="text/javascript"
+              src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js" async>
+                {
+                  "symbol": "HSI:HSTECH",
+                    "width": "100%",
+                      "locale": "en",
+                        "colorTheme": "light",
+                          "isTransparent": false
+                }
+              </script>
+          </div>
+        </div>
+
+        <!-- 比特币 -->
+        <div class="data-card">
+          <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript"
+              src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js" async>
+                { "symbol": "BINANCE:BTCUSDT", "width": "100%", "locale": "en" }
+              </script>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="content-container">
-        <!-- 市场数据 -->
-        <div id="market" class="tab-content active">
-            <div class="market-grid">
-                <!-- 港股数据 -->
-                <div class="data-card">
-                    
-                  
-                  <div class="tradingview-widget-container">
-                    <div class="tradingview-widget-container__widget"></div>
-                    <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
-                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js" async>
-                    {
-                    "symbol": "HSI:HSI",
-                    "width": 550,
-                    "locale": "en",
-                    "colorTheme": "light",
-                    "isTransparent": false
-                }
-                    </script>
-                </div>
-
-
-                </div>
-
-                <!-- 恒生科技 -->
-                <div class="data-card">
-                  <div class="tradingview-widget-container">
-                    <div class="tradingview-widget-container__widget"></div>
-                    <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
-                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js" async>
-                    {
-                    "symbol": "HSI:HSTECH",
-                    "width": 550,
-                    "locale": "en",
-                    "colorTheme": "light",
-                    "isTransparent": false
-                  }
-                    </script>
-                  </div>
-                </div>
-
-                <!-- 比特币 -->
-                <div class="data-card">
-                    <div class="tradingview-widget-container">
-                        <div class="tradingview-widget-container__widget"></div>
-                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js" async>
-                        {"symbol": "BINANCE:BTCUSDT", "width": "100%", "locale": "en"}
-                        </script>
-                    </div>
-                </div>
-            </div>
+    <!-- 外汇数据 -->
+    <div id="forex" class="tab-content">
+      <div class="forex-grid">
+        <div class="data-card">
+          <h3>USD/JPY</h3>
+          <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript"
+              src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js" async>
+                { "symbol": "FX:USDJPY", "width": "100%", "locale": "en" }
+              </script>
+          </div>
         </div>
-
-        <!-- 外汇数据 -->
-        <div id="forex" class="tab-content">
-            <div class="forex-grid">
-                <div class="data-card">
-                    <h3>USD/JPY</h3>
-                    <div class="tradingview-widget-container">
-                        <div class="tradingview-widget-container__widget"></div>
-                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js" async>
-                        {"symbol": "FX:USDJPY", "width": "100%", "locale": "en"}
-                        </script>
-                    </div>
-                </div>
-                <div class="data-card">
-                    <h3>USD/CNY</h3>
-                    <div class="tradingview-widget-container">
-                        <div class="tradingview-widget-container__widget"></div>
-                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js" async>
-                        {"symbol": "FX_IDC:USDCNY", "width": "100%", "locale": "en"}
-                        </script>
-                    </div>
-                </div>
-            </div>
+        <div class="data-card">
+          <h3>USD/CNY</h3>
+          <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript"
+              src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js" async>
+                { "symbol": "FX_IDC:USDCNY", "width": "100%", "locale": "en" }
+              </script>
+          </div>
         </div>
-
-        <!-- 加密图表 -->
-        <div id="crypto" class="tab-content">
-            <div class="crypto-charts">
-                <!-- BTC日线 -->
-                <div class="chart-container">
-                    <iframe src="https://www.tradingview.com/widgetembed/?symbol=BINANCE:BTCUSDT&interval=D" 
-                            style="width:100%;height:300px" frameborder="0"></iframe>
-                </div>
-                
-                <!-- ETH日线 -->
-                <div class="chart-container">
-                    <iframe src="https://www.tradingview.com/widgetembed/?symbol=BINANCE:ETHUSDT&interval=D" 
-                            style="width:100%;height:300px" frameborder="0"></iframe>
-                </div>
-                
-                <!-- SOL日线 -->
-                <div class="chart-container">
-                    <iframe src="https://www.tradingview.com/widgetembed/?symbol=BINANCE:SOLUSDT&interval=D" 
-                            style="width:100%;height:300px" frameborder="0"></iframe>
-                </div>
-                
-                <!-- DOGE日线 -->
-                <div class="chart-container">
-                    <iframe src="https://www.tradingview.com/widgetembed/?symbol=BINANCE:DOGEUSDT&interval=D" 
-                            style="width:100%;height:300px" frameborder="0"></iframe>
-                </div>
-            </div>
-        </div>
-
-        <!-- 股票新闻 -->
-        <div id="stock" class="tab-content">
-            <!-- 空白区域 -->
-        </div>
+      </div>
     </div>
 
-    <script>
-        function switchTab(tabId) {
-            // 切换按钮状态
-            document.querySelectorAll('.tab-button').forEach(btn => {
-                btn.classList.remove('active');
-                if(btn.getAttribute('onclick').includes(tabId)) {
-                    btn.classList.add('active');
-                }
-            });
+    <!-- 加密图表 -->
+    <div id="crypto" class="tab-content">
+      <div class="crypto-charts">
+        <!-- BTC日线 -->
+        <div class="chart-container">
+          <iframe src="https://www.tradingview.com/widgetembed/?symbol=BINANCE:BTCUSDT&interval=D"
+            style="width:100%;height:300px" frameborder="0"></iframe>
+        </div>
 
-            // 切换内容显示
-            document.querySelectorAll('.tab-content').forEach(content => {
-                content.classList.remove('active');
-                if(content.id === tabId) {
-                    content.classList.add('active');
-                }
-            });
+        <!-- ETH日线 -->
+        <div class="chart-container">
+          <iframe src="https://www.tradingview.com/widgetembed/?symbol=BINANCE:ETHUSDT&interval=D"
+            style="width:100%;height:300px" frameborder="0"></iframe>
+        </div>
+
+        <!-- SOL日线 -->
+        <div class="chart-container">
+          <iframe src="https://www.tradingview.com/widgetembed/?symbol=BINANCE:SOLUSDT&interval=D"
+            style="width:100%;height:300px" frameborder="0"></iframe>
+        </div>
+
+        <!-- DOGE日线 -->
+        <div class="chart-container">
+          <iframe src="https://www.tradingview.com/widgetembed/?symbol=BINANCE:DOGEUSDT&interval=D"
+            style="width:100%;height:300px" frameborder="0"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- 股票新闻 -->
+    <div id="stock" class="tab-content">
+      <!-- 空白区域 -->
+    </div>
+  </div>
+
+  <script>
+    function switchTab(tabId) {
+      // 切换按钮状态
+      document.querySelectorAll('.tab-button').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.getAttribute('onclick').includes(tabId)) {
+          btn.classList.add('active');
         }
-    </script>
+      });
+
+      // 切换内容显示
+      document.querySelectorAll('.tab-content').forEach(content => {
+        content.classList.remove('active');
+        if (content.id === tabId) {
+          content.classList.add('active');
+        }
+      });
+    }
+  </script>
 </body>
+
 </html>
