@@ -113,6 +113,7 @@
       <button class="tab-button active" onclick="switchTab('market')">市场</button>
       <button class="tab-button" onclick="switchTab('forex')">外汇</button>
       <button class="tab-button" onclick="switchTab('crypto')">加密图表</button>
+      <button class="tab-button" onclick="switchTab('HKStock')">HK股票</button>
       <button class="tab-button" onclick="switchTab('stock')">股票新闻</button>
     </div>
   </div>
@@ -166,11 +167,8 @@
 
 
         <div class="data-card">
-
           <div class="tradingview-widget-container">
             <div class="tradingview-widget-container__widget"></div>
-            <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow"
-                target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
             <script type="text/javascript"
               src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js" async>
                 {
@@ -183,6 +181,10 @@
               </script>
           </div>
         </div>
+
+
+
+
 
 
           <!-- 比特币 -->
@@ -253,9 +255,16 @@
         </div>
       </div>
 
+      <div id="HKStock" class="tab-content">
+        hk stock
+      </div>
+      
       <!-- 股票新闻 -->
       <div id="stock" class="tab-content">
         <!-- 空白区域 -->
+      </div>
+
+      
       </div>
     </div>
 
