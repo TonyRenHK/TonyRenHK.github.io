@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>金融信息仪表盘</title>
+    <title>Tony Trading</title>
     <style>
         /* 全局样式 */
         * {
@@ -65,7 +65,7 @@
         .market-grid {
             display: grid;
             gap: 15px;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
         }
 
         .data-card {
@@ -119,24 +119,25 @@
             <div class="market-grid">
                 <div class="data-card">
                    <!-- TradingView Widget BEGIN -->
-<div class="tradingview-widget-container">
-    <div class="tradingview-widget-container__widget"></div>
-    <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
-    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js" async>
-    {
-    "symbol": "HSI:HSI",
-    "width": 550,
-    "locale": "en",
-    "colorTheme": "light",
-    "isTransparent": false
-  }
-    </script>
-  </div>
-  <!-- TradingView Widget END -->
+                    <div class="tradingview-widget-container">
+                        <div class="tradingview-widget-container__widget"></div>
+                        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js" async>
+                        {
+                        "symbol": "HSI:HSI",
+                        "width": 550,
+                        "locale": "en",
+                        "colorTheme": "light",
+                        "isTransparent": false
+                    }
+                        </script>
+                    </div>
+                    <!-- TradingView Widget END -->
 
-
-  
                 </div>
+
+
+
                 <div class="data-card">
                     <!-- TradingView Widget BEGIN -->
 <div class="tradingview-widget-container">
