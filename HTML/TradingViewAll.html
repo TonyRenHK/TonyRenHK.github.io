@@ -104,6 +104,139 @@
         width: 100% !important;
       }
     }
+
+
+
+
+    .controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 30px;
+      gap: 15px;
+    }
+
+    .controls label {
+      font-weight: bold;
+    }
+
+    .controls select,
+    .controls button {
+      padding: 10px 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    .controls button {
+      background-color: #3498db;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .controls button:hover {
+      background-color: #2980b9;
+    }
+
+
+
+    #news-list {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    #news-list li {
+      background-color: #f9f9f9;
+      border: 1px solid #eee;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 4px;
+      transition: box-shadow 0.3s ease;
+    }
+
+    #news-list li:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    #news-list li h2 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.2em;
+      color: #34495e;
+    }
+
+    #news-list li p {
+      margin-bottom: 10px;
+      color: #555;
+    }
+
+    #news-list li img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      margin-top: 10px;
+      display: block;
+    }
+
+    #news-list li a {
+      color: #3498db;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    #news-list li a:hover {
+      text-decoration: underline;
+    }
+
+    #news-list .news-meta {
+      font-size: 0.9em;
+      color: #7f8c8d;
+    }
+
+    #load-more-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    #load-more {
+      padding: 10px 20px;
+      background-color: #2ecc71;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #load-more:hover {
+      background-color: #27ae60;
+    }
+
+    #load-more:disabled {
+      background-color: #95a5a6;
+      cursor: not-allowed;
+    }
+
+    @media (max-width: 800px) {
+
+      .controls {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .controls select,
+      .controls button {
+        width: 100%;
+        box-sizing: border-box;
+        /* Ensures padding doesn\'t add to width */
+      }
+
+      #news-list li h2 {
+        font-size: 1.1em;
+      }
+    }
   </style>
 </head>
 
