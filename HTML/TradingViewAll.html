@@ -333,7 +333,7 @@
       <div class="forex-grid">
 
         <div class="data-card">
-          <h3>USD/JPY</h3>
+          <h3>HKD/CNY</h3>
           <div class="tradingview-widget-container">
             <div class="tradingview-widget-container__widget"></div>
             <script type="text/javascript"
@@ -379,10 +379,10 @@
       <div class="crypto-charts">
         <!-- BTC日线 -->
         <div class="chart-container">
-    
+
 
           <iframe src="https://www.tradingview.com/widgetembed/?symbol=BINANCE:BTCUSDT&interval=D"
-          style="width:100%;height:300px" frameborder="0"></iframe>
+            style="width:100%;height:300px" frameborder="0"></iframe>
         </div>
 
         <!-- ETH日线 -->
@@ -408,31 +408,31 @@
 
 
       <div>
-              <!-- TradingView Widget BEGIN -->
-              <div class="tradingview-widget-container" style="height:100%;width:100%">
-                <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
-                <script type="text/javascript"
-                  src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
-                    {
-                      "autosize": true,
-                        "symbol": "BINANCE:BTCUSDT",
-                          "timezone": "Asia/Hong_Kong",
-                            "theme": "light",
-                              "style": "1",
-                                "locale": "en",
-                                  "withdateranges": true,
-                                    "range": "5D",
-                                      "allow_symbol_change": true,
-                                        "studies": [
-                                          "STD;MACD",
-                                          "STD;EMA",
-                                          "STD;SMA"
-                                        ],
-                                          "support_host": "https://www.tradingview.com"
-                    }
-                  </script>
-              </div>
-              <!-- TradingView Widget END -->
+        <!-- TradingView Widget BEGIN -->
+        <div class="tradingview-widget-container" style="height:1000px;width:100%">
+          <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
+          <script type="text/javascript"
+            src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+              {
+                "autosize": true,
+                  "symbol": "BINANCE:BTCUSDT",
+                    "timezone": "Asia/Hong_Kong",
+                      "theme": "light",
+                        "style": "1",
+                          "locale": "en",
+                            "withdateranges": true,
+                              "range": "5D",
+                                "allow_symbol_change": true,
+                                  "studies": [
+                                    "STD;MACD",
+                                    "STD;EMA",
+                                    "STD;SMA"
+                                  ],
+                                    "support_host": "https://www.tradingview.com"
+              }
+            </script>
+        </div>
+        <!-- TradingView Widget END -->
 
       </div>
 
@@ -441,42 +441,53 @@
     </div>
 
     <div id="USStock" class="tab-content">
+      <div class="forex-grid">
+        <div class="data-card">
+          <!-- TradingView Widget BEGIN -->
+          <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <div class="tradingview-widget-copyright"><a href="https://cn.tradingview.com/" rel="noopener nofollow"
+                target="_blank"><span class="blue-text">在TradingView上跟踪所有市场</span></a></div>
+            <script type="text/javascript"
+              src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
+                {
+                  "width": 550,
+                    "height": 550,
+                      "symbolsGroups": [
+                        {
+                          "name": "HK Stock",
+                          "originalName": "Indices",
+                          "symbols": [
+                            {
+                              "name": "NYSE:CRM",
+                              "displayName": "Salesforce"
+                            },
+                            {
+                              "name": "NASDAQ:NVDA"
+                            },
+                            {
+                              "name": "NASDAQ:COIN"
+                            }
+                          ]
+                        }
+                      ],
+                        "showSymbolLogo": true,
+                          "isTransparent": false,
+                            "colorTheme": "light",
+                              "locale": "zh_CN",
+                                "backgroundColor": "#ffffff"
+                }
+              </script>
+          </div>
+          <!-- TradingView Widget END -->
 
-      <!-- TradingView Widget BEGIN -->
-<div class="tradingview-widget-container">
-  <div class="tradingview-widget-container__widget"></div>
-  <div class="tradingview-widget-copyright"><a href="https://cn.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">在TradingView上跟踪所有市场</span></a></div>
-  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
-  {
-  "width": 550,
-  "height": 550,
-  "symbolsGroups": [
-    {
-      "name": "HK Stock",
-      "originalName": "Indices",
-      "symbols": [
-        {
-          "name": "NYSE:CRM",
-          "displayName": "Salesforce"
-        },
-        {
-          "name": "NASDAQ:NVDA"
-        },
-        {
-          "name": "NASDAQ:COIN"
-        }
-      ]
-    }
-  ],
-  "showSymbolLogo": true,
-  "isTransparent": false,
-  "colorTheme": "light",
-  "locale": "zh_CN",
-  "backgroundColor": "#ffffff"
-}
-  </script>
-</div>
-<!-- TradingView Widget END -->
+        </div>
+
+        <div class="data-card">111
+        </div>
+
+      </div>
+
 
 
     </div>
