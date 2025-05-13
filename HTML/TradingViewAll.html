@@ -379,35 +379,10 @@
       <div class="crypto-charts">
         <!-- BTC日线 -->
         <div class="chart-container">
-          <!-- TradingView Widget BEGIN -->
-          <div class="tradingview-widget-container" style="height:100%;width:100%">
-            <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
-            <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow"
-                target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
-            <script type="text/javascript"
-              src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
-                {
-                  "autosize": true,
-                    "symbol": "BINANCE:BTCUSDT",
-                      "timezone": "Asia/Hong_Kong",
-                        "theme": "light",
-                          "style": "1",
-                            "locale": "en",
-                              "withdateranges": true,
-                                "range": "5D",
-                                  "allow_symbol_change": true,
-                                    "studies": [
-                                      "STD;MACD",
-                                      "STD;EMA",
-                                      "STD;SMA"
-                                    ],
-                                      "support_host": "https://www.tradingview.com"
-                }
-              </script>
-          </div>
-          <!-- TradingView Widget END -->
+    
 
-
+          <iframe src="https://www.tradingview.com/widgetembed/?symbol=BINANCE:BTCUSDT&interval=D"
+          style="width:100%;height:300px" frameborder="0"></iframe>
         </div>
 
         <!-- ETH日线 -->
@@ -427,11 +402,85 @@
           <iframe src="https://www.tradingview.com/widgetembed/?symbol=BINANCE:DOGEUSDT&interval=D"
             style="width:100%;height:300px" frameborder="0"></iframe>
         </div>
+
+
       </div>
+
+
+      <div>
+              <!-- TradingView Widget BEGIN -->
+              <div class="tradingview-widget-container" style="height:100%;width:100%">
+                <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
+                <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow"
+                    target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+                <script type="text/javascript"
+                  src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+                    {
+                      "autosize": true,
+                        "symbol": "BINANCE:BTCUSDT",
+                          "timezone": "Asia/Hong_Kong",
+                            "theme": "light",
+                              "style": "1",
+                                "locale": "en",
+                                  "withdateranges": true,
+                                    "range": "5D",
+                                      "allow_symbol_change": true,
+                                        "studies": [
+                                          "STD;MACD",
+                                          "STD;EMA",
+                                          "STD;SMA"
+                                        ],
+                                          "support_host": "https://www.tradingview.com"
+                    }
+                  </script>
+              </div>
+              <!-- TradingView Widget END -->
+              
+      </div>
+
+
+
     </div>
 
     <div id="HKStock" class="tab-content">
-      hk stock
+
+      <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <div class="tradingview-widget-copyright"><a href="https://cn.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">在TradingView上跟踪所有市场</span></a></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
+  {
+  "width": 550,
+  "height": 550,
+  "symbolsGroups": [
+    {
+      "name": "HK Stock",
+      "originalName": "Indices",
+      "symbols": [
+        {
+          "name": "NYSE:CRM",
+          "displayName": "Salesforce"
+        },
+        {
+          "name": "NASDAQ:NVDA"
+        },
+        {
+          "name": "NASDAQ:COIN"
+        }
+      ]
+    }
+  ],
+  "showSymbolLogo": true,
+  "isTransparent": false,
+  "colorTheme": "light",
+  "locale": "zh_CN",
+  "backgroundColor": "#ffffff"
+}
+  </script>
+</div>
+<!-- TradingView Widget END -->
+
+
     </div>
 
     <!-- 股票新闻 -->
