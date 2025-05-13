@@ -245,13 +245,15 @@
     <div class="tab-buttons">
       <button class="tab-button active" onclick="switchTab('market')">市场</button>
       <button class="tab-button" onclick="switchTab('forex')">外汇</button>
-      <button class="tab-button" onclick="switchTab('cryptoall')">加密货币</button>
-      <button class="tab-button" onclick="switchTab('crypto')">加密Day Chart</button>
-      <button class="tab-button" onclick="switchTab('BTCChart')">BTC Hourly chart</button>
       <button class="tab-button" onclick="switchTab('USStock')">US股票</button>
-      <button class="tab-button" onclick="switchTab('cryptoNews')">加密新闻</button>
+      <button class="tab-button" onclick="switchTab('XAUChart')">XAU</button>
 
-      <button class="tab-button" onclick="switchTab('stocknews')">股票新闻</button>
+      <button class="tab-button" onclick="switchTab('cryptoall')">Crypto All</button>
+      <button class="tab-button" onclick="switchTab('crypto')">Crypto Day Chart</button>
+      <button class="tab-button" onclick="switchTab('BTCChart')">BTC Hourly chart</button>
+      
+      <button class="tab-button" onclick="switchTab('cryptoNews')">Crypto News</button>
+      <button class="tab-button" onclick="switchTab('stocknews')">Stock News</button>
       <button class="tab-button" onclick="switchTab('Others')">Others</button>
       <button class="tab-button" onclick="switchTab('AISignals')">AI Signals</button>
     </div>
@@ -597,7 +599,9 @@
     </div>
 
 
-
+    <div id="XAUChart" class="tab-content">
+      XAUChart
+    </div>
 
     <div id="USStock" class="tab-content">
       <div class="forex-grid">
@@ -680,6 +684,8 @@
 
 
     </div>
+
+
     <div id="cryptoNews" class="tab-content">
       <div>
         <h1>BlockBeats 新闻</h1>
