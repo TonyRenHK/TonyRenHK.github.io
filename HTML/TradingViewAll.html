@@ -408,7 +408,7 @@
 
 
       <div>
-      N/A
+        N/A
 
       </div>
 
@@ -418,33 +418,42 @@
 
 
     <div id="BTCChart" class="tab-content">
-  <!-- TradingView Widget BEGIN -->
-  <div class="tradingview-widget-container">
-    <div class="tradingview-widget-container__widget"></div>
-  
-    <script type="text/javascript"
-      src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
-        {
-          "width": "100%",
-            "height": "1000",
-              "symbol": "BINANCE:BTCUSDT",
-                "timezone": "Asia/Hong_Kong",
-                  "theme": "light",
-                    "style": "1",
-                      "locale": "en",
-                        "withdateranges": true,
-                          "range": "5D",
-                            "allow_symbol_change": true,
-                              "studies": [
-                                "STD;MACD",
-                                "STD;EMA",
-                                "STD;RSI"
-                              ],
-                                "support_host": "https://www.tradingview.com"
-        }
-      </script>
-  </div>
-  <!-- TradingView Widget END -->
+
+
+
+
+
+
+      <!-- TradingView Widget BEGIN -->
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript"
+          src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+            {
+              "width": "100%",
+                "height": "1000",
+                  "symbol": "BINANCE:BTCUSDT",
+                    "interval": "60",
+                      "timezone": "Asia/Hong_Kong",
+                        "theme": "light",
+                          "style": "1",
+                            "locale": "en",
+                              "withdateranges": true,
+                                "hide_side_toolbar": false,
+                                  "allow_symbol_change": true,
+                                    "studies": [
+                                      "STD;MACD",
+                                      "STD;EMA",
+                                      "STD;RSI"
+                                    ],
+                                      "support_host": "https://www.tradingview.com"
+            }
+          </script>
+      </div>
+      <!-- TradingView Widget END -->
+
+
+
     </div>
 
 
