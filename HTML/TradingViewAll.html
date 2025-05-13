@@ -116,7 +116,11 @@
       <button class="tab-button" onclick="switchTab('crypto')">加密Day Chart</button>
       <button class="tab-button" onclick="switchTab('BTCChart')">BTC Hourly chart</button>
       <button class="tab-button" onclick="switchTab('USStock')">US股票</button>
-      <button class="tab-button" onclick="switchTab('stock')">股票新闻</button>
+      <button class="tab-button" onclick="switchTab('cryptoNews')">加密新闻</button>
+      
+      <button class="tab-button" onclick="switchTab('stocknews')">股票新闻</button>
+      <button class="tab-button" onclick="switchTab('Others')">Others</button>
+      <button class="tab-button" onclick="switchTab('AISignals')">AI Signals</button>
     </div>
   </div>
 
@@ -194,9 +198,6 @@
               </script>
           </div>
         </div>
-
-
-
 
 
 
@@ -420,9 +421,11 @@
     <div id="BTCChart" class="tab-content">
 
 
-<div>
-  <script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/coinMarquee.js"></script><div id="coinmarketcap-widget-marquee" coins="1,1027,5426,24478,74,32698,33440,20947,29870,35336,23095,10804" currency="USD" theme="light" transparent="false" show-symbol-logo="true"></div>
-</div>
+      <div>
+        <script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/coinMarquee.js"></script>
+        <div id="coinmarketcap-widget-marquee" coins="1,1027,5426,24478,74,32698,33440,20947,29870,35336,23095,10804"
+          currency="USD" theme="light" transparent="false" show-symbol-logo="true"></div>
+      </div>
 
 
 
@@ -542,14 +545,24 @@
 
 
     </div>
+    <div id="cryptoNews" class="tab-content">
+      cryptoNews here 
+    </div>
 
     <!-- 股票新闻 -->
-    <div id="stock" class="tab-content">
+    <div id="stocknews" class="tab-content">
       <iframe style="width:100%;height:1300px" frameborder="0" scrolling="yes"
         src="https://www.jin10.com/example/jin10.com.html?fontSize=14px&theme=white"></iframe>
     </div>
 
+    <div id="AISignals" class="tab-content">
+      
+    </div>
 
+    <div id="Others" class="tab-content">
+      
+    </div>
+    
   </div>
   </div>
 
