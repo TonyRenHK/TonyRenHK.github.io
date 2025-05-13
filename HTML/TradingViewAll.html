@@ -117,7 +117,7 @@
       <button class="tab-button" onclick="switchTab('BTCChart')">BTC Hourly chart</button>
       <button class="tab-button" onclick="switchTab('USStock')">US股票</button>
       <button class="tab-button" onclick="switchTab('cryptoNews')">加密新闻</button>
-      
+
       <button class="tab-button" onclick="switchTab('stocknews')">股票新闻</button>
       <button class="tab-button" onclick="switchTab('Others')">Others</button>
       <button class="tab-button" onclick="switchTab('AISignals')">AI Signals</button>
@@ -359,6 +359,8 @@
 
       </div>
     </div>
+
+
     <div id="cryptoall" class="tab-content">
 
       <div>
@@ -366,14 +368,14 @@
         <div id="coinmarketcap-widget-coin-price-block"
           coins="1,1027,5426,74,24478,20947,52,32698,35336,10804,32941,29870" currency="USD" theme="light"
           transparent="false" show-symbol-logo="true"></div>
-
       </div>
       <div>
         <script src="https://widgets.coingecko.com/gecko-coin-heatmap-widget.js"></script>
         <gecko-coin-heatmap-widget locale="en" outlined="true" top="30"></gecko-coin-heatmap-widget>
-
       </div>
     </div>
+
+
 
 
     <div id="crypto" class="tab-content">
@@ -546,7 +548,22 @@
 
     </div>
     <div id="cryptoNews" class="tab-content">
-      cryptoNews here 
+      <div>
+        <h1>BlockBeats 新闻</h1>
+        <div class="controls">
+          <label for="news-type">选择新闻类型:</label>
+          <select id="news-type">
+            <option value="flash">快讯</option>
+            <option value="information">文章</option>
+          </select>
+          <button id="fetch-news">获取新闻</button>
+        </div>
+        <ul id="news-list"></ul>
+        <div id="load-more-container">
+          <button id="load-more" style="display:none;">More</button>
+        </div>
+      </div>
+
     </div>
 
     <!-- 股票新闻 -->
@@ -556,13 +573,13 @@
     </div>
 
     <div id="AISignals" class="tab-content">
-      
+
     </div>
 
     <div id="Others" class="tab-content">
-      
+
     </div>
-    
+
   </div>
   </div>
 
@@ -584,6 +601,140 @@
         }
       });
     }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const newsTypeSelect = document.getElementById('news-type');
+      const fetchNewsButton = document.getElementById('fetch-news');
+      const newsList = document.getElementById('news-list');
+      const loadMoreButton = document.getElementById('load-more');
+
+      const API_BASE_URL = 'https://api.theblockbeats.news/v1/';
+      let currentPage = 1;
+      let currentNewsType = 'flash';
+      const newsPerPage = 20; // 获取更多数据，之前是10
+
+      async function fetchNews(type, page, size, append = false) {
+        currentNewsType = type;
+        currentPage = page;
+        let endpoint = '';
+        if (type === 'flash') {
+          endpoint = `open-api/open-flash?size=${size}&page=${page}&type=push&lang=cn`;
+        } else if (type === 'information') {
+          endpoint = `open-api/open-information?size=${size}&page=${page}&type=push&lang=cn`;
+        }
+
+        if (!endpoint) {
+          if (!append) newsList.innerHTML = '<li>无效的新闻类型</li>';
+          loadMoreButton.style.display = 'none';
+          return;
+        }
+
+        try {
+          if (!append) {
+            newsList.innerHTML = '<li>正在加载新闻...</li>';
+          }
+          loadMoreButton.disabled = true;
+          const response = await fetch(API_BASE_URL + endpoint);
+          if (!response.ok) {
+            throw new Error(`HTTP 错误! 状态: ${response.status}`);
+          }
+          const result = await response.json();
+
+          if (result.status === 0 && result.data && result.data.data) {
+            if (result.data.data.length > 0) {
+              renderNews(result.data.data, type, append);
+              loadMoreButton.style.display = 'block';
+              loadMoreButton.disabled = false;
+            } else {
+              if (!append) newsList.innerHTML = '<li>没有找到相关新闻。</li>';
+              else newsList.innerHTML += '<li>没有更多新闻了。</li>';
+              loadMoreButton.style.display = 'none';
+            }
+          } else {
+            if (!append) newsList.innerHTML = `<li>获取新闻失败: ${result.message || '未知错误'}</li>`;
+            else newsList.innerHTML += `<li>获取更多新闻失败: ${result.message || '未知错误'}</li>`;
+            loadMoreButton.style.display = 'none';
+          }
+        } catch (error) {
+          console.error('获取新闻数据时出错:', error);
+          if (!append) newsList.innerHTML = `<li>获取新闻数据时出错: ${error.message}。请检查控制台获取更多信息，并确认API是否支持跨域请求。</li>`;
+          else newsList.innerHTML += `<li>获取更多新闻时出错: ${error.message}。</li>`;
+          loadMoreButton.style.display = 'none';
+        }
+      }
+
+      function renderNews(articles, type, append) {
+        if (!append) {
+          newsList.innerHTML = ''; // 清空现有列表
+        }
+        articles.forEach(article => {
+          const listItem = document.createElement('li');
+
+          const title = document.createElement('h2');
+          title.textContent = article.title;
+          listItem.appendChild(title);
+
+          if (type === 'flash' && article.content) {
+            const content = document.createElement('p');
+            content.innerHTML = article.content; // API content might have HTML
+            listItem.appendChild(content);
+          } else if (type === 'information' && article.description) {
+            const description = document.createElement('p');
+            description.textContent = article.description;
+            listItem.appendChild(description);
+          }
+
+          if (article.pic) {
+            const image = document.createElement('img');
+            image.src = article.pic;
+            image.alt = article.title;
+            listItem.appendChild(image);
+          }
+
+          if (article.link) {
+            const link = document.createElement('a');
+            link.href = article.link;
+            link.textContent = '阅读原文 (BlockBeats)';
+            link.target = '_blank'; // Open in new tab
+            listItem.appendChild(document.createElement('br'));
+            listItem.appendChild(link);
+          }
+
+          if (article.url && article.url !== article.link) {
+            const originalUrl = document.createElement('a');
+            originalUrl.href = article.url;
+            originalUrl.textContent = '原始链接';
+            originalUrl.target = '_blank';
+            listItem.appendChild(document.createElement('br'));
+            listItem.appendChild(originalUrl);
+          }
+
+          if (article.create_time) {
+            const meta = document.createElement('p');
+            meta.classList.add('news-meta');
+            const date = new Date(parseInt(article.create_time) * 1000);
+            meta.textContent = `发布时间: ${date.toLocaleString('zh-CN')}`;
+            listItem.appendChild(meta);
+          }
+
+          newsList.appendChild(listItem);
+        });
+      }
+
+      fetchNewsButton.addEventListener('click', () => {
+        const selectedType = newsTypeSelect.value;
+        fetchNews(selectedType, 1, newsPerPage, false); // Reset to page 1 and clear list
+      });
+
+      loadMoreButton.addEventListener('click', () => {
+        fetchNews(currentNewsType, currentPage + 1, newsPerPage, true); // Fetch next page and append
+      });
+
+      // 默认加载一次快讯
+      fetchNews('flash', 1, newsPerPage, false);
+    });
+
+
   </script>
 </body>
 
