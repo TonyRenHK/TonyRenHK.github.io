@@ -6,38 +6,50 @@
     <title>智能卡片抽取系统</title>
     <style>
         :root {
-            --card-red: #e74c3c; /* 定义红色变量 */
-            --card-black: #2c3e50; /* 定义黑色变量 */
+            --card-red: #e74c3c;
+            --card-black: #2c3e50;
+            --card-blue: #3498db;
+            --card-green: #2ecc71;
+            --card-purple: #9b59b6;
+            --card-orange: #f39c12;
         }
 
         body {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center; /* 确保内容垂直居中 */
+            justify-content: center;
             min-height: 100vh;
             margin: 0;
-            padding: 20px; /* 给body添加一些内边距，防止内容紧贴边缘 */
+            padding: 20px;
             background: #f0f2f5;
             font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
-            box-sizing: border-box; /* 确保padding和border不增加元素总宽高 */
+            box-sizing: border-box;
+        }
+
+        .main-title {
+            font-size: 2.5rem; /* 标题字体大小 */
+            color: var(--card-black);
+            text-align: center;
+            margin-bottom: 30px; /* 与下方控件的间距 */
+            font-weight: bold;
         }
 
         .controls-container {
             margin-bottom: 20px;
             width: 100%;
-            max-width: 350px; /* 限制下拉选择器的最大宽度 */
+            max-width: 350px;
         }
 
         #typeFilter {
-            width: 100%; /* 使下拉选择器宽度自适应容器 */
+            width: 100%;
             padding: 12px 15px;
             font-size: 1rem;
             border: 2px solid #ced4da;
             border-radius: 8px;
             background-color: #fff;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            appearance: none; /* 移除默认样式，特别是在移动设备上 */
+            appearance: none;
             -webkit-appearance: none;
             -moz-appearance: none;
             background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007bff%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
@@ -48,8 +60,8 @@
 
         #pokerContainer {
             position: relative;
-            width: 280px;  /* 调整卡片大小以适应移动设备 */
-            height: 400px; /* 调整卡片大小以适应移动设备 */
+            width: 280px;
+            height: 400px;
             perspective: 1000px;
             margin: 20px 0;
         }
@@ -59,7 +71,7 @@
             height: 100%;
             position: absolute;
             transform-style: preserve-3d;
-            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* 平滑动画曲线 */
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             border-radius: 15px;
         }
 
@@ -78,12 +90,21 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-            overflow: hidden; /* 防止内容溢出圆角 */
+            overflow: hidden;
         }
 
         .front {
-            background: linear-gradient(135deg, #ece9e6 0%, #ffffff 100%);
-            color: var(--card-black);
+            /* 卡片正面背景设置为Elsa图片 */
+            background-image: url('elsa_image_url.jpg'); /* 请替换为实际的Elsa图片URL或路径 */
+            background-size: cover; /* 图片覆盖整个区域 */
+            background-position: center; /* 图片居中显示 */
+            color: transparent; /* 可以隐藏文字，如果图片本身足够清晰 */
+        }
+
+        .front .suit-display {
+             /* 如果需要在图片上显示符号，可以调整颜色和透明度 */
+            /* color: rgba(255, 255, 255, 0.8); */ 
+            /* text-shadow: 0 0 5px black; */
         }
 
         .back {
@@ -93,16 +114,16 @@
         }
 
         .suit-display {
-            font-size: 6rem; /* 调整花色大小 */
+            font-size: 7rem; /* 增大花色字体大小 */
             transition: color 0.3s;
-            line-height: 1; /* 确保文字垂直居中 */
+            line-height: 1;
         }
 
         .result-text {
-            font-size: 2.5rem; /* 调整结果文字大小 */
+            font-size: 3rem; /* 增大结果文字大小 */
             text-align: center;
             padding: 15px;
-            word-break: break-word; /* 长单词换行 */
+            word-break: break-word;
             line-height: 1.3;
         }
 
@@ -116,7 +137,7 @@
             cursor: pointer;
             transition: transform 0.2s ease-out, background-color 0.3s;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            margin-top: 20px; /* 与卡片保持间距 */
+            margin-top: 20px;
         }
 
         #drawBtn:active {
@@ -124,20 +145,23 @@
             background: linear-gradient(45deg, #27ae60, #2ecc71);
         }
 
-        /* 响应式布局调整 */
         @media (max-width: 480px) {
             body {
                 padding: 10px;
             }
+            .main-title {
+                font-size: 1.8rem; /* 响应式调整标题字体大小 */
+                margin-bottom: 20px;
+            }
             #pokerContainer {
-                width: 220px; /* 进一步缩小卡片 */
+                width: 220px;
                 height: 320px;
             }
             .suit-display {
-                font-size: 5rem;
+                font-size: 6rem; /* 响应式调整 */
             }
             .result-text {
-                font-size: 2rem;
+                font-size: 2.5rem; /* 响应式调整 */
             }
             #drawBtn {
                 padding: 12px 25px;
@@ -152,16 +176,18 @@
     </style>
 </head>
 <body>
+    <h1 class="main-title">gigi的扑克牌系统</h1> <!-- 添加的大标题 -->
+
     <div class="controls-container">
         <select id="typeFilter">
-            <option value="">所有类型</option> <!-- 添加一个“所有类型”的选项 -->
+            <option value="">所有类型</option>
         </select>
     </div>
 
     <div id="pokerContainer">
         <div class="poker-card" id="card">
             <div class="card-face front">
-                <div class="suit-display">?</div>
+                <div class="suit-display">?</div> <!-- 这个问号在有背景图时可能不需要 -->
             </div>
             <div class="card-face back">
                 <div class="result-text" id="resultText"></div>
@@ -172,20 +198,36 @@
     <button id="drawBtn" onclick="drawNewCard()">抽取卡片</button>
 
     <script>
-        const suitsMap = {
-            'L1': { symbol: '♥', color: 'var(--card-red)' },
-            'L2': { symbol: '♠', color: 'var(--card-black)' },
-            'default': { symbol: '★', color: 'var(--card-black)' }
-        };
+        const predefinedSuits = [
+            { symbol: '♥', color: 'var(--card-red)' },
+            { symbol: '♠', color: 'var(--card-black)' },
+            { symbol: '♦', color: 'var(--card-red)' },
+            { symbol: '♣', color: 'var(--card-black)' },
+            { symbol: '★', color: 'var(--card-blue)' },
+            { symbol: '✿', color: 'var(--card-green)' },
+            { symbol: '✦', color: 'var(--card-purple)' },
+            { symbol: '✺', color: 'var(--card-orange)' }
+        ];
+        const defaultSuit = { symbol: '?', color: 'var(--card-black)' };
+
+        function getSuitForType(type) {
+            if (typeof type === 'string' && type.startsWith('L')) {
+                const numStr = type.substring(1);
+                const num = parseInt(numStr, 10);
+                if (!isNaN(num) && num > 0) {
+                    return predefinedSuits[(num - 1) % predefinedSuits.length];
+                }
+            }
+            return defaultSuit;
+        }
 
         let cardData = [];
         let currentCardElement = document.getElementById('card');
         let isCardFlipped = false;
 
-        // 异步加载JSON数据
         async function loadCardData() {
             try {
-                const response = await fetch('source.json'); // 确保这里是相对路径
+                const response = await fetch('source.json');
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
@@ -198,7 +240,6 @@
             }
         }
 
-        // 初始化类型筛选器
         function initTypeFilter() {
             const types = [...new Set(cardData.map(item => item.type))];
             const filterSelect = document.getElementById('typeFilter');
@@ -211,7 +252,6 @@
             });
         }
 
-        // 抽取新卡片的主要逻辑
         function drawNewCard() {
             const selectedType = document.getElementById('typeFilter').value;
             const filteredData = selectedType 
@@ -226,46 +266,42 @@
             const randomIndex = Math.floor(Math.random() * filteredData.length);
             const selectedCardData = filteredData[randomIndex];
             
-            // 如果卡片当前显示的是结果，则先翻回正面，再显示新结果
             if (isCardFlipped) {
                 currentCardElement.classList.remove('flipped');
-                // 等待翻回动画完成
                 setTimeout(() => {
                     updateCardDisplay(selectedCardData);
                     currentCardElement.classList.add('flipped');
-                }, 400); // 动画时间的一半，确保翻回去再更新内容
+                }, 400);
             } else {
-                // 如果卡片是初始状态或已翻回正面，直接更新并翻转到背面显示结果
                 updateCardDisplay(selectedCardData);
                 currentCardElement.classList.add('flipped');
             }
-            isCardFlipped = true; // 标记卡片已翻转以显示结果
+            isCardFlipped = true;
         }
 
-        // 更新卡片显示内容
         function updateCardDisplay(card, isInitial = false) {
             const frontSuitDisplay = currentCardElement.querySelector('.front .suit-display');
             const backResultText = document.getElementById('resultText');
+            const cardFrontFace = currentCardElement.querySelector('.front');
 
             if (isInitial || !card) {
-                frontSuitDisplay.textContent = '?';
-                frontSuitDisplay.style.color = 'var(--card-black)';
-                backResultText.textContent = ''; // 初始时不显示背面文字
+                frontSuitDisplay.textContent = '?'; // 初始问号，如果背景图不清晰可以保留
+                frontSuitDisplay.style.color = 'var(--card-black)'; // 初始问号颜色
+                // cardFrontFace.style.backgroundImage = "url('elsa_image_url.jpg')"; // 确保初始也是Elsa
+                backResultText.textContent = '';
                 return;
             }
 
-            const typeConfig = suitsMap[card.type] || suitsMap['default'];
+            const typeConfig = getSuitForType(card.type);
             
-            // 更新背面（结果面）
             backResultText.textContent = card.content;
             backResultText.style.color = typeConfig.color;
 
-            // 更新正面（花色面），即使它当前不可见，为下次翻转做准备
-            frontSuitDisplay.textContent = typeConfig.symbol;
-            frontSuitDisplay.style.color = typeConfig.color;
+            // frontSuitDisplay.textContent = typeConfig.symbol; // 如果背景图上不需要符号，可以注释掉
+            // frontSuitDisplay.style.color = typeConfig.color; // 如果背景图上不需要符号，可以注释掉
+            // cardFrontFace.style.backgroundImage = "url('elsa_image_url.jpg')"; // 确保每次都是Elsa
         }
 
-        // 页面加载时执行
         document.addEventListener('DOMContentLoaded', loadCardData);
     </script>
 </body>
