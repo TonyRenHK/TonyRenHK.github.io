@@ -1,18 +1,74 @@
 [
     {
-        "content": "汽車",
-        "type": "L1"
+        "汽車": "的士",
+        "K2_Transport_CN": "K2_Transport_CN"
     },
     {
-        "content": "巴士",
-        "type": "L1"
+        "汽車": "巴士、",
+        "K2_Transport_CN": "K2_Transport_CN"
     },
     {
-        "content": "test1",
-        "type": "L2"
+        "汽車": "、馬路",
+        "K2_Transport_CN": "K2_Transport_CN"
     },
     {
-        "content": "test3",
-        "type": "L2"
+        "汽車": "巴士站",
+        "K2_Transport_CN": "K2_Transport_CN"
+    },
+    {
+        "汽車": "碼頭、",
+        "K2_Transport_CN": "K2_Transport_CN"
+    },
+    {
+        "汽車": "火車",
+        "K2_Transport_CN": "K2_Transport_CN"
+    },
+    {
+        "汽車": "電車",
+        "K2_Transport_CN": "K2_Transport_CN"
+    },
+    {
+        "汽車": "山頂纜車",
+        "K2_Transport_CN": "K2_Transport_CN"
+    },
+    {
+        "汽車": "here",
+        "K2_Transport_CN": "K2_Transport_EN"
+    },
+    {
+        "汽車": "by",
+        "K2_Transport_CN": "K2_Transport_EN"
+    },
+    {
+        "汽車": "how",
+        "K2_Transport_CN": "K2_Transport_EN"
+    },
+    {
+        "汽車": "walk",
+        "K2_Transport_CN": "K2_Transport_EN"
+    },
+    {
+        "汽車": "take",
+        "K2_Transport_CN": "K2_Transport_EN"
+    },
+    {
+        "汽車": "ride",
+        "K2_Transport_CN": "K2_Transport_EN"
+    },
+    {
+        "汽車": "very",
+        "K2_Transport_CN": "K2_Transport_EN"
+    },
+    {
+        "汽車": "goes",
+        "K2_Transport_CN": "K2_Transport_EN"
+    },
+    {
+        "汽車": "may",
+        "K2_Transport_CN": "K2_Transport_EN"
+    },
+    {
+        "汽車": "one",
+        "K2_Transport_CN": "K2_Transport_EN"
     }
 ]
