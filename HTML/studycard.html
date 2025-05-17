@@ -175,40 +175,27 @@
         const suitsMap = {
             'L1': { symbol: '♥', color: 'var(--card-red)' },
             'L2': { symbol: '♠', color: 'var(--card-black)' },
-            // 您可以在这里为其他type添加更多花色和颜色
-            'default': { symbol: '★', color: 'var(--card-black)' } // 默认花色
+            'default': { symbol: '★', color: 'var(--card-black)' }
         };
 
         let cardData = [];
         let currentCardElement = document.getElementById('card');
-        let isCardFlipped = false; // 用于跟踪卡片是否已翻转以显示结果
+        let isCardFlipped = false;
 
-        // 直接嵌入JSON数据
-        const embeddedCardData = [
-            {
-                "content": "汽车",
-                "type": "L1"
-            },
-            {
-                "content": "巴士",
-                "type": "L1"
-            },
-            {
-                "content": "test1",
-                "type": "L2"
-            },
-            {
-                "content": "test3",
-                "type": "L2"
+        // 异步加载JSON数据
+        async function loadCardData() {
+            try {
+                const response = await fetch('source.json'); // 确保这里是相对路径
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                cardData = await response.json();
+                initTypeFilter();
+                updateCardDisplay(null, true);
+            } catch (error) {
+                console.error("无法加载卡片数据:", error);
+                document.getElementById('resultText').textContent = '数据加载失败';
             }
-        ];
-
-        // 初始化卡片数据和类型筛选器
-        function initializeApp() {
-            cardData = embeddedCardData;
-            initTypeFilter();
-            // 初始时显示卡片背面（问号）
-            updateCardDisplay(null, true); // isInitial = true
         }
 
         // 初始化类型筛选器
@@ -279,7 +266,7 @@
         }
 
         // 页面加载时执行
-        document.addEventListener('DOMContentLoaded', initializeApp);
+        document.addEventListener('DOMContentLoaded', loadCardData);
     </script>
 </body>
 </html>
