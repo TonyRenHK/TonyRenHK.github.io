@@ -1,0 +1,145 @@
+[
+    {
+        "content": "的士",
+        "type": "K2_Transport_CN"
+    },
+    {
+        "content": "巴士",
+        "type": "K2_Transport_CN"
+    },
+    {
+        "content": "馬路",
+        "type": "K2_Transport_CN"
+    },
+    {
+        "content": "巴士站",
+        "type": "K2_Transport_CN"
+    },
+    {
+        "content": "碼頭",
+        "type": "K2_Transport_CN"
+    },
+    {
+        "content": "火車",
+        "type": "K2_Transport_CN"
+    },
+    {
+        "content": "電車",
+        "type": "K2_Transport_CN"
+    },
+    {
+        "content": "山頂纜車",
+        "type": "K2_Transport_CN"
+    },
+    {
+        "content": "here",
+        "type": "K2_Transport_EN"
+    },
+    {
+        "content": "by",
+        "type": "K2_Transport_EN"
+    },
+    {
+        "content": "how",
+        "type": "K2_Transport_EN"
+    },
+    {
+        "content": "walk",
+        "type": "K2_Transport_EN"
+    },
+    {
+        "content": "take",
+        "type": "K2_Transport_EN"
+    },
+    {
+        "content": "ride",
+        "type": "K2_Transport_EN"
+    },
+    {
+        "content": "very",
+        "type": "K2_Transport_EN"
+    },
+    {
+        "content": "goes",
+        "type": "K2_Transport_EN"
+    },
+    {
+        "content": "may",
+        "type": "K2_Transport_EN"
+    },
+    {
+        "content": "one",
+        "type": "K2_Transport_EN"
+    }, {
+        "content": "安全島",
+        "type": "K2_Transport_CN"
+    },
+    {
+        "content": "斑馬線",
+        "type": "K2_Transport_CN"
+    },
+    {
+        "content": "輪子",
+        "type": "K2_Transport_CN"
+    },
+    {
+        "content": "交通燈",
+        "type": "K2_Transport_CN"
+    },
+    {
+        "content": "前/後",
+        "type": "K2_Transport_CN"
+    },
+    {
+        "content": "直升機",
+        "type": "K2_Transport_CN"
+    },
+    {
+        "content": "飛機",
+        "type": "K2_Transport_CN"
+    },
+    {
+        "content": "輪船",
+        "type": "K2_Transport_CN"
+    },
+    {
+        "content": "海洋",
+        "type": "K2_Transport_CN"
+    },
+    {
+        "content": "汽車",
+        "type": "K2_Transport_CN"
+    },
+    {
+        "content": "父親節",
+        "type": "K2_Transport_CN"
+    },
+    {
+        "content": "粽子",
+        "type": "K2_Transport_CN"
+    },
+    {
+        "content": "龍舟",
+        "type": "K2_Transport_CN"
+    },
+    {
+        "content": "端午節",
+        "type": "K2_Transport_CN"
+    },
+    {
+        "content": "八達通",
+        "type": "K2_Transport_CN"
+    },
+    {
+        "content": "隧道",
+        "type": "K2_Transport_CN"
+    },
+    {
+        "content": "天橋",
+        "type": "K2_Transport_CN"
+    },
+    {
+        "content": "行人路",
+        "type": "K2_Transport_CN"
+    }
+]

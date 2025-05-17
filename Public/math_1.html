@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>迪士尼数学魔盒</title>
+    <style>
+        :root {
+            --card-red: #e74c3c;
+            --card-black: #2c3e50;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: #2c3e50;
+            font-family: 'Arial', sans-serif;
+        }
+
+        @media (max-width: 600px) {
+            #pokerContainer {
+                width: 200px;
+                height: 300px;
+            }
+            .equation {
+                font-size: 2rem;
+            }
+        }
+
+        #typeFilter {
+            margin: 20px;
+            padding: 12px 24px;
+            font-size: 1.2rem;
+            border: 2px solid #2d8cf0;
+            border-radius: 25px;
+            background: #34495e;
+            color: white;
+        }
+
+        #pokerContainer {
+            position: relative;
+            width: 300px;
+            height: 450px;
+            perspective: 1000px;
+            margin: 30px 0;
+        }
+
+        .poker-card {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .front {
+            background: #fff;
+            transform: rotateY(0deg);
+            padding: 20px;
+        }
+
+        .back {
+            background: url('disney-back.jpg') center/cover;
+            transform: rotateY(180deg);
+        }
+
+        .equation {
+            font-size: 3rem;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        #drawBtn {
+            padding: 20px 50px;
+            font-size: 2rem;
+            background: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <select id="typeFilter">
+        <option value="all">全部题型</option>
+        <option value="addition">加法挑战</option>
+        <option value="subtraction">减法挑战</option>
+    </select>
+
+    <div id="pokerContainer">
+        <div class="poker-card" id="card">
+            <div class="card-face front">
+                <div class="equation" id="equation"></div>
+            </div>
+            <div class="card-face back"></div>
+        </div>
+    </div>
+
+    <button id="drawBtn" onclick="drawCard()">开启魔盒</button>
+
+    <script>
+        // 题目生成系统（参考网页1/4的数学游戏逻辑）
+        function generateQuestion() {
+            const type = document.getElementById('typeFilter').value;
+            let a, b, missingPos;
+
+            if(type === 'subtraction' || (type === 'all' && Math.random() > 0.5)) {
+                a = Math.floor(Math.random() * 19) + 1;
+                b = Math.floor(Math.random() * a);
+                missingPos = Math.random() > 0.5 ? 1 : 2;
+                return {
+                    equation: missingPos === 1 ? `? - ${b} = ${a-b}` : `${a} - ? = ${a-b}`,
+                    answer: missingPos === 1 ? a : b,
+                    type: 'subtraction'
+                };
+            } else {
+                a = Math.floor(Math.random() * 19) + 1;
+                b = Math.floor(Math.random() * (20 - a));
+                missingPos = Math.random() > 0.5 ? 1 : 2;
+                return {
+                    equation: missingPos === 1 ? `? + ${b} = ${a+b}` : `${a} + ? = ${a+b}`,
+                    answer: missingPos === 1 ? a : b,
+                    type: 'addition'
+                };
+            }
+        }
+
+        // 卡片动画系统（参考网页5/7的3D动画实现）
+        function drawCard() {
+            const card = document.getElementById('card');
+            const question = generateQuestion();
+            
+            card.style.transform = 'rotateY(180deg)';
+            setTimeout(() => {
+                document.getElementById('equation').textContent = question.equation;
+                card.style.transform = 'rotateY(0deg)';
+            }, 800);
+        }
+
+        // 初始加载
+        window.onload = drawCard;
+    </script>
+</body>
+</html>
