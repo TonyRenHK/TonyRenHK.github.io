@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>迪士尼魔法数字卡牌</title>
+    <style>
+        :root {
+            --card-red: #e74c3c;
+            --card-black: #2c3e50;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: #2c3e50;
+            font-family: Arial, sans-serif;
+        }
+
+        /* 响应式布局（网页9/10/11方案） */
+        @media (max-width: 600px) {
+            .card {
+                width: 22vw;
+                height: 30vw;
+            }
+            .number {
+                font-size: 8vw;
+            }
+        }
+
+        .controls {
+            margin: 20px;
+            display: flex;
+            gap: 15px;
+        }
+
+        input {
+            padding: 10px;
+            border-radius: 8px;
+            border: 2px solid #2d8cf0;
+        }
+
+        button {
+            padding: 12px 24px;
+            background: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+        /* 九宫格布局（网页11方案增强） */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 30px;
+            max-width: 90vw;
+        }
+
+        /* 3D卡片效果（网页1/4/5方案） */
+        .card {
+            position: relative;
+            width: 120px;
+            height: 160px;
+            perspective: 1000px;
+        }
+
+        .card-inner {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .front {
+            background: #fff;
+            transform: rotateY(0deg);
+        }
+
+        .back {
+            background-size: cover;
+            transform: rotateY(180deg);
+        }
+
+        .number {
+            font-size: 4rem;
+            font-weight: 900;
+        }
+
+        /* 动态花色系统 */
+        .suit {
+            position: absolute;
+            font-size: 2rem;
+            top: 10px;
+            left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="controls">
+        <input type="number" id="minVal" placeholder="最小值">
+        <input type="number" id="maxVal" placeholder="最大值">
+        <button onclick="initGame()">开始游戏</button>
+        <button onclick="shuffleCards()">洗牌</button>
+    </div>
+    
+    <div class="card-grid" id="cardGrid"></div>
+
+    <script>
+        const disneyBacks = Array(9).fill().map((_,i) => `disney${i+1}.jpg`);
+        let selectedCards = [];
+        let currentNumbers = [];
+
+        // 初始化游戏（网页6/7洗牌算法）
+        function initGame() {
+            const min = parseInt(document.getElementById('minVal').value) || 1;
+            const max = parseInt(document.getElementById('maxVal').value) || 100;
+            
+            // 生成唯一随机数（网页8均匀分布）
+            currentNumbers = Array(9).fill().map(() => 
+                Math.floor(Math.random() * (max - min + 1)) + min
+            );
+            
+            renderCards(currentNumbers);
+        }
+
+        // 渲染卡片（网页1/4动画增强）
+        function renderCards(numbers) {
+            const grid = document.getElementById('cardGrid');
+            grid.innerHTML = '';
+            
+            numbers.forEach((num, i) => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <div class="card-inner">
+                        <div class="card-face front">
+                            <div class="suit"></div>
+                            <div class="number">${num}</div>
+                        </div>
+                        <div class="card-face back" 
+                             style="background-image: url(${disneyBacks[i % 9]})">
+                        </div>
+                    </div>
+                `;
+                card.onclick = () => handleFlip(card, num);
+                grid.appendChild(card);
+            });
+        }
+
+        // 卡片点击处理（网页4交互逻辑）
+        function handleFlip(card, num) {
+            if(selectedCards.length >= 2) return;
+            
+            card.querySelector('.card-inner').style.transform = 'rotateY(180deg)';
+            selectedCards.push({card, num});
+            
+            if(selectedCards.length === 2) {
+                setTimeout(() => {
+                    alert(`您选择了 ${selectedCards[0].num} 和 ${selectedCards[1].num}`);
+                    selectedCards = [];
+                }, 1000);
+            }
+        }
+
+        // 洗牌功能（网页7 Fisher-Yates算法）
+        function shuffleCards() {
+            for(let i = currentNumbers.length -1; i > 0; i--){
+                const j = Math.floor(Math.random() * (i +1));
+                [currentNumbers[i], currentNumbers[j]] = 
+                    [currentNumbers[j], currentNumbers[i]];
+            }
+            renderCards(currentNumbers);
+        }
+
+        // 动态花色适配（网页5/12方案）
+        function updateSuits() {
+            document.querySelectorAll('.suit').forEach(suit => {
+                const num = parseInt(suit.nextElementSibling.textContent);
+                const suits = ['♠', '♥', '♦', '♣'];
+                const color = num % 2 ? 'red' : 'black';
+                
+                suit.textContent = suits[num % 4];
+                suit.style.color = color;
+                suit.nextElementSibling.style.color = color;
+            });
+        }
+    </script>
+</body>
+</html>
