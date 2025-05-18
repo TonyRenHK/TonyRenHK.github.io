@@ -2,12 +2,18 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>迪士尼魔法数字卡牌</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>魔法数字卡牌</title>
     <style>
-        :root {
-            --card-red: #e74c3c;
-            --card-black: #2c3e50;
+        /* 响应式布局系统 */
+        @media (max-width: 600px) {
+            .card { width: 28vw; height: 38vw; }
+            .number { font-size: 10vw; }
+            button { font-size: 1.4rem; }
+            .controls {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
         }
 
         body {
@@ -20,53 +26,61 @@
             font-family: Arial, sans-serif;
         }
 
-        /* 响应式布局（网页9/10/11方案） */
-        @media (max-width: 600px) {
-            .card {
-                width: 22vw;
-                height: 30vw;
-            }
-            .number {
-                font-size: 8vw;
-            }
-        }
-
+        /* 优化输入框布局 */
         .controls {
+            width: 90%;
+            max-width: 600px;
             margin: 20px;
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             gap: 15px;
         }
 
-        input {
-            padding: 10px;
-            border-radius: 8px;
-            border: 2px solid #2d8cf0;
+        .input-group {
+            display: flex;
+            gap: 10px;
         }
 
+        input {
+            width: 100%;
+            padding: 12px;
+            font-size: 1.1rem;
+            border-radius: 12px;
+            border: 2px solid #2d8cf0;
+            background: rgba(255,255,255,0.9);
+        }
+
+        /* 按钮优化 */
         button {
-            padding: 12px 24px;
+            width: 100%;
+            padding: 14px;
+            font-size: 1.3rem;
             background: #27ae60;
             color: white;
             border: none;
-            border-radius: 25px;
+            border-radius: 30px;
             cursor: pointer;
+            transition: transform 0.2s;
         }
 
-        /* 九宫格布局（网页11方案增强） */
+        button:active {
+            transform: scale(0.95);
+        }
+
+        /* 卡片系统 */
         .card-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 15px;
-            margin: 30px;
+            margin: 25px;
             max-width: 90vw;
         }
 
-        /* 3D卡片效果（网页1/4/5方案） */
         .card {
             position: relative;
-            width: 120px;
-            height: 160px;
-            perspective: 1000px;
+            width: 100px;
+            height: 140px;
+            perspective: 800px;
         }
 
         .card-inner {
@@ -74,7 +88,8 @@
             height: 100%;
             position: absolute;
             transform-style: preserve-3d;
-            transition: transform 0.8s;
+            transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+            transform: rotateY(180deg);
         }
 
         .card-face {
@@ -82,11 +97,11 @@
             width: 100%;
             height: 100%;
             backface-visibility: hidden;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         }
 
         .front {
@@ -99,24 +114,20 @@
             transform: rotateY(180deg);
         }
 
+        /* 数字样式 */
         .number {
-            font-size: 4rem;
-            font-weight: 900;
-        }
-
-        /* 动态花色系统 */
-        .suit {
-            position: absolute;
-            font-size: 2rem;
-            top: 10px;
-            left: 10px;
+            font-size: 3rem;
+            font-weight: 700;
+            transition: color 0.3s;
         }
     </style>
 </head>
 <body>
     <div class="controls">
-        <input type="number" id="minVal" placeholder="最小值">
-        <input type="number" id="maxVal" placeholder="最大值">
+        <div class="input-group">
+            <input type="number" id="minVal" placeholder="最小值" value="1">
+            <input type="number" id="maxVal" placeholder="最大值" value="20">
+        </div>
         <button onclick="initGame()">开始游戏</button>
         <button onclick="shuffleCards()">洗牌</button>
     </div>
@@ -128,20 +139,21 @@
         let selectedCards = [];
         let currentNumbers = [];
 
-        // 初始化游戏（网页6/7洗牌算法）
         function initGame() {
             const min = parseInt(document.getElementById('minVal').value) || 1;
-            const max = parseInt(document.getElementById('maxVal').value) || 100;
+            const max = parseInt(document.getElementById('maxVal').value) || 20;
             
-            // 生成唯一随机数（网页8均匀分布）
-            currentNumbers = Array(9).fill().map(() => 
-                Math.floor(Math.random() * (max - min + 1)) + min
-            );
+            const range = max - min + 1;
+            currentNumbers = Array(range).fill().map((_,i) => i + min);
+            for(let i = currentNumbers.length -1; i > 0; i--){
+                const j = Math.floor(Math.random() * (i +1));
+                [currentNumbers[i], currentNumbers[j]] = [currentNumbers[j], currentNumbers[i]];
+            }
+            currentNumbers = currentNumbers.slice(0,9);
             
             renderCards(currentNumbers);
         }
 
-        // 渲染卡片（网页1/4动画增强）
         function renderCards(numbers) {
             const grid = document.getElementById('cardGrid');
             grid.innerHTML = '';
@@ -152,7 +164,6 @@
                 card.innerHTML = `
                     <div class="card-inner">
                         <div class="card-face front">
-                            <div class="suit"></div>
                             <div class="number">${num}</div>
                         </div>
                         <div class="card-face back" 
@@ -161,48 +172,37 @@
                     </div>
                 `;
                 card.onclick = () => handleFlip(card, num);
-                
                 grid.appendChild(card);
             });
         }
 
-        // 卡片点击处理（网页4交互逻辑）
         function handleFlip(card, num) {
-            if(selectedCards.length >= 2) return;
+            if(selectedCards.length >= 2 || card.classList.contains('flipped')) return;
             
-            card.querySelector('.card-inner').style.transform = 'rotateY(180deg)';
+            card.querySelector('.card-inner').style.transform = 'rotateY(0deg)';
             selectedCards.push({card, num});
+            card.classList.add('flipped');
             
             if(selectedCards.length === 2) {
                 setTimeout(() => {
                     alert(`您选择了 ${selectedCards[0].num} 和 ${selectedCards[1].num}`);
+                    selectedCards.forEach(c => c.card.classList.remove('flipped'));
                     selectedCards = [];
                 }, 1000);
             }
         }
 
-        // 洗牌功能（网页7 Fisher-Yates算法）
         function shuffleCards() {
-            for(let i = currentNumbers.length -1; i > 0; i--){
-                const j = Math.floor(Math.random() * (i +1));
-                [currentNumbers[i], currentNumbers[j]] = 
-                    [currentNumbers[j], currentNumbers[i]];
-            }
+            currentNumbers = currentNumbers.sort(() => Math.random() - 0.5);
             renderCards(currentNumbers);
+            document.querySelectorAll('.card').forEach(card => {
+                card.querySelector('.card-inner').style.transform = 'rotateY(180deg)';
+                card.classList.remove('flipped');
+            });
+            selectedCards = [];
         }
 
-        // 动态花色适配（网页5/12方案）
-        function updateSuits() {
-            document.querySelectorAll('.suit').forEach(suit => {
-                const num = parseInt(suit.nextElementSibling.textContent);
-                const suits = ['♠', '♥', '♦', '♣'];
-                const color = num % 2 ? 'red' : 'black';
-                
-                suit.textContent = suits[num % 4];
-                suit.style.color = color;
-                suit.nextElementSibling.style.color = color;
-            });
-        }
+        window.onload = initGame;
     </script>
 </body>
 </html>
