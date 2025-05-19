@@ -9,10 +9,6 @@
     <lastmod>2025-05-06</lastmod>
   </url>
   <url>
-    <loc>http://tonyrenhk.github.io/2020/06/02/2020-06-01-CPQ-Study/</loc>
-    <lastmod>2025-05-06</lastmod>
-  </url>
-  <url>
     <loc>http://tonyrenhk.github.io/2020/06/12/2020-06-12-Marketing-Cloud-Interactive-Email/</loc>
     <lastmod>2025-05-06</lastmod>
   </url>
@@ -25,15 +21,19 @@
     <lastmod>2025-05-06</lastmod>
   </url>
   <url>
+    <loc>http://tonyrenhk.github.io/2020/06/02/2020-06-01-CPQ-Study/</loc>
+    <lastmod>2025-05-06</lastmod>
+  </url>
+  <url>
     <loc>http://tonyrenhk.github.io/2020/08/01/2020-08-01-Heroku-Study/</loc>
     <lastmod>2025-05-06</lastmod>
   </url>
   <url>
-    <loc>http://tonyrenhk.github.io/2020/11/25/2020-11-25-SalesforceStudyNote/</loc>
+    <loc>http://tonyrenhk.github.io/2021/11/01/2021-11-01-SalesforceAdminNote/</loc>
     <lastmod>2025-05-06</lastmod>
   </url>
   <url>
-    <loc>http://tonyrenhk.github.io/2021/11/01/2021-11-01-SalesforceAdminNote/</loc>
+    <loc>http://tonyrenhk.github.io/2020/11/25/2020-11-25-SalesforceStudyNote/</loc>
     <lastmod>2025-05-06</lastmod>
   </url>
   <url>
@@ -45,11 +45,11 @@
     <lastmod>2025-05-06</lastmod>
   </url>
   <url>
-    <loc>http://tonyrenhk.github.io/2019/02/17/2019-02-17-Lightning-Web-Components-Basics/</loc>
+    <loc>http://tonyrenhk.github.io/2019/02/21/2019-02-21-Lightning-Data-Service-Basics/</loc>
     <lastmod>2025-05-06</lastmod>
   </url>
   <url>
-    <loc>http://tonyrenhk.github.io/2019/02/21/2019-02-21-Lightning-Data-Service-Basics/</loc>
+    <loc>http://tonyrenhk.github.io/2019/02/17/2019-02-17-Lightning-Web-Components-Basics/</loc>
     <lastmod>2025-05-06</lastmod>
   </url>
   <url>
@@ -101,11 +101,11 @@
     <lastmod>2025-05-06</lastmod>
   </url>
   <url>
-    <loc>http://tonyrenhk.github.io/2020/04/01/2020-04-01-English-Study-Resource/</loc>
+    <loc>http://tonyrenhk.github.io/2020/04/03/2020-04-03-Salesforce-mobile/</loc>
     <lastmod>2025-05-06</lastmod>
   </url>
   <url>
-    <loc>http://tonyrenhk.github.io/2020/04/03/2020-04-03-Salesforce-mobile/</loc>
+    <loc>http://tonyrenhk.github.io/2020/04/01/2020-04-01-English-Study-Resource/</loc>
     <lastmod>2025-05-06</lastmod>
   </url>
   <url>
@@ -125,11 +125,7 @@
     <lastmod>2025-05-06</lastmod>
   </url>
   <url>
-    <loc>http://tonyrenhk.github.io/2018/11/24/2018-11-24-Google-App-Script-Note/</loc>
-    <lastmod>2025-05-06</lastmod>
-  </url>
-  <url>
-    <loc>http://tonyrenhk.github.io/2018/11/25/2018-11-25-WesingPlugins/</loc>
+    <loc>http://tonyrenhk.github.io/2018/09/28/2018-09-28-JSForce-Study/</loc>
     <lastmod>2025-05-06</lastmod>
   </url>
   <url>
@@ -137,15 +133,19 @@
     <lastmod>2025-05-06</lastmod>
   </url>
   <url>
-    <loc>http://tonyrenhk.github.io/2018/09/28/2018-09-28-JSForce-Study/</loc>
-    <lastmod>2025-05-06</lastmod>
-  </url>
-  <url>
-    <loc>http://tonyrenhk.github.io/2018/11/27/2018-11-27-hexo-theme-doc-SupportCN/</loc>
+    <loc>http://tonyrenhk.github.io/2018/11/25/2018-11-25-WesingPlugins/</loc>
     <lastmod>2025-05-06</lastmod>
   </url>
   <url>
     <loc>http://tonyrenhk.github.io/2018/11/26/2018-11-26-Lightning-Flow/</loc>
+    <lastmod>2025-05-06</lastmod>
+  </url>
+  <url>
+    <loc>http://tonyrenhk.github.io/2018/11/24/2018-11-24-Google-App-Script-Note/</loc>
+    <lastmod>2025-05-06</lastmod>
+  </url>
+  <url>
+    <loc>http://tonyrenhk.github.io/2018/11/27/2018-11-27-hexo-theme-doc-SupportCN/</loc>
     <lastmod>2025-05-06</lastmod>
   </url>
   <url>
@@ -165,7 +165,7 @@
     <lastmod>2025-05-06</lastmod>
   </url>
   <url>
-    <loc>http://tonyrenhk.github.io/2018/12/22/2018-12-22-Lightning-Components-Basics/</loc>
+    <loc>http://tonyrenhk.github.io/2019/01/06/2019-01-06-Lightning-Web-Components/</loc>
     <lastmod>2025-05-06</lastmod>
   </url>
   <url>
@@ -173,7 +173,11 @@
     <lastmod>2025-05-06</lastmod>
   </url>
   <url>
-    <loc>http://tonyrenhk.github.io/2019/01/06/2019-01-06-Lightning-Web-Components/</loc>
+    <loc>http://tonyrenhk.github.io/2018/12/22/2018-12-22-Lightning-Components-Basics/</loc>
+    <lastmod>2025-05-06</lastmod>
+  </url>
+  <url>
+    <loc>http://tonyrenhk.github.io/2018/01/01/2018-01-02-New-BookMark/</loc>
     <lastmod>2025-05-06</lastmod>
   </url>
   <url>
@@ -181,7 +185,7 @@
     <lastmod>2025-05-06</lastmod>
   </url>
   <url>
-    <loc>http://tonyrenhk.github.io/2018/01/01/2018-01-02-New-BookMark/</loc>
+    <loc>http://tonyrenhk.github.io/2018/01/09/2018-01-09-IT-Study-Resource/</loc>
     <lastmod>2025-05-06</lastmod>
   </url>
   <url>
@@ -190,10 +194,6 @@
   </url>
   <url>
     <loc>http://tonyrenhk.github.io/2018/01/11/2018-01-11-OtherBookMark/</loc>
-    <lastmod>2025-05-06</lastmod>
-  </url>
-  <url>
-    <loc>http://tonyrenhk.github.io/2018/01/09/2018-01-09-IT-Study-Resource/</loc>
     <lastmod>2025-05-06</lastmod>
   </url>
   <url>
