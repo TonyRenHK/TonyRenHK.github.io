@@ -2,160 +2,196 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>CSS扑克牌数字抽取器</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>GiGi搞笑数学抽卡游戏</title>
     <style>
+        /* 移动端适配 */
         body {
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            background: #2c3e50;
-            font-family: 'Arial', sans-serif;
+            background: #f0f0f0;
+            font-family: Arial, sans-serif;
         }
 
-        .settings {
-            margin: 30px 0;
-            display: flex;
-            gap: 20px;
-        }
-
-        .range-input {
-            padding: 12px;
-            font-size: 1.2rem;
-            border: 2px solid #e74c3c;
-            border-radius: 8px;
-            width: 150px;
-            text-align: center;
-            background: #34495e;
-            color: white;
-        }
-
-        #pokerContainer {
-            position: relative;
-            width: 300px;
-            height: 450px;
+        /* 3D翻转容器[6,7](@ref) */
+        .card-container {
             perspective: 1000px;
-            margin: 30px 0;
+            margin: 50px 20px;
+            width: 280px;
+            height: 400px;
         }
 
-        .poker-card {
+        /* 卡片动画 */
+        .card {
             width: 100%;
             height: 100%;
-            position: absolute;
+            position: relative;
             transform-style: preserve-3d;
-            transition: all 0.8s;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            transform: rotateY(180deg);
         }
 
-        .poker-front, .poker-back {
+        /* 正反面公共样式 */
+        .card-face {
             position: absolute;
             width: 100%;
             height: 100%;
             backface-visibility: hidden;
             border-radius: 15px;
-        }
-
-        /* 扑克牌正面样式 */
-        .poker-front {
-            background: #fff;
-            transform: rotateY(0deg);
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         }
 
-        /* 扑克牌数字显示 */
-        .card-number {
-            font-size: 8rem;
-            color: #2d8cf0;
-            position: relative;
-            z-index: 1;
+        /* 卡片正面 */
+        .front {
+            background: #fff;
+            transform: rotateY(0deg);
+            padding: 20px;
         }
 
-        /* 花色伪元素实现 */
-        .poker-front::before,
-        .poker-front::after {
-            content: '♠';
-            position: absolute;
-            font-size: 3rem;
-            color: #2c3e50;
-        }
-
-        .poker-front::before {
-            top: 20px;
-            left: 20px;
-        }
-
-        .poker-front::after {
-            bottom: 20px;
-            right: 20px;
-            transform: rotate(180deg);
-        }
-
-        /* 背面样式 */
-        .poker-back {
-            background: #e74c3c;
+        /* 卡片背面 */
+        .back {
+            background-size: cover;
+            background-position: center;
             transform: rotateY(180deg);
         }
 
-        #drawBtn {
+        /* 数学题样式 */
+        .math-problem {
+            font-size: 3.5em;
+            width: 80%;
+            text-align: center;
+            color: #333;
+            word-break: break-all;
+        }
+
+        /* 动态花色系统 */
+        .suit {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        /* 抽卡按钮 */
+        .draw-btn {
             padding: 20px 50px;
-            font-size: 2rem;
-            background: #27ae60;
+            font-size: 1.5em;
+            background: #2196F3;
             color: white;
             border: none;
-            border-radius: 10px;
+            border-radius: 35px;
             cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(39,174,96,0.3);
+            margin: 40px 0;
+            box-shadow: 0 5px 15px rgba(33,150,243,0.3);
+            transition: transform 0.2s;
+        }
+
+        /* 移动端适配[12,14](@ref) */
+        @media (max-width: 480px) {
+            .card-container {
+                width: 250px;
+                height: 360px;
+                margin-top: 30px;
+            }
+            .math-problem {
+                font-size: 2.8em;
+            }
+            .draw-btn {
+                padding: 18px 45px;
+                font-size: 1.3em;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="settings">
-        <input type="number" id="minValue" class="range-input" 
-               min="1" max="1000" placeholder="最小值" value="1">
-        <input type="number" id="maxValue" class="range-input" 
-               min="1" max="1000" placeholder="最大值" value="20">
-    </div>
-
-    <div id="pokerContainer">
-        <div class="poker-card" id="pokerCard">
-            <div class="poker-front">
-                <div class="card-number">?</div>
+    <div class="card-container">
+        <div class="card">
+            <div class="card-face front">
+                <div class="suit"></div>
+                <div class="math-problem"></div>
             </div>
-            <div class="poker-back"></div>
+            <div class="card-face back"></div>
         </div>
     </div>
-
-    <button id="drawBtn" onclick="drawNumber()">抽 取</button>
+    <button class="draw-btn" onclick="toggleCard()">点我抽卡</button>
 
     <script>
-        const suits = ['♠', '♥', '♦', '♣'];
-
-        function drawNumber() {
-            const min = parseInt(document.getElementById('minValue').value) || 1;
-            const max = parseInt(document.getElementById('maxValue').value) || 20;
-            const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
-            
-            const card = document.getElementById('pokerCard');
-            const numberElement = document.querySelector('.card-number');
-            
-            // 更新花色
-            const randomSuit = suits[Math.floor(Math.random() * suits.length)];
-            const frontElement = document.querySelector('.poker-front');
-            frontElement.style.setProperty('--suit', `"${randomSuit}"`);
-            frontElement.style.color = (randomSuit === '♥' || randomSuit === '♦') ? '#e74c3c' : '#2c3e50';
-
-            // 动画效果
-            card.style.transform = 'rotateY(180deg)';
-            setTimeout(() => {
-                numberElement.textContent = randomNumber;
-                card.style.transform = 'rotateY(0deg)';
-            }, 800);
+        // 均匀分布算法生成[1-9]随机数[9,11](@ref)
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
         }
+
+        // 生成数学题目
+        function generateProblem() {
+            const operations = ['+', '-'];
+            const op = operations[getRandom(0, 1)];
+            let a, b;
+            
+            do {
+                a = getRandom(1, 9);
+                b = getRandom(1, 9);
+                if (op === '-') [a, b] = [Math.max(a, b), Math.min(a, b)];
+            } while (op === '-' && a === b);
+            
+            return `${a} ${op} ${b} = ?`;
+        }
+
+        // 动态生成花色系统[4](@ref)
+        function generateSuit() {
+            const suits = ['♠', '♥', '♦', '♣'];
+            const colors = { 
+                '♠': '#2c3e50', 
+                '♥': '#e74c3c', 
+                '♦': '#e74c3c', 
+                '♣': '#2c3e50'
+            };
+            const suit = suits[getRandom(0, 3)];
+            return { symbol: suit, color: colors[suit] };
+        }
+
+        // 随机生成Disney背景图
+        function randomDisneyBg() {
+            return `disney-back${getRandom(1,9)}.jpg`;
+        }
+
+        // 卡片状态控制
+        let isFlipped = true;
+        function toggleCard() {
+            const card = document.querySelector('.card');
+            const backFace = document.querySelector('.back');
+            const btn = document.querySelector('.draw-btn');
+            
+            if(isFlipped) {
+                // 生成新内容
+                const { symbol, color } = generateSuit();
+                const problem = generateProblem();
+                
+                // 更新内容
+                document.querySelector('.suit').textContent = symbol;
+                document.querySelector('.suit').style.color = color;
+                document.querySelector('.math-problem').textContent = problem;
+                
+                // 执行翻转动画
+                card.style.transform = 'rotateY(0deg)';
+                btn.textContent = "隐藏卡片";
+            } else {
+                // 随机更换背面图片
+                backFace.style.backgroundImage = `url(${randomDisneyBg()})`;
+                card.style.transform = 'rotateY(180deg)';
+                btn.textContent = "点我抽卡";
+            }
+            isFlipped = !isFlipped;
+        }
+
+        // 初始化随机背景
+        document.querySelector('.back').style.backgroundImage = `url(${randomDisneyBg()})`;
     </script>
 </body>
 </html>
