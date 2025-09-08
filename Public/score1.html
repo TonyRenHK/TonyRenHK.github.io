@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>双人记分系统</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 900px;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .players-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .player {
+            background: linear-gradient(145deg, #f0f0f0, #e0e0e0);
+            border-radius: 15px;
+            padding: 25px;
+            min-width: 300px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .player:hover {
+            transform: translateY(-5px);
+        }
+        
+        .player1 {
+            border-top: 5px solid #3498db;
+        }
+        
+        .player2 {
+            border-top: 5px solid #e74c3c;
+        }
+        
+        .avatar-container {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 20px;
+        }
+        
+        .avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .player1 .avatar {
+            border-color: #3498db;
+        }
+        
+        .player2 .avatar {
+            border-color: #e74c3c;
+        }
+        
+        .player-name {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .score {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin: 15px 0;
+            color: #2c3e50;
+            transition: all 0.3s ease;
+        }
+        
+        .score-change {
+            animation: pulse 0.5s ease;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        
+        .add-btn {
+            background: linear-gradient(145deg, #2ecc71, #27ae60);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .add-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .add-btn:active {
+            transform: translateY(1px);
+        }
+        
+        .reset-container {
+            margin-top: 40px;
+        }
+        
+        .reset-btn {
+            background: linear-gradient(145deg, #e74c3c, #c0392b);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .reset-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .upload-btn {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .upload-btn:hover {
+            transform: scale(1.1);
+            background: white;
+        }
+        
+        .upload-icon {
+            font-size: 20px;
+            color: #3498db;
+        }
+        
+        .file-input {
+            display: none;
+        }
+        
+        @media (max-width: 700px) {
+            .players-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .player {
+                width: 100%;
+                max-width: 350px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .avatar-container {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>双人记分系统</h1>
+        
+        <div class="players-container">
+            <div class="player player1">
+                <div class="avatar-container">
+                    <img src="disney-back1.jpg" alt="玩家1头像" class="avatar" id="avatar1">
+                    <div class="upload-btn" onclick="document.getElementById('file1').click()">
+                        <span class="upload-icon">📷</span>
+                    </div>
+                    <input type="file" id="file1" class="file-input" accept="image/*" onchange="handleImageUpload(event, 1)">
+                </div>
+                <h2 class="player-name">玩家 1</h2>
+                <div class="score" id="score1">0</div>
+                <button class="add-btn" onclick="addScore(1)">+1 分</button>
+            </div>
+            
+            <div class="player player2">
+                <div class="avatar-container">
+                    <img src="disneyBacks1.png" alt="玩家2头像" class="avatar" id="avatar2">
+                    <div class="upload-btn" onclick="document.getElementById('file2').click()">
+                        <span class="upload-icon">📷</span>
+                    </div>
+                    <input type="file" id="file2" class="file-input" accept="image/*" onchange="handleImageUpload(event, 2)">
+                </div>
+                <h2 class="player-name">玩家 2</h2>
+                <div class="score" id="score2">0</div>
+                <button class="add-btn" onclick="addScore(2)">+1 分</button>
+            </div>
+        </div>
+        
+        <div class="reset-container">
+            <button class="reset-btn" onclick="resetScores()">重置分数</button>
+        </div>
+    </div>
+
+    <script>
+        // 初始化分数
+        let scores = {
+            player1: 0,
+            player2: 0
+        };
+
+        // 从localStorage加载保存的分数和头像
+        function loadData() {
+            const savedScores = localStorage.getItem('playerScores');
+            if (savedScores) {
+                scores = JSON.parse(savedScores);
+                document.getElementById('score1').textContent = scores.player1;
+                document.getElementById('score2').textContent = scores.player2;
+            }
+            
+            const savedAvatar1 = localStorage.getItem('player1Avatar');
+            if (savedAvatar1) {
+                document.getElementById('avatar1').src = savedAvatar1;
+            }
+            
+            const savedAvatar2 = localStorage.getItem('player2Avatar');
+            if (savedAvatar2) {
+                document.getElementById('avatar2').src = savedAvatar2;
+            }
+        }
+
+        // 保存分数到localStorage
+        function saveScores() {
+            localStorage.setItem('playerScores', JSON.stringify(scores));
+        }
+
+        // 保存头像到localStorage
+        function saveAvatar(player, imageData) {
+            localStorage.setItem(`player${player}Avatar`, imageData);
+        }
+
+        // 处理图片上传
+        function handleImageUpload(event, player) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const imageData = e.target.result;
+                    document.getElementById(`avatar${player}`).src = imageData;
+                    saveAvatar(player, imageData);
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // 加分函数
+        function addScore(player) {
+            const scoreElement = document.getElementById(`score${player}`);
+            
+            // 添加分数
+            scores[`player${player}`]++;
+            scoreElement.textContent = scores[`player${player}`];
+            
+            // 添加动画效果
+            scoreElement.classList.add('score-change');
+            setTimeout(() => {
+                scoreElement.classList.remove('score-change');
+            }, 500);
+            
+            // 保存分数
+            saveScores();
+        }
+
+        // 重置分数
+        function resetScores() {
+            if (confirm('确定要重置所有分数吗？')) {
+                scores.player1 = 0;
+                scores.player2 = 0;
+                
+                document.getElementById('score1').textContent = '0';
+                document.getElementById('score2').textContent = '0';
+                
+                // 保存重置后的分数
+                saveScores();
+            }
+        }
+
+        // 页面加载时获取保存的数据
+        document.addEventListener('DOMContentLoaded', loadData);
+    </script>
+</body>
+</html>
