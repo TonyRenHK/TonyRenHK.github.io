@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>双人记分系统</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 800px;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .players-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .player {
+            background: linear-gradient(145deg, #f0f0f0, #e0e0e0);
+            border-radius: 15px;
+            padding: 25px;
+            min-width: 250px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .player:hover {
+            transform: translateY(-5px);
+        }
+        
+        .player1 {
+            border-top: 5px solid #3498db;
+        }
+        
+        .player2 {
+            border-top: 5px solid #e74c3c;
+        }
+        
+        .avatar-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+        }
+        
+        .avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            object-fit: cover;
+        }
+        
+        .avatar-upload {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .avatar-upload svg {
+            width: 16px;
+            height: 16px;
+        }
+        
+        .player-name {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .score {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin: 15px 0;
+            color: #2c3e50;
+            transition: all 0.3s ease;
+        }
+        
+        .score-change {
+            animation: pulse 0.5s ease;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .add-btn, .subtract-btn {
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            flex: 1;
+            max-width: 100px;
+        }
+        
+        .add-btn {
+            background: linear-gradient(145deg, #2ecc71, #27ae60);
+        }
+        
+        .subtract-btn {
+            background: linear-gradient(145deg, #e74c3c, #c0392b);
+        }
+        
+        .add-btn:hover, .subtract-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .add-btn:active, .subtract-btn:active {
+            transform: translateY(1px);
+        }
+        
+        .reset-container {
+            margin-top: 40px;
+        }
+        
+        .reset-btn {
+            background: linear-gradient(145deg, #9b59b6, #8e44ad);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .reset-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        @media (max-width: 600px) {
+            .players-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .player {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>双人记分系统</h1>
+        
+        <div class="players-container">
+            <div class="player player1">
+                <div class="avatar-container">
+                    <img class="avatar" id="avatar1" src="disney-back1.jpg" alt="玩家1头像">
+                    <div class="avatar-upload" onclick="document.getElementById('avatarUpload1').click()">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M20,18H4V8H20M20,4H12L10,2H4C2.89,2 2,2.89 2,4V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6A2,2 0 0,0 20,4M16,12L12,8L8,12H11V16H13V12H16Z" fill="#2c3e50"/>
+                        </svg>
+                    </div>
+                    <input type="file" id="avatarUpload1" accept="image/*" style="display: none;" onchange="uploadAvatar(1, this.files)">
+                </div>
+                <h2 class="player-name">Gigi</h2>
+                <div class="score" id="score1">0</div>
+                <div class="btn-group">
+                    <button class="add-btn" onclick="addScore(1)">+1 分</button>
+                    <button class="subtract-btn" onclick="subtractScore(1)">-1 分</button>
+                </div>
+            </div>
+            
+            <div class="player player2">
+                <div class="avatar-container">
+                    <img class="avatar" id="avatar2" src="disneyBacks1.png" alt="玩家2头像">
+                    <div class="avatar-upload" onclick="document.getElementById('avatarUpload2').click()">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M20,18H4V8H20M20,4H12L10,2H4C2.89,2 2,2.89 2,4V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6A2,2 0 0,0 20,4M16,12L12,8L8,12H11V16H13V12H16Z" fill="#2c3e50"/>
+                        </svg>
+                    </div>
+                    <input type="file" id="avatarUpload2" accept="image/*" style="display: none;" onchange="uploadAvatar(2, this.files)">
+                </div>
+                <h2 class="player-name">爸爸</h2>
+                <div class="score" id="score2">0</div>
+                <div class="btn-group">
+                    <button class="add-btn" onclick="addScore(2)">+1 分</button>
+                    <button class="subtract-btn" onclick="subtractScore(2)">-1 分</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="reset-container">
+            <button class="reset-btn" onclick="resetScores()">重置分数</button>
+        </div>
+    </div>
+
+    <script>
+        // 初始化分数
+        let scores = {
+            player1: 0,
+            player2: 0
+        };
+
+        // 从localStorage加载保存的分数和头像
+        function loadData() {
+            const savedScores = localStorage.getItem('playerScores');
+            if (savedScores) {
+                scores = JSON.parse(savedScores);
+                document.getElementById('score1').textContent = scores.player1;
+                document.getElementById('score2').textContent = scores.player2;
+            }
+            
+            const savedAvatar1 = localStorage.getItem('player1Avatar');
+            if (savedAvatar1) {
+                document.getElementById('avatar1').src = savedAvatar1;
+            }
+            
+            const savedAvatar2 = localStorage.getItem('player2Avatar');
+            if (savedAvatar2) {
+                document.getElementById('avatar2').src = savedAvatar2;
+            }
+        }
+
+        // 保存分数到localStorage
+        function saveScores() {
+            localStorage.setItem('playerScores', JSON.stringify(scores));
+        }
+
+        // 加分函数
+        function addScore(player) {
+            const scoreElement = document.getElementById(`score${player}`);
+            
+            // 添加分数
+            scores[`player${player}`]++;
+            scoreElement.textContent = scores[`player${player}`];
+            
+            // 添加动画效果
+            scoreElement.classList.add('score-change');
+            setTimeout(() => {
+                scoreElement.classList.remove('score-change');
+            }, 500);
+            
+            // 保存分数
+            saveScores();
+        }
+
+        // 扣分函数
+        function subtractScore(player) {
+            const scoreElement = document.getElementById(`score${player}`);
+            
+            // 扣分（不低于0）
+            if (scores[`player${player}`] > 0) {
+                scores[`player${player}`]--;
+                scoreElement.textContent = scores[`player${player}`];
+                
+                // 添加动画效果
+                scoreElement.classList.add('score-change');
+                setTimeout(() => {
+                    scoreElement.classList.remove('score-change');
+                }, 500);
+                
+                // 保存分数
+                saveScores();
+            }
+        }
+
+        // 重置分数
+        function resetScores() {
+            if (confirm('确定要重置所有分数吗？')) {
+                scores.player1 = 0;
+                scores.player2 = 0;
+                
+                document.getElementById('score1').textContent = '0';
+                document.getElementById('score2').textContent = '0';
+                
+                // 移除localStorage中的分数数据
+                localStorage.removeItem('playerScores');
+            }
+        }
+
+        // 上传头像
+        function uploadAvatar(player, files) {
+            if (files && files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const avatarElement = document.getElementById(`avatar${player}`);
+                    avatarElement.src = e.target.result;
+                    
+                    // 保存到localStorage
+                    localStorage.setItem(`player${player}Avatar`, e.target.result);
+                }
+                reader.readAsDataURL(files[0]);
+            }
+        }
+
+        // 页面加载时获取保存的数据
+        document.addEventListener('DOMContentLoaded', loadData);
+    </script>
+</body>
+</html>
