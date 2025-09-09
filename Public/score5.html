@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在线比赛记分系统</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #333;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            color: #4a2c82;
+            margin-bottom: 15px;
+            font-size: 2.2rem;
+        }
+        
+        .setup-panel {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .player-count-selector {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .player-count-btn {
+            padding: 8px 15px;
+            background: #6c5ce7;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .player-count-btn.active {
+            background: #4a2c82;
+            transform: scale(1.05);
+        }
+        
+        .players-container {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .player-row {
+            display: flex;
+            flex-direction: column;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .player-row.winner {
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.5);
+            transform: scale(1.03);
+        }
+        
+        .track-container {
+            position: relative;
+            height: 100px;
+            margin-bottom: 15px;
+            background: #f0f0f0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .track {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10px;
+        }
+        
+        .track-marker {
+            width: 8px;
+            height: 30px;
+            background: #ddd;
+            border-radius: 4px;
+        }
+        
+        .player-avatar {
+            position: absolute;
+            top: 50%;
+            left: 5%;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #6c5ce7;
+            transition: left 0.5s ease;
+            z-index: 2;
+        }
+        
+        .player-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .player-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #4a2c82;
+        }
+        
+        .score-display {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #6c5ce7;
+        }
+        
+        .score-controls {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .score-btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s;
+        }
+        
+        .add-btn {
+            background: #4caf50;
+            color: white;
+        }
+        
+        .add-btn:hover {
+            background: #388e3c;
+        }
+        
+        .subtract-btn {
+            background: #f44336;
+            color: white;
+        }
+        
+        .subtract-btn:hover {
+            background: #d32f2f;
+        }
+        
+        .winner-banner {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            z-index: 100;
+            display: none;
+        }
+        
+        .winner-banner h2 {
+            color: #4caf50;
+            margin-bottom: 15px;
+        }
+        
+        .reset-btn {
+            padding: 10px 20px;
+            background: #6c5ce7;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        
+        .reset-btn:hover {
+            background: #4a2c82;
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 99;
+        }
+        
+        .customize-btn {
+            padding: 5px 10px;
+            background: #ff9800;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 0.8rem;
+        }
+        
+        .customize-btn:hover {
+            background: #f57c00;
+        }
+        
+        .customize-panel {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        input[type="text"] {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            margin-bottom: 8px;
+        }
+        
+        input[type="file"] {
+            width: 100%;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>在线比赛记分系统</h1>
+        <div class="setup-panel">
+            <h3>选择参赛人数：</h3>
+            <div class="player-count-selector">
+                <button class="player-count-btn" data-count="2">2人</button>
+                <button class="player-count-btn" data-count="3">3人</button>
+                <button class="player-count-btn active" data-count="4">4人</button>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="players-container" id="playersContainer">
+            <!-- 玩家卡片将由JavaScript动态生成 -->
+        </div>
+    </div>
+    
+    <div class="overlay" id="overlay"></div>
+    
+    <div class="winner-banner" id="winnerBanner">
+        <h2 id="winnerText">恭喜玩家获胜！</h2>
+        <button class="reset-btn" id="resetGameBtn">开始新游戏</button>
+    </div>
+
+    <script>
+        // 数据模型
+        const model = {
+            players: [],
+            maxScore: 20,
+            playerCount: 4,
+            gameActive: true,
+            
+            init: function() {
+                this.setPlayerCount(4);
+            },
+            
+            setPlayerCount: function(count) {
+                this.playerCount = count;
+                this.players = [];
+                
+                for (let i = 0; i < count; i++) {
+                    this.players.push({
+                        id: i,
+                        name: `玩家${i + 1}`,
+                        score: 0,
+                        image: `disneyBacks${i + 3}.png`,
+                        isWinner: false
+                    });
+                }
+            },
+            
+            updateScore: function(playerId, change) {
+                if (!this.gameActive) return;
+                
+                const player = this.players[playerId];
+                player.score += change;
+                
+                // 确保分数不为负
+                if (player.score < 0) {
+                    player.score = 0;
+                }
+                
+                // 检查是否获胜
+                if (player.score >= this.maxScore) {
+                    player.isWinner = true;
+                    this.gameActive = false;
+                }
+                
+                return player;
+            },
+            
+            resetGame: function() {
+                for (let player of this.players) {
+                    player.score = 0;
+                    player.isWinner = false;
+                }
+                this.gameActive = true;
+            },
+            
+            updatePlayer: function(playerId, name, image) {
+                const player = this.players[playerId];
+                if (name) player.name = name;
+                if (image) player.image = image;
+                return player;
+            }
+        };
+        
+        // 视图模型
+        const viewModel = {
+            init: function() {
+                this.bindEvents();
+                model.init();
+                this.render();
+            },
+            
+            bindEvents: function() {
+                // 玩家数量选择事件
+                document.querySelectorAll('.player-count-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const count = parseInt(e.target.dataset.count);
+                        document.querySelectorAll('.player-count-btn').forEach(b => {
+                            b.classList.remove('active');
+                        });
+                        e.target.classList.add('active');
+                        this.changePlayerCount(count);
+                    });
+                });
+                
+                // 重置游戏事件
+                document.getElementById('resetGameBtn').addEventListener('click', () => {
+                    this.resetGame();
+                });
+            },
+            
+            changePlayerCount: function(count) {
+                model.setPlayerCount(count);
+                this.render();
+            },
+            
+            render: function() {
+                const container = document.getElementById('playersContainer');
+                container.innerHTML = '';
+                
+                for (let i = 0; i < model.playerCount; i++) {
+                    const player = model.players[i];
+                    const playerRow = document.createElement('div');
+                    playerRow.className = 'player-row';
+                    if (player.isWinner) playerRow.classList.add('winner');
+                    
+                    // 计算头像位置 (每分移动5%)
+                    const position = Math.min(5 + (player.score * 5), 95);
+                    
+                    playerRow.innerHTML = `
+                        <div class="track-container">
+                            <div class="track">
+                                ${Array.from({length: 20}, (_, i) => 
+                                    `<div class="track-marker"></div>`).join('')}
+                            </div>
+                            <img src="${player.image}" class="player-avatar" alt="${player.name}" 
+                                 style="left: ${position}%">
+                        </div>
+                        <div class="player-info">
+                            <div class="player-name">${player.name}</div>
+                            <div class="score-display">${player.score}分</div>
+                        </div>
+                        <div class="score-controls">
+                            <button class="score-btn add-btn" data-player="${i}">+1分</button>
+                            <button class="score-btn subtract-btn" data-player="${i}">-1分</button>
+                        </div>
+                        <button class="customize-btn" data-player="${i}">自定义</button>
+                        <div class="customize-panel" id="customize-${i}">
+                            <input type="text" placeholder="玩家名称" value="${player.name}">
+                            <input type="file" accept="image/*" class="image-upload">
+                            <button class="save-customize-btn">保存</button>
+                        </div>
+                    `;
+                    
+                    container.appendChild(playerRow);
+                    
+                    // 绑定加分减分事件
+                    playerRow.querySelector('.add-btn').addEventListener('click', (e) => {
+                        this.updateScore(parseInt(e.target.dataset.player), 1);
+                    });
+                    
+                    playerRow.querySelector('.subtract-btn').addEventListener('click', (e) => {
+                        this.updateScore(parseInt(e.target.dataset.player), -1);
+                    });
+                    
+                    // 绑定自定义事件
+                    playerRow.querySelector('.customize-btn').addEventListener('click', (e) => {
+                        const playerId = parseInt(e.target.dataset.player);
+                        const panel = document.getElementById(`customize-${playerId}`);
+                        panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
+                    });
+                    
+                    playerRow.querySelector('.save-customize-btn').addEventListener('click', (e) => {
+                        const playerId = parseInt(e.target.closest('.customize-panel').previousElementSibling.dataset.player);
+                        const panel = document.getElementById(`customize-${playerId}`);
+                        const nameInput = panel.querySelector('input[type="text"]');
+                        const imageInput = panel.querySelector('input[type="file"]');
+                        
+                        let newImage = null;
+                        if (imageInput.files && imageInput.files[0]) {
+                            const reader = new FileReader();
+                            reader.onload = (e) => {
+                                newImage = e.target.result;
+                                this.updatePlayer(playerId, nameInput.value, newImage);
+                            };
+                            reader.readAsDataURL(imageInput.files[0]);
+                        } else {
+                            this.updatePlayer(playerId, nameInput.value, null);
+                        }
+                    });
+                }
+                
+                // 显示获胜者
+                if (!model.gameActive) {
+                    const winner = model.players.find(p => p.isWinner);
+                    if (winner) {
+                        document.getElementById('winnerText').textContent = `恭喜 ${winner.name} 获胜！`;
+                        document.getElementById('winnerBanner').style.display = 'block';
+                        document.getElementById('overlay').style.display = 'block';
+                    }
+                }
+            },
+            
+            updateScore: function(playerId, change) {
+                const player = model.updateScore(playerId, change);
+                this.render();
+            },
+            
+            updatePlayer: function(playerId, name, image) {
+                const player = model.updatePlayer(playerId, name, image);
+                this.render();
+            },
+            
+            resetGame: function() {
+                model.resetGame();
+                document.getElementById('winnerBanner').style.display = 'none';
+                document.getElementById('overlay').style.display = 'none';
+                this.render();
+            }
+        };
+        
+        // 初始化应用
+        document.addEventListener('DOMContentLoaded', () => {
+            viewModel.init();
+        });
+    </script>
+</body>
+</html>
