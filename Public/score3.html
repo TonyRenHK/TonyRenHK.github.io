@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多人比赛记分系统</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 1000px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .settings {
+            margin-bottom: 30px;
+            padding: 15px;
+            background: linear-gradient(145deg, #f0f0f0, #e0e0e0);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .settings label {
+            font-size: 1.2rem;
+            margin-right: 15px;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+        
+        .settings select {
+            padding: 10px 15px;
+            border-radius: 10px;
+            border: 2px solid #3498db;
+            font-size: 1.1rem;
+            background-color: white;
+            cursor: pointer;
+        }
+        
+        .players-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .player {
+            background: linear-gradient(145deg, #f0f0f0, #e0e0e0);
+            border-radius: 15px;
+            padding: 25px;
+            width: 220px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .player:hover {
+            transform: translateY(-5px);
+        }
+        
+        .player1 {
+            border-top: 5px solid #3498db;
+        }
+        
+        .player2 {
+            border-top: 5px solid #e74c3c;
+        }
+        
+        .player3 {
+            border-top: 5px solid #2ecc71;
+        }
+        
+        .player4 {
+            border-top: 5px solid #f39c12;
+        }
+        
+        .avatar-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+        }
+        
+        .avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .avatar-upload {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background: #3498db;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .avatar-upload:hover {
+            transform: scale(1.1);
+            background: #2980b9;
+        }
+        
+        .name-container {
+            position: relative;
+            margin-bottom: 15px;
+        }
+        
+        .player-name {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .player-name:hover {
+            background-color: rgba(52, 152, 219, 0.1);
+        }
+        
+        .name-edit {
+            position: absolute;
+            top: 50%;
+            right: -30px;
+            transform: translateY(-50%);
+            background: #3498db;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .name-edit:hover {
+            transform: translateY(-50%) scale(1.1);
+            background: #2980b9;
+        }
+        
+        .score {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin: 15px 0;
+            color: #2c3e50;
+            transition: all 0.3s ease;
+        }
+        
+        .score-change {
+            animation: pulse 0.5s ease;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        
+        .score-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .add-btn, .subtract-btn {
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            flex: 1;
+        }
+        
+        .add-btn {
+            background: linear-gradient(145deg, #2ecc71, #27ae60);
+        }
+        
+        .add-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subtract-btn {
+            background: linear-gradient(145deg, #e74c3c, #c0392b);
+        }
+        
+        .subtract-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .add-btn:active, .subtract-btn:active {
+            transform: translateY(1px);
+        }
+        
+        .reset-container {
+            margin-top: 40px;
+        }
+        
+        .reset-btn {
+            background: linear-gradient(145deg, #e74c3c, #c0392b);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .reset-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .players-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .player {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>多人比赛记分系统</h1>
+        
+        <div class="settings">
+            <label for="playerCount">选择参赛人数:</label>
+            <select id="playerCount" onchange="changePlayerCount()">
+                <option value="2">2人</option>
+                <option value="3">3人</option>
+                <option value="4">4人</option>
+            </select>
+        </div>
+        
+        <div class="players-container" id="playersContainer">
+            <!-- 玩家区域将由JavaScript动态生成 -->
+        </div>
+        
+        <div class="reset-container">
+            <button class="reset-btn" onclick="resetScores()">重置所有分数</button>
+        </div>
+    </div>
+
+    <script>
+        // 默认玩家数据
+        const defaultPlayerImages = ['disneyBacks3.png', 'disneyBacks4.png', 'disneyBacks5.png', 'disneyBacks6.png'];
+        let players = [];
+        let playerCount = 2;
+        
+        // 初始化函数
+        function init() {
+            loadPlayers();
+            renderPlayers();
+        }
+        
+        // 从localStorage加载玩家数据
+        function loadPlayers() {
+            const savedPlayers = localStorage.getItem('playersData');
+            const savedPlayerCount = localStorage.getItem('playerCount');
+            
+            if (savedPlayerCount) {
+                playerCount = parseInt(savedPlayerCount);
+                document.getElementById('playerCount').value = playerCount;
+            }
+            
+            if (savedPlayers) {
+                players = JSON.parse(savedPlayers);
+            } else {
+                // 初始化默认玩家数据
+                players = [];
+                for (let i = 0; i < 4; i++) {
+                    players.push({
+                        id: i + 1,
+                        name: `玩家 ${i + 1}`,
+                        score: 0,
+                        image: defaultPlayerImages[i]
+                    });
+                }
+            }
+        }
+        
+        // 保存玩家数据到localStorage
+        function savePlayers() {
+            localStorage.setItem('playersData', JSON.stringify(players));
+            localStorage.setItem('playerCount', playerCount);
+        }
+        
+        // 渲染玩家区域
+        function renderPlayers() {
+            const container = document.getElementById('playersContainer');
+            container.innerHTML = '';
+            
+            for (let i = 0; i < playerCount; i++) {
+                const player = players[i];
+                const playerDiv = document.createElement('div');
+                playerDiv.className = `player player${player.id}`;
+                
+                playerDiv.innerHTML = `
+                    <div class="avatar-container">
+                        <img class="avatar" src="${player.image}" alt="${player.name}">
+                        <div class="avatar-upload" onclick="uploadImage(${i})">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 5v14M5 12h14"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="name-container">
+                        <h2 class="player-name" id="name${player.id}">${player.name}</h2>
+                        <div class="name-edit" onclick="editName(${i})">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="score" id="score${player.id}">${player.score}</div>
+                    <div class="score-buttons">
+                        <button class="subtract-btn" onclick="updateScore(${i}, -1)">-1分</button>
+                        <button class="add-btn" onclick="updateScore(${i}, 1)">+1分</button>
+                    </div>
+                `;
+                
+                container.appendChild(playerDiv);
+            }
+        }
+        
+        // 更改参赛人数
+        function changePlayerCount() {
+            playerCount = parseInt(document.getElementById('playerCount').value);
+            savePlayers();
+            renderPlayers();
+        }
+        
+        // 更新分数
+        function updateScore(playerIndex, value) {
+            const player = players[playerIndex];
+            player.score += value;
+            
+            // 确保分数不为负
+            if (player.score < 0) {
+                player.score = 0;
+            }
+            
+            const scoreElement = document.getElementById(`score${player.id}`);
+            scoreElement.textContent = player.score;
+            
+            // 添加动画效果
+            scoreElement.classList.add('score-change');
+            setTimeout(() => {
+                scoreElement.classList.remove('score-change');
+            }, 500);
+            
+            // 保存更新
+            savePlayers();
+        }
+        
+        // 上传图片
+        function uploadImage(playerIndex) {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'image/*';
+            
+            input.onchange = function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        players[playerIndex].image = event.target.result;
+                        savePlayers();
+                        renderPlayers();
+                    };
+                    reader.readAsDataURL(file);
+                }
+            };
+            
+            input.click();
+        }
+        
+        // 编辑玩家名称
+        function editName(playerIndex) {
+            const newName = prompt('请输入新的玩家名称:', players[playerIndex].name);
+            if (newName && newName.trim() !== '') {
+                players[playerIndex].name = newName.trim();
+                document.getElementById(`name${players[playerIndex].id}`).textContent = players[playerIndex].name;
+                savePlayers();
+            }
+        }
+        
+        // 重置所有分数
+        function resetScores() {
+            if (confirm('确定要重置所有分数吗？')) {
+                for (let i = 0; i < players.length; i++) {
+                    players[i].score = 0;
+                }
+                savePlayers();
+                renderPlayers();
+            }
+        }
+        
+        // 页面加载时初始化
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
