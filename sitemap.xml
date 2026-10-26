@@ -2,6 +2,69 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://tonyrenhk.github.io/about/index.html</loc>
+    
+    <lastmod>2026-10-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://tonyrenhk.github.io/2020/08/01/2020-08-01-Heroku-Study/</loc>
+    
+    <lastmod>2026-10-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://tonyrenhk.github.io/2020/11/25/2020-11-25-SalesforceStudyNote/</loc>
+    
+    <lastmod>2026-10-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://tonyrenhk.github.io/2021/11/01/2021-11-01-SalesforceAdminNote/</loc>
+    
+    <lastmod>2026-10-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://tonyrenhk.github.io/2022/02/01/2022-02-01-PythonStudyNote1/</loc>
+    
+    <lastmod>2026-10-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://tonyrenhk.github.io/2026/10/25/2026-10-25-CodeBuddy-Telegram-Channel-Setup/</loc>
+    
+    <lastmod>2026-10-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://tonyrenhk.github.io/2026/10/26/2026-10-26-InstaBox-Sandbox-Browser-Automation/</loc>
+    
+    <lastmod>2026-10-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://tonyrenhk.github.io/about/Temp.html</loc>
     
     <lastmod>2026-10-26</lastmod>
@@ -11,7 +74,34 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/about/index.html</loc>
+    <loc>http://tonyrenhk.github.io/2020/02/20/2020-02-20-Salesforce-Sandbox-design/</loc>
+    
+    <lastmod>2026-10-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://tonyrenhk.github.io/2020/04/10/2020-03-09-How-Salesforce-exam/</loc>
+    
+    <lastmod>2026-10-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://tonyrenhk.github.io/2020/03/15/2020-03-15-SFDC-Metadata-Example/</loc>
+    
+    <lastmod>2026-10-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://tonyrenhk.github.io/2020/04/01/2020-04-01-English-Study-Resource/</loc>
     
     <lastmod>2026-10-26</lastmod>
     
@@ -56,7 +146,7 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2020/06/12/2020-06-12-Marketing-Cloud-Interactive-Email/</loc>
+    <loc>http://tonyrenhk.github.io/2020/06/02/2020-06-01-CPQ-Study/</loc>
     
     <lastmod>2026-10-26</lastmod>
     
@@ -65,7 +155,7 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2020/06/02/2020-06-01-CPQ-Study/</loc>
+    <loc>http://tonyrenhk.github.io/2020/06/12/2020-06-12-Marketing-Cloud-Interactive-Email/</loc>
     
     <lastmod>2026-10-26</lastmod>
     
@@ -92,7 +182,7 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2020/11/25/2020-11-25-SalesforceStudyNote/</loc>
+    <loc>http://tonyrenhk.github.io/2018/12/22/2018-12-22-Lightning-Components-Basics/</loc>
     
     <lastmod>2026-10-26</lastmod>
     
@@ -101,7 +191,7 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2021/11/01/2021-11-01-SalesforceAdminNote/</loc>
+    <loc>http://tonyrenhk.github.io/2019/01/02/2019-01-02-SFDX/</loc>
     
     <lastmod>2026-10-26</lastmod>
     
@@ -110,7 +200,7 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2020/08/01/2020-08-01-Heroku-Study/</loc>
+    <loc>http://tonyrenhk.github.io/2019/01/03/2019-01-03-Campaign-Member-Status/</loc>
     
     <lastmod>2026-10-26</lastmod>
     
@@ -119,7 +209,7 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2022/02/01/2022-02-01-PythonStudyNote1/</loc>
+    <loc>http://tonyrenhk.github.io/2019/01/06/2019-01-06-Lightning-Web-Components/</loc>
     
     <lastmod>2026-10-26</lastmod>
     
@@ -128,16 +218,7 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2026/10/25/2026-10-25-CodeBuddy-Telegram-Channel-Setup/</loc>
-    
-    <lastmod>2026-10-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://tonyrenhk.github.io/2019/02/21/2019-02-21-Lightning-Data-Service-Basics/</loc>
+    <loc>http://tonyrenhk.github.io/2019/01/11/2019-01-11-shortcut/</loc>
     
     <lastmod>2026-10-26</lastmod>
     
@@ -147,6 +228,15 @@
   
   <url>
     <loc>http://tonyrenhk.github.io/2019/02/17/2019-02-17-Lightning-Web-Components-Basics/</loc>
+    
+    <lastmod>2026-10-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://tonyrenhk.github.io/2019/02/21/2019-02-21-Lightning-Data-Service-Basics/</loc>
     
     <lastmod>2026-10-26</lastmod>
     
@@ -165,6 +255,15 @@
   
   <url>
     <loc>http://tonyrenhk.github.io/2019/03/12/2019-03-12-BuildABear-Tracking-App-withLWC/</loc>
+    
+    <lastmod>2026-10-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://tonyrenhk.github.io/2019/03/13/2019-03-13-Community-Cloud/</loc>
     
     <lastmod>2026-10-26</lastmod>
     
@@ -200,15 +299,6 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2020/01/06/2020-01-06-SFDC-Public-Site/</loc>
-    
-    <lastmod>2026-10-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://tonyrenhk.github.io/2019/12/21/2019-12-21-Salesforce-free-org/</loc>
     
     <lastmod>2026-10-26</lastmod>
@@ -218,7 +308,7 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2019/03/13/2019-03-13-Community-Cloud/</loc>
+    <loc>http://tonyrenhk.github.io/2020/01/06/2020-01-06-SFDC-Public-Site/</loc>
     
     <lastmod>2026-10-26</lastmod>
     
@@ -245,42 +335,6 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2020/02/20/2020-02-20-Salesforce-Sandbox-design/</loc>
-    
-    <lastmod>2026-10-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://tonyrenhk.github.io/2020/04/10/2020-03-09-How-Salesforce-exam/</loc>
-    
-    <lastmod>2026-10-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://tonyrenhk.github.io/2020/04/01/2020-04-01-English-Study-Resource/</loc>
-    
-    <lastmod>2026-10-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://tonyrenhk.github.io/2020/03/15/2020-03-15-SFDC-Metadata-Example/</loc>
-    
-    <lastmod>2026-10-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://tonyrenhk.github.io/2018/01/01/2018-01-02-New-BookMark/</loc>
     
     <lastmod>2026-10-26</lastmod>
@@ -299,7 +353,7 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2018/01/11/2018-01-11-OtherBookMark/</loc>
+    <loc>http://tonyrenhk.github.io/2018/01/10/2018-01-10-Chrome-Extensions-Link-and-Title-Copy/</loc>
     
     <lastmod>2026-10-26</lastmod>
     
@@ -308,7 +362,7 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2018/01/10/2018-01-10-Chrome-Extensions-Link-and-Title-Copy/</loc>
+    <loc>http://tonyrenhk.github.io/2018/01/11/2018-01-11-OtherBookMark/</loc>
     
     <lastmod>2026-10-26</lastmod>
     
@@ -326,7 +380,7 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2018/09/01/2018-09-01-JS-Study-Note/</loc>
+    <loc>http://tonyrenhk.github.io/2018/02/03/2018-02-03-Shell-Script-Study/</loc>
     
     <lastmod>2026-10-26</lastmod>
     
@@ -335,7 +389,7 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2018/02/03/2018-02-03-Shell-Script-Study/</loc>
+    <loc>http://tonyrenhk.github.io/2018/09/01/2018-09-01-JS-Study-Note/</loc>
     
     <lastmod>2026-10-26</lastmod>
     
@@ -407,51 +461,6 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/2019/01/02/2019-01-02-SFDX/</loc>
-    
-    <lastmod>2026-10-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://tonyrenhk.github.io/2019/01/03/2019-01-03-Campaign-Member-Status/</loc>
-    
-    <lastmod>2026-10-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://tonyrenhk.github.io/2019/01/11/2019-01-11-shortcut/</loc>
-    
-    <lastmod>2026-10-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://tonyrenhk.github.io/2019/01/06/2019-01-06-Lightning-Web-Components/</loc>
-    
-    <lastmod>2026-10-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://tonyrenhk.github.io/2018/12/22/2018-12-22-Lightning-Components-Basics/</loc>
-    
-    <lastmod>2026-10-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://tonyrenhk.github.io/2018/01/01/2018-01-01-Salesforce-related-resource/</loc>
     
     <lastmod>2026-10-26</lastmod>
@@ -479,7 +488,7 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/Note/Code.html</loc>
+    <loc>http://tonyrenhk.github.io/Note/OnlineTools.html</loc>
     
     <lastmod>2026-10-26</lastmod>
     
@@ -488,7 +497,7 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/Note/OnlineTools.html</loc>
+    <loc>http://tonyrenhk.github.io/Note/Code.html</loc>
     
     <lastmod>2026-10-26</lastmod>
     
@@ -506,7 +515,7 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/Project/index.html</loc>
+    <loc>http://tonyrenhk.github.io/Note/Tutorial.html</loc>
     
     <lastmod>2026-10-26</lastmod>
     
@@ -515,7 +524,7 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/Note/Tutorial.html</loc>
+    <loc>http://tonyrenhk.github.io/Project/index.html</loc>
     
     <lastmod>2026-10-26</lastmod>
     
@@ -570,13 +579,6 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/tags/BookMark/</loc>
-    <lastmod>2026-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://tonyrenhk.github.io/tags/Chrome-Extension/</loc>
     <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -591,7 +593,21 @@
   </url>
   
   <url>
+    <loc>http://tonyrenhk.github.io/tags/BookMark/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://tonyrenhk.github.io/tags/Git/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://tonyrenhk.github.io/tags/Script/</loc>
     <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -606,13 +622,6 @@
   
   <url>
     <loc>http://tonyrenhk.github.io/tags/jQuery/</loc>
-    <lastmod>2026-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://tonyrenhk.github.io/tags/Script/</loc>
     <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -724,6 +733,13 @@
   </url>
   
   <url>
+    <loc>http://tonyrenhk.github.io/tags/Lightning-Web-Components/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://tonyrenhk.github.io/tags/Tools/</loc>
     <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -732,13 +748,6 @@
   
   <url>
     <loc>http://tonyrenhk.github.io/tags/shortcut/</loc>
-    <lastmod>2026-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://tonyrenhk.github.io/tags/Lightning-Web-Components/</loc>
     <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -759,7 +768,21 @@
   </url>
   
   <url>
+    <loc>http://tonyrenhk.github.io/tags/Community-Cloud/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://tonyrenhk.github.io/tags/metadata/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://tonyrenhk.github.io/tags/Org/</loc>
     <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -774,20 +797,6 @@
   
   <url>
     <loc>http://tonyrenhk.github.io/tags/Flow/</loc>
-    <lastmod>2026-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://tonyrenhk.github.io/tags/Org/</loc>
-    <lastmod>2026-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://tonyrenhk.github.io/tags/Community-Cloud/</loc>
     <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -857,6 +866,20 @@
   </url>
   
   <url>
+    <loc>http://tonyrenhk.github.io/tags/CPQ/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://tonyrenhk.github.io/tags/SFDC/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://tonyrenhk.github.io/tags/Marketing-Cloud/</loc>
     <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -872,20 +895,6 @@
   
   <url>
     <loc>http://tonyrenhk.github.io/tags/Interactive-Email/</loc>
-    <lastmod>2026-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://tonyrenhk.github.io/tags/CPQ/</loc>
-    <lastmod>2026-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://tonyrenhk.github.io/tags/SFDC/</loc>
     <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -913,6 +922,13 @@
   </url>
   
   <url>
+    <loc>http://tonyrenhk.github.io/tags/Heroku/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://tonyrenhk.github.io/tags/StudyNote/</loc>
     <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -921,13 +937,6 @@
   
   <url>
     <loc>http://tonyrenhk.github.io/tags/Admin/</loc>
-    <lastmod>2026-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://tonyrenhk.github.io/tags/Heroku/</loc>
     <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -948,21 +957,35 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/tags/systemd/</loc>
+    <loc>http://tonyrenhk.github.io/tags/%E8%BF%90%E7%BB%B4/</loc>
     <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/tags/Linux/</loc>
+    <loc>http://tonyrenhk.github.io/tags/AI-Agent/</loc>
     <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/tags/MCP/</loc>
+    <loc>http://tonyrenhk.github.io/tags/InstaBox/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://tonyrenhk.github.io/tags/%E6%B2%99%E7%AE%B1/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://tonyrenhk.github.io/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%87%AA%E5%8A%A8%E5%8C%96/</loc>
     <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1034,7 +1057,7 @@
   </url>
   
   <url>
-    <loc>http://tonyrenhk.github.io/categories/DevOps/</loc>
+    <loc>http://tonyrenhk.github.io/categories/AI/</loc>
     <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
