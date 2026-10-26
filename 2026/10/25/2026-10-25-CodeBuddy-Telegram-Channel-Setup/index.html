@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="036nsNgxuH68xUABF8jrgg8Xzsti4FN8eKjWvA185C4" />
+  <meta name="baidu-site-verification" content="FQRuGMvxtv" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+
+  
+  <title>在 Linux 服务器上为 CodeBuddy CLI 配置 Telegram Channel | Tony Ren&#39;s 学习笔记</title>
+  
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico">
+  <link rel="alternate" href="/atom.xml" title="Tony Ren's 学习笔记">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico" />
+  <link rel="icon" href="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/TonyRenBlog_favicon.ico" />
+  
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono" rel="stylesheet">
+  
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link href='//cdn.bootcss.com/node-waves/0.7.5/waves.min.css' rel='stylesheet'>
+  
+<link rel="stylesheet" href="/style.css">
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+  
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1382646259212001",
+    enable_page_level_ads: true
+  });
+</script>
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading-bar-wrapper">
+  <div id="loading-bar" class="pure"></div>
+</div>
+
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header pure">
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+			<a class="logo flat-box" href='/' >Tony Ren's 学习笔记</a>
+				<div class='menu'>
+					<ul class='h-list'>
+            
+    					
+    						<li>
+    							<a class="nav  flat-box" href="/">
+    								<i class='fas fa-home fa-fw'></i>&nbsp;主页
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/archives/">
+    								<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/Project">
+    								<i class='fas fa-flask fa-fw'></i>&nbsp;项目
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="/about/">
+    								<i class='fas fa-user fa-fw'></i>&nbsp;关于
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav  flat-box" href="https://renchk.github.io" target="_blank" rel="noopener">
+    								<i class='fas fa-globe fa-fw'></i>&nbsp;English
+  								</a>
+  							</li>
+        			
+        		
+					</ul>
+					<div class='underline'></div>
+				</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search" />
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></span></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-top'><a class="fas fa-arrow-circle-up fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-toc'><a class="fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+		<nav>
+      <ul>
+          
+              
+                  <li>
+										<a class="nav  flat-box" href="/">
+											<i class='fas fa-home fa-fw'></i>&nbsp;主页
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/archives/">
+											<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/Project">
+											<i class='fas fa-flask fa-fw'></i>&nbsp;项目
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/about/">
+											<i class='fas fa-user fa-fw'></i>&nbsp;关于
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="https://renchk.github.io" target="_blank" rel="noopener">
+											<i class='fas fa-globe fa-fw'></i>&nbsp;English
+										</a>
+                  </li>
+              
+       
+      </ul>
+		</nav>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            <article id="post-2026-10-25-CodeBuddy-Telegram-Channel-Setup" class="post white-box article-type-post" itemscope itemprop="blogPost">
+    <section class='meta'>
+        
+            <h1 class="title">在 Linux 服务器上为 CodeBuddy CLI 配置 Telegram Channel</h1>
+        
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+            2026-10-25
+        </time>
+        <div class="browse"><i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+        </div>
+        
+    
+    <div class='cats'>
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+        <a class="categories" href="/categories/DevOps/">DevOps</a>
+    </div>
+
+
+    </section>
+
+    <section class="article typo">
+
+        <div class="article-entry" itemprop="articleBody">
+            <p>记录一次在远程 Linux 服务器上，为 CodeBuddy Code CLI 打通 Telegram Channel 的完整过程：从定位「服务起不来」的根因，到拉取官方 MCP 服务器实现、配置 systemd 守护、完成配对授权。文中所有敏感值均以占位符代替。</p>
+<a id="more"></a>
+
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>服务器上原本就有一个 <code>codebuddy-telegram.service</code>，状态常年是 <code>inactive (dead)</code>。目标是让它跑起来，使得往 Telegram bot 发消息就能桥接到服务器上的 CodeBuddy 会话。</p>
+<p>环境：<code>CodeBuddy CLI 2.176.0</code>、<code>bun 1.3.14</code>、<code>Node v22.22.3</code>、Ubuntu。</p>
+<h2 id="一、先搞清楚「为什么起不来」"><a href="#一、先搞清楚「为什么起不来」" class="headerlink" title="一、先搞清楚「为什么起不来」"></a>一、先搞清楚「为什么起不来」</h2><p>不要急着改配置，先把现状摸清楚。<strong>一次 SSH 调用里问完全部问题</strong>，避免来回往返：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo ssh -o BatchMode=yes &lt;host-alias&gt; <span class="string">'sudo -i bash -c "</span></span><br><span class="line"><span class="string">  hostname; uptime; whoami;</span></span><br><span class="line"><span class="string">  echo \"=== procs ===\"; ps aux | grep -i codebuddy | grep -v grep;</span></span><br><span class="line"><span class="string">  echo \"=== units ===\"; systemctl list-units --all | grep -i codebuddy;</span></span><br><span class="line"><span class="string">  echo \"=== ports ===\"; ss -tlnp | grep -i codebuddy;</span></span><br><span class="line"><span class="string">"'</span></span><br></pre></td></tr></table></figure>
+
+<p>几个容易踩的坑：</p>
+<ul>
+<li><strong><code>systemctl list-units</code> 不能证明进程死了</strong> —— 手动启动的守护进程从来不会以 active unit 出现。必须 <code>ps</code> 和 <code>ss</code> 交叉验证。</li>
+<li><strong><code>enabled</code> ≠ 正在运行</strong>。unit 可以同时是 <code>enabled</code> 和 <code>inactive (dead)</code>，这两个字段要分开看。</li>
+<li>判断某个进程是否被 systemd 管理，<strong>看 CGroup，永远不要看 PID 大小或启动时间</strong>。<code>systemctl status</code> 会打印 <code>CGroup: ... └─&lt;pid&gt; &lt;cmd&gt;</code>，不在那棵树里的就是游离进程。</li>
+</ul>
+<p>本次的关键发现：<code>/root/.mcp.json</code> 里其实<strong>已经有</strong> telegram MCP 服务器条目：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"mcpServers"</span>: &#123;</span><br><span class="line">    <span class="attr">"telegram"</span>: &#123;</span><br><span class="line">      <span class="attr">"command"</span>: <span class="string">"/root/.bun/bin/bun"</span>,</span><br><span class="line">      <span class="attr">"args"</span>: [<span class="string">"/root/.codebuddy/channels/telegram/server.ts"</span>],</span><br><span class="line">      <span class="attr">"cwd"</span>: <span class="string">"/root/.codebuddy/channels/telegram"</span>,</span><br><span class="line">      <span class="attr">"env"</span>: &#123;</span><br><span class="line">        <span class="attr">"TELEGRAM_STATE_DIR"</span>: <span class="string">"/root/.codebuddy/channels/telegram"</span>,</span><br><span class="line">        <span class="attr">"TELEGRAM_BOT_TOKEN"</span>: <span class="string">"&lt;YOUR_BOT_TOKEN&gt;"</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>配置是对的，但 <code>server.ts</code> 这个实现文件<strong>不见了</strong> —— 整个 <code>channels/</code> 目录只剩一个 <code>remote-control-host-id</code>。全盘搜索也没有备份。这就是服务从未启动成功的根因：配置指向了一个不存在的程序。</p>
+<h2 id="二、获取-Channel-服务器实现"><a href="#二、获取-Channel-服务器实现" class="headerlink" title="二、获取 Channel 服务器实现"></a>二、获取 Channel 服务器实现</h2><p>官方文档给的路径是插件方式：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/plugin install telegram@claude-plugins-official</span><br><span class="line">codebuddy --channels plugin:telegram@claude-plugins-official</span><br></pre></td></tr></table></figure>
+
+<p>但这条路在本机走不通。本机只装了 <code>codebuddy-plugins-official</code> 和 <code>cb_teams_marketplace</code> 两个市场，共 237 个插件，<strong>没有一个 telegram channel 插件</strong>（只有几个 telegram 通知 hook，不是一回事）。而且本机 <code>codebuddy plugin</code> 子命令只有 <code>add / validate / init / build / pack / export / collection / import</code>，压根没有 <code>install</code>。</p>
+<p>好在 CodeBuddy CLI 原生支持 <code>--channels server:&lt;配置名&gt;</code> 这种用法，它会直接去读 <code>.mcp.json</code> 里同名条目。于是走「手动部署 MCP 服务器」的路线，从 Anthropic 官方仓库取实现：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /root/.codebuddy/channels/telegram</span><br><span class="line"><span class="built_in">cd</span> /root/.codebuddy/channels/telegram</span><br><span class="line"></span><br><span class="line">BASE=https://raw.githubusercontent.com/anthropics/claude-plugins-official/main/external_plugins/telegram</span><br><span class="line"><span class="keyword">for</span> f <span class="keyword">in</span> server.ts package.json bun.lock; <span class="keyword">do</span></span><br><span class="line">  curl -fsSL <span class="string">"<span class="variable">$BASE</span>/<span class="variable">$f</span>"</span> -o <span class="string">"<span class="variable">$f</span>"</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
+<p>先装依赖（会拉入 <code>@modelcontextprotocol/sdk</code> 与 <code>grammy</code>）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="string">"/root/.bun/bin:<span class="variable">$PATH</span>"</span></span><br><span class="line">bun install</span><br></pre></td></tr></table></figure>
+
+<p>顺手把配套的 skill 文档也拉下来，后面配对要用：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> p <span class="keyword">in</span> skills/access/SKILL.md skills/configure/SKILL.md ACCESS.md .mcp.json; <span class="keyword">do</span></span><br><span class="line">  mkdir -p <span class="string">"<span class="variable">$(dirname "$p")</span>"</span></span><br><span class="line">  curl -fsSL <span class="string">"<span class="variable">$BASE</span>/<span class="variable">$p</span>"</span> -o <span class="string">"<span class="variable">$p</span>"</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>找仓库内文件路径，用 GitHub trees API 最省事，避免猜路径反复 404：<br><code>curl -s &quot;https://api.github.com/repos/&lt;owner&gt;/&lt;repo&gt;/git/trees/main?recursive=1&quot; | grep telegram</code></p>
+</blockquote>
+<h2 id="三、配置-MCP-与-bot-token"><a href="#三、配置-MCP-与-bot-token" class="headerlink" title="三、配置 MCP 与 bot token"></a>三、配置 MCP 与 bot token</h2><p>改动前<strong>先备份</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -a /root/.mcp.json /root/.mcp.json.bak.$(date +%Y%m%d_%H%M%S)</span><br></pre></td></tr></table></figure>
+
+<p>确认 bot token 有效（这一步能提前排除掉一半的玄学故障）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -s <span class="string">"https://api.telegram.org/bot&lt;YOUR_BOT_TOKEN&gt;/getMe"</span></span><br><span class="line"><span class="comment"># 返回 &#123;"ok":true,"result":&#123;"username":"&lt;bot_username&gt;"...&#125;&#125; 即为有效</span></span><br></pre></td></tr></table></figure>
+
+<p>把 token 写进 <code>/root/.mcp.json</code>。用 Python 原子写比 sed 安全，且能保留 JSON 结构：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json, os</span><br><span class="line">TOKEN = <span class="string">"&lt;YOUR_BOT_TOKEN&gt;"</span></span><br><span class="line">p = <span class="string">"/root/.mcp.json"</span></span><br><span class="line">d = json.load(open(p))</span><br><span class="line">d[<span class="string">"mcpServers"</span>][<span class="string">"telegram"</span>][<span class="string">"env"</span>][<span class="string">"TELEGRAM_BOT_TOKEN"</span>] = TOKEN</span><br><span class="line">tmp = p + <span class="string">".tmp"</span></span><br><span class="line">json.dump(d, open(tmp, <span class="string">"w"</span>), indent=<span class="number">2</span>)</span><br><span class="line">os.replace(tmp, p)</span><br><span class="line">os.chmod(p, <span class="number">0o600</span>)   <span class="comment"># 含凭据，收紧权限</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="四、systemd-化：让它在后台活下来"><a href="#四、systemd-化：让它在后台活下来" class="headerlink" title="四、systemd 化：让它在后台活下来"></a>四、systemd 化：让它在后台活下来</h2><p>现成的 unit 直接用 <code>--channels server:telegram</code>，但因为缺 server.ts 一直失败。现在补上实现后，还需要解决<strong>无人值守启动</strong>的问题 —— CodeBuddy 首次进入工作目录会弹一个「是否信任该目录」的交互确认框，在 systemd 下没有 stdin，进程会一直卡在这个界面。</p>
+<p>两处调整：</p>
+<ol>
+<li>unit 的 ExecStart 加 <code>-y</code>；</li>
+<li>在 <code>/root/.codebuddy/settings.json</code> 的 <code>trustedDirectories</code> 里加入工作目录。</li>
+</ol>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[Unit]</span></span><br><span class="line"><span class="attr">Description</span>=CodeBuddy Code with Telegram channel</span><br><span class="line"><span class="attr">After</span>=network-<span class="literal">on</span>line.target</span><br><span class="line"><span class="attr">Wants</span>=network-<span class="literal">on</span>line.target</span><br><span class="line"></span><br><span class="line"><span class="section">[Service]</span></span><br><span class="line"><span class="attr">Type</span>=simple</span><br><span class="line"><span class="attr">User</span>=root</span><br><span class="line"><span class="attr">WorkingDirectory</span>=/root</span><br><span class="line"><span class="attr">Environment</span>=HOME=/root</span><br><span class="line"><span class="attr">Environment</span>=PATH=/root/.local/bin:/root/.bun/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin</span><br><span class="line"><span class="comment"># script 给 codebuddy 分配伪 TTY，避免无 stdin 时退出</span></span><br><span class="line"><span class="comment"># -y 跳过工作目录信任确认（无人值守必需）</span></span><br><span class="line"><span class="attr">ExecStart</span>=/usr/bin/script -qec <span class="string">"/root/.local/bin/codebuddy -y --channels server:telegram"</span> /dev/null</span><br><span class="line"><span class="attr">Restart</span>=<span class="literal">on</span>-failure</span><br><span class="line"><span class="attr">RestartSec</span>=<span class="number">5</span></span><br><span class="line"><span class="attr">KillSignal</span>=SIGINT</span><br><span class="line"><span class="attr">TimeoutStopSec</span>=<span class="number">30</span></span><br><span class="line"></span><br><span class="line"><span class="section">[Install]</span></span><br><span class="line"><span class="attr">WantedBy</span>=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>script -qec ... /dev/null</code> 这个包装很关键：给 CodeBuddy 一个伪 TTY，否则它检测到无 stdin 会直接退出。</p>
+</blockquote>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// settings.json 片段</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">"channelsEnabled"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">"trustedDirectories"</span>: [<span class="string">"/root/**"</span>, <span class="string">"/root"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl <span class="built_in">enable</span> codebuddy-telegram.service   <span class="comment"># 开机自启</span></span><br><span class="line">systemctl restart codebuddy-telegram.service</span><br><span class="line">systemctl is-active codebuddy-telegram.service   <span class="comment"># =&gt; active</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="五、配对授权"><a href="#五、配对授权" class="headerlink" title="五、配对授权"></a>五、配对授权</h2><p>服务起来后，给 bot 发任意消息，它会回复一个 6 位配对码，同时状态文件里出现 pending 条目：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// /root/.codebuddy/channels/telegram/access.json</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">"dmPolicy"</span>: <span class="string">"pairing"</span>,</span><br><span class="line">  <span class="attr">"allowFrom"</span>: [],</span><br><span class="line">  <span class="attr">"groups"</span>: &#123;&#125;,</span><br><span class="line">  <span class="attr">"pending"</span>: &#123;</span><br><span class="line">    <span class="attr">"&lt;6-char-code&gt;"</span>: &#123;</span><br><span class="line">      <span class="attr">"senderId"</span>: <span class="string">"&lt;YOUR_TELEGRAM_ID&gt;"</span>,</span><br><span class="line">      <span class="attr">"chatId"</span>: <span class="string">"&lt;YOUR_TELEGRAM_ID&gt;"</span>,</span><br><span class="line">      <span class="attr">"createdAt"</span>: <span class="number">1792945237336</span>,</span><br><span class="line">      <span class="attr">"expiresAt"</span>: <span class="number">1792948837336</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>官方流程是在 CodeBuddy 会话里跑 <code>/telegram:access pair &lt;code&gt;</code>。这次没有安装该 skill，所以按其逻辑手工完成等价操作。<code>access</code> skill 规定的 <code>pair</code> 步骤是：</p>
+<ol>
+<li>读取 access.json；</li>
+<li>查找 <code>pending[&lt;code&gt;]</code>，不存在或 <code>expiresAt &lt; now</code> 则中止（<strong>务必校验有效期</strong>）；</li>
+<li>取出 <code>senderId</code> 和 <code>chatId</code>；</li>
+<li>把 <code>senderId</code> 加入 <code>allowFrom</code>（去重）；</li>
+<li>删除 <code>pending[&lt;code&gt;]</code>；</li>
+<li>写回 access.json；</li>
+<li><code>mkdir -p approved/</code> 并把 <strong>chatId 作为文件内容</strong>写入 <code>approved/&lt;senderId&gt;</code>；</li>
+<li>服务器轮询该目录，发出 “Paired!” 确认后删除文件。</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json, os, datetime</span><br><span class="line"></span><br><span class="line">STATE = <span class="string">"/root/.codebuddy/channels/telegram"</span></span><br><span class="line">CODE  = <span class="string">"&lt;PAIRING_CODE&gt;"</span></span><br><span class="line">path  = os.path.join(STATE, <span class="string">"access.json"</span>)</span><br><span class="line"></span><br><span class="line">d = json.load(open(path))              <span class="comment"># 先读，别覆盖服务器可能新写的条目</span></span><br><span class="line">entry = d.get(<span class="string">"pending"</span>, &#123;&#125;).get(CODE)</span><br><span class="line"><span class="keyword">assert</span> entry, <span class="string">"no such pending code"</span></span><br><span class="line"><span class="keyword">assert</span> int(datetime.datetime.now().timestamp()*<span class="number">1000</span>) &lt;= entry[<span class="string">"expiresAt"</span>], <span class="string">"expired"</span></span><br><span class="line"></span><br><span class="line">sender_id, chat_id = entry[<span class="string">"senderId"</span>], entry[<span class="string">"chatId"</span>]</span><br><span class="line"></span><br><span class="line">af = d.setdefault(<span class="string">"allowFrom"</span>, [])</span><br><span class="line"><span class="keyword">if</span> sender_id <span class="keyword">not</span> <span class="keyword">in</span> af:</span><br><span class="line">    af.append(sender_id)</span><br><span class="line"><span class="keyword">del</span> d[<span class="string">"pending"</span>][CODE]</span><br><span class="line"></span><br><span class="line">tmp = path + <span class="string">".tmp"</span></span><br><span class="line">json.dump(d, open(tmp, <span class="string">"w"</span>), indent=<span class="number">2</span>)</span><br><span class="line">os.replace(tmp, path)</span><br><span class="line"></span><br><span class="line">os.makedirs(os.path.join(STATE, <span class="string">"approved"</span>), exist_ok=<span class="literal">True</span>)</span><br><span class="line">open(os.path.join(STATE, <span class="string">"approved"</span>, sender_id), <span class="string">"w"</span>).write(str(chat_id))</span><br></pre></td></tr></table></figure>
+
+<p><strong>两个关键细节</strong>，我第一遍就栽在这：</p>
+<ul>
+<li>只在 <code>approved/&lt;senderId&gt;</code> 建一个空文件是不够的。服务器 <code>checkApprovals()</code> 读到文件后只发确认消息、<strong>不会写 <code>allowFrom</code></strong>；真正的授权是 skill 第 4 步完成的。所以必须同时更新 access.json，否则 <code>allowFrom</code> 始终是空的，配对等于没做。</li>
+<li><code>approved/&lt;senderId&gt;</code> 的<strong>文件内容必须是 chatId</strong>（不能留空），这是 skill 明文规定的。</li>
+</ul>
+<p>最终确认：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat /root/.codebuddy/channels/telegram/access.json</span><br><span class="line"><span class="comment"># &#123;"dmPolicy":"pairing","allowFrom":["&lt;YOUR_TELEGRAM_ID&gt;"],"groups":&#123;&#125;,"pending":&#123;&#125;&#125;</span></span><br><span class="line">systemctl is-active codebuddy-telegram.service   <span class="comment"># active</span></span><br><span class="line">systemctl is-enabled codebuddy-telegram.service  <span class="comment"># enabled</span></span><br></pre></td></tr></table></figure>
+
+<p>重启后 <code>access.json</code> 授权保持持久化。</p>
+<h2 id="六、验证清单"><a href="#六、验证清单" class="headerlink" title="六、验证清单"></a>六、验证清单</h2><p>按顺序自查，能快速定位卡在哪一步：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. token 有效</span></span><br><span class="line">curl -s <span class="string">"https://api.telegram.org/bot&lt;YOUR_BOT_TOKEN&gt;/getMe"</span> | head -c 200</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 消息是否被服务端消费（返回空数组 = poller 正在认领，正常）</span></span><br><span class="line">curl -s <span class="string">"https://api.telegram.org/bot&lt;YOUR_BOT_TOKEN&gt;/getUpdates"</span> | head -c 300</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 服务在跑 + 开机自启</span></span><br><span class="line">systemctl is-active codebuddy-telegram.service</span><br><span class="line">systemctl is-enabled codebuddy-telegram.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. MCP 子进程确实起来了</span></span><br><span class="line">ps aux | grep server.ts | grep -v grep</span><br><span class="line"></span><br><span class="line"><span class="comment"># 5. 授权状态</span></span><br><span class="line">cat /root/.codebuddy/channels/telegram/access.json</span><br></pre></td></tr></table></figure>
+
+<h2 id="经验小结"><a href="#经验小结" class="headerlink" title="经验小结"></a>经验小结</h2><ol>
+<li><strong>服务起不来的第一怀疑对象应该是「程序文件是否存在」</strong>，而不是配置写错。本次 <code>server.ts</code> 丢失，但 <code>.mcp.json</code>、systemd unit、settings 全都是对的 —— 配置正确而二进制缺失，是最容易被忽略的一类故障。</li>
+<li><strong>一次 SSH 调用收集全部信息</strong>。远程排查的往返成本很高，把 <code>ps</code> &#x2F; <code>systemctl</code> &#x2F; <code>ss</code> &#x2F; <code>cat config</code> 拼在一个 <code>bash -c</code> 里一次取回。</li>
+<li><strong>在 ssh 引号里写多行脚本会翻车</strong>：换行和 shell 元字符会被压平成一行，轻则 <code>SyntaxError</code>，重则误执行。可靠做法是<strong>本地写好脚本文件，管道喂给远端解释器</strong>：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat script.py            | ssh &lt;host&gt; <span class="string">'sudo -i python3 -'</span></span><br><span class="line">cat script.sh            | ssh &lt;host&gt; <span class="string">'sudo -i bash -s'</span></span><br><span class="line">cat my.service           | ssh &lt;host&gt; <span class="string">'sudo -i tee /etc/systemd/system/my.service &gt; /dev/null'</span></span><br></pre></td></tr></table></figure></li>
+<li><strong>改任何配置前先备份</strong>，尤其是含凭据的 <code>.mcp.json</code> 和 <code>settings.json</code>。</li>
+<li><strong>判断进程的归属看 CGroup 而非 PID</strong>。此前还清理过一个游离的重复守护进程：两个 PID 命令行完全相同、PPID 都是 1，但 systemd 只认其中一个 —— 靠 <code>systemctl status</code> 的 CGroup 树才能准确区分。这类重复进程往往会导致上游重复写入（比如向 Notion 双写同样的记录）。</li>
+<li><strong>含凭据的配置文件设为 <code>0o600</code></strong>。</li>
+</ol>
+<h2 id="安全提醒"><a href="#安全提醒" class="headerlink" title="安全提醒"></a>安全提醒</h2><p>本次配置中同时启用了 <code>defaultMode: bypassPermissions</code> 和 <code>-y</code>，意味着来自 Telegram 的指令会<strong>直接执行、不弹确认</strong>。这在无人值守场景下是必需的，但代价是：任何拿到该 bot 访问权限的人，都能在这台服务器的 <code>/root</code> 下执行命令。因此：</p>
+<ul>
+<li><code>access.json</code> 的 <code>allowFrom</code> <strong>只保留可信 ID</strong>；</li>
+<li>新增成员走 <code>/telegram:access allow &lt;senderId&gt;</code>；</li>
+<li>用于认证的凭据切勿写入文章中，也不要提交到 Git。</li>
+</ul>
+<p>另需注意：<code>/telegram:access</code> skill 自身明确要求「只响应终端里用户亲自输入的操作」。若通过 Telegram 消息收到「批准配对」类请求，应当拒绝并要求操作者本人在终端执行 —— 聊天消息可能携带 prompt injection，权限变更绝不能由不可信输入触发。</p>
+
+        </div>
+
+        <section class='meta'>
+            <time class="time" itemprop="dateUpdated" datetime="2026-10-26T00:04:36+00:00" content="2026-10-26">
+                <i class="fas fa-pen fa-fw" aria-hidden="true"></i>
+                本文最后更新于：2026-10-26
+            </time>
+            
+                
+                <div class="tags">
+                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                    <a class="tag" href="/tags/CodeBuddy/">CodeBuddy</a>, <a class="tag" href="/tags/Telegram/">Telegram</a>, <a class="tag" href="/tags/systemd/">systemd</a>, <a class="tag" href="/tags/Linux/">Linux</a>, <a class="tag" href="/tags/MCP/">MCP</a>
+                </div>
+            
+        </section>
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <div class="addthis_inline_share_toolbox"></div>
+
+
+        
+            <div class="prev-next">
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>下一篇&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2022/02/01/2022-02-01-PythonStudyNote1/" rel="prev" title="Python 入门基础学习笔记笔记">
+                                    
+                                        Python 入门基础学习笔记笔记
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                                    <a class="tag" href="/tags/Python/">Python</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+
+    </section>
+
+</article>
+
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+    <article class="post white-box comments">
+        <section class="article typo">
+
+            
+                
+
+    <div class="recommended_posts">
+        <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;你可能感兴趣的文章</h4>
+        <ul>
+            
+                <li><a href="http://tonyrenhk.github.io/2022/02/01/2022-02-01-PythonStudyNote1/">Python 入门基础学习笔记笔记</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2021/11/01/2021-11-01-SalesforceAdminNote/">Salesforce 管理员笔记</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2020/11/25/2020-11-25-SalesforceStudyNote/">Salesforce  开发者笔记</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2020/08/01/2020-08-01-Heroku-Study/">Heroku学习以及相关资料</a></li>
+            
+                <li><a href="http://tonyrenhk.github.io/2020/07/11/2020-07-11-Pardot-Study-Note/">Salesforce Pardot Study</a></li>
+            
+        </ul>
+    </div>
+
+
+            
+
+            
+
+                
+
+                
+
+                
+                    
+                
+            
+
+        </section>
+    </article>
+
+
+<script>
+    window.subData = {
+        title: '在 Linux 服务器上为 CodeBuddy CLI 配置 Telegram Channel',
+        tools: true
+    }
+</script>
+
+
+        </div>
+        <aside class='l_side'>
+            
+    
+        
+  <section class='m_widget author'>
+    
+      <div class='header'>
+        <img class='avatar' src='https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/Me2.jpg'/>
+      </div>
+    
+    
+      <div class='content'>
+        
+          <h2>Tony Ren&#39;s 学习笔记</h2>
+        
+        
+          <p>好学近乎知，力行近乎仁，知耻近乎勇</p>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:renchk@foxmail.com" class="social flat-box" target="_blank" rel="external"><i class="social fas fa-envelope" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://github.com/TonyRenHK" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-github" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://www.weibo.com/6476367461" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-weibo" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://tonyrenhk.github.io/Wechat/" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-weixin" aria-hidden="true"></i></a>
+          
+        
+      </div>
+    
+  </section>
+
+
+    
+    
+        <section class='m_widget links'>
+    <div class='content pure'>
+        <ul class="entry" id="links">
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://tonyrenhk.github.io/2018/01/01/2018-01-01-Salesforce-related-resource/" rel="external nofollow noopener noreferrer" href="https://tonyrenhk.github.io/2018/01/01/2018-01-01-Salesforce-related-resource/">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/TonyRenHK/master/Image/IMG_2568.JPG">
+                        
+                        &nbsp;&nbsp;Salesforce
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://tonyrenhk.github.io/2018/01/09/2018-01-09-IT-Study-Resource/" rel="external nofollow noopener noreferrer" href="https://tonyrenhk.github.io/2018/01/09/2018-01-09-IT-Study-Resource/">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88612001-cf62a900-d0bc-11ea-9cbb-a14beeb356c7.png">
+                        
+                        &nbsp;&nbsp;IT
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/Note/OnlineTools.html" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/Note/OnlineTools.html">
+                    
+                    <div class='name'>
+                        
+                            <img src="http://tonyrenhk.github.io/images/notebook.png">
+                        
+                        &nbsp;&nbsp;工具Tools
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/Note/Tutorial.html" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/Note/Tutorial.html">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/Astro_Trailblazer_hoodie_wave.png">
+                        
+                        &nbsp;&nbsp;教程Tutorial
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="http://tonyrenhk.github.io/2018/02/02/2018-02-02-Git-Study/" rel="external nofollow noopener noreferrer" href="http://tonyrenhk.github.io/2018/02/02/2018-02-02-Git-Study/">
+                    
+                    <div class='name'>
+                        
+                            <img src="https://raw.githubusercontent.com/TonyRenHK/Store_Picture/master/Logo/s.png">
+                        
+                        &nbsp;&nbsp;Git
+                    </div>
+                </a></li>
+            
+        </ul>
+    </div>
+</section>
+
+    
+    
+        <section class='m_widget categories'>
+    <header class='header pure'>
+        <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;分类</div>
+    </header>
+    <div class='content pure'>
+        
+            <ul class="entry">
+                
+                    <li><a class="flat-box" href="/categories/DevOps/"><div class='name'>DevOps</div><div class='badge'>1</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/English/"><div class='name'>English</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Git/"><div class='name'>Git</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Google/"><div class='name'>Google</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/JavaScript/"><div class='name'>JavaScript</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Others/"><div class='name'>Others</div><div class='badge'>2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Python/"><div class='name'>Python</div><div class='badge'>1</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Salesforce/"><div class='name'>Salesforce</div><div class='badge'>35</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/Tools/"><div class='name'>Tools</div><div class='badge'>1</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/hexo/"><div class='name'>hexo</div><div class='badge'>1</div></a></li>
+                
+            </ul>
+        
+    </div>
+</section>
+
+    
+    
+        
+    <section class='m_widget tagcloud'>
+        <header class="header pure">
+            <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
+        </header>
+        <div class='content pure'>
+            <a href="/tags/Admin/" style="font-size: 14px; color: #999">Admin</a> <a href="/tags/Apex/" style="font-size: 16.86px; color: #868686">Apex</a> <a href="/tags/BookMark/" style="font-size: 14px; color: #999">BookMark</a> <a href="/tags/CDC/" style="font-size: 14px; color: #999">CDC</a> <a href="/tags/CPQ/" style="font-size: 14px; color: #999">CPQ</a> <a href="/tags/Change-Data-Capture/" style="font-size: 14px; color: #999">Change Data Capture</a> <a href="/tags/Chrome-Extension/" style="font-size: 14px; color: #999">Chrome-Extension</a> <a href="/tags/CodeBuddy/" style="font-size: 14px; color: #999">CodeBuddy</a> <a href="/tags/Community-Cloud/" style="font-size: 14px; color: #999">Community Cloud</a> <a href="/tags/Demo/" style="font-size: 14px; color: #999">Demo</a> <a href="/tags/Flow/" style="font-size: 14px; color: #999">Flow</a> <a href="/tags/Git/" style="font-size: 16.86px; color: #868686">Git</a> <a href="/tags/Google/" style="font-size: 14px; color: #999">Google</a> <a href="/tags/Google-App-Script/" style="font-size: 14px; color: #999">Google App Script</a> <a href="/tags/Heroku/" style="font-size: 14px; color: #999">Heroku</a> <a href="/tags/IT%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">IT学习</a> <a href="/tags/Interactive-Email/" style="font-size: 14px; color: #999">Interactive Email</a> <a href="/tags/JavaScript/" style="font-size: 15.43px; color: #8f8f8f">JavaScript</a> <a href="/tags/Jsforce/" style="font-size: 15.43px; color: #8f8f8f">Jsforce</a> <a href="/tags/LWC/" style="font-size: 22.57px; color: #5f5f5f">LWC</a> <a href="/tags/Lightning/" style="font-size: 15.43px; color: #8f8f8f">Lightning</a> <a href="/tags/Lightning-Components/" style="font-size: 14px; color: #999">Lightning Components</a> <a href="/tags/Lightning-Web-Components/" style="font-size: 18.29px; color: #7c7c7c">Lightning Web Components</a> <a href="/tags/Linux/" style="font-size: 14px; color: #999">Linux</a> <a href="/tags/MC/" style="font-size: 15.43px; color: #8f8f8f">MC</a> <a href="/tags/MCC/" style="font-size: 14px; color: #999">MCC</a> <a href="/tags/MCP/" style="font-size: 14px; color: #999">MCP</a> <a href="/tags/Marketing-Cloud/" style="font-size: 14px; color: #999">Marketing Cloud</a> <a href="/tags/Marketing-Cloud-Connect/" style="font-size: 14px; color: #999">Marketing Cloud Connect</a> <a href="/tags/Org/" style="font-size: 14px; color: #999">Org</a> <a href="/tags/Others/" style="font-size: 14px; color: #999">Others</a> <a href="/tags/Pardot/" style="font-size: 14px; color: #999">Pardot</a> <a href="/tags/Python/" style="font-size: 15.43px; color: #8f8f8f">Python</a> <a href="/tags/Roll-Up-Summary/" style="font-size: 14px; color: #999">Roll-Up Summary</a> <a href="/tags/SFDC/" style="font-size: 14px; color: #999">SFDC</a> <a href="/tags/SFDX/" style="font-size: 19.71px; color: #727272">SFDX</a> <a href="/tags/Salesforce/" style="font-size: 24px; color: #555">Salesforce</a> <a href="/tags/Salesforce-Mobile/" style="font-size: 14px; color: #999">Salesforce Mobile</a> <a href="/tags/Sandbox/" style="font-size: 14px; color: #999">Sandbox</a> <a href="/tags/Script/" style="font-size: 14px; color: #999">Script</a> <a href="/tags/Site/" style="font-size: 14px; color: #999">Site</a> <a href="/tags/Study/" style="font-size: 18.29px; color: #7c7c7c">Study</a> <a href="/tags/StudyNote/" style="font-size: 14px; color: #999">StudyNote</a> <a href="/tags/Superbadge/" style="font-size: 14px; color: #999">Superbadge</a> <a href="/tags/Telegram/" style="font-size: 14px; color: #999">Telegram</a> <a href="/tags/Tools/" style="font-size: 14px; color: #999">Tools</a> <a href="/tags/Trailhead/" style="font-size: 21.14px; color: #686868">Trailhead</a> <a href="/tags/exam/" style="font-size: 14px; color: #999">exam</a> <a href="/tags/flow/" style="font-size: 14px; color: #999">flow</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/tags/hexo-theme-doc/" style="font-size: 14px; color: #999">hexo-theme-doc</a> <a href="/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/tags/metadata/" style="font-size: 14px; color: #999">metadata</a> <a href="/tags/shortcut/" style="font-size: 14px; color: #999">shortcut</a> <a href="/tags/systemd/" style="font-size: 14px; color: #999">systemd</a> <a href="/tags/%E5%85%A5%E9%97%A8/" style="font-size: 14px; color: #999">入门</a> <a href="/tags/%E5%AF%B9Campaign/" style="font-size: 14px; color: #999">对Campaign</a> <a href="/tags/%E5%BC%80%E5%8F%91%E8%80%85II%E8%80%83%E8%AF%95/" style="font-size: 19.71px; color: #727272">开发者II考试</a> <a href="/tags/%E8%87%AA%E5%8A%A8/" style="font-size: 14px; color: #999">自动</a> <a href="/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">英语学习</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 14px; color: #999">面试</a>
+        </div>
+    </section>
+
+
+    
+    
+        
+    <section class='m_widget toc-wrapper'>
+        <header class="header pure">
+            <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;目录</div>
+            <div class='wrapper'><a class="s-toc rightBtn" title="固定到顶部" target="_blank" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+        </header>
+        <div class='content pure'>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#背景"><span class="toc-text">背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一、先搞清楚「为什么起不来」"><span class="toc-text">一、先搞清楚「为什么起不来」</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、获取-Channel-服务器实现"><span class="toc-text">二、获取 Channel 服务器实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、配置-MCP-与-bot-token"><span class="toc-text">三、配置 MCP 与 bot token</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、systemd-化：让它在后台活下来"><span class="toc-text">四、systemd 化：让它在后台活下来</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、配对授权"><span class="toc-text">五、配对授权</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、验证清单"><span class="toc-text">六、验证清单</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#经验小结"><span class="toc-text">经验小结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安全提醒"><span class="toc-text">安全提醒</span></a></li></ol>
+        </div>
+    </section>
+
+
+    
+    
+        <section class='m_widget links'>
+    <header class='header pure'>
+        <div><i class="fas fa-link fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;更多</div>
+        
+            <a class="rightBtn" title="联系博主添加友链" target="_blank" rel="external nofollow noopener noreferrer" href="mailto:me@xaoxuu.com?subject=交换友链&body=你好，我想和你交换友链，我已经将【Tony Ren&#39;s 学习笔记】添加到我的博客的友链中。我的博客链接是："><i class="fas fa-plus fa-fw"></i></a>
+        
+    </header>
+    <div class='content pure'>
+        <ul class="entry" id="links">
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://docs.qq.com/desktop/" target="_blank" rel="external nofollow noopener noreferrer" href="https://docs.qq.com/desktop/">
+                    
+                        
+                    
+                        
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88069910-a6b24f00-cba4-11ea-837b-d4a0dcf05d94.png">
+                        
+                        &nbsp;&nbsp;腾讯文档
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://www.notion.so/" target="_blank" rel="external nofollow noopener noreferrer" href="https://www.notion.so/">
+                    
+                        
+                    
+                        
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88069945-b16ce400-cba4-11ea-9c3f-d5857b39a5df.png">
+                        
+                        &nbsp;&nbsp;Notion
+                    </div>
+                </a></li>
+            
+                <li>
+                    
+                        <a class="flat-box" title="https://ide.goorm.io/" target="_blank" rel="external nofollow noopener noreferrer" href="https://ide.goorm.io/">
+                    
+                        
+                    
+                        
+                    <div class='name'>
+                        
+                            <img src="https://user-images.githubusercontent.com/9688136/88611890-9e827400-d0bc-11ea-893a-5b0af150504a.png">
+                        
+                        &nbsp;&nbsp;Goorm IDE
+                    </div>
+                </a></li>
+            
+        </ul>
+    </div>
+</section>
+
+    
+
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    </div>
+    <footer id="footer" class="clearfix">
+    
+        <div class="social-wrapper">
+          
+              
+                  <a href="mailto:renchk@foxmail.com" class="social fas fa-envelope flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://github.com/TonyRenHK" class="social fab fa-github flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://www.weibo.com/6476367461" class="social fab fa-weibo flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://tonyrenhk.github.io/Wechat/" class="social fab fa-weixin flat-box" target="_blank" rel="external"></a>
+              
+          
+        </div>
+    
+    <br>
+    <div>博客内容遵循 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="licenses">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></div>
+    <div>本站使用 <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a> 作为主题，
+		总访问量为 <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> 次。
+    </div>
+    
+<span id="runtime_span"></span>
+
+<script type="text/javascript">
+function show_runtime(){
+  window.setTimeout("show_runtime()",1000);
+  X=new Date("8/22/2016 18:27:0");
+  Y=new Date();T=(Y.getTime()-X.getTime());M=24*60*60*1000;
+  a=T/M;A=Math.floor(a);
+  b=(a-A)*24;B=Math.floor(b);
+  c=(b-B)*60;C=Math.floor((b-B)*60);
+  D=Math.floor((c-C)*60);
+  runtime_span.innerHTML="—— 本站已稳定运行： "+A+"天"+B+"小时"+C+"分"+D+"秒 ——"}show_runtime();
+
+</script>
+
+
+</footer>
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+    <script>setLoadingBarProgress(80);</script>
+    <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src='//cdn.bootcss.com/node-waves/0.7.5/waves.min.js'></script>
+<script src="//cdn.bootcss.com/scrollReveal.js/3.3.2/scrollreveal.min.js"></script>
+<!-- 访问统计 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5bfb78723c9c4600"></script>
+
+
+
+<script src="/js/jquery.fitvids.js"></script>
+
+
+    <script>
+        var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+        var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+        var ALGOLIA_API_KEY = "";
+        var ALGOLIA_APP_ID = "";
+        var ALGOLIA_INDEX_NAME = "";
+        var AZURE_SERVICE_NAME = "";
+        var AZURE_INDEX_NAME = "";
+        var AZURE_QUERY_KEY = "";
+        var BAIDU_API_ID = "";
+        var SEARCH_SERVICE = "hexo" || "hexo";
+        var ROOT = "/"||"/";
+        if(!ROOT.endsWith('/'))ROOT += '/';
+    </script>
+
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/app.js"></script>
+
+
+
+    
+    
+    
+        
+    
+
+
+    <script>setLoadingBarProgress(100);</script>
+</body>
